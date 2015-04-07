@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Notes.Controllers.EmployeeList>
+
+
+
+<h2>DirectReports</h2>
+<h4>EmployeeList</h4>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Employees who were added as direct reports</dt>
+        <dd>
+            @foreach (var item in Model)
+            {
+                @item.FullName
+            }
+            <br />
+        </dd>
+    </dl>
+</div>
+<hr />
+@Html.ActionLink("Back to Employee Details", "Details", new { id = @ViewBag.managerId })

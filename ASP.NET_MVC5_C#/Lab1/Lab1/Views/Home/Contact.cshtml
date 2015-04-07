@@ -1,0 +1,15 @@
+﻿@model Lab1.Controllers.ContactInfo
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+   @Model.PostalAddress
+</address>
+
+<address>
+    <strong>Support:</strong>   @Model.Email<br />
+    <strong>Call:</strong> @Model.PhoneNumber
+</address>

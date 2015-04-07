@@ -1,0 +1,44 @@
+﻿@model Notes.Controllers.NoteEditForm
+
+<h2>Edit Note</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Make change and submit the work.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoteText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <textarea class="form-control" name="NoteText">@Model.NoteText</textarea>
+                <script src="//cdn.ckeditor.com/4.4.7/full/ckeditor.js"></script>
+                <script> CKEDITOR.replace('NoteText');</script>
+
+                @Html.ValidationMessageFor(model => model.NoteText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.Hidden("EmployeeId")
+        @Html.Hidden("NoteId")
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+   @Html.ActionLink("Back to Employee Details", "Details", "Employees", new { id = Model.EmployeeId }, "")
+</div>

@@ -1,0 +1,99 @@
+﻿@model Lab5.Controllers.SongAddForm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add New Song</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>SongAddForm</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--Album+Artist-->
+        <div class="form-group">
+            <label class="control-label col-md-2" for="AlbumId">Album</label>
+            <div class="col-md-10">
+                <div class="radio">
+                    <select name="AlbumId">
+                        @foreach (var item in Model.AlbumId)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <!--end-->
+        <!--Genre-->
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Genre">Genre</label>
+            <div class="col-md-10">
+                @{
+    foreach (var item in Model.Genre)
+    {
+
+        <div class="radio">
+            <label>
+                <input type="radio" name="Genre" value="@item.Text" checked="@(item.Text=="Pop")" />@item.Text
+            </label>
+        </div>
+    }
+                }
+            </div>
+        </div>
+
+        <!--End-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Composer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Composer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Composer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SingleReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SingleReleaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SingleReleaseDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TrackNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TrackNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrackNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

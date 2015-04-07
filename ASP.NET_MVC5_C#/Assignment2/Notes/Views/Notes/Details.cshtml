@@ -1,0 +1,47 @@
+﻿@model Notes.Controllers.NoteBase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Note details</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteText)
+        </dt>
+
+        <dd>
+            <pre>@Html.Raw(Model.NoteText)</pre>
+        </dd>
+
+
+    </dl>
+</div>
+@Html.ActionLink("Edit", "Edit", new  { id = Model.Id}) |
+@Html.ActionLink("Delete", "Delete", new  { id = Model.Id })
+<hr />
+<p>
+
+    
+    @Html.ActionLink("Back to Employee Details", "Details", "Employees", new { id = Model.EmployeeId }, "")
+</p>

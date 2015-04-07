@@ -1,0 +1,53 @@
+﻿@model BTI_A1.Controllers.FollowUpBaseWithSuggestionAndImage
+
+@{
+    ViewBag.Title = "Follow Up Details";
+}
+
+<h2>
+    @ViewBag.Title
+</h2>
+<h4>For Suggestion Title: "@Html.DisplayFor(model => model.Suggestion.Title)"</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+ 
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            <pre> @Html.Raw(Model.Description)</pre>
+        </dd>
+
+      
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.Attachment)
+        </dt>
+        <dd>
+            <img class="img-thumbnail col-md-3" src='@("/image/followup/attachment/" + Model.Id)' alt"" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Lab3.Controllers.SurveyFull>
+
+@{
+    ViewBag.Title = "List of Surveys";
+}
+
+<h2>List of Surveys</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Courses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaceOfLearning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FavouriteTopics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+           @{
+                foreach (var course in item.Courses)
+                {
+                    @course<br />
+                }   
+           }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaceOfLearning)
+        </td>
+        <td>
+            @{
+                foreach (var topic in item.FavouriteTopics)
+                {
+                    @topic<br />
+                }
+            }
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
