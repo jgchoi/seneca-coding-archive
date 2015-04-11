@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		
+		<!--External CSS-->
+		<link rel="stylesheet" href="css/main.css" type="text/css"/>
+		<link rel="stylesheet" href="css/section.css" type="text/css"/>
+		<link rel="stylesheet" href="css/menu.css" type="text/css"/>
+		
+		<!--Internal CSS-->
+		<style>
+		img	{	
+				border:1px solid white;
+				position:absolute;
+				top:300px;
+				left:500px;
+			}
+			
+		ol	{
+				list-style-type:upper-roman;
+			}
+		ol li ul	{
+						list-style-image:url("img/heart.png");
+					}
+		</style>
+		
+		
+		<title>
+			Assignment 2:F&Q
+		</title>
+	</head>
+	
+	<body>
+	<!--title-->
+		<div id="title">
+		<p class="title"> Choi's first web site </p>
+		</div>
+	<!--end title-->
+	
+	<!--main-->
+		<div id="content">
+			<!--menu-->
+				<nav>
+					<ul>
+						<li><a href="main.html">Introduction</a>
+							<ul>
+								<li><a href="../lab3/about_me.html" target="_blank">About me</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="faq.html">F&Q</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My Works</a>
+							<ul>
+								<li><a href="lab1.html">Lab1</a></li>
+								<li><a href="../lab2/lab2.js" target="_blank">Lab2</a></li>
+								<li><a href="../lab3/introduction.html" target="_blank">Lab3</a></li>
+								<li><a href="../lab5/lab5.html" target="_blank">Lab4&5</a></li>
+								<li><a href="../a1/a1.js" target="_blank">Assignment1</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My sons</a>
+							<ul>
+								<li><a href="aboutjoseph.html">About Joseph</a></li>
+								<li><a href="photo.html">Photo</a></li>
+								<li><a href="video.html">Video</a></li>
+							</ul>
+						</li>
+						<li><a href="honesty.html">Academic Honesty</a></li>
+					</ul>
+				</nav>
+			<!--end menu-->
+			
+			<!--content-->
+			<div>
+			<p class="head center">5 F&Q about me!<br>
+			<img src="img/mee.jpg" alt="my pic" title="Joseph and I at OSC!">
+			</p>
+			
+			<ol>
+				<li>What is my dream
+					<ul>
+						<li>I want to be a good father</li>
+						<li>My ultimate dream is making software on my own</li>
+						<li>Stable job with good salary wouldn't be bad too!</li>
+					</ul>
+				</li>
+				<li>What's my background?
+					<ul>
+						<li>I am from Korea, but I have Canadian citizenship</li>
+					</ul>
+				</li>
+				<li>My goal in Seneca
+					<ul>
+						<li>Get good mark!</li>
+						<li>Hope to make friends, but it's not easy</li>
+					</ul>
+				</li>
+				<li>Who's in my family member?
+					<ul>
+						<li>Wife</li>
+						<li>Joseph</li>
+						<li>Robin-Just born!</li>
+					</ul>
+				</li>	
+				</li>
+				<li>My hobby?
+					<ul>
+						<li>I love playing game. If I could I want to just play game all day</li>
+					</ul>
+				</li>
+				
+			</ol>
+			
+			</div>
+			<!--end content-->
+		</div>
+	<!--end main-->
+	
+	<!--Time Stamp-->
+		<div id="time_stamp">		
+		<script> 
+		dt=new Date(document.lastModified); 
+		document.write("<mark> This page was last modified on " + dt.toLocaleString() + "</mark>") 
+		</script>
+		</div>
+	<!--end of Time Stamp-->
+	
+	<!--Resolution information-->
+		<p class="center"> This web page is optimized for 1024*768 display </p>
+	<!--end of info-->
+	</body>
+</html>

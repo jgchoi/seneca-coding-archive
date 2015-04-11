@@ -1,0 +1,1097 @@
+Script started on Fri 04 Apr 2014 07:56:46 PM EDT
+jgchoi@matrix:~/a/a4/backup> whoami
+jgchoi
+jgchoi@matrix:~/a/a4/backup> cat a4.cpp
+// Bookstore Order Processor
+// OOP244.141 - Assignment 4
+// a4main.cpp
+// Version 1.0
+// Chris Szalwinski
+// Nov 16 2013
+
+#include <iostream>
+#include "GS1Prefix.h"
+#include "Order.h"
+
+#define MAXORDERS 100
+char menu(std::istream& is);
+bool style(std::istream& is, char&);
+
+int main() {
+    char choice;
+    int noOrders = 0;
+    iOrder* order[MAXORDERS];
+    Prefix prefix("prefixRanges.txt");
+
+    std::cout << "Bookstore Order Processor\n"
+              << "=========================\n";
+
+    // process user input
+    do {
+        choice = menu(std::cin);
+        std::cout << std::endl;
+        switch(choice) {
+            case 'P':
+                {
+                    EAN ean;
+                    if (ean.read(std::cin, prefix)) {
+                        int index = -1, created = false;
+                        for (int i = 0; i < noOrders && index == -1; i++)
+                            if (ean == order[i]->getEAN())
+                                index = i;
+                        if (index == -1)
+                            if (noOrders < MAXORDERS) {
+                                index = noOrders;
+                                order[noOrders++] = new Order(ean);
+                                created = true;
+                            }
+                            else
+                                std::cerr << "No space for more orders!" << std::endl;
+                        if(!order[index]->add(std::cin) && created)
+                            delete order[--noOrders];
+                    }
+                }
+                break;
+            case 'S':
+                {
+                    EAN ean;
+                    if (ean.read(std::cin, prefix)) {
+                        int index = -1, created = false;
+                        for (int i = 0; i < noOrders && index == -1; i++)
+                            if (ean == order[i]->getEAN())
+                                index = i;
+                        if (index == -1)
+                            if (noOrders < MAXORDERS) {
+                                index = noOrders;
+                                order[noOrders++] = new SpecialOrder(ean, "");
+                                created = true;
+                            }
+                            else
+                                std::cerr << "No space for more orders!" << std::endl;
+                        if(!order[index]->add(std::cin) && created)
+                            delete order[--noOrders];
+                    }
+                }
+                break;
+            case 'A':
+                {
+                    EAN ean;
+                    if (ean.read(std::cin, prefix)) {
+                        int index = -1;
+                        for (int i = 0; i < noOrders && index == -1; i++)
+                            if (ean == order[i]->getEAN())
+                                index = i;
+                        if (index != -1)
+                            order[index]->add(1);
+                        else
+                            std::cerr << "No order for " << ean << " found!" << std::endl;
+                    }
+                }
+                break;
+            case 'D':
+                {
+                    EAN ean;
+                    if (ean.read(std::cin, prefix)) {
+                        int index = -1;
+                        for (int i = 0; i < noOrders && index == -1; i++)
+                            if (ean == order[i]->getEAN())
+                                index = i;
+                        if (index != -1)
+                            order[index]->receive(std::cin);
+                        else
+                            std::cerr << "No order for " << ean << " found!" << std::endl;
+                    }
+                }
+                break;
+            case 'F':
+                {
+					char s;
+					if (style(std::cin, s))
+                    for (int i = 0; i < noOrders; i++)
+						order[i]->getEAN().style(s);
+                }
+                break;
+            case 'V':
+                std::cout << "              EAN  Ordered  Delivered Instructions\n";
+                std::cout << "--------------------------------------------------\n";
+                for (int i = 0; i < noOrders; i++) {
+                    std::cout << *(order[i]) << std::endl;
+				//	order[i]->display(std::cout);
+                }
+                break;
+        }
+    } while (choice != 'Q');
+
+    std::cout << "\nSigning off ... " << std::endl;
+    // deallocate order memory
+    for (int i = 0; i < noOrders; i++)
+        delete order[i];
+}
+
+// menu prompts for and accepts an option selection from standard input and
+// returns the character identifying the selected option
+//
+char menu(std::istream& is) {
+    char c;
+    int  ok = false;
+
+    std::cout << '\n';
+    std::cout << "Please select from the following options :\n";
+    std::cout << " P - Place an order with a publisher\n";
+    std::cout << " S - Place a special order with a publisher\n";
+    std::cout << " A - Add one copy to an existing order\n";
+    std::cout << " D - Record a delivery from a publisher\n";
+	std::cout << " F - Change output style\n";
+    std::cout << " V - View status of books on order\n";
+    std::cout << " Q - Quit\n";
+    do {
+        std::cout << " Your selection : ";
+        c = ' ';
+        is.get(c);
+        if (c >= 'a' && c <= 'z')
+            c -= 'a' - 'A';
+        if (is.fail()) {
+            is.clear();
+            is.ignore(2000, '\n');
+            std::cerr << " Invalid input.  Try again.\n";
+        } else if (c == '\n') {
+            ; // no input - try again
+        } else if (c != 'P' && c != 'S' && c != 'A' && c != 'D' && c != 'V'
+         && c != 'Q' && c != 'F') {
+            is.ignore(2000, '\n');
+            std::cerr << " Invalid Character.  Try again.\n";
+        } else if (is.get() != '\n') {
+            is.ignore(2000, '\n');
+            std::cerr << " Trailing Characters.  Try Again.\n";
+        } else if (c == 'P' || c == 'S' || c == 'A' || c == 'D' || c == 'V'
+         || c == 'Q' || c == 'F')
+            ok = true;
+    } while (ok == 0);
+
+    return c;
+}
+
+// style prompts for and accepts the style from input stream is
+//
+bool style(std::istream& is, char& s) {
+	bool rc = false, ok = false;
+	char c;
+	do {
+		std::cout << " EAN Style ('-', ' ', '\\n' or '0' to quit) : ";
+		c = ' ';
+		is.get(c);
+		if (is.fail()) {
+			is.clear();
+			is.ignore(2000, '\n');
+			std::cerr << " Invalid input. Try again.\n";
+        } else if (c != '-' && c != ' ' && c != '\n' && c != '0') {
+            is.ignore(2000, '\n');
+            std::cerr << " Invalid Character.  Try again.\n";
+		} else if (c == '0') {
+			if (is.get() != '\n') {
+				is.ignore(2000, '\n');
+				std::cerr << " Trailing Characters.  Try Again.\n";
+			} else
+				ok = true;
+		} else if (c == '\n') {
+			ok = true;
+			s = '\0';
+			rc = true;
+        } else if (is.get() != '\n') {
+            is.ignore(2000, '\n');
+            std::cerr << " Trailing Characters.  Try Again.\n";
+        } else if (c == '-' || c == ' ') {
+            ok = true;
+			s = c;
+			rc = true;
+		}
+	} while (!ok);
+
+	return rc;
+}
+jgchoi@matrix:~/a/a4/backup> cat a4.cpp[K[K[K[K[K[KOrder.cpp
+//Order.cpp
+//
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+
+#include "GS1Prefix.h"
+#include "Order.h"
+
+using namespace std;
+
+
+std::ostream & operator<<(std::ostream & os, const iOrder & order){
+	order.display(os);
+}
+
+
+SpecialOrder::SpecialOrder(const SpecialOrder & source):Order(source){
+	strcpy(instruction, source.instruction);	
+}
+
+void SpecialOrder::display(std::ostream & os) const{
+	Order::display(os);
+	os << "  "<<instruction;
+}
+
+bool SpecialOrder::add(std::istream & is){
+	int keepAsking = 0;
+	int tmp;
+	bool result;
+	char tmpp[61];
+	
+	//quantity input
+	do{
+		cout << "Enter quantity : ";
+		is >> tmp;
+		
+		//validation
+		if(tmp<0)
+			cout << "Quantity must be positive number\n";
+		else
+		if(tmp == 0)
+			{
+				cout << "No data entered\n";
+				return false;
+			}
+		else
+			keepAsking = 1;
+	}while(keepAsking == 0);
+	result = Order::add(tmp);
+	
+	
+	//special instruction part
+	keepAsking=0;
+	do{
+	cout << "Enter Special Instruction : ";
+	is.ignore(2000, '\n');
+	is.getline(tmpp, 60);
+	
+	if(is.fail())
+		{
+			is.clear();
+			is.ignore(2000, '\n');
+			cout << "Invalid input. Try again \n";
+		}
+	else
+	if(tmpp[0] == '\n')
+		{
+			cout << "Empty instruction, No data accepted. \n";
+			return false;
+		}
+	else
+		keepAsking = 1;
+		}while(keepAsking==0);
+	//at this point, only valid input are accepted.
+	strcpy(instruction,tmpp);
+	return true;
+}
+
+SpecialOrder::SpecialOrder():Order(){
+	instruction[0] = '\0';
+}
+
+SpecialOrder::SpecialOrder(const EAN & isbn, const char * instr):Order(isbn){
+	strcpy(instruction, instr);
+}
+
+void Order::display(std::ostream & os) const {
+	os << setw(17) << right << book << setw(9) << ordered << setw(11) << delivered;
+}
+
+Order::Order(const Order & source){
+	
+	book = source.book;
+	ordered = source.ordered;
+	delivered = source.delivered;
+	}
+	
+bool Order::receive(std::istream & is){
+	int add;
+	int keepAsking = 0;
+		
+	do
+		{
+			cout << "Quantity (0 to quit) : " ;
+			is >> add;
+			if(add > ordered)
+				{
+					cout << add << " not on order.  Only " << ordered << " are on order. Try again." << endl;
+				}
+			else if( add < 0)
+				{
+					cout <<"Enter a positive number.  Try again." << endl;
+				}
+			else if( add == 0)
+				{
+					cout << "**No delivery recorded!" << endl;
+					return false;
+				}
+			else
+				{
+					delivered = add;
+					return true;
+				}
+		}
+	while(keepAsking == 0);
+	
+	return false;
+}
+
+
+bool Order::add(int n){
+	if( n <= 0 || book.empty() == true)
+		cout << "Enter a positive number.  Try again." << endl;
+	else
+		{
+			ordered = ordered + n;
+			return true;
+		}
+		
+	return false;
+}
+
+bool Order::add(std::istream & is){
+	int x = 0;
+	int keepAsking = 0;
+
+	do
+		{	
+			cout << "Quantity (0 to quit) : " ;
+			is >> x;
+			if(x < 0)
+				{
+					cout << "Enter a positive number.  Try again." << endl;
+				}
+			else if( x == 0)
+				{	
+					cout << "**No ordered recorded!" << endl;
+					return false;
+				}
+			else
+				{	
+					ordered = ordered + x;
+					return true;
+				}
+		}
+	while(keepAsking == 0);
+	
+	return false;	
+}
+
+Order::Order(){
+	ordered = 0;
+	delivered = 0;
+}
+
+Order::Order(const EAN & ean){
+	book = ean;
+	ordered = 0;
+	delivered = 0;
+}
+
+EAN & Order::getEAN(){
+	return book;
+}
+
+int Order::outstanding() const{
+	return ordered;
+}	
+jgchoi@matrix:~/a/a4/backup> cat Order.cpp[K[K[Kh
+//Order.h
+//
+#include "EAN.h"
+
+class iOrder{
+	public:
+		virtual EAN & getEAN()=0;
+		virtual bool add(int)=0;
+		virtual bool add(std::istream &)=0;
+		virtual bool receive(std::istream& is)=0;
+		virtual int outstanding() const=0;
+		virtual void display(std::ostream&) const=0;
+};
+
+class Order:public iOrder {
+
+	EAN book;
+	int ordered;
+	int delivered;
+	
+	public:
+		//constructors
+		Order();
+		virtual ~Order(){}
+		Order(const EAN & ean);
+		Order(const Order & source);
+		
+		//virtual ----
+		EAN & getEAN();
+		bool add(std::istream& is);
+		bool add(int n);
+		bool receive(std::istream & is);
+		int outstanding() const;
+		void display(std::ostream & os) const;
+};
+
+class SpecialOrder : public Order {
+	char instruction[61];
+	
+	public:
+		
+		SpecialOrder();
+		~SpecialOrder(){}
+		SpecialOrder(const EAN & isbn, const char * instr);
+		SpecialOrder(const SpecialOrder & source);
+		
+		//virtual		
+		bool add(std::istream & is);
+		void display(std::ostream & os) const;
+};
+
+std::ostream & operator<<(std::ostream & os, const iOrder & order);jgchoi@matrix:~/a/a4/backup> cat Order.h[K[K[K[K[K[K[KEAN.h
+//EAN.h
+//
+class EAN{
+	char ean[14];
+	char area[8];
+	char publisher[8];
+	char title[8];
+	char s;
+	
+	bool isRegistered(const Prefix & list);
+	
+	public:
+		EAN();
+		EAN(const char * str, const Prefix & list);
+		
+		bool empty() const;
+		bool isRegistered() const;
+		void style(char c);
+		void toStr(char * str) const;
+		void toStrWithStyle(char * str) const;
+		void display(std::ostream & os) const;
+		bool read(std::istream & is, const Prefix & list);
+		
+		friend bool operator==(const EAN & left, const EAN & right);
+		
+};
+
+std::ostream & operator<<(std::ostream& os, const EAN& ean);
+bool isValid(const char* str);
+	jgchoi@matrix:~/a/a4/backup> cat EAN.h[Kcpp
+//EAN.cpp
+//
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+
+#define  PREFIX_LIST "prefixRanges.txt"
+#include "GS1Prefix.h"
+
+#include "Order.h"
+
+using namespace std;
+
+
+bool operator==(const EAN & left, const EAN & right){
+	if(strcmp(left.ean,right.ean)==0)
+		return true;
+	else
+		return false;
+}
+
+std::ostream & operator<<(std::ostream& os, const EAN& ean){
+	ean.display(os);
+}
+
+
+bool isValid(const char* str)
+{
+	int testFail = 0;
+	int i;
+	int sum=0;
+
+	for(i=0;i<=11;i+=2) //add even digit
+		{
+		sum+=str[i]-'0';
+		}
+	for(i=1;i<12;i+=2) //add odd digit // need *3
+		{
+		sum+=(str[i]-'0')*3;
+		}
+	sum+=str[12]-'0';
+	if(sum%10 != 0)
+		testFail=1;
+
+	if(testFail == 1)
+		return false;
+	else
+		return true;
+}
+
+EAN::EAN(){	//safe empty
+		ean[0]='\0';
+		area[0] = '\0';
+		publisher[0] = '\0';
+		title[0] = '\0';
+}
+
+
+bool EAN::read(std::istream & is, const Prefix & list)
+{
+	int keepgoing = 1;
+ 
+        do {
+            std::cout << "EAN (0 to quit) : ";
+            std::cin.getline(ean, 14);
+            if (!std::cin) {
+                std::cin.clear();
+                std::cin.ignore(2000, '\n');
+                std::cerr << "Error. Try Again " << std::endl;
+            }
+            else if (std::strcmp(ean, "0") == 0) {
+                keepgoing = 0;
+            }
+            else if (std::strlen(ean) != 13) {
+                std::cerr << " Incorrect number of digits. Try again." << std::endl;
+            }
+            else if (isValid(ean) == 0) {
+                std::cerr << " Invalid check digit. Try again." << std::endl;
+            }
+            else if (isRegistered(list) == 0) {
+                s='\n'; //not registered number, concentrated style
+				return true;
+            }
+            else {
+				s='-'; //registered, defaulty have - style
+				return true;
+            }
+        } while (keepgoing == 1);
+	return false;
+}
+
+void EAN::display(std::ostream & os) const
+{	char eanWithStyle[18];
+	toStrWithStyle(eanWithStyle);
+	
+	cout << setw(17) << right << eanWithStyle;
+}
+
+
+void EAN::toStrWithStyle(char * str) const
+{	
+	int i;
+
+	if(s != '-' && s != ' ') //If style is nor - or ' '
+		{
+		strcpy(str,ean);
+		}
+	else if(isRegistered()==false)
+		strcpy(str,ean);
+	else
+		{
+		//copy prefix
+		for(i=0;i<3;i++)
+			{
+			str[i]=ean[i];
+			}
+			
+		//add style char
+		str[i]=s;	//3
+		i++;	
+		str[i]='\0';//4
+		
+		//area
+		strcat(str,area);
+		//add style
+		str[strlen(area)+i]=s; //4
+		i++;
+		str[strlen(area)+i]='\0';//5
+		
+		//publisher
+		strcat(str,publisher);
+		//add style
+		str[strlen(area)+strlen(publisher)+i]=s;//5
+		i++;
+		str[strlen(area)+strlen(publisher)+i]='\0';//6
+		
+		//title
+		strcat(str,title);
+		//add style
+		str[strlen(area)+strlen(publisher)+strlen(title)+i]=s;
+		i++;
+		str[strlen(area)+strlen(publisher)+strlen(title)+i]='\0';
+		
+		//check digit
+		str[16]=ean[12];
+		str[17]='\0';
+		}
+}
+
+void EAN::toStr(char * str) const
+{
+	strcpy(str,ean);
+}
+
+bool EAN::empty() const
+{	
+	if(ean[0]=='\0')
+		return true;
+	else
+		return false;
+}
+
+bool EAN::isRegistered() const
+{	
+	
+	if(area[0] != '\0' && publisher[0] != '\0' && title[0] != '\0')
+		return true;
+	else
+		return false;
+
+}
+
+void EAN::style(char c)
+{
+	if(c != '-' && c != ' ' && c != '\n' && c != '0')
+		s = '\0';
+	else
+		s = c;
+}
+
+EAN::EAN(const char * str, const Prefix & list){
+	strcpy(ean,str);
+	
+	//validation
+	if(isValid(str)==false)
+		{
+		ean[0]='\0';
+		area[0] = '\0';
+		publisher[0] = '\0';
+		title[0] = '\0';
+		}
+	else if(isRegistered(list)==false)//registration
+		{
+		area[0] = '\0';
+		publisher[0] = '\0';
+		title[0] = '\0';
+	}
+}
+
+
+bool EAN::isRegistered(const Prefix & list)
+{
+long long int eanNum = 0;
+long long int areaNum = 0;
+long long int pubDigit = 0;
+long long int areaDigit = 0;
+int i,j,k;
+
+char pub[8];
+char tit[8];
+char are[8];
+
+	// conversion
+		for(i=3;i<13;i++)
+			{
+			eanNum = (eanNum * 10) + (ean[i]-'0');
+			}
+
+	//conversion finished.
+		//select area code
+		if(eanNum/1000000000 <=7 && eanNum/1000000000>=0) // 1 digit
+			{
+			areaNum = eanNum/1000000000;
+			areaDigit =2;
+			}
+		else if(eanNum/100000000 <= 92 && eanNum/100000000 >= 80) // 2 digit
+			{
+			areaNum = eanNum/100000000;
+			areaDigit = 3;
+			}
+		else if(eanNum/10000000 <=989 && eanNum/10000000 >=950) // 3 digit
+			{
+			areaNum = eanNum/10000000;
+			areaDigit = 4;
+			}
+		else if(eanNum/1000000 <=9989 && eanNum/1000000 >=9946) // 4 digit
+			{
+			areaNum = eanNum/1000000;
+			areaDigit = 5;
+			}
+		else if(eanNum/100000 <=99944 && eanNum/100000 >=99901) // 5digit
+			{
+			areaNum = eanNum/100000;
+			areaDigit = 6;
+			}
+		else
+			return false; // if area code is not in this category
+
+// check publisher digit
+	if(list.isRegistered(areaNum)==false)
+		return false;
+
+// get minimum digit
+	pubDigit = list.minNoDigits(areaNum);
+
+
+	//validate pub value
+	do{
+
+			//write publisher from str
+			for(i=0;i<pubDigit;i++)
+				{
+				pub[i]=ean[areaDigit+2+i];
+				}
+			//adding \0
+			pub[i] = '\0';
+
+		pubDigit++;
+
+			//terminate if publisher code is more than 7
+			if(pubDigit > 8)
+				{//cout << "pub range over " << endl; 
+				return false;}
+
+		}while(list.isRegistered(areaNum, pub) == false);
+
+	//copy title value
+	i = areaDigit + pubDigit + 1;
+
+		for(j=0;i<12;j++)
+			{
+			tit[j]=ean[i];
+			i++;
+			}
+		tit[j]='\0';
+
+
+	are[areaDigit-1] = '\0';
+	//convert eanNum to eaning are
+	 for(i=areaDigit-2;i>=0;i--)
+		{
+		are[i] = areaNum%10+'0';
+		areaNum = areaNum / 10 ;
+		}
+	
+	//at this point, all test must be passed, otherwise returned false in previous sequence
+	//copy all value into main's valuables
+	strcpy(area,are);
+	strcpy(title,tit);
+	strcpy(publisher,pub);
+	s='-';
+	return true;
+}
+
+jgchoi@matrix:~/a/a4/backup> cat EAN.cpp[K[K[K[K[K[K[KGS1Prefix.cpp
+//GS1Prefix.cppw
+//
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+#define PREFIX_LIST "prefixRanges.txt"
+#include "GS1Prefix.h"
+#include "EAN.h"
+
+bool Prefix::isRegistered(int are) const
+ {
+	int i;
+
+	for(i=0;i<MAX;i++)
+		{
+		if(area[i]==are) //match area in database with database parameter
+			return true;
+		}
+	return false;
+ }
+
+int Prefix::minNoDigits(int are) const
+ {
+	int i;
+	for(i=0;i<MAX;i++)
+		{
+		if(area[i]==are)
+			return pubLen[i]; //return minimum digit
+		}
+			
+	return 0;
+ }
+ 
+bool Prefix::isRegistered(int are, const char * pub) const
+{
+	int i; int j; int pubSize = 0;
+	long long int pubNum=0, pubHghNum=0, pubLowNum=0;
+ 
+	//calculate publisher size
+	for(i=0;pub[i]!='\0';i++)
+		{
+		pubSize++;
+		}
+
+	
+	//check publisher
+	for(i=0;i<no;i++)
+		{
+		if(area[i] == are) //same area code
+			{
+			if(pubLen[i] == pubSize) //same pub length
+				{
+				for(j=0;j<pubSize;j++)
+					{
+					//switch into int
+					pubNum = pubNum * 10;
+					pubHghNum = pubHghNum * 10;
+					pubLowNum = pubLowNum * 10;
+					
+					pubNum += pub[j]-'0';
+					pubHghNum += pubHgh[i][j]-'0';
+					pubLowNum += pubLow[i][j]-'0';
+					}
+
+				//compare value
+				if(pubNum <= pubHghNum && pubNum >= pubLowNum) //value is match
+					{
+					return true;
+					}	
+				
+				//reset value if fail
+				pubHghNum=0;
+				pubLowNum=0;
+				pubNum=0;
+				}
+			}
+		}
+	return false; //if still can't find
+ }
+
+
+ // load copies the prefix table from filename into *p
+ //
+ Prefix::Prefix(const char* filename) {
+     if (filename != nullptr) {
+         std::ifstream file(filename);
+         if (file.is_open()) {
+             no = 0;
+             while (file.good()) {
+                 file >> area[no] >> pubLow[no] >> pubHgh[no]; 
+                 if (file.good()) {
+                     pubLen[no] = std::strlen(pubLow[no]);
+                     no++;
+                 }
+             }
+             if (no > 0) {
+                 no = no;
+             }
+         }
+     }
+ }
+jgchoi@matrix:~/a/a4/backup> cat GS1Prefix.cpp[K[K[Kh
+//GS1Prefix.h
+//
+const int MAX = 700;
+
+class Prefix {
+    int  no;             // number of entries
+    int  area[MAX];      // area elements
+    char pubLow[MAX][8]; // low end of publisher range
+    char pubHgh[MAX][8]; // high end of publisher range
+    int  pubLen[MAX];    // no of chars in publisher string
+	
+	public:
+		Prefix(const char *);
+		bool isRegistered(int) const;
+		int minNoDigits(int) const;
+		bool isRegistered(int, const char *) const;
+		
+};
+jgchoi@matrix:~/a/a4/backup> g++ 0[K-std=c++0x a4.cpp Order.cpp EAN.cpp Gs[KS1Prefix.cpp
+jgchoi@matrix:~/a/a4/backup> a.out
+Bookstore Order Processor
+=========================
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection : p
+
+EAN (0 to quit) : 9780003194876
+Quantity (0 to quit) : 25
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection :  Your selection : s
+
+EAN (0 to quit) : 9789070002046
+Enter quantity : 1
+Enter Special Instruction : 10% dis^H^H^HDiscoun                  % Discount
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection : d
+
+EAN (0 to quit) : 98 780003194876
+Quantity (0 to quit) : 20
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection :  Your selection : d
+
+EAN (0 to quit) : 9789070002046
+Quantity (0 to quit) : 2
+2 not on order.  Only 1 are on order. Try again.
+Quantity (0 to quit) : 1
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection :  Your selection : v
+
+              EAN  Ordered  Delivered Instructions
+--------------------------------------------------
+978-0-00-319487-6       25         20
+978-90-70002-04-6        1          1  10% Discount
+
+Please select from the following options :
+ P - Place an order with a publisher
+ S - Place a special order with a publisher
+ A - Add one copy to an existing order
+ D - Record a delivery from a publisher
+ F - Change output style
+ V - View status of books on order
+ Q - Quit
+ Your selection : q
+
+
+Signing off ... 
+jgchoi@matrix:~/a/a4/backup> exit[K[K[K[Ka.outg++ -std=c++0x a4.cpp Order.cpp EAN.cpp GS1Prefix.cpp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat GS1Prefix.h[Kg++ -std=c++0x a4.cpp Order.cpp EAN.cpp GS1Prefix.cppt.cpp Order.cpp EAN.cpp GS1Prefix.cpp
+jgchoi@matrix:~/a/a4/backup> a.out
+GS1Prefix Tests
+===============
+Passed test    1 (isRegistered(-1))
+Passed test    2 (isRegistered(99955))
+Passed test    3 (isRegistered(0))
+Passed test    4 (isRegistered(-1, 0))
+Passed test    5 (isRegistered(99955, 0))
+Passed test    6 (isRegistered(0, 10))
+Passed test    7 (isRegistered(99955, 0))
+Passed test    8 (isRegistered(0, 95000000))
+Passed test    9 (minNoDigits(-1))
+Passed test   10 (minNoDigits(0))
+Passed test   11 (minNoDigits(92))
+Passed test   12 (minNoDigits(99955))
+
+GS1 Prefix Tests passed!
+
+EAN Tests
+=========
+Passed test   13 (EAN() and empty())
+Passed test   14 (EAN() and isRegistered())
+Passed test   15 (EAN("9789070002046", ) and empty())
+Passed test   16 (EAN("9789070002046", ) and isRegistered())
+Passed test   17 (EAN(9789070002043) and empty())
+Passed test   18 (EAN("9789070002043", ) and isRegistered())
+Passed test   19 (toStr on EAN() and IBSN("9789070002043", ))
+Passed test   20 (EAN(9789070002046) and toStr(char*))
+Passed test   21 (EAN(...) and toStr(char*))
+Passed test   22 (EAN(9789070002046), style(' ') and toStr(char*))
+Passed test   23 (EAN(9789070002046), style('\0') and toStr(char*))
+Passed test   24 (EAN(9789070002046), style('-') and toStrWithStyle(char*))
+Passed test   25 (EAN(9789070002046), style(' ') and toStrWithStyle(char*))
+Passed test   26 (EAN(9789070002046), style('\0') and toStrWithStyle(char*))
+Passed test   27 (EAN(9789070002046), style('-') and toStrWithStyle(char*))
+Passed test   28 (EAN(9789070002043), style('\0') and toStr(char*))
+
+EAN Tests passed!
+
+EAN Registered Tests
+====================
+Passed test   29 (isRegistered() returned true for 9789070002046)
+Passed test   30 (isRegistered() returned false for 9789995500009)
+Passed test   31 (isRegistered() returned true for 9780000000002)
+Passed test  131 (isRegistered() returned true for 9788070000007)
+Passed test  231 (isRegistered() returned true for 9789020000009)
+Passed test  331 (isRegistered() returned true for 9789559500001)
+Passed test  431 (isRegistered() returned true for 9789679989007)
+Passed test  531 (isRegistered() returned true for 9789781990007)
+Passed test  631 (isRegistered() returned true for 9789946000008)
+Passed test  731 (isRegistered() returned true for 9789961700006)
+Passed test  831 (isRegistered() returned true for 9789976999907)
+Passed test  931 (isRegistered() returned true for 9789990389005)
+Passed test 1031 (isRegistered() returned true for 9789992200001)
+Passed test 1131 (isRegistered() returned true for 9789993990000)
+
+EAN Registered Tests passed!
+
+Order Tests
+===========
+Passed test 1152 (*Order()->getEAN() == EAN() returned true)
+Passed test 1153 (Order(), outstanding() returned 0)
+Passed test 1154 (Order(EAN(9789070002046, list)), outstanding())
+Passed test 1155 (Order(EAN(9789070002046, list)), outstanding())
+Passed test 1156 (Order(EAN(9789070002046, list)), outstanding())
+Enter a positive number.  Try again.
+Passed test 1157 (Order(EAN(9789070002046, list)), add(5), outstanding())
+
+Order Tests passed!
+
+Special Order Tests
+===================
+Enter a positive number.  Try again.
+Passed test 1158 (SpecialOrder().getEAN() == EAN() returned true)
+Passed test 1159 (SpecialOrder().outstanding() returned 0)
+Passed test 1160 (getEAN() == EAN("9789070002046"), outstanding())
+Passed test 1161 (getEAN() == EAN("9789070002046"), add(5), outstanding())
+Passed test 1162 (getEAN() == EAN("9789070002043"), outstanding())
+Passed test 1163 (getEAN() == EAN("9789070002043"), add(5), outstanding())
+Passed test 1164 (SpecialOrder().getEAN() ==  EAN() returned true)
+Passed test 1165 (Assignment operator - EAN("9789070002046")), outstanding())
+Passed test 1166 (++, outstanding())
+Passed test 1167 (Copy constructor - EAN("9789070002046")), outstanding())
+Passed test 1168 (Ctor safe state - EAN("9789070002043")), outstanding())
+
+Special Order Tests passed!
+
+
+Your Bookstore modules have passed 1168 of 1168 tests
+
+Congratulations!!!   Your Bookstore modules are ready for submission
+
+jgchoi@matrix:~/a/a4/backup> exit
+exit
+
+Script done on Fri 04 Apr 2014 07:58:31 PM EDT

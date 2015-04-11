@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+         <title> Example Form </title>
+
+</head>
+
+
+<body bgcolor = "gray">
+
+
+
+  <form method="post" name = "example1"
+    action = "http://formpost.azurewebsites.net/home/test">
+
+  <h3> Please Input Your Answers to the Questions: </h3>
+
+  <p > Course: <input type = "text" name ="courseName" size = "30" maxlength="50" value = "BTI220" /> </p>
+
+  <p>  Name: <input type="text"  name="MyName"   size="30" maxlength="50" /> </p>
+
+  <p> Question: <input type="text"   name="Quest"    size="30"    maxlength="100"/ >  </p>
+
+  <p>Favorite color: <input type="radio"  name="Color"   value="Red" checked = "checked"/> Red
+                     <input type="radio"  name="Color"   value="Blue"/> No, blue!
+  </p>
+
+   <input type="submit" value="Answer These Questions" />
+
+  <input type ="reset" value = "   Clear     " />
+
+  <br />
+  <p> test submit buttons: </p>
+
+  <input type="submit" />
+
+  <input type="submit" value="use submit button value" />
+
+  <input type="submit" name="test1" value="name submit button" />
+
+  <br />
+  <p> test reset buttons: </p>
+
+  <input type="reset" />
+  <input type="reset" value="use Reset Button value" />
+
+  <br /> <br />
+
+  <p> test image button </p>
+  <input type="image" src= "seneca_logo.gif" width = "90" height = "40" border = "2"/>
+
+  <br />
+
+  <p> test type= "button" </p>
+  <input type="button" value="Press This Button"
+    onclick="window.alert('using type =button....')" />
+
+  <p> test button tag </p>
+
+  <button type="submit" value ="submit"> submit </button>
+  <button type="reset" value = "reset"> reset </button>
+
+  <button type="button"  value="Click "
+    onclick="window.alert('Event: click - Using Button for buttons')">
+    Click here</button>
+
+    <br />
+
+  </form>
+
+</html>

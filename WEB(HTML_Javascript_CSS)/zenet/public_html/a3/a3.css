@@ -1,0 +1,78 @@
+#time_stamp {
+				margin:30px;
+				text-align:center;
+				position:relative;
+			}
+#pg_title	{
+				background-color:white;
+				color:blue;
+				width:900px;
+				height:100px;
+				margin:auto;
+				text-align:center;
+				font-size:5em;
+				text-shadow:5px 5px 5px gray;
+				border-radius: 10px;
+				border:10px solid blue
+				
+			}
+table.layout	{
+					width:900px;
+					margin:auto;
+				}
+			
+
+body		{
+				background-color:orange	;
+				font-size:1em;
+			}
+legend	{
+			font-weight:bold;
+			font-size:1.3em;
+		}
+
+
+#section3	{
+				height:250px;
+			}
+table.main td	{
+					width:50%;
+					border-bottom:1px dotted black;
+				}
+			
+select	{
+			width:95%;
+			border:1px solid black;
+		}
+input	{
+			border:1px solid black;	
+		}
+table.section3 td	{
+						width:25%;
+					}
+tr.tb_choice td	{
+						
+						border-left:1px solid black;
+				}
+
+td.tb_title	{	
+				font-weight:bold;
+				font-size:1.2em;
+				border-bottom:1px dotted black;
+			}
+.text td input	{
+					width:150px;
+					height:50px;
+				}
+table.order tr td	{
+						width:200px;
+					}
+.left				{
+						text-align:left;
+					}
+.right	{
+			text-align:right;
+		}
+.center	{
+			text-align:center;
+		}

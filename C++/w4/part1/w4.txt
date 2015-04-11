@@ -1,0 +1,92 @@
+Script started on Sun 02 Feb 2014 03:46:18 AM EST
+jgchoi@matrix:~/a/w4/part1> whoami
+jgchoi
+jgchoi@matrix:~/a/w4/part1> cat CreditCard.h CreditCard.cpp
+//CreditCard.h
+//
+class CreditCard {
+	long long int cardNum;
+	char cardHolder[21];
+	double bal;
+	
+	public : 
+		//constructors
+		CreditCard();
+		CreditCard(long long int num, char * name);
+		
+		//memberfunctions
+		void charge(double c);
+		void pay(double p);
+		long long number() const;
+		double balance() const;
+		const char * name() const;
+		};
+		//CreditCard.cpp
+//
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+
+using namespace std;
+
+#include "CreditCard.h"
+
+void CreditCard::charge(double c){
+		bal = bal + c; // add balance
+}
+	
+void CreditCard::pay(double p){
+	bal = bal - p; //substract balance
+}
+
+long long CreditCard::number() const{
+	return cardNum;
+}
+
+double CreditCard::balance() const{
+	return bal;
+}
+
+const char * CreditCard::name() const{
+	return cardHolder;
+}
+
+CreditCard::CreditCard(){ //constructor with no parameter, set 0 to all
+	strcpy(cardHolder,"\0");
+	cardNum = 0;
+	bal = 0;	
+}
+
+
+CreditCard::CreditCard(long long int num, char * name){
+	strcpy(cardHolder, name);
+
+	cardNum = num;
+
+	
+	bal = 0;
+}jgchoi@matrix:~/a/w4/part1> cat [K[K[K[Kg++ -o w4 w4.cpp CreditCard.cpp
+w4.cpp: In function ‘int main()’:
+w4.cpp:12:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+jgchoi@matrix:~/a/w4/part1> w4
+Select (C, P or Q) : c
+Charge : 45.32
+Select (C, P or Q) : c
+Charge : 7.45
+Select (C, P or Q) : c
+Charge : 105.46
+Select (C, P or Q) : p
+Payment : 100
+Select (C, P or Q) : c
+Charge : 87.50
+Select (C, P or Q) : q
+Number  1234
+Name    John Doe
+Balance 145.73
+Number  0
+Name    
+Balance 0
+jgchoi@matrix:~/a/w4/part1> exit
+exit
+
+Script done on Sun 02 Feb 2014 03:47:17 AM EST

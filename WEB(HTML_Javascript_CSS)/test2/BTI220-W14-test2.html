@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+         <title> Test #2 </title>
+         <link rel="stylesheet" href="BTI220-W14-test2.css"/>
+         <script src ="BTI220-W14-test2.js"> </script>
+</head>
+
+<body>
+   <script>
+      var d = new Date();
+      document.write("<p style='color:blue;'>"+ d.toLocaleString() + "</p>");
+   </script>
+
+   <div>
+   <table class="schedule">
+         <caption> Time Table </caption>
+         <thead>
+         <tr>
+             <th>    Time     </th>
+             <th>    Mon     </th>
+             <th>    Tue     </th>
+             <th>    Wed     </th>
+
+         </tr>
+         </thead>
+
+         <tbody>
+         <tr>
+             <td class="period"> 9:50 - 10:40 </td>
+             <td rowspan="2" valign ="center"> BTP200 </td>
+             <td> BTP200 </td>
+             <td> BTP100 </td>
+
+         </tr>
+
+         <tr>
+             <td class="period"> 10:45 - 11:35 </td>
+             <td> BTI220 </td>
+             <td>  </td>
+         </tr>
+
+         <tr>
+             <td class="period">  Afternoon  </td>
+             <td>BTP100    </td>
+             <td>    </td>
+             <td>BTI220</td>
+         </tr>
+         </tbody>
+     </table>
+     </p>
+   </div>
+
+   <div>
+     <form method='post' name='test2'
+       action='http://formpost.azurewebsites.net/home/test'
+        onsubmit = "return validAll();">
+    <p>
+     *Name: <input type = "text" name='name' size="30"/>
+     *Program: <select name = "program">
+                  <option selected> BSD </option>
+                  <option> IFS </option>
+                  <option> CPA </option>
+              </select>
+    <p> *My favorite subject(s):
+    <ol>
+      <li> <input type="checkbox"  name="subject"  value="btp100"/> BTP100 &nbsp; &nbsp;  </li>
+      <li> <input type="checkbox"  name="subject"  value="btp200"/> BTP200 &nbsp; &nbsp;  </li>
+      <li> <input type="checkbox"  name="subject"  value="bti220"/> BTI220 &nbsp; &nbsp; </li>
+    </ol>
+    </p>
+
+   <p>  <input type="submit" value="Guess"/>  &nbsp; &nbsp;
+        <input type ="reset" value = " Reset "/> </p>
+  </form>
+
+</div>
+
+</html>

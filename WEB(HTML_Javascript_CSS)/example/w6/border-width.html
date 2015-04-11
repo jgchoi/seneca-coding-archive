@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Border Width </title>
+    <style type="text/css">
+      p.one{
+             border-style:solid;
+             border-width:5px;
+           }
+      p.two{
+             border-style:solid;
+             border-width:medium;
+           }
+      p.three{
+               border-style:solid;
+               border-width:1px;
+              }
+
+
+       .example-00 { /* border-width */ }
+
+       .example-01 { border-style:solid; }
+       .example-02 { border-width: 5px; border-style:solid; }
+       .example-03 { border-top-width:10px; border-right-width:25px;
+                     border-bottom-width:10px; border-left-width:25px;
+                     border-style:solid; }
+       .example-04 { border-width:10px 25px;
+                     border-style:solid; }
+
+</style>
+</head>
+
+<body>
+<p class="one">Some text.</p>
+<p class="two">Some text.</p>
+<p class="three">Some text.</p>
+<p><b>Note:</b> The "border-width" property does not work if it is used alone. Use the "border-style" property to set the borders first.</p>
+
+    <p class="example-00">
+     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+    </p>
+    <p class="example-01">
+     <mark>.example-01 { border-style:solid; } /* 3px default width on all sides */</mark><br /><br />
+     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+    </p>
+    <p class="example-02">
+     <mark>.example-02 { border-width: 5px; border-style:solid; }</mark> <br /><br />
+     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+    </p>
+    <p class="example-03">
+     <mark>.example-03 { border-top-width:10px; border-right-width:25px; border-bottom-width:10px; border-left-width:25px;
+                  border-style:solid; }</mark><br /><br />
+     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+    </p>
+    <p class="example-04">
+     <mark>.example-04 { border-width:10px 25px;
+                  border-style:solid; } /* Shortcut - top - right - bottom - left */</mark><br /><br />
+     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<?php
+	//DEBUG
+	
+	error_reporting(-1);
+	
+	class Https_control
+	{
+		public function check_https()
+		{
+			if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "")
+			{
+				header("location:https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+				exit();
+			}
+		}
+		
+		public function redirect($target)
+		{
+			$path = "/bti320/assign2/";
+			header("location:https://".$_SERVER['HTTP_HOST'].$path.$target);
+			exit();
+		}
+	}
+	
+	class Cookie_control
+	{
+		private $valid_list;
+		public function __construct()
+		{
+			$this->valid_list = array("id","itemName","description","supplierCode","cost","price","onHand","reorderPoint", "backOrder", "deleted");
+		}
+		public function check_keyword()
+		{
+			if(!isset($_COOKIE['order_by']))
+			{
+				setcookie("order_by","id", time()+(60*60*24*31));
+			}
+			else
+			{
+				$isValid = false;
+				
+				foreach($this->valid_list as $item)
+				{	
+					if($_COOKIE['order_by']==$item)
+					{
+						$isValid = true;
+					}
+				}
+				
+				if($isValid == false)
+				{
+					setcookie("order_by","id", time()+(60*60*24*31));
+				}
+			}
+			
+			
+		}
+		public function set_keyword($keyword)
+		{
+			setcookie('order_by', $keyword,  time()+(60*60*24*31));
+		}
+	}
+	
+	
+	
+	class Session_control
+	{
+		public function session_guest()
+		{
+			//start session
+			session_start();
+			
+			//check if logged in
+			if(isset($_SESSION['username']))
+			{
+				$https_control = new Https_control();
+				$https_control->redirect('view.php');
+				exit();
+			}
+		}
+		
+		public function session_user()
+		{
+			//start session
+			session_start();
+			
+			//check if user
+			if(!isset($_SESSION['username']))
+			{
+				$https_control = new Https_control();
+				$https_control->redirect('login.php');
+				exit();
+			}
+		}
+		
+		public function session_logout()
+		{
+			//start session
+			session_start();
+			
+			//check if login
+			if(!(isset($_SESSION['username'])))
+			{	
+				//not logged in redirect to login
+				$https_control = new Https_control();
+				$https_control->redirect('login.php');
+				exit();
+			}
+			else
+			{
+				//logged in. Do logout process
+				session_destroy();
+				setcookie("PHPSESSID", "", time() - 61200,"/");
+				unset($_SESSION);
+				
+				$https_control = new Https_control();
+				$https_control->redirect('login.php');
+				exit();				
+			}			
+		}
+	}
+	class DBLink
+	{
+		private $link;
+		private $num_result;
+		
+		public function __construct()
+		{
+			// $lines = file('/home/int322/secret/topsecret');
+			// $dbserver = trim($lines[0]);
+			// $uid = trim($lines[1]);
+			// $pw = trim($lines[2]);
+			// $dbname = trim($lines[3]);
+			
+			$dbserver = "localhost";
+			$uid = "root";
+			$pw = "ab890103";
+			$dbname = "int322";
+			
+			$this->link = mysqli_connect($dbserver, $uid, $pw, $dbname)
+			or die('Could not connect: ' . mysqli_error($this->link));
+		}
+		
+		public function query($sql_query)
+		{
+			$result = mysqli_query( $this->link, $sql_query) or die('Query error: ' . mysqli_error($this->link));
+			$this->num_result = mysqli_num_rows($result);
+			return $result;
+		}
+		
+		public function __destruct()
+		{
+			mysqli_close( $this -> link );
+		}
+		
+		public function emptyResult()
+		{
+			return $this->num_result == 0 ? true : false;
+		}
+	}
+	
+	class HeaderAndFooter
+	{
+		public function displayHeader()
+		{
+			?>
+				<html>
+					<head>
+						<title>BTI320 Assignment 2</title>
+					</head>
+					<body>
+						<div>
+							<img src="logo.png" alt="Logo created by myself">
+							<h5>Eddy's Computer Doctor<br>Inventory Management</h5>
+						</div>
+			<?php
+		}
+	
+
+		public function displayFooter()
+		{
+			?>
+					<div>
+						<p>(C) Copyright Eddy's Computer Doctor, 2014. All right reserved.</p>
+					</div>
+				</body>
+			</html>
+			<?php
+		}
+	}
+	
+	class Menu{
+		public function display($keyword, $username, $role)
+		{
+			?>
+				<div>
+					<form method="post" action="view.php">
+						|| <a href="add.php">ADD</a> 
+						|| <a href="view.php?clear">VIEW ALL</a> 
+						|| Search in description:
+								<input type="text" name="keyword" value="<?php print $keyword;?>">
+								<input type="submit" value="Search">							
+						||	User : <?php print $username;?> 
+						|| Role : <?php print $role;?> 
+						|| <a href="logout.php">Logout</a>
+						<hr>
+					</form>
+				</div>
+			<?php
+		}
+	}
+?>

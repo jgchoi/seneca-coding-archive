@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Lab 8 : Validation
+		</title>
+		<link rel="stylesheet" href="main.css" type="text/css"/>
+		<script src="script.js"></script>
+		</head>
+
+	<body>
+		<h1> Lab 8 : Validation! </h1>
+		<hr>
+		<form onsubmit="return check(form1)" method="post" id="login" name="form1" action="http://formpost.azurewebsites.net/home/test">
+			<fieldset>
+				<legend>Validation Test Fields</legend>				
+						<input  name="field01" type="text" size="30" > It can not be empty or number
+
+						<br>
+						<textarea name="field02" rows="2" cols="10" >No numbers</textarea>
+						<br>
+						<input type="checkbox" name="field03" value="1">1.pick me!
+						<input type="checkbox" name="field03" value="2">2. Do not pick me..
+						<br>
+						<input type="radio" name="field04" value="1">3. Choose 4
+						<input type="radio" name="field04" value="1">4. No choose 3
+						<br>
+						<br>Appointment time(I am busy at the morning)<br>
+						<select size = "1" name="field05">
+							<option value="1">9:00 - 10:00</option>
+							<option value="2">10:00 - 11:00</option>
+							<option value="3">11:00 - 12:00</option>
+							<option value="4">12:00 - 13:00</option>
+							<option value="5">13:00 - 14:00</option>
+							<option value="6">14:00 - 15:00</option>
+							<option value="7">15:00 - 16:00</option>
+							<option value="8">16:00 - 17:00</option>
+						</select>
+						<br>
+							<select size = "6" multiple="true" name="field06">
+							<option value="1">Choose 2 best course</option>
+							<option value="2">BTI220</option>
+							<option value="3">BTP100</option>
+							<option value="4">BTP200</option>
+							<option value="5">BTO120</option>
+							<option value="6">BTO130</option>
+							<option value="7">BTC140</option>
+							<option value="8">BTD210</option>
+						</select>
+						<br>
+						<input type="submit">
+						<input type="reset">
+			</fieldset>
+		</form>
+		<hr>
+		<div id="back">
+			<p><a href="../index.html">Go Back to Index!</a></p>
+		</div>
+	</body>
+</html>

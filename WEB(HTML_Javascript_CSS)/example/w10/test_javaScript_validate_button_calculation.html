@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Validation Example </title>
+    <meta http-equiv="content-type"
+             content="text/html;charset=utf-8" />
+    <script>
+          function calculate() {
+
+	     // var items    = document.form1.noitems.selectedIndex;
+	     var items    = document.form1.noitems.value;
+
+	      var ttotal   = items  * document.form1.costper.value;
+
+	      var thst     = ttotal * 0.13;
+
+	      var tfinal = ttotal * 1.13;
+
+	      document.form1.total.value = ttotal.toFixed(2);
+	      document.form1.hst.value   = thst.toFixed(2);
+	      document.form1.pay.value   = tfinal.toFixed(2);
+	    }
+
+       </script>
+
+</head>
+
+
+<body>
+
+   <form method='post' name='form1' id = 'form1'
+         action = "http://formpost.azurewebsites.net/home/test"
+
+       <p> No. of computers   </p>
+	           <select name='noitems'>
+	             <option>0</option>
+	             <option>1</option>
+	             <option>2</option>
+	           </select>
+
+        <p>Price per computer </p>
+         <input type='text' name='costper' size='7' value='1000.00'/>
+
+      <p> Sub Total   </p>
+        <input type="text" name="total" size="10" value="0.00" />
+       <br />
+       HST.
+        <input type="text" name="hst" size="10" value="0.00" />
+       <br />
+
+       Final Total
+       <input type="text" name="pay" size="10" value="0.00" />
+
+       /// calculate
+       <input type='button' value='  Calculate '
+	                        onclick="calculate();" />
+
+
+
+
+        <br /> <br />
+        <input type="submit" value="Submit"/>     &nbsp;&nbsp;
+        <input type="reset" value="Reset" />
+  </form>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+Script started on Tue 10 Sep 2013 06:52:26 PM EDT
+jgchoi@matrix:~/Documents/BTC100-F13/workshop1> whoami
+jgchoi
+jgchoi@matrix:~/Documents/BTC100-F13/workshop1> cat hello.c
+// getting started - workshop 1
+// helloword.c
+
+int main(void) 
+{
+	printf("Hello world\n");
+}
+
+jgchoi@matrix:~/Documents/BTC100-F13/workshop1> gcc hello.c
+hello.c: In function ‘main’:
+hello.c:6:2: warning: incompatible implicit declaration of built-in function ‘printf’ [enabled by default]
+jgchoi@matrix:~/Documents/BTC100-F13/workshop1> a.out
+Hello world
+jgchoi@matrix:~/Documents/BTC100-F13/workshop1> exit
+exit
+
+Script done on Tue 10 Sep 2013 06:52:47 PM EDT

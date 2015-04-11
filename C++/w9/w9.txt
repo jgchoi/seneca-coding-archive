@@ -1,0 +1,88 @@
+Script started on Tue 01 Apr 2014 09:11:41 PM EDT
+jgchoi@matrix:~/a/w9> whoami
+jgchoi
+jgchoi@matrix:~/a/w9> [Kjgchoi@matrix:~/a/w9> cat[Kjgchoi@matrix:~/a/w9> cat iFood.h
+class iFood {
+	public:
+		virtual int portions() const = 0;
+		virtual void consume() = 0;
+		virtual int remaining() const = 0;
+		virtual void display() const = 0;
+};
+jgchoi@matrix:~/a/w9> cat Pizza.h
+#include "iFood.h"
+
+class Pizza:public iFood{
+	double size;
+	int portion;
+	int currentPortion;
+	
+	public:
+		Pizza();
+		Pizza(double a, int b);
+		
+		int portions() const;
+		void consume();
+		int remaining() const;
+		void display() const;
+};
+
+class DeluxePizza : public Pizza{
+	char toppings[41];
+	
+	public:
+		DeluxePizza();
+		DeluxePizza(double a, int b,const char * c);
+		void display() const;
+};jgchoi@matrix:~/a/w9> cat Pizza.cpp
+#include <iostream>
+#include <cstring>
+#include <iomanip>
+#include "Pizza.h"
+
+Pizza::Pizza(){
+	size = 0;
+	portion = 0;
+	currentPortion = 0;
+}
+Pizza::Pizza(double a, int b){
+	size = a;
+	portion = b;
+	currentPortion = b;
+}
+int Pizza::portions() const{
+	return portion;
+}
+
+void Pizza::consume(){
+	currentPortion -= 1;
+}
+
+int Pizza::remaining() const{
+	return currentPortion;
+}
+void Pizza::display() const{
+	std::cout << size << "\" " << portion << " slices " << currentPortion << " remaining\n";
+}
+
+DeluxePizza::DeluxePizza():Pizza(){
+	toppings[0] = '\0';
+}
+
+DeluxePizza::DeluxePizza(double a, int b,const char * c):Pizza(a,b){
+	std::strcpy(toppings, c);
+}
+
+void DeluxePizza::display() const{
+	Pizza::display();
+	std::cout << "- " << toppings;
+}jgchoi@matrix:~/a/w9> g++ =o[K[K-o w9 w9.cpp Pizza.cpp
+jgchoi@matrix:~/a/w9> w09[K[K9
+14" 8 slices 4 remaining
+
+12" 6 slices 3 remaining
+- mushrooms, peppers
+jgchoi@matrix:~/a/w9> exit
+exit
+
+Script done on Tue 01 Apr 2014 09:12:09 PM EDT

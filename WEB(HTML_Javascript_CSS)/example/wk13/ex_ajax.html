@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> AJAX Example </title>
+    <script src="ex_ajax.js"> </script>
+</head>
+<body>
+
+  <form name='myForm'>
+   <!-- 1. A client event occurs -->
+
+   Input Something: <input type='text' onKeyUp="ajaxFunction();" name='username' /> <br />
+   <p style = "color: blue;">display in text:</p>
+   <textArea name="display1" cols="50" rows="10">
+   </textArea>
+   <input type="reset" value ="Clear"/>
+  </form>
+
+  <div id="display2" style="color:red;">
+         display will be updated in HTML...
+  </div>
+
+</body>
+</html>

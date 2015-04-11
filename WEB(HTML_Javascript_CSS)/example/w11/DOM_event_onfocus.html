@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+         <title> Event Example </title>
+         <meta charset=utf-8" />
+         <script>
+             function setStyle(x)
+	         {
+	           document.getElementById(x).style.background="gray"
+	         }
+
+	         //function resetStyle(x)
+	         function resetStyle()
+	         {
+			 	           //document.getElementById(x).style.background="blue";
+			 	           document.getElementById('fname').style.background="blue";
+			 	           document.getElementById('lname').style.background="red";
+	         }
+         </script>
+
+</head>
+
+<body>
+
+    <form name="form1" method="post"
+          action = "http://formpost.azurewebsites.net/home/test">
+	   First name:
+                 <input type="text"
+	                 onfocus="setStyle(this.id)" id="fname">
+	   <br />
+	   Last name: <input type="text"
+	   onfocus="setStyle(this.id)" id="lname">
+       <br />
+	   <input type="reset" onclick="resetStyle();"/>
+
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?php
+	/*
+	 * Course : BTI320B
+	 * Name : Jung Geon Choi
+	 * Date Submitted : Oct. 14, 2014
+	 *
+	 * Student Declaration
+	 * I/we declare that the attached assignment is my/our own work in accordance with Seneca Academic Policy. No part of this assignment has been copied manually or electronically from any other source (including web sites) or distributed to other students.
+	 * Name Jung Geon Choi
+	 * Student ID 025651134
+	 *
+	*/
+
+	//Function dbConnection()
+		//Return db link object
+		//Read db information from external file and make db object and return the object
+	function dbConnection()
+	{
+		//DB command begin
+		//DB variables
+			//school
+			$lines = file('/home/int322/secret/topsecret');
+			$dbserver = trim($lines[0]);
+			$uid = trim($lines[1]);
+			$pw = trim($lines[2]);
+			$dbname = trim($lines[3]);
+			
+		$link = mysqli_connect($dbserver, $uid, $pw, $dbname)
+				or die('Could not connect: ' . mysqli_error($link));
+				
+		return $link;
+	}
+
+	//Function writeHeader()
+		//Write Header
+	function writeHeader()
+	{
+		?>
+			<html>
+				<head>
+					<title>BTI320 Assignment 1</title>
+				</head>
+				<body>
+					<div>
+						<img src="logo.png" alt="Logo created by myself">
+						<h5>Eddy's Computer Doctor<br>Inventory Management</h5>
+					</div>
+		<?php
+	}
+
+	//Function writeFooter()
+		//Write Footer
+	function writeFooter()
+	{
+		?>
+				<div>
+					<p>(C) Copyright Eddy's Computer Doctor, 2014. All right reserved.</p>
+				</div>
+			</body>
+		</html>
+		<?php
+	}
+
+	//Function writeMenu()
+		//Write menu
+	function writeMenu()
+	{
+		?>
+			<div>
+			|| <a href="add.php">ADD</a> || <a href="view.php">VIEW ALL</a> ||
+			<hr>
+			</div>
+		<?php
+	}
+?>

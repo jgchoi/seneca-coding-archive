@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Assignment 3: Pizza Order
+		</title>
+		
+		<!-- CSS -->
+		<link rel="stylesheet" href="a3.css" type="text/css"/>
+		<!-- CSS END-->
+		
+		<!-- JAVASCRIPT -->
+		<script src="myscript.js"></script>
+		<!-- JAVASCRIPT END-->
+	</head>
+	
+	<body>
+		<h1 id="pg_title">* Joseph's Pizza *</h1>
+		
+		<!-- FORM -->
+			<form	name="pizza" 
+					method="post" 
+					action="http://formpost.azurewebsites.net/home/test" 
+					onreset = "alert('The form will be reset')" 
+					onsubmit = "return validateMyForm(this);">
+				<table class="layout"><!-- Layout Table -->
+					<tr>
+						<td>
+							<fieldset id="section1">
+								<legend>Customer Information</legend>
+									<table class="main">
+										<tr>
+											<td>Client Surname</td>
+											<td><input type="text" name="field01" size="15" maxlength="30"></td>
+										</tr>
+										<tr>
+											<td>Client Number</td>
+											<td><input type="text" name="field02" size="15" maxlength="12"></td>
+										</tr>
+										<tr>
+											<td>Phone Number</td>
+											<td><input type="text" name="field03" size="15" maxlength="12"></td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td><input type="text" name="field04" size="15" maxlength="7"></td>
+										</tr>
+									</table>
+							</fieldset>
+						</td>
+					<td rowspan="2">					
+						<fieldset id="section3">
+							<legend>What's on top of your pizza!</legend>
+								<table class="section3">
+									<tr>
+										<td class="tb_title" colspan="4">Cheeses</td>
+									</tr>
+									<tr class="tb_choice">
+										<td><input type="radio" name="field08" value="0" selected="selected">Mozzarella</td>
+										<td><input type="radio" name="field08" value="1">Cheddar Cheese</td>
+										<td><input type="radio" name="field08" value="2">Four Cheese</td>
+									</tr>
+						
+									<tr>
+										<td class="tb_title" colspan="4">Sauce</td>
+									</tr>
+									<tr class="tb_choice">
+											<td><input type="radio" name="field09" value="0">Regular Tomato</td>
+											<td><input type="radio" name="field09" value="1">Creamy Garlic</td>
+											<td><input type="radio" name="field09" value="2">Seafood Sauce</td>
+											<td><input type="radio" name="field09" value="3">Hot Sauce</td>
+									</tr>
+									<tr>
+										<td class="tb_title" colspan="4">Toppings</td>
+									</tr>
+									<tr class="tb_choice">
+										<td><input type="checkbox" name="field10" value="0">Chicken</td>
+										<td><input type="checkbox" name="field10" value="1">B.B.Q Strip</td>
+										<td><input type="checkbox" name="field10" value="2">Mushroom</td>
+										<td><input type="checkbox" name="field10" value="3">Sun Dried Tomato</td>
+									</tr>
+									<tr class="tb_choice">
+										<td><input type="checkbox" name="field10" value="4">Olive</td>
+										<td><input type="checkbox" name="field10" value="5">Tomato</td>
+										<td><input type="checkbox" name="field10" value="6">Mint</td>
+										<td><input type="checkbox" name="field10" value="7">Peperoni</td>
+									</tr>
+								</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<fieldset id="section2">
+							<legend>Size & Crust</legend>
+								<table class="main">
+									<tr>
+										<td>Size</td>
+										<td>
+											<select name="field05" onchange="pizzaPrice()">
+												<option value="0" selected="selected">Select Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+												<option value="1">Small</option>
+												<option value="2">Medium</option>
+												<option value="3">Large</option>
+												<option value="4">X-Large</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Crust</td>
+										<td>
+											<select name="field06">
+												<option value="0" selected="selected">Regular Crust</option>
+												<option value="1">Thin Crust</option>
+												<option value="2">Think Crust</option>
+											</select>
+										</td>
+									</tr>
+								</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">			
+						<fieldset id="section4">
+							<legend>Place an order</legend>
+								<table class="order">
+									<tr>
+										<td class="left">Special Instructions</td>
+										<td class="right">Total Price : </td>
+										<td class="center"><input type="text" name="field07" disabled="disabled"></td>
+									</tr>
+									<tr class="text">
+										<td class="left"><textarea name="field10" cols="30" rows="3"></textarea></td>
+										<td class="right"><input type="reset" value="Reset"></td>
+										<td class="center"><input type="submit" value="Place an order"></td>
+									</tr>
+								</table>
+						</fieldset>
+					</td>
+				</tr>
+			</table>
+				
+			<!-- HIDDEN -->
+				<input type="hidden" name="field13" value="N">
+				<input type="hidden" name="field14" value="Choi Jung Geon">
+				<input type="hidden" name="field15" value="bti220_141b08">
+			<!-- HIDDEN END-->
+			</form>
+		<!-- FORM END-->
+		
+		<!--Time Stamp-->
+			<div id="time_stamp">		
+			<script> 
+			dt=new Date(document.lastModified); 
+			document.write("<mark> This page was last modified on " + dt.toLocaleString() + "</mark>") 
+			</script>
+			</div>
+		<!--Time Stamp END-->
+	</body>
+</html>

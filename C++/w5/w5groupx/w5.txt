@@ -1,0 +1,111 @@
+Script started on Fri 14 Feb 2014 10:42:24 PM EST
+jgchoi@matrix:~/a/w5> e[Kwhoami
+jgchoi
+jgchoi@matrix:~/a/w5> cat Employee.h Employee.cpp
+//Employee.h
+//
+class Employee {
+	int empNum;
+	char * empName;
+	
+	public:
+		void display() const;
+		bool isGreaterThan(const Employee &) const;
+		
+		Employee();
+		~Employee();
+		Employee(int, const char *);
+		Employee(Employee &);
+		Employee & operator = (const Employee &);
+};
+
+#define MAX_EMPLOYEES 5 
+//Employee.cpp
+//
+#include <new>
+#include <cstring>
+#include <iostream>
+#include <iomanip>
+
+#include "Employee.h"
+
+using namespace std;
+
+void Employee::display() const{
+	cout << setw(8) << left << empNum << empName;
+}
+
+bool Employee::isGreaterThan(const Employee & src) const {
+	if(strcmp(src.empName,empName)<0)
+		return true;
+	else
+		return false;
+}
+
+Employee::Employee(){
+	empNum = 0;
+	empName = new (nothrow) char[1];
+	if(empName != nullptr)
+	empName[0] = '\0';
+}
+
+Employee::Employee(int a, const char * b){
+	empName = new (nothrow) char[strlen(b)+1];
+	if(empName != nullptr)
+		{
+		strcpy(empName,b);
+		empNum = a;
+		}
+}
+
+Employee::~Employee(){
+	if(empName != nullptr)
+		delete [] empName;
+}
+
+Employee::Employee(Employee & src){
+	empName = new (nothrow) char[strlen(src.empName)+1];
+	if(empName != nullptr)
+		{
+		strcpy(empName,src.empName);
+		empNum = src.empNum;
+		}
+}
+
+Employee & Employee::operator = (const Employee & src){
+	if(this != &src)
+		{
+		delete [] empName;
+		empName = new (nothrow) char[strlen(src.empName)+1];
+		if(empName != nullptr)
+			{
+			strcpy(empName,src.empName);
+			empNum = src.empNum;
+			}
+		
+		}
+	return *this;
+}
+jgchoi@matrix:~/a/w5> g++ -o w5 =[K-std=c++0x w5.cpp Employee.ca[Kpp
+jgchoi@matrix:~/a/w5> w5
+Staff List Processor
+====================
+ Employee number (0 to quit) ? 999999
+ Employee name ? Zorro, Frank
+ Employee number (0 to quit) ? 888888
+ Employee name ? Black, Barbara
+ Employee number (0 to quit) ? 7u7^H    77777
+ Employee name ? Windsor, Tony
+ Employee number (0 to quit) ? 0
+
+        Staff List
+
+ Number    Name
+------------------------------
+888888  Black, Barbara
+777777  Windsor, Tony
+999999  Zorro, Frank
+jgchoi@matrix:~/a/w5> exit
+exit
+
+Script done on Fri 14 Feb 2014 10:43:09 PM EST

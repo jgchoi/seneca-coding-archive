@@ -1,0 +1,68 @@
+ nav {
+         background-color:#424242;
+         height:40px;
+		 width: 800px;
+		 margin:auto;
+        }
+ 
+ 
+   nav ul {
+            font-family: Arial, Verdana;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+           }
+ 
+   nav ul li {
+               display: block;
+               position: relative;
+               float: left;
+             }
+ 
+   nav li ul {
+                display: none;
+             }
+ 
+   nav ul li a {
+                  display: block;
+                  text-decoration: none;
+                  padding: 8px 23px 0px 23px;
+                  background: #1C1C1C;
+                  color: white; 
+                  margin-left: 1px;
+				  margin-right: 1px;
+                  white-space: nowrap;
+                  height:30px; /* Width and height of top-level nav items */
+                  width:150px;
+                  text-align:center;
+
+                }
+ 
+   nav ul li a:hover {
+                       background: #848484;
+                      }
+ 
+   nav li:hover ul {
+                     display: block;
+                     position: absolute;
+                     height:30px;
+                   }
+ 
+  nav li:hover li {
+                    float: none;
+                    font-size: 13px;
+                  }
+ 
+  nav li:hover a {
+                    background: #1C1C1C;
+                    height:30px; /* Height of lower-level nav items is shorter than main level */
+                 }
+ 
+  nav li:hover li a:hover {
+                            background: #848484;
+                          }
+ 
+  nav ul li ul li a {
+                       text-align:left; /* Top-level items are centered, but nested list items are left-aligned */
+                    } 

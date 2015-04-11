@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xml:lang='en'>
+ <head>
+  <title>Pizza Order</title>
+  <link   rel='stylesheet'  type='text/css' href='sitecss.css' />
+  <script src='myscript_pizza.js' type='text/javascript'></script>
+
+ </head>
+ <body>
+  <div id='type1'>
+   <table id='order' align = "center">
+    <tr>
+     <td valign='top'>
+      <table width='100%'>
+       <tr>
+        <td align='center' >
+         <form name='pizza' id='pizza' method='post'
+               action='https://cs.senecac.on.ca/~int222/cgi-bin/echo-c.cgi'
+               onsubmit='return formValidation()'>
+               <table border = "2" width = "100%">
+               <caption> <font size = "16pt"> <b> Pizza Order </b> </font> </caption>
+                  <tr>
+                     <td align = "left" width = "50%">
+                        <ul>
+                          <li> Small $11.55 </li>
+                          <li> Medium $15.25 </li>
+                          <li> Large $22.00 </li>
+                          <li> X-Large $25.00 </li>
+                          <li> Plus 13% HST </li>
+                        </ul>
+                     </td>
+                     <td align = "left" width = "50%">
+                        <fieldset>
+                           <legend>User Information</legend>
+                           Client Surname: <input type = "text" name = "field01"/> <br/>
+                           Client Number : <input type = "text" name = "field02"/> <br/>
+                           Telephone :&nbsp; &nbsp; &nbsp; &nbsp; <input type = "text" name = "field03"/><br/>
+                           Date of Birth : &nbsp; <input type = "text" name = "field04"/><br/>
+                        </fieldset>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align = "left">
+                        Size: <select name = "field05", size = "1">
+                                   <option>  Select Pizza Size </option>
+                                   <option> Small </option>
+                                   <option> Medium </option>
+                                   <option> Large </option>
+                                   <option> X-Large </option>
+                              </select>
+                             <br/> <br/>
+
+                        Crust: <select name = "field06", size = "2">
+                             Regular Crust - Thin Crust - Thick Crust - Whole wheat Crust
+                                   <option selected = "selected"> Regular Crust </option>
+                                   <option> Thin Crust </option>
+                                   <option> Thick Crust </option>
+                                   <option> Whole Wheat Crust </option>
+                              </select>
+                             <br/> <br/>
+
+                        Cheese: <input type = "radio" name = "field08" checked = "checked"/>  Mozzarella Cheese
+                                <input type = "radio" name = "field08" /> Reduced Fat Cheese
+                                 <br/> <br/>
+
+                        Source: <input type = "radio" name = "field09" /> Pizza Sauce
+                                <input type = "radio" name = "field09" /> BBQ Sauce
+                                <input type = "radio" name = "field09" /> Garlic Sauce
+                                <br/> <br/>
+
+                        Topping: <input type = "checkbox" name = "field10" /> Topping1
+                                <input type = "checkbox" name = "field10" /> Topping2 <br/>
+                                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <input type = "checkbox" name = "field10" /> Topping3
+                                <input type = "checkbox" name = "field10" /> Topping4 <br/>
+                               &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <input type = "checkbox" name = "field10" /> Topping5
+                                <input type = "checkbox" name = "field10" /> Topping6
+                                <br/> <br/>
+                     </td>
+                     <td align = "left">
+                         <p> Special Instructions: </p>
+                             <textArea rows = "2" cols = "28" >
+                             </textArea>
+                              <br/> <br/>
+                         Price: <input type = "text" name = "field07" disabled="disabled"/>
+                                  <br/> <br/>
+                         <input type = "submit" value = "Submit Form"/>
+                         <input type = "reset" value = "Clear"/>
+                         <input type = "hidden" name = "field13" value = "N"/>
+                         <input type = "hidden" name = "field14" value = "sunny"/>
+                         <input type = "hidden" name = "field15" value = "sun"/>
+                         <input type = "hidden" name = "prof" value = "Shi"/>
+                     </td>
+                  </tr>
+               </table>
+         </form>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+
+   <script type='text/javascript'>
+        dt=new Date(document.lastModified);
+        document.write("<span id='lastupdate' align = 'center'>This page was last modified on "+dt.toLocaleString() + "</span>")
+   </script>
+
+   </div>
+ </body>
+</html>

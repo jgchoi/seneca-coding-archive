@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Lab 6
+		</title>
+		<style>
+			#back a	{
+						border: 1px dotted black;
+						background-color:yellow;
+						padding:10px;
+						font-size:100%;
+						
+					}
+			h1	{
+					text-align:center;
+				}
+			#part1	{	position:relative;
+						
+						border: 1px dotted black;
+						height:300px;
+						width: 250px;
+					}
+			#part2	{	position:relative;
+						left:260px;
+						top:-302px;
+						border: 1px dotted black;
+						height:300px;
+						width: 330px;
+					}
+			#part3	{	position:relative;
+						left:600px;
+						top:-604px;
+						border: 1px dotted black;
+						height:300px;
+						width: 300px;
+					}
+			#part4	{	position:relative;
+						/*left:620px;*/
+						top:-604px;
+						border: 1px dotted black;
+						
+						height:100px;
+						width: 900px;
+					}
+			input	{
+						margin-right:10px;
+					}
+			ul	{
+					list-style:none;
+				}
+			#id	{
+					margin-left:12px;
+				}
+			#ps	{
+					margin-left:7px;
+				}
+			h2	{
+					text-decoration:underline;
+					text-indent:5px;
+				}
+			.box{
+					border:1px dotted black;
+				}
+			form	{
+						width:900px;
+						margin:auto;
+						border:1px dashed black;
+						height:410px;
+					}
+			#qun p	{
+						margin:11px;
+					}
+		</style>
+	</head>
+
+	<body>
+		<h1> Lab 6 : Patrice with Form ! </h1>
+		<hr>
+		<h1> Phone order </h1>
+		<form method="post" id="login" action="http://formpost.azurewebsites.net/home/test">
+			<div id="part1">
+				<h2> Store Information </h2>
+					<ul>
+						<li>Account <input id="id" name="id" type="text" size="15" maxlength="15" value="Store Code"/></li>
+						<li>Password<input id="ps" name="ps" type="password" size="15" maxlength="15"/></li>
+					</ul>
+			</div>
+			
+			<div id="part2">
+				<h2>Phone Information </h2>
+				<p> Model: </p>
+					<p> <input type="checkbox"  name="phone1"  value="4" /> iPhone 4 </p>
+					<p> <input type="checkbox"  name="phone2"  value="4S" /> iPhone 4S </p>
+					<p> <input type="checkbox"  name="phone3"  value="5" /> iPhone 5 </p>
+					<p> <input type="checkbox"  name="phone4"  value="5S" /> iPhone 5S </p>
+					<p> <input type="checkbox"  name="phone5"  value="5C" /> iPhone 5C </p>
+				
+				<div id="qun" style="position:relative;top:-220px;left:150px;">
+					<p> Quantity: </p>
+						<p> <input type="number"  name="quantity1" min="0" max="100" />  </p>
+						<p> <input type="number"  name="quantity2" min="0" max="100" /> </p>
+						<p> <input type="number"  name="quantity3" min="0" max="100" />  </p>
+						<p> <input type="number"  name="quantity4" min="0" max="100" /> </p>
+						<p> <input type="number"  name="quantity5" min="0" max="100" />  </p>
+				</div>
+			</div>
+			
+			<div id="part3">
+				<h2>Delivery Information </h2>
+				<h3>Choose Delivery Type</h3>
+					<p>
+						<input type="radio"  name="Delivery"   value="Regural" checked="checked"/>Regural
+						<input type="radio"  name="Delivery"   value="Express"/>Express
+						<input type="radio"  name="Delivery"   value="One_day"/>One Day
+					</p>
+					<p>Recieving Date <input id="date" name="date" type="text" size="15" maxlength="15" value="2014-04-09" readonly="readonly"/></p>
+					<p style="font-size:11px;">* Currently user cannot change the date</p>
+			</div>
+			
+			<div id="part4">
+				<h3>Speical Order</h3>
+					<textarea style="position:relative;top:-15px;" name="speical" cols="30" rows="3"></textarea>
+					<p style="position:relative;top:-130px; left:750px;"> <input style="width:100px; height:40px;" type="submit" value="Submit Order"/>  </p>
+					<p style="position:relative;top:-140px; left:750px;"> <input style="width:100px; height:40px;" type ="reset" value = "Reset"/> </p>
+					<p style="position:relative;top:-200px; left:350px;"> Request Document <input type="file" name = "Invoice" />  </p>
+			</div>
+		</form>
+		<hr>
+		<div id="back">
+			<p><a href="../index.html">Go Back to Index!</a></p>
+		</div>
+	</body>
+</html>

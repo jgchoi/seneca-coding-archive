@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+         <title> Event Example </title>
+         <meta charset=utf-8" />
+
+   <script type='text/javascript'>
+      var countDown=0;
+      var countPress=0;
+      var countUp=0;
+   </script>
+
+
+</head>
+
+<body>
+
+    <form>
+   <p> press a key:
+   <input type='text' name='name'
+       onkeydown='countDown++; alert("You pressed a key " + countDown + " time\(s\)");'  /></p>
+
+    <p> press a key:
+        <input type='text' name='name'
+       onkeypress='countPress++; alert("You pressed a key " + countPress + " time\(s\)");'  /></p>
+
+   <p> press a key:
+        <input type='text' name='name'
+       onkeyup='countUp++; alert("You pressed a key " + countUp + " time\(s\)");'  /></p>
+
+       <input type="reset"/>
+   </form>
+
+</body>
+</html>

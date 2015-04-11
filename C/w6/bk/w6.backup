@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int getnum();
+int throw(int trial);
+void clearbuff(void);
+
+main()
+{
+	//valuables
+	int goal = 0, trial = 0, dice_val = 0;
+
+	//program title
+	printf("Game of Dice\n"
+	       "============\n");
+
+	//getnum
+	do
+		{
+		printf("Enter total sought : ");
+		goal = getnum();
+		}while(goal==0);
+	
+	//Rolling
+	do
+		{
+		trial++;
+		dice_val = throw(trial);
+		sleep(1);
+		}
+	while(dice_val < goal);
+
+	// End of program
+	printf("You got your total in %d throws!\n", trial);
+}
+
+int throw(int trial)
+{
+		//rand seeding by time
+		srand(time(NULL));
+		
+		//valuables
+		int dice1=0, dice2=0, max=6, min=1, total=0, i=0;
+		
+		//dice
+		dice1 = min + (rand()%(max+1-min));
+		dice2 = min + (rand()%(max+1-min));
+			
+		//total to return
+		total = dice1 + dice2;
+		
+		//output
+		printf("Result of throw  %d : %d + %d \n", trial, dice1, dice2);
+
+	
+	return total;
+}
+
+void clearbuff(void)
+{
+	while(getchar() != '\n')
+	;
+}
+
+int getnum() // input integer with validator , need clearbuff function
+{
+	//valuable
+	int num=0, r=0;
+	int range_min=2, range_max=12; // range of max & min for validation
+	char check=0;
+
+	//Get number
+	r = scanf("%d%c", &num, &check);
+	if(r==0)
+		{
+		printf("*** No valid Input\n");
+			while(getchar() != '\n')
+			;
+		num = 0;
+		}
+	else
+		{
+		if(check!='\n')
+			{
+			printf("*** Trailing input\n");
+			num = 0;
+				while(getchar() != '\n')
+				;
+			}
+		else if(num<range_min || num>range_max)
+			{
+			printf("*** Value must be 2 ~ 12\n");
+			num = 0;
+			}
+		}
+	return num;
+}

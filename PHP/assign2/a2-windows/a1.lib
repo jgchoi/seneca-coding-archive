@@ -1,0 +1,272 @@
+<?php
+	/*
+	Subject:				BTI320B
+	Student Name:		Jung Geon Choi
+	Date Submitted:	Nov. 28, 2014
+	Student Declaration
+	I/we declare that the attached assignment is my/our own work in accordance with Seneca Academic Policy. No part of this assignment has been copied manually or electronically from any other source (including web sites) or distributed to other students.
+	Name Jung Geon Choi
+	Student ID 025651134
+
+	Assignment 2 : Add search, update, login, https, session features to assignment 1
+	*/
+	
+	//Https_control class
+	//Consist of function that are related to redirecting https website
+	class Https_control
+	{
+		//form_action. Returns absolute https url
+		//receives the target php file name
+		public function form_action($target)
+		{
+			$url = "";
+			//Specific path from html root to the folder
+			$path = "/assign2/";
+			
+			if($target == "self")
+			{
+				//target is self, return https self
+				$url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+			}
+			else
+			{
+				//return https addres combined with server + path + target file name
+				$url = "https://".$_SERVER['HTTP_HOST'].$path.$target;
+			}
+			return $url;
+		}
+		
+		//check if request is from https, if not, redirect to https from same requested address
+		public function check_https()
+		{
+			if(!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "" || $_SERVER['HTTPS']== "off")
+			{
+				header("location:https://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+				exit();
+			}
+		}
+		
+		//redirect to https target site
+		public function redirect($target)
+		{
+			$path = "/assign2/";
+			header("location:https://".$_SERVER['HTTP_HOST'].$path.$target);
+			exit();
+		}
+	}
+	
+	//Cookie_control class
+	//consist of cookie related functions
+	class Cookie_control
+	{
+		private $valid_list; //array of valid columns
+		
+		public function __construct()
+		{
+			$this->valid_list = array("id","itemName","description","supplierCode","cost","price","onHand","reorderPoint", "backOrder", "deleted");
+		}
+		
+		//check if cookie exist, or exsiting cookie is valid. If any reason cookie is invalid, set id for cookie
+		public function check_keyword()
+		{
+			if(!isset($_COOKIE['order_by']))
+			{
+				setcookie("order_by","id", time()+(60*60*24*31));
+			}
+			else
+			{
+				$isValid = false;
+				
+				foreach($this->valid_list as $item)
+				{	
+					if($_COOKIE['order_by']==$item)
+					{
+						$isValid = true;
+					}
+				}
+				
+				if($isValid == false)
+				{
+					setcookie("order_by","id", time()+(60*60*24*31));
+				}
+			}
+		}
+		
+		//set cookie from parameter received
+		public function set_keyword($order_by)
+		{
+			setcookie('order_by', $order_by,  time()+(60*60*24*31));
+		}
+	}
+	
+	//Class Session_control
+	//Consist of functions that related to session functions
+	class Session_control
+	{
+		//check user in login(guest) page. If user, redirect to view
+		public function session_guest()
+		{
+			//start session
+			session_start();
+			
+			//check if logged in
+			if(isset($_SESSION['username']))
+			{
+				$https_control = new Https_control();
+				$https_control->redirect('view.php');
+				exit();
+			}
+		}
+		
+		//check user in user only page. If not user, redirect to login
+		public function session_user()
+		{
+			//start session
+			session_start();
+			
+			//check if user
+			if(!isset($_SESSION['username']))
+			{
+				$https_control = new Https_control();
+				$https_control->redirect('login.php');
+				exit();
+			}
+		}
+		
+		//process the logout
+		public function session_logout()
+		{
+			//start session
+			session_start();
+			
+			//https control
+			$https_control = new Https_control();
+			
+			//check if login
+			if(!(isset($_SESSION['username'])))
+			{	
+				//not logged in redirect to login
+				$https_control->redirect('login.php');
+				exit();
+			}
+			else
+			{
+				//logged in. Do logout process
+				session_destroy();
+				setcookie("PHPSESSID", "", time() - 61200,"/");
+				unset($_SESSION);
+				
+				$https_control->redirect('login.php');
+				exit();				
+			}			
+		}
+	}
+	
+	//DBlink
+	//Function related to mysql connection/query
+	class DBLink
+	{
+		private $link;
+		private $num_result; //number of result returned
+		
+		public function __construct()
+		{
+			 // $lines = file('/home/int322/secret/topsecret');
+			 // $dbserver = trim($lines[0]);
+			 // $uid = trim($lines[1]);
+			 // $pw = trim($lines[2]);
+			 // $dbname = trim($lines[3]);
+
+			 $dbserver = 'localhost';
+			 $uid = 'root';
+			 $pw = 'ab890103';
+			 $dbname = 'int322';
+			
+			$this->link = mysqli_connect($dbserver, $uid, $pw, $dbname)
+			or die('Could not connect: ' . mysqli_error($this->link));
+		}
+		
+		//execute query received from parameter
+		public function query($sql_query)
+		{
+			$result = mysqli_query( $this->link, $sql_query) or die('Query error: ' . mysqli_error($this->link));
+			
+			//if query return is select count number of rows
+			if($result!==true)
+			{
+				$this->num_result = mysqli_num_rows($result);
+			}
+			return $result;
+		}
+		
+		public function __destruct()
+		{
+			mysqli_close( $this -> link );
+		}
+		
+		//returns true if result is empty
+		public function emptyResult()
+		{
+			return $this->num_result == 0 ? true : false;
+		}
+	}
+	
+	//Class HeaderAndFooter
+	//consists of displayHeader and displayFooter Nothing else.
+	class HeaderAndFooter
+	{
+		public function displayHeader()
+		{
+			?>
+				<html>
+					<head>
+						<title>BTI320 Assignment 2</title>
+					</head>
+					<body>
+						<div>
+							<img src="logo.png" alt="Logo created by myself">
+							<h5>Eddy's Computer Doctor<br>Inventory Management</h5>
+						</div>
+			<?php
+		}
+
+		public function displayFooter()
+		{
+			?>
+					<div>
+						<p>(C) Copyright Eddy's Computer Doctor, 2014. All right reserved.</p>
+					</div>
+				</body>
+			</html>
+			<?php
+		}
+	}
+	
+	//class Menu
+	//consist of one function display.
+	class Menu
+	{
+		//takes 3 parameter search keyword, username and user role. Display in the menu.
+		//prevent CSS 
+		public function display($keyword, $username, $role)
+		{
+			//https control
+			$https_control = new Https_control();
+			?>
+				<div>
+					<form method="post" action="<?php print $https_control->form_action("view.php");?>">
+						|| <a href="<?php print $https_control->form_action("add.php");?>">ADD</a> 
+						|| <a href="<?php print $https_control->form_action("view.php");?>?clear">VIEW ALL</a> 
+						|| Search in description:
+								<input type="text" name="keyword" value="<?php print htmlentities($keyword);?>">
+								<input type="submit" value="Search">							
+						||	User : <?php print htmlentities($username);?> 
+						|| Role : <?php print htmlentities($role);?> 
+						|| <a href="<?php print $https_control->form_action("logout.php");?>">Logout</a>
+						<hr>
+					</form>
+				</div>
+			<?php
+		}
+	}
+?>

@@ -1,0 +1,153 @@
+Script started on Fri 27 Sep 2013 10:48:11 PM EDT
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> cat w4.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop4
+ * Name			- Jung Geon Choi
+ * File name		- w4
+ * Due date		- Oct.01, 2013
+ * Program Title	- Interest Calculator : Calculate total amount of own would receive with given principal
+ *						interest rate and number of period using functions
+ */
+ 
+#include <stdio.h>
+
+float sqr(float base,int exp)//calculation exponential value from base and int
+{
+float rate=1;
+base = base + 1;
+while(exp>0)
+	{
+	exp--;
+	rate=rate*base;
+	}
+return rate;
+}
+
+main()
+{
+int exp;
+float base,prin;
+
+printf(	"\nInvest Calculator\n"
+	  "=================\n"
+	  "Principal : ");
+	scanf("%f", &prin);
+printf( "Annual Rate : ");
+	scanf("%f", &base);
+printf(	"No of Years : ");
+	scanf("%d", &exp);
+		
+prin=prin*sqr(base,exp);
+printf("\nThe future value is $%.2f\n\n",prin);
+}
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> cc w4.c
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> .[Ka.out
+
+Invest Calculator
+=================
+Principal : 199^H^H       1000
+Annual Rate : 0.06
+No of Years : 5
+
+The future value is $1338.23
+
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> cat w4op1.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop4 Optional 1
+ * Name			- Jung Geon Choi
+ * File name		- w4op1
+ * Due date		- Oct.01, 2013
+ * Program Title	- Prime chart creator : Creates prime number chart with given top number and number of columns
+ */
+ 
+#include <stdio.h>
+
+
+int checkdigit(int numb)//Calculate how many digit the prime number have
+{
+int digit=0;
+while(numb>0)
+	{
+	++digit;
+	numb=numb/10;
+	}
+return digit;
+}
+
+
+main()
+{
+int lim,num=1,colm,colmo,digit1;
+
+printf("\nTable of Primes\n"
+         "===============\n"
+	 "Upper limits : ");
+	scanf("%d", &lim);
+printf("# of columns : ");
+	scanf("%d", &colm);
+colmo=colm;
+	
+	while(num<lim)
+		{	
+		++num;
+		if(prime(num)==1)
+			{
+			digit1=checkdigit(num);
+			while(digit1<5)//Add space depends on how man digit it has (max 5 digit for now), by changing number, digits can increase
+				{
+				printf(" ");
+				digit1++;
+				}
+			printf("%d\t",num);
+			colm--;//substract colm value to count how many values have been entered, if it become 0 next if() will print \n
+			}
+		if(colm==0)
+			{
+			colm=colmo;
+			printf("\n");
+			}
+		}
+printf("\n");//If there is no more prime number, print \n to clearly divide chart from command line
+}
+
+int prime(int num)//this function gives either 0 or 1 by checking if the number is prime or not. That's it
+{
+int numorig,div,primefail=1;
+div=num;
+numorig=num;
+	
+	while(div>2)
+		{
+		div--;
+		num=numorig%div;
+		if(num==0)
+			{
+			return primefail=0;
+			}
+		}
+return primefail;
+}
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> a[Kgg[K[Kcc w4op1.c
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> a.out
+
+Table of Primes
+===============
+Upper limits : 175
+# of columns : 5
+    2	    3	    5	    7	   11	
+   13	   17	   19	   23	   29	
+   31	   37	   41	   43	   47	
+   53	   59	   61	   67	   71	
+   73	   79	   83	   89	   97	
+  101	  103	  107	  109	  113	
+  127	  131	  137	  139	  149	
+  151	  157	  163	  167	  173	
+
+jgchoi@matrix:~/documents/btp100f13/workshop4/complete> exit
+exit
+
+Script done on Fri 27 Sep 2013 10:49:11 PM EDT

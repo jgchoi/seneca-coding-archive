@@ -1,0 +1,101 @@
+Script started on Wed 02 Oct 2013 10:24:19 PM EDT
+jgchoi@matrix:~/documents/btp100f13/workshop5> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp100f13/workshop5> cat w5b1.c
+/*
+ * Course Code		- BTP100
+ * Assignment Number	- Workshop5 Bonus1
+ * Name			- Jung Geon Choi
+ * File name		- w5b1.c
+ * Due date 		- Oct. 08 / 2013
+ * 
+ * Average calculator : Calculate avrage of marks
+ */
+
+#include<stdio.h>
+#define MAX 100
+#define MIN 0
+
+//Clear buffer leftover from getchar
+//
+void clearbuf (void)
+{
+	while (getchar() != '\n')
+		;
+}
+
+//input validator. only accept numbers in between #MAX & #MIN
+//
+float getint(int min, int max)
+{
+	float value, keeptrying = 1, rc;
+	char after;
+
+	do
+	{
+		printf( "Enter a mark [%d..%d]", min,max);
+		rc = scanf("%f%c", &value,&after);
+		if(rc==0)
+		{
+			printf("*** No valid input. Re-input again.\n");
+			clearbuf();
+		}
+		else if(after!='\n')
+		{
+			printf("*** Trailing characters. Re-input again.\n");;
+			clearbuf();
+		}
+		else if(value < min || value > max)
+		{
+			printf("*** Out of range. Re-input again.\n");
+		}
+		else
+			keeptrying = 0;
+	}while (keeptrying ==1);
+	return value;
+}
+
+
+main()
+{
+
+//valuable
+//
+int entry=-1;
+float total=0,mark=0,avg1=0;
+
+//get input with validation using getint counts number of entry
+//
+do
+{
+mark = getint(MIN,MAX);
+
+entry++;
+total = total + mark;
+}while (mark!=0);
+
+//Calculation of avg and output
+//
+avg1 = total/entry;
+printf("The average of the %d marks is %.2f\n",entry,avg1);
+}
+jgchoi@matrix:~/documents/btp100f13/workshop5> a.[K[Kcc w5b1.c
+jgchoi@matrix:~/documents/btp100f13/workshop5> a.out
+Enter a mark [0..100]103
+*** Out of range. Re-input again.
+Enter a mark [0..100]20a
+*** Trailing characters. Re-input again.
+Enter a mark [0..100]ab
+*** No valid input. Re-input again.
+Enter a mark [0..100]90.^H^H^H^H           89.98
+Enter a mark [0..100]8^H   78a
+*** Trailing characters. Re-input again.
+Enter a mark [0..100]78
+Enter a mark [0..100]98.5
+Enter a mark [0..100]65.9
+Enter a mark [0..100]0
+The average of the 4 marks is 83.10
+jgchoi@matrix:~/documents/btp100f13/workshop5> exit
+exit
+
+Script done on Wed 02 Oct 2013 10:25:05 PM EDT

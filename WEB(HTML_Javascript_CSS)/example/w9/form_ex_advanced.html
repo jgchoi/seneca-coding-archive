@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+         <title> Example Form </title>
+
+</head>
+
+<body bgcolor = "gray">
+
+  <form method="post" name = "example1"
+    action = "http://formpost.azurewebsites.net/home/test">
+
+  <h3> Please Input Your Answers to the Questions: </h3>
+
+  <fieldset>
+     <legend>Some Questions</legend>
+       <p > Course: <input type = "text" name ="courseName" size = "30" maxlength="50" value = "BTI220"
+                      readonly= "readonly" tabindex = "1" /> </p>
+       <p>  Name: <input type="text"  name="MyName"   size="30" maxlength="50" tabindex ="20"/> </p>
+       <p> Question: <input type="text"   name="Quest"    size="30"    maxlength="100" tabindex = "10"/>  </p>
+  </fieldset>
+
+  <fieldset>
+     <legend> more questions </legend>
+        <p>Favorite color: <input type="radio"  name="Color"   value="Red" checked="checked"/> Red
+                           <input type="radio"  name="Color"   value="Blue"/> No, blue!
+        </p>
+
+        <p> disabled box: <input type="text" size = "30" disabled="disabled" value ="disabled value"/> </p>
+ </fieldset>
+
+   <input type="submit" value="Answer These Questions" tabindex = "40"/>
+
+  <input type ="reset" value = "   Clear     " tabindex = "30" />
+
+  </form>
+
+</html>

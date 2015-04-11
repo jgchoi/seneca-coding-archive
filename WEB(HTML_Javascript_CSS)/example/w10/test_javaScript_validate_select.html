@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Validation Example </title>
+    <meta http-equiv="content-type"
+             content="text/html;charset=utf-8" />
+    <script>
+
+    function validateSelection() {
+      // **************************************************************************
+      // **** Validate that a selection was made from a select option list     ****
+      // **** named "plans" in the form named "form1".                         ****
+      // **************************************************************************
+      var errorMessages    = "";
+      var errorsInForm     = false;
+
+      // document.form1.plans.selectedIndex returns the index of the selected item, start from 0.
+      // if no selected item, return -1
+
+      if (document.form1.plans.selectedIndex == -1)
+      {
+          alert("Please select a plan.\n");
+          return false;
+       }
+       else {
+              return true;
+            }
+    }
+
+       </script>
+
+</head>
+
+
+<body>
+
+   <form method='post' name='form1' id = 'form1'
+         action = "http://formpost.azurewebsites.net/home/test"
+         onsubmit='return validateSelection()'>
+         <!--     onsubmit='return validateTextArea(form1)'>  -->
+
+       <p>Plans for next week:</p>
+       <select name='plans' size='4'>
+         <option>Take a vacation</option>
+         <option>Study for an Exam</option>
+         <option>Make some money to pay bills</option>
+         <option>Do absolutely nothing</option>
+
+       </select>
+
+
+        <br /> <br />
+        <input type="submit" value="Submit"/>     &nbsp;&nbsp;
+        <input type="reset" value="Reset" />
+  </form>
+
+
+</body>
+</html>

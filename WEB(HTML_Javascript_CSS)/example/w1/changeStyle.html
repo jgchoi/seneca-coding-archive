@@ -1,0 +1,28 @@
+<!-- chage style -->
+<!Doctype html>
+<head>
+   <title>Change Style</title>
+   <script>
+      function changeStyleDef(objectID, styleName, newVal) {
+         document.getElementById(objectID).style[styleName] = newVal;
+      }
+   </script>
+   <style>
+      #large {font-size:18px}
+      #small {font-size:18px}
+      #object1 {font-size:4px; width:300px}
+      p.color {color: blue;}
+   </style>
+</head>
+
+<body>
+   <p class = "color"> move the mouse over the large | small, see the result... </p>
+   <span id="large" onmouseover="changeStyleDef('object1','fontSize','24pt');">Large</span> |
+   <span id="small" onmouseover="changeStyleDef('object1','fontSize','10pt');">Small</span>
+   <div id="object1">
+      And here are some words, and some more words.
+      Blah, blah, blah, and more blah, blah, blah, and even more blah, blah, blah.
+      Blah, blah, blah, and more blah, blah, blah, and even more blah, blah, blah.
+
+   </div>
+</body>

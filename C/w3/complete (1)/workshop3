@@ -1,0 +1,275 @@
+Script started on Thu 19 Sep 2013 11:48:21 PM EDT
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> whoami
+jgchoi
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> cat w3.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop3
+ * Name			- Jung Geon Choi
+ * File name		- w3
+ * Due date		- Sep.24, 2013
+ * SIN number validator : As user input SIN number output tells whether the 
+ * 			  SIN number is valid or not
+ */
+#include <stdio.h>
+
+main()
+{
+		long sin=0;
+		int doubleDigit,singleDigit,d1,d2,d3,d4,d5,d6,d7,d8,check,match;
+
+		printf("\nSIN Validator\n\n");
+		printf("=============\n");
+		printf("SIN (0 to quit) : ");
+		scanf("%ld", &sin);
+		
+		while(sin>0)
+		
+		{	
+					
+			check = sin%10;
+			d8=sin/10%10;
+			d7=sin/100%10;
+			d6=sin/1000%10;
+			d5=sin/10000%10;
+			d4=sin/100000%10;
+			d3=sin/1000000%10;
+			d2=sin/10000000%10;
+			d1=sin/100000000%10;
+			switch (d2)
+				{
+				case 1 :
+						d2=2;
+						break;
+				case 2 :
+						d2=4;
+						break;
+				case 3 : 
+						d2=6;
+						break;
+				case 4 :
+						d2=8;
+						break;
+				case 5 :
+						d2=1;
+						break;
+				case 6 :
+						d2=3;
+						break;
+				case 7 :
+						d2=5;
+						break;
+				case 8 :
+						d2=7;
+						break;
+				case 9 :
+						d2=9;
+						break;
+				default :
+						break;
+				}	
+			switch (d4)
+				{
+				case 1 :
+						d4=2;
+						break;
+				case 2 :
+						d4=4;  
+						break;    
+				case 3 :
+						d4=6;
+						break;
+				case 4 :
+						d4=8;
+						break;
+				case 5 :
+						d4=1;
+						break;
+				case 6 :
+						d4=3;
+						break;
+				case 7 :
+						d4=5;
+						break;
+				case 8 :
+						d4=7;
+						break;
+				case 9 :
+						d4=9;
+						break;
+				default :
+						break;
+				}
+			switch (d6)
+				{
+				case 1 :
+						d6=2;
+						break;
+				case 2 :
+						d6=4;  
+						break;    
+				case 3 :
+						d6=6;
+						break;
+				case 4 :
+						d6=8;
+						break;
+				case 5 :
+						d6=1;
+						break;
+				case 6 :
+						d6=3;
+						break;
+				case 7 :
+						d6=5;
+						break;
+				case 8 :
+						d6=7;
+						break;
+				case 9 :
+						d6=9;
+						break;
+				default:
+						break;
+				}
+			switch (d8)
+				{
+				case 1 :
+						d8=2;
+						break;
+				case 2 :
+						d8=4;  
+						break;    
+				case 3 :
+						d8=6;
+						break;
+				case 4 :
+						d8=8;
+						break;
+				case 5 :
+						d8=1;
+						break;
+				case 6 :
+						d8=3;
+						break;
+				case 7 :
+						d8=5;
+						break;
+				case 8 :
+						d8=7;
+						break;
+				case 9 :
+						d8=9;
+						break;
+				deafult:
+						break;
+				}
+					doubleDigit = d2+d4+d6+d8;
+					singleDigit = d1+d3+d5+d7;
+					match		= check+singleDigit+doubleDigit;
+		match = match%10==0?1:0;
+		if(match)
+		printf("This is a valid SIN\n");
+		else
+		printf("This is not a valid SIN\n");
+		
+		printf("SIN (0 to quit) : ");
+		scanf("%ld", &sin);
+		
+			}
+			
+		
+		printf("Have a nice day!\n");
+}
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> cc w3.c
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> a.out
+
+SIN Validator
+
+=============
+SIN (0 to quit) : 193456787
+This is a valid SIN
+SIN (0 to quit) : 193456788
+This is not a valid SIN
+SIN (0 to quit) : 0
+Have a nice day!
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> cat w3op1.c
+/*
+ * Course Code 			- BTP100
+ * Assignment Number	- Workshop3 Optional program 1
+ * Name					- Jung Geon Choi
+ * File name			- w3op1
+ * Due date				- Sep.24, 2013
+ * UPC number validator : As user input UPC number output tells whether the 
+ * 			 			  UPC number is valid or not
+ */
+#include <stdio.h>
+
+main()
+{
+	//valuables
+		long long upc = 0LL;
+		int tripleDigit,singleDigit,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,check,match;
+
+	//Input UPC number
+		printf("\nUPC Validator\n\n"
+			   "===============\n"
+		       "Enter UPS (0 to quit) : ");
+		scanf("%lld", &upc);
+	while(upc>0)
+		{	
+	// separate digit 
+		check = upc%10;
+		d11=upc/10%10;
+		d10=upc/100%10;
+		d9 =upc/1000%10;
+		d8 =upc/10000%10;
+		d7 =upc/100000%10;
+		d6 =upc/1000000%10;
+		d5 =upc/10000000%10;
+		d4 =upc/100000000%10;
+		d3 =upc/1000000000%10;
+		d2 =upc/10000000000%10;
+		d1 =upc/100000000000%10;
+
+
+
+		//validation calculation
+		tripleDigit = d2+d4+d6+d8+d10;
+		singleDigit = (d1+d3+d5+d7+d9+d11)*3;
+		match		= check+singleDigit+tripleDigit;
+		//check if total sum is ends in 0's
+		match = match%10==0?1:0;
+		if(match==1)
+			{
+			printf("This is valid UPC.\n");
+			printf("The company code is %d%d%d%d%d%d.\n",d1,d2,d3,d4,d5,d6);
+			printf("The product code is %d%d%d%d%d.\n",d7,d8,d9,d10,d11);
+			}
+		else
+			printf("This is not a valid UPC.\n");
+		//Ask UPS again
+		printf("Enter UPS (0 to quit) : ");
+		scanf("%lld", &upc);
+		}
+		//If 0 is entered
+	printf("Have a nice day!\n");
+		
+}jgchoi@matrix:~/Documents/BTP100-F13/workshop3> cc op[K[Kw3op1.c
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> a.out
+
+UPC Validator
+
+===============
+Enter UPS (0 to quit) : 067800001019
+This is valid UPC.
+The company code is 067800.
+The product code is 00101.
+Enter UPS (0 to quit) : 067800001018
+This is not a valid UPC.
+Enter UPS (0 to quit) : 0
+Have a nice day!
+jgchoi@matrix:~/Documents/BTP100-F13/workshop3> exit
+exit
+
+Script done on Thu 19 Sep 2013 11:49:33 PM EDT

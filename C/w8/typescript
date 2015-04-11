@@ -1,0 +1,197 @@
+Script started on Thu Nov 14 14:23:50 2013
+jgchoi@matrix:~/1/w8> whoami
+jgchoi
+jgchoi@matrix:~/1/w8> cat w8.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop8
+ * Name			- Jung Geon Choi
+ * File name		- w8
+ * Due date		- Nov. 19, 2013
+ * Word Counter : Count number of words
+ */
+ 
+#include <stdio.h>
+#define MAX_WORD_SIZE 100
+
+//-----------------------------------------------------------------------------
+//prototypes
+void p_title(void);
+int wordCount(char input[]);
+
+
+//-----------------------------------------------------------------------------
+//main
+int main(void)
+{
+	//---- (valuable) -------------------------------------------
+	char input[MAX_WORD_SIZE] = {0};
+	
+	//---- (title) ----------------------------------------------
+	p_title();
+	
+	//---- (input) ----------------------------------------------
+	printf("Text to be analyzed : ");
+		scanf("%100[^\n]",input);
+		
+	//---- (count word) -----------------------------------------
+	printf("Word count          : %d\n",wordCount(input));
+	
+	//---- (end) ------------------------------------------------
+	return 0;
+}
+
+//-----------------------------------------------------------------------------
+//wordCount : Counter number of word in the string
+int wordCount(char input[])
+{
+	//---- (valuable) -------------------------------------------
+	int al_word = 0; // 1=previous string is already a word 
+	int i = 0; // simple loop counter
+	int count_word = 0; // if(changes from "white" to "word" ++;
+	
+	//---- (count) ----------------------------------------------
+	for(i=0;input[i]!='\0';i++) // loop till end of string
+		{
+		if(input[i]=='\n' || input[i]=='\t' || input[i]=='\f' ||
+		   input[i]=='\v'||input[i]==' ') // if(any white spaces)
+			{
+			al_word=0;
+			}
+		else // string is word
+			{
+			if(al_word==1) //(looping within same word, no change)
+				{
+				;
+				}
+			else
+			if(al_word==0) //it is new word followed by blank
+				{
+				count_word++;
+				al_word=1;
+				}
+			} //if else end
+		} // loop end
+	return count_word;
+}
+
+//-----------------------------------------------------------------------------
+//"P"rint Title
+void p_title(void)
+{
+	printf("Word Counter\n"
+	       "============\n");
+}
+
+jgchoi@matrix:~/1/w8> cc w8.c
+jgchoi@matrix:~/1/w8> a.out
+Word Counter
+============
+Text to be analyzed : C is not that hard!
+Word count          : 5
+jgchoi@matrix:~/1/w8> cat w8. op1.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop8
+ * Name			- Jung Geon Choi
+ * File name		- w8op1
+ * Due date		- Nov. 19, 2013
+ * Word Cleaner : Remove unwanted spaces!
+ */
+
+#include <stdio.h>
+#define MAX_WORD_SIZE 100
+
+//-----------------------------------------------------------------------------
+//prototypes
+void cleaner(char input[]);
+void p_title(void);
+
+//-----------------------------------------------------------------------------
+int main(void)
+{
+	//valuable
+	char input[MAX_WORD_SIZE]={0};
+	
+	//title
+	p_title();
+	
+	//input
+	printf("Text to be cleaned  : ");
+		scanf("%100[^\n]",input);
+	cleaner(input);
+	
+	//output
+	printf("Cleaned text        : %s\n",input);
+	
+	//end
+	return 0;
+}
+
+//-----------------------------------------------------------------------------
+void cleaner(char input[])
+{
+	int al_white=0;
+	int i=0;
+	int j=0;
+	int i_reset=0;
+
+	while(input[i]!='\0')
+		{
+		if(input[i]=='\n' || input[i]=='\t' || input[i]=='\f' || input[i]=='\v'||input[i]==' ')
+			{
+			if(i==0)
+				{
+				for(i=0;input[i]!='\0';i++)
+					{
+					input[i]=input[i+1];
+					}
+				i_reset=1;
+				}
+			else 
+			if(al_white==1)
+				{
+				for(j=i;input[j]!='\0';j++)
+					{
+					input[j]=input[j+1];
+					}
+				i_reset=1;
+				}
+			else
+				{
+				al_white=1;
+				}
+			}
+		else //char
+			{
+			al_white=0;
+			}
+			
+		if(i_reset==1)
+			{
+			i_reset=0;
+			i=0;
+			}
+		else
+			{
+			i++;
+			}
+			
+		}
+}
+
+void p_title(void)
+{
+	printf("Text Cleaner\n"
+		   "============\n");
+}
+jgchoi@matrix:~/1/w8> cc w8op1.c
+jgchoi@matrix:~/1/w8>       a.out
+Text Cleaner
+============
+Text to be cleaned  :    a C   is not    T that  hard!
+Cleaned text        : C is not that hard!
+jgchoi@matrix:~/1/w8> exit
+exit
+
+Script done on Thu Nov 14 14:24:52 2013

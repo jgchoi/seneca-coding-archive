@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title> DOM programming </title>
+
+</head>
+<body>
+  <div id = "div1">
+     <h1 id = "gg"> greeting... </h1>
+     <p id = "hi"> Good Morning </p>
+     <p id = "p2"> Enjoy! </p>
+
+  </div>
+
+  <div id = "div2">
+      <p> p1 in div2 </p>
+      <p> p2 in div2 </p>
+      <p> p3 in div2 </p>
+  </div>
+
+   <script>
+      document.write("<br/>/////////////////////////////////////////////////////////////////////<br/>");
+      document.write("Testing: access DOM element <br/>");
+         // access DOM element
+  /*   // x is a paragraph element
+    	          var x = document.getElementById("hi");
+    	          // content of the paragraph element
+    	          var txt = x.innerHTML;
+    	      */
+    	          var txt = document.getElementById("hi").innerHTML
+    	          document.write(txt);
+
+    	        //  txt += " Everybody!";
+
+
+    	        /*  // set CSS style using script
+    	           var y = document.getElementById("gg").innerHTML;
+    	          //document.write(y);
+    	          document.write("<br/> <h3 style='color:blue'>" + y + "</h3>")
+  	       */
+
+  	/////////////////////////////////////////////////////////////////////
+
+      document.write("<br/>/////////////////////////////////////////////////////////////////////<br/>");
+      document.write("Testing: change DOM element content <br/>");
+      // change the content of the paragraph element
+	/*   var txt = "Change paragraph using script. ";
+  	   document.getElementById("hi").innerHTML = txt;
+  	   document.getElementById("hi").style.color = "red";
+   */
+          /////////////////////////////////////////////////////////////////////
+          // use getElementsByTagName()
+         /*  document.write("<br/>/////////////////////////////////////////////////////////////////////<br/>");
+                document.write("There are " + document.getElementsByTagName("p").length + "  paragraphs in this document. <br/>");
+                document.write("Paragraphs in div2: <br/>");
+
+                 var m = document.getElementById("div1");
+     	         var a = m.getElementsByTagName("p");
+
+     	         document.write("<br/>first paragraph in div1: "+ a[0].innerHTML + "<br/>");
+
+     	         for (var i = 0; i < a.length; i++)
+     	         {
+     	            var no = i+1;
+     	            document.write("<br/> Paragraph " + no + " :" + a[i].innerHTML + "<br/>");
+  	              }
+   */
+ </script>
+
+
+</body>
+</html>

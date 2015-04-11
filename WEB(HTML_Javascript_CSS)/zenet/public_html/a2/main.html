@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		
+		<!--External CSS-->
+		<link rel="stylesheet" href="css/main.css" type="text/css"/>
+		<link rel="stylesheet" href="css/section.css" type="text/css"/>
+		<link rel="stylesheet" href="css/menu.css" type="text/css"/>
+				
+		<title>
+			Assignment 2:main
+		</title>
+	</head>
+	
+	<body>
+	<!--title-->
+		<div id="title">
+		<p class="title"> <a class="t" href="main.html">Choi's first web site </a></p>
+		</div>
+	<!--end title-->
+	
+	<!--main-->
+		<div id="content">
+			<!--menu-->
+				<nav>
+					<ul>
+						<li><a href="main.html">Introduction</a>
+							<ul>
+								<li><a href="../lab3/about_me.html" target="_blank">About me</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="faq.html">F&amp;Q</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My Works</a>
+							<ul>
+								<li><a href="lab1.html">Lab1</a></li>
+								<li><a href="../lab2/lab2.js" target="_blank">Lab2</a></li>
+								<li><a href="../lab3/introduction.html" target="_blank">Lab3</a></li>
+								<li><a href="../lab5/lab5.html" target="_blank">Lab4&amp;5</a></li>
+								<li><a href="../a1/a1.js" target="_blank">Assignment1</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My sons</a>
+							<ul>
+								<li><a href="aboutjoseph.html">About Joseph</a></li>
+								<li><a href="photo.html">Photo</a></li>
+								<li><a href="video.html">Video</a></li>
+							</ul>
+						</li>
+						<li><a href="honesty.html">Academic Honesty</a></li>
+					</ul>
+				</nav>
+			<!--end menu-->
+			
+			<!--content-->
+			<div class="center">
+			<p>This web page is all about me!</p>
+			<p>The picture below reminds me the happy memory from last summer when I went to camping with my family.</p>
+			<img src="img/main.JPG" alt="fire" title="camp fire" width="300" height="400">
+			</div>
+			<!--end content-->
+		</div>
+	<!--end main-->
+	
+	<!--Time Stamp-->
+		<div id="time_stamp">		
+		<script> 
+		dt=new Date(document.lastModified); 
+		document.write("<mark> This page was last modified on " + dt.toLocaleString() + "</mark>") 
+		</script>
+		</div>
+	<!--end of Time Stamp-->
+	
+	<!--Resolution & validation information-->
+		<p class="center"> This web page is optimized for 1024*768 display<br>	
+			<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px"
+				src="http://jigsaw.w3.org/css-validator/images/vcss"
+				alt="올바른 CSS입니다!" />
+			</a>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px"
+			src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+			alt="올바른 CSS입니다!" />
+			</a>
+		</p>
+	<!--end of info-->
+	</body>
+</html>

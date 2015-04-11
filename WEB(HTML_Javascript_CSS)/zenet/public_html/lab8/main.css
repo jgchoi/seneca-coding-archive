@@ -1,0 +1,28 @@
+	#back a	{
+						border: 1px dotted black;
+						background-color:yellow;
+						padding:10px;
+						font-size:100%;
+					}
+			#back	{
+						margin:auto;
+						width:20%;
+						
+					}
+			#pg_title	{
+							margin:auto;
+							border:1px solid green;
+							width:80%;
+							color:yellow;
+							font-size:300%;
+							background-color:black;
+						}
+			h1{ text-align:center;}
+			form	{
+						width:80%;
+						margin:auto;
+					}
+			body	{
+						background-color:gray;
+						
+					}

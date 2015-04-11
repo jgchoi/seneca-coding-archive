@@ -1,0 +1,169 @@
+Script started on Sat 18 Jan 2014 09:45:59 PM EST
+jgchoi@matrix:~/a/w2/w2pt1> whoami
+jgchoi
+jgchoi@matrix:~/a/w2/w2pt1> cat w2.cpp Fraction.h Fraction.cpp
+#include <iostream>
+using namespace std;
+#include "Fraction.h"
+
+int main()
+	{
+	Fraction fraction;
+	int num, den;
+
+	cout << "Fraction Simplifier" << endl;
+	cout << "===================" << endl;
+
+	cout << "Numerator	: ";
+	cin >> num;
+	cout << "Denomenator	: ";
+	cin >> den;
+	cout << endl;
+
+	fraction.set(num, den);
+	fraction.display();
+	}
+
+class Fraction
+	{
+	int nu; //numerator
+	int de; //denominator
+	
+	public :
+		void set(int n, int d);
+		void simplify();
+		void display() const;
+	};#include <iostream>
+using namespace std;
+#include "Fraction.h"
+
+void Fraction::set(int n , int d)
+{
+ nu=n;
+ de=d;
+ simplify(); // call simplify function as well as set in running
+}
+
+void Fraction::simplify()
+{
+        //valuable : dc (divider counter), minkeep(keeping min number)  
+        int dc=1, minkeep=0;
+	int demi=0, numi=0;
+        //case of nu = de
+        if(nu == de)
+		return;
+	//case of de=0
+	if(de == 0)
+		return;
+
+	if(nu == 0)
+		return;
+
+	//case if any numb is minus
+	if(nu<0)
+		{nu*=-1;numi=1;}
+	if(de<0)
+		{de*=-1;demi=1;}
+        
+		
+	//set minimum number
+	if(nu < de)
+			minkeep = nu;
+	else
+			minkeep = de;
+
+        //Trying division starting with 2
+        do
+        {
+                dc++;
+                if(nu % dc == 0 && de % dc == 0)
+                {
+                        nu = nu / dc;
+                        de = de / dc;
+                        dc = 1;
+                }
+        }
+        while(dc<minkeep); // if divider get bigger than min value it stops
+	
+	//if it was minus, change back
+	if(demi==1 && numi==1)
+		;
+	else if(demi==1)
+		nu *= -1;
+	else if(numi==1)
+		nu *= -1;
+}
+
+
+
+
+
+void Fraction::display() const
+{
+if(de==0)
+cout << "Undefined" << endl;
+else if(nu==0)
+cout << 0 << endl;
+else
+cout << nu << " / " << de << endl;
+}
+jgchoi@matrix:~/a/w2/w2pt1> g+_+[K[K+ =o[K[K-o w2 w2.cpp Fraction.cpp
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 4/16
+Denomenator	: 
+Undefined
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 4
+Denomenator	: 16
+
+1 / 4
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 16
+Denomenator	: 4
+
+4 / 1
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: -4
+Denomenator	: 16
+
+-1 / 4
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 4
+Denomenator	: -16
+
+-1 / 4
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 16
+Denomenator	: 0
+
+Undefined
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 0
+Denomenator	: 16
+
+0
+jgchoi@matrix:~/a/w2/w2pt1> w2
+Fraction Simplifier
+===================
+Numerator	: 0
+Denomenator	: 0
+
+Undefined
+jgchoi@matrix:~/a/w2/w2pt1> exit
+exit
+
+Script done on Sat 18 Jan 2014 09:47:01 PM EST

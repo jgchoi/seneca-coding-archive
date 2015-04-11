@@ -1,0 +1,34 @@
+
+table.schedule { border: 10px inset purple;
+                 width: 100%;
+                 }
+                 
+thead { 
+       background-color: yellow;
+     font-weight:bold;
+     color: red;}
+
+    
+td { 
+     color: green; 
+     height: 50px;
+     background-color: #ccddff;
+    }
+    
+td.period{ background-color: #9933cc;
+           color: black;
+           weight: 800px;}
+           
+caption{  font-weight: bold;
+          color: #cc55ff;
+          font-size: 20pt;
+        }
+        
+div{
+       width: 40%;
+       margin: auto;
+       
+     }
+     
+ol {list-style-type:lower-alpha;}     
+     

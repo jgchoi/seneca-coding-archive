@@ -1,0 +1,18 @@
+-DOM
+	-root point
+		window.document
+	-Node
+		-End points in document object
+		-element : p, dive, img
+		-text 
+		-attribute : src, title, width
+	-Id
+		document.getElementById()
+		<div id="main">
+			in script
+			var name = document.getElementById("main");
+	-About node
+		-All contents are node
+		-All nodes have parent
+		-All node have 0~more child
+		

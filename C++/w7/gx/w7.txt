@@ -1,0 +1,90 @@
+Script started on Wed 12 Mar 2014 01:22:39 PM EDT
+whojgchoi@matrix:~/a/w7> whoami
+jgchoi
+jgchoi@matrix:~/a/w7> cat Item.h
+//Item.h
+//
+class Item {
+	int num;
+	double price;
+	
+	public:
+	
+		Item();
+		Item(int, double);
+		bool empty() const;
+		void operator=(double p);
+		void display(std::ostream & os) const ;
+		
+
+};
+
+std::istream  & operator >> (std::istream & is, Item & i);
+std::ostream  & operator <<  (std::ostream & os, const Item & i);jgchoi@matrix:~/a/w7> cat Item.h[Kcpp
+//Item.cpp
+//
+#include <iostream>
+#include <iomanip>
+#include "Item.h"
+
+using namespace std;
+
+Item::Item(){num = 0; price = 0;}
+Item::Item(int n, double p){num = n; price = p;}
+bool Item::empty() const{
+	if(num == 0 && price == 0)
+		return true;
+	else
+		return false;
+}
+void Item::operator=(double p){price = p;}
+void Item::display(std::ostream & os) const {
+	os << setw(8) << left<<num;
+	os <<setw(10) << right << fixed <<setprecision (2) << price;
+}
+
+
+
+
+std::istream & operator >> (std::istream & is, Item & i){
+	int a;
+	double b;
+	
+	cout<<"Item Number : ";
+	is >> a;
+	cout <<"price      : ";
+	is >> b;
+	if(a>0 && b>0)
+		{Item x(a,b);i=x;}
+	else
+		{Item x;i=x;}
+		
+
+}
+
+std::ostream & operator << (std::ostream & os, const Item & i){
+	i.display(os);
+}
+
+jgchoi@matrix:~/a/w7> g++ -i [K[Ko w7 w7.cpp Iteam[K[Km.cpp
+jgchoi@matrix:~/a/w7> .[Ka.out
+Price List
+==========
+Item Number : 234
+price      : 45.32
+Item Number : 235
+price      : 67.42
+Item Number : 236
+price      : 89.76
+Item Number : 0
+price      : 0
+
+  Number     Price
+------------------
+234          45.32
+235          67.42
+236          89.76
+jgchoi@matrix:~/a/w7> exit
+exit
+
+Script done on Wed 12 Mar 2014 01:23:05 PM EDT

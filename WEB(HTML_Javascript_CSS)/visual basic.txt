@@ -1,0 +1,71 @@
+Make sure you have "Imports System.Data.SqlClient" at the top of the code right before the class declaration.
+
+The code for the insert button in the customer form is below.
+
+Dim con As New SqlClient.SqlConnection("Data Source=(local);Initial Catalog=Saleco;Integrated Security=True")
+
+Dim cmd As New SqlCommand()
+cmd.Connection = con
+'Dim strCommand As String = "Insert into user_t (user_id, lname, fname, username, password, usertype) values ('" & Me.textID.text & "','" & Me.textlname.text & "', '" & Me.fname.text & "', '" & Me.textusername.text & "','" & Me.textpassword.text & "','" & Me.comboUsertype.text & "')"
+con.Open()
+cmd.CommandText = "insert into customer (CUS_LNAME, CUS_FNAME, CUS_INITIAL, CUS_AREACODE, CUS_PHONE,CUS_BALANCE) values ('" & Me.CUSLNAME.Text & "','" & Me.CUSFNAME.Text & "','" & Me.CUSINITIAL.Text & "','" & Me.CUSAREACODE.Text & "','" & Me.CUSPHONE.Text & "', 0)"
+cmd.ExecuteNonQuery()
+
+Dim msg = "customer records added successfully"
+
+' Define a title for the message box. 
+Dim title = "Info"
+
+' Add the title to the display.
+MsgBox(msg, , title)
+
+con.Close()
+
+Product Form
+
+
+
+The code for the update button in the product form is as follows:
+
+Dim con As New SqlClient.SqlConnection("Data Source=(local);Initial Catalog=Saleco;Integrated Security=True")
+
+Dim cmd As New SqlCommand()
+cmd.Connection = con
+
+con.Open()
+
+' CHECK WHETHER THE ENTERED CODE IS VALID
+cmd.CommandText = "SELECT COUNT(*) FROM PRODUCT WHERE P_CODE='" & Me.pcode.Text & "'"
+Dim count As Integer = Integer.Parse(cmd.ExecuteScalar())
+
+Dim title = "Info"
+
+If count > 0 Then
+
+cmd.CommandText = "UPDATE PRODUCT SET P_QOH+=" & Me.qty.Text & " where P_CODE='" & Me.pcode.Text & "'"
+
+
+If IsNumeric(Me.qty.Text) Then
+
+cmd.ExecuteNonQuery()
+
+Dim msg = "Product quantity in stock updated"
+' Add the title to the display.
+MsgBox(msg, , title)
+
+
+Else
+Dim msg = "quantity entered should be numeric"
+' Add the title to the display.
+MsgBox(msg, , title)
+
+End If
+
+Else
+Dim msg = "Product code does not exist!"
+' Add the title to the display.
+MsgBox(msg, , title)
+
+End If
+
+con.Close()

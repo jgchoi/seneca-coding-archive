@@ -1,0 +1,198 @@
+CSS
+	-Single Tag
+		<p stype="property:value;">
+	-Single Page
+		<head>
+			<style>
+			p{property:value}
+			</style>
+	-Site
+		include in head
+		<link rel="stylesheet" href="location/name.css" type="text/css"/>
+		
+		selector {prop:val;prop:val;}
+		/* comment */
+	-General Application
+		-Inline		- most powerful / least general
+		-Internal
+		-External	- least powerful / most general
+		-Browser deafault ( if not one those set)
+	-CSS-Class
+		<style> p.blue </style>
+		<body><p class="blue"> ~ </p></body>
+	-CSS-ID
+		"#" is needed
+		<style>#id1</style>
+		<body><p id="id1"></p></body>
+	-Difference ID vs Class
+		- ID is only 1 in page
+		- 1 class for multiple elements
+		- multiple class on same element
+	-Div in CSS
+		<div> general division of document
+	-Span
+		Similar as Dir
+		inline element (Does not begin new line)
+		style appliy block
+	-Background
+		-background-image:url(path)
+			-background-size: #px #px
+			-background-size: 100% 100%
+			
+		-background-color:
+		-background-position: left,right,top,bottom,center
+		-background-repeat: repeat-x, repeat-y, no-repeat
+		-Shorten
+			-body{background:url(path) repeat color position;}
+		-backgroound-origin: content-box
+							 padding-box
+							 border-box
+	-font formatting
+		p.serif{font-family: Times New Roman, Times, serif;}
+		p.sanserif{font-family: Arial, Helvetica, san-serif;}
+	-text size
+		{font-size:
+			250%
+			20pm
+			20px
+			1.5em
+			xx-small/x-small/small/medium/large/x-large/xx-large
+			smaller/larger/length
+	-em?
+		1em = 12pt
+	-formatting
+		font-weight:bold/lighter/normal/bolder
+		font-stype:italic/normal/oblique
+		text-align:center/left/right
+		text-indent:4em
+		text-indent:-4em
+		text-decoration:underline/overline/line-through/blink/none
+		text-transform: capitalize/uppercase/lowercase/none
+		font-variant:small-caps,normal
+		
+		-shorthand
+			selector{font:font variant "Font family1","Family2";
+			text-decoration:value1; text-align:right; color:red;
+			background-color:silver;}
+	-Text effect
+		Shadow
+		text-shadow: horizontal vertical blur-distance color
+					 5px 5px 5px red;
+	-Word wrapping
+		-force text to stay in box
+		word-wrap:break-word;
+	
+	-highlight
+		<mark></mark>
+	-CSS box model
+		-copy picture from ppt
+		-margin: top right bottom left
+		-margin: all-side
+		-margin: top bottom
+		-margin: top right-left bottom
+		-margin: auto (centre)
+	-Border
+		border-style:none
+					 dotted
+					 dashed
+					 solid
+					 double
+					 groove
+					 ridge
+					 insert
+					 outset
+		border-width:#px //goes with border-style only
+					 thin
+					 medium
+					 thick
+		border-color: red //goes with border-style only
+		border-top/right/bottom/left-style:
+		border-style: top-bottom left-right
+		border-style: top right-left bottom
+		border-style: top right bottom left
+		
+		-shortand
+			border: width style color
+		
+		-round corner
+			border-radius:size(px)
+						  em
+		-box shadow
+			box-shadow: h-sha v-sha blur spread color inset (inner shadow)
+			
+		-Padding
+			padding: size(4 cases)
+		
+	-Centering
+		-Horizontal-center
+			-text-align: center
+			-margin-left:auto;
+			 margin-right:auto;
+		-V-center
+			display:table-cell //only table can be vertically centered
+			-vertical-align:middle
+	
+	-Positioning
+		-absolute width height top left //?
+		-relative //relative to parents
+		-fixed //one position not moving
+		-static
+			left/right/top/bottom
+			px or %
+		-overflow: //in case text go over box
+			scroll 
+			auto
+			hidden
+			visible
+		
+	-list
+		list-style-type:circle
+						square
+						upper-roman
+						lower-alpha
+						armenian
+						decimal
+						disc=<ul>
+						georgian
+						hebrew
+						inherit
+		list-style-image:url("name")
+		ul_img_all_browser.html?
+		
+	-table formatting
+		table{margin:auto..(from above examples)
+			  padding:sizes
+			  width
+			  heigh
+			  text-align
+			  vertical-align
+			  background-color:color
+			  background-image
+			  border:size(#) inset? color
+			  border-sollapse:collapse
+		-section
+			<thead><tbody><tfoot>
+	
+	-Style Link
+		link style
+		a.link (normal, unvisited)
+		a.visited
+		a.hover (mouse over)
+		a.active (click)
+		
+		a.link - a.hover    (MUST Come together)
+		a.hover - a.active  (Must come together)
+		
+		
+	-Display
+		display:block
+				inline
+				table
+	
+	-<article>
+		<aside>sidebar</aside>
+		<header>
+		<hgroup> group <h1> to <h6>
+		<section> 
+		<footer>
+		

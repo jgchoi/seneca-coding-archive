@@ -1,0 +1,22 @@
+
+ body{
+      background-image: url("NiagaraFalls.jpg"); 
+     /* background-image: url("seneca_logo.gif");       */
+      background-repeat:no-repeat;
+     /* background-repeat:repeat-y;  */
+      background-color: grey;
+     /* background-position: right top;     */
+     }
+ 
+/* body{ background: url("seneca_logo.gif") no-repeat grey right top;} */
+      
+h1 {color: blue}
+
+/*
+p  {
+      background-image: url("seneca_logo.gif");
+      background-repeat:no-repeat;
+      background-color: red;
+      background-position: right top;
+     }
+*/

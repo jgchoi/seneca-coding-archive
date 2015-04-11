@@ -1,0 +1,107 @@
+Script started on Fri 24 Jan 2014 04:52:07 PM EST
+jgchoi@matrix:~/a/w3/groupx> whoami
+jgchoi
+jgchoi@matrix:~/a/w3/groupx> cat w3.cpp Molecule.h Molecule.cpp
+// Workshop 3 - Molecules with Robust validation function
+// w3.cpp
+ #include <istream>
+ #include <iostream>
+ using namespace std;
+ #include "Molecule.h"
+
+ int main() {
+     int n;
+
+
+	Molecule* molecule;
+
+     cout << "Molecular Information\n";
+     cout << "=====================" << endl;
+
+     cout << "Number of Molecules : ";
+     cin >> n;
+
+    molecule = new Molecule[n+1]; //edited
+     
+     for (int i = 0; i < n; i++) {
+         char symbol[21];
+         char description[21];
+         double weight;
+		cin.ignore();
+         cout << "Enter structure	:";
+		cin.getline(symbol, 20, '\n');
+		 cout << "Enter full name	:";
+		 cin.getline(description,20,'\n');
+		 cout << "Enter weight	:";
+		 cin >> weight;
+         molecule[i].set(symbol, description, weight);
+     }
+     cout << endl;
+
+     cout << "Structure            Name                     Mass\n";
+     cout << "==================================================" << endl; 
+
+     for (int i = 0; i < n; i++) {
+         molecule[i].display();
+         cout << endl;
+     }
+
+     delete [] molecule;
+ }
+// Workshop 3 - Molecules
+// Molecule.h
+
+class Molecule{
+	char symbol[20];
+	char description[20];
+	double weight;
+	
+	public :
+		void set(const char*, const char*, double);
+		void display() const;
+};
+// Workshop 3 - Molecules
+// Molecule.cpp
+ 
+ #include <iostream>
+ #include <cstring>
+ #include <iomanip>
+ using namespace std;
+ #include "Molecule.h"
+		
+void Molecule::set(const char* s, const char* d, double w)
+{
+	strcpy (symbol,s);
+	strcpy (description,d);
+	weight=w;
+}
+
+void Molecule::display() const
+{
+	cout << setw(20) << left << symbol << setw(20) << left << description;
+	cout << fixed << setw(10) << right << setprecision(3) << weight;
+}
+jgchoi@matrix:~/a/w3/groupx> g++ =-[K[K-o w3 w3.cpp Molecule.cpp
+jgchoi@matrix:~/a/w3/groupx> w3
+Molecular Information
+=====================
+Number of Molecules : 3
+Enter structure	:H2O
+Enter full name	:Water
+Enter weight	:18.015
+Enter structure	:CO2
+Enter full name	:Carbon Dioxide
+Enter weight	:44.010
+Enter structure	:NaCl
+Enter full name	:Sodium Chloride
+Enter weight	:58.443
+
+Structure            Name                     Mass
+==================================================
+H2O                 Water                   18.015
+CO2                 Carbon Dioxide          44.010
+NaCl                Sodium Chloride         58.443
+jgchoi@matrix:~/a/w3/groupx> exit
+exit
+
+Script done on Fri 24 Jan 2014 04:52:59 PM EST

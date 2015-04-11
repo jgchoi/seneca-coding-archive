@@ -1,0 +1,1 @@
+ int getPosInt(int max);

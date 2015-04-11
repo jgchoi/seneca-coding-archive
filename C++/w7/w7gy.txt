@@ -1,0 +1,122 @@
+Script started on Wed 12 Mar 2014 07:00:08 PM EDT
+jgchoi@matrix:~/a/w7> whoami
+jgchoi
+jgchoi@matrix:~/a/w7> cat Item.cpp
+//Item.cpp
+//
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+#include "Item.h"
+#include <new>
+
+using namespace std;
+
+
+
+
+Item::~Item(){delete [] desc;}
+Item::Item(){num = 0; price = 0;desc = nullptr;}
+
+Item::Item(int n, double p, char * s)
+{num = n; price = p;
+	desc = new char[strlen(s)+1];
+	if(desc != nullptr)
+		strcpy(desc,s);
+}
+bool Item::empty() const{
+	if(num == 0 && price == 0)
+		return true;
+	else
+		return false;
+}
+void Item::operator=(double p){price = p;}
+void Item::display(std::ostream & os) const {
+	os << setw(8) << left<<num;
+	os <<setw(10) << right << fixed <<setprecision (2) << price;
+	os << setw(12) << left<< " "<<desc;
+}
+
+
+
+
+std::istream & operator >> (std::istream & is, Item & i){
+	int a;
+	double b;
+	char c[1000];
+	
+	cout<<"Item Number : ";
+	is >> a;
+	cout <<"price      : ";
+	is >> b;
+	cout <<"Description: ";
+	is.ignore();
+	is.getline(c,999);
+	
+	i.num = a;
+	i.price = b;
+	if(i.desc != nullptr)
+		delete [] i.desc;
+	i.desc = new char[strlen(c)+1];
+	strcpy(i.desc,c);
+	
+
+}
+
+std::ostream & operator << (std::ostream & os, const Item & i){
+	i.display(os);
+}
+
+jgchoi@matrix:~/a/w7> cat Item.cpp[K[K[Kh
+//Item.h
+//
+class Item {
+	int num;
+	double price;
+	char * desc;
+	
+	public:
+	
+		Item();
+		Item(int n, double p, char * s);
+		~Item();
+		bool empty() const;
+		void operator=(double p);
+		void display(std::ostream & os) const ;
+		Item & operator=(const Item & a);
+		//Item(Item a);
+		friend std::istream  & operator >> (std::istream & is, Item & i);
+
+};
+
+
+std::ostream  & operator <<  (std::ostream & os, const Item & i);jgchoi@matrix:~/a/w7> g++ d[Ks[K-o w7gy -std:[K=[K:[K=c++0x w7gy.cpp Item.cpp
+jgchoi@matrix:~/a/w7> a.out
+Price List
+==========
+Item Number : ^C
+jgchoi@matrix:~/a/w7> w7gy
+Price List
+==========
+Item Number : 234
+price      : 45.32
+Description: Shirt
+Item Number : 235
+price      : 67.42
+Description: Drill
+Item Number : 3 236
+price      : 89.76
+Description: Frying Pan
+Item Number : - 0
+price      : 0
+Description:  
+
+  Number     Price Description
+------------------------------
+234          45.32            Shirt
+235          67.42            Drill
+236          89.76            Frying Pan
+jgchoi@matrix:~/a/w7> exit
+exit
+
+Script done on Wed 12 Mar 2014 07:01:04 PM EDT

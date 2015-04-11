@@ -1,0 +1,83 @@
+-HTML
+	-Basic
+		<!DOCTYPE html>
+		<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<title></title>
+			</head>
+			<body>
+			</body>
+		</html>
+	-Tags
+		<br> enter
+		<hr> line
+		<p> paragraph
+		<pre> show as it seen
+		<blockquote> quote from other source
+	-Basic style
+		<b>
+		<em> emphasize = italic
+		<i>
+		<u> under line
+		<sub> base
+		<sup> high
+	-List
+		<ul>/<ol>
+			<li></li>
+		</ul>
+	-Definition
+		<dl>
+			<dt>
+				<dd></dd>
+			</dt>
+		</dl>
+	-Link
+		<a href="url">text</a>
+		<a name="name" id="id">text</a>
+		<a href="#name">go name</a>
+		<a href="mailto:mail@address.com">click</a>
+		<a href="url"><img src="name.jpg" alt="text"></a>
+		<a href="url" target="another window">click</a>
+	-table
+		<table>
+		<caption>
+			<tr>
+				<th></th>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+			
+		-span
+			<th colspan = "value">
+			<td colspan = "value"> 
+			
+			<th rowspan = "value">
+			<td rowspan = "value">
+			
+		-Table section
+			<thead>
+			<tbody>
+			<tfoot>
+	-image
+		<img src="url" width="#" height="#" alt="name" title="textonmouse">
+	-image map example
+	-audio
+		<audio controls="controls">
+			<source src="url" type="audio/ogg">
+			<source src="url" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	-video
+		<video with="#" height="#" controls="controls">
+			<source src="url" type="video/mp4">
+			<source src="url" type="video/ogg">
+			<object data="url" width="#" height="#">
+				<embed src="url" widght"#" height="#">
+			</object>
+		</video>
+	
+				
+	
+			

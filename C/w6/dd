@@ -1,0 +1,4738 @@
+    1  ?
+    2  /help
+    3  help
+    4  ~bto120/a1
+    5  exit
+    6  ~bto120/a1
+    7  exit
+    8  help
+    9  pwd
+   10  cd
+   11  pwd
+   12  ls
+   13  ls -l
+   14  who
+   15  w
+   16  who
+   17  w
+   18  whoami
+   19  @?
+   20  cd desktop
+   21  ls
+   22  cd Desktop
+   23  ls
+   24  NLED-TUTORIAL
+   25  excute
+   26  command
+   27  /?
+   28  ?
+   29  help
+   30  ls
+   31  exec NLED-TUTORIAL
+   32  cd.
+   33  cd
+   34  ls
+   35  pwd
+   36  cd Desktop
+   37  pwd
+   38  pwd -l
+   39  pwd -p
+   40  pwd -lp
+   41  ~BTO120A1
+   42  ~?
+   43  exit
+   44  who
+   45  pwd
+   46  ls
+   47  cd Documents
+   48  ls
+   49  pwd
+   50  cd
+   51  w
+   52  who
+   53  ls
+   54  pwd
+   55  cal
+   56  cal 2011
+   57  ?
+   58  mkdir BTP100
+   59  ls
+   60  cd BTP100
+   61  w
+   62  ls
+   63  pwd
+   64  l
+   65  mkdir workshop
+   66  ls
+   67  cd workshop
+   68  pico first.c
+   69  ls
+   70  first.c
+   71  compile
+   72  ?
+   73  cc first.c
+   74  q.out
+   75  cc first.c -o first
+   76  first
+   77  ls
+   78  pwd
+   79  l
+   80  rm first.c
+   81  l
+   82  ls
+   83  pico first.c
+   84  cc first.c
+   85  a.out
+   86  ls
+   87  cc first.c
+   88  b.out
+   89  cc first.c -o first
+   90  a.out
+   91  ls
+   92  cc rist.c -o second
+   93  cc first.c -o second
+   94  a.out
+   95  ls
+   96  cc first.c -o new
+   97  a.out
+   98  ls
+   99  first
+  100  a.out
+  101  pico a.out
+  102  ls
+  103  rm a.out
+  104  rm first
+  105  rm new
+  106  rm second
+  107  ls
+  108  l
+  109  first.c
+  110  cc first.c
+  111  b.out
+  112  cc first.c
+  113  cc first.c -o nameIwant
+  114  a.out
+  115  ls
+  116  rm a.out
+  117  ls
+  118  l
+  119  rm nameIWant
+  120  rm nameIwant
+  121  l
+  122  cc first.c -o newname
+  123  a.out
+  124  l
+  125  newname
+  126  rm newname
+  127  l
+  128  cc first.c -o Outcome
+  129  l
+  130  a.out
+  131  cc first.c -o 1123
+  132  a.out
+  133  ls
+  134  rm 1123 & Outcome
+  135  l
+  136  exit
+  137  who
+  138  w
+  139  d
+  140  dd
+  141  l
+  142  ls
+  143  cd BTP100
+  144  l
+  145  cd workshop
+  146  l
+  147  Outcome
+  148  pico second.c
+  149  l
+  150  pico second
+  151  d
+  152  l
+  153  cc second.c
+  154  cc first.c
+  155  ..
+  156  cd
+  157  l
+  158  ls
+  159  cd BTP100
+  160  cd workshop
+  161  l
+  162  rm a.out
+  163  rm Outcome
+  164  ls
+  165  rm second.c
+  166  l
+  167  cc first.c
+  168  a.out
+  169  l
+  170  exit
+  171  ls
+  172  cd BTP100
+  173  cd workshop
+  174  l
+  175  pico first.c
+  176  cc first.c
+  177  a.out
+  178  pico first.c
+  179  cc first.c -o nadded
+  180  l
+  181  nadded
+  182  ?
+  183  pico first.c
+  184  cc first.c -o n
+  185  n
+  186  exit
+  187  ~bto120a1
+  188  BTO120A1
+  189  ~BTO120A1
+  190  ~bto120/a1
+  191  exit
+  192  cd BTO100
+  193  ls
+  194  cd BTP100
+  195  cd workshop
+  196  ls
+  197  nadded
+  198  exit
+  199  ~bto120/a1
+  200  exit
+  201  pico new.c
+  202  ls
+  203  poem
+  204  pico poem
+  205  ls
+  206  cd bin
+  207  ls
+  208  cd
+  209  cd..
+  210  ..
+  211  script
+  212  cat new.c
+  213  ls
+  214  cd home
+  215  ls
+  216  cd jgchoi
+  217  l
+  218  ls
+  219  cat new.c
+  220  ls
+  221  gcc new.c
+  222  ls
+  223  a.out
+  224  rm a.out
+  225  cc new.c
+  226  ls
+  227  rm a.out
+  228  ls
+  229  cat new.c
+  230  ls
+  231  cat
+  232  ls
+  233  cat neww.c
+  234  man cat
+  235  ls
+  236  rm new.c
+  237  ~btp120/a1
+  238  cd btp120
+  239  l
+  240  exit
+  241  ~bto120/a1
+  242  exit
+  243  who
+  244  text crlopez hi
+  245  write d
+  246  mesg y
+  247  write crlopez hi!
+  248  talk crlopez hi
+  249  mesg y
+  250  talk
+  251  talk jgchoi hi
+  252  write jgchoi hi
+  253  well..
+  254  mail
+  255  mail jgchoi hi
+  256  mail
+  257  ?
+  258  mail jgchoi
+  259  EOT?
+  260  man EOT
+  261  man mail
+  262  who
+  263  whoami
+  264  w
+  265  ipconif
+  266  ipconfig
+  267  cmd
+  268  cls
+  269  who
+  270  w
+  271  ls
+  272  .
+  273  ..
+  274  ls
+  275  cd bto120
+  276  ls
+  277  ..
+  278  cd bto120
+  279  ..
+  280  .
+  281  cd home
+  282  ls
+  283  cd bto120
+  284  ls
+  285  pwd
+  286  ..
+  287  ls bto120
+  288  ls -l bto120-
+  289  ls -l bto120
+  290  bto120/a1
+  291  mkdir bto120
+  292  .
+  293  ..
+  294  mkdir bto120
+  295  mkdir bto120/a1
+  296  man -k permission
+  297  access
+  298  2
+  299  man access
+  300  bye
+  301  exit
+  302  who
+  303  l
+  304  ..
+  305  .
+  306  ..
+  307  ls
+  308  ls -a
+  309  exit
+  310  script -o qwe
+  311  man script
+  312  clear
+  313  quit
+  314  exit
+  315  bto120/a1
+  316  ..
+  317  bto120/a1
+  318  ..
+  319  bto120/a1
+  320  whoami
+  321  cat hello.c
+  322  gcc hello.c
+  323  pico hello.c
+  324  ls
+  325  hello
+  326  rm hello
+  327  exit
+  328  whoami
+  329  cat hello.c
+  330  gcc hello.c
+  331  a.out
+  332  exit
+  333  ls
+  334  ..
+  335  ls
+  336  cd jgchoi
+  337  ls
+  338  rm BTP100
+  339  rm -r BTP100
+  340  rm cars
+  341  rm file1
+  342  ls
+  343  public_html
+  344  Acceptable-Use-Policy
+  345  cat Acceptable-Use-Policy
+  346  ls
+  347  rm -r public_html
+  348  ls
+  349  rm -r Acceptable-Use-Policy
+  350  ls
+  351  ls -l
+  352  cd documents
+  353  cd Documents
+  354  ls
+  355  ..
+  356  cd Documents
+  357  mkdir BTC100-F13 BTO120-F13 BTO130-F13
+  358  ls
+  359  cd BTC100-F13
+  360  ls
+  361  mkdir workshop1
+  362  cd workshop1
+  363  pico helloword.c
+  364  ls
+  365  mv helloword.c hellow.c
+  366  ls
+  367  mv hellow.c hello.c
+  368  ls
+  369  script hello
+  370  ls
+  371  script hello_script
+  372  ls
+  373  a.out
+  374  mv a.out hello
+  375  ls
+  376  hello
+  377  cd..
+  378  ls
+  379  cd Documents
+  380  cd
+  381  ls
+  382  cd Documents
+  383  ls
+  384  cd BTC100-F13
+  385  cl
+  386  ls
+  387  cd workshop2
+  388  ls
+  389  a.out
+  390  pico 1.c
+  391  cd Documents
+  392  cd BTC100-F13
+  393  cd workshop2
+  394  pico 1.c
+  395  cc 1.c
+  396  rm 1.c
+  397  ls
+  398  a.out
+  399  hum?
+  400  ~bto120/a1
+  401  exit
+  402  pico
+  403  y
+  404  cd Documents
+  405  cd BTC100-F13
+  406  cd workshop2
+  407  pico 1.c
+  408  password
+  409  pass
+  410  man -k password
+  411  passwd
+  412  man -k password
+  413  ..
+  414  rm BTC100-F13 BTP100-F13
+  415  mv BTC100-F13 BTP100-F13
+  416  cd BTP100-F13
+  417  pico 1.c
+  418  cc 1.c
+  419  a.out
+  420  pico 1.c
+  421  cc 1.c
+  422  pico 1.c
+  423  cc 1.c
+  424  a.out
+  425  pico 1.c
+  426  cc 1.c
+  427  pico 1.c
+  428  cc 1.dc
+  429  cc 1.c
+  430  pico 1.c
+  431  cd Documents
+  432  cd BTP100
+  433  cd BTP100-F13
+  434  cd workshop2
+  435  pico op2.c
+  436  pico w2.c
+  437  cc w2.c
+  438  a.out
+  439  ls
+  440  rm backup.c
+  441  exit
+  442  whoami
+  443  cat op1.c
+  444  cc op1.c
+  445  a.out
+  446  cat op2.c
+  447  cc op2.c
+  448  a.out
+  449  can w2.c
+  450  cat w2.c
+  451  cc w2.c
+  452  a.out
+  453  exit
+  454  cd Ducments
+  455  cd Documents
+  456  cd BTP100-F13
+  457  cd workshop2
+  458  ls
+  459  rm 1.c.save
+  460  rm 1.cy
+  461  rm a.out
+  462  ls
+  463  pico optional1.c
+  464  ls
+  465  cc optional1.c
+  466  a.out
+  467  pico optiona1.c
+  468  ls
+  469  mv optional1.c op1.c
+  470  pico op1.c
+  471  cc op1.c -o op1
+  472  cc op1.c
+  473  pico op1.c
+  474  cc op1.c
+  475  pico op1.c
+  476  cc op1.c
+  477  a.out
+  478  cc op1.c
+  479  pico op1.c
+  480  cc op1.c
+  481  a.out
+  482  ls
+  483  pico op2.c
+  484  pico w2.c
+  485  cc w1.c
+  486  ls
+  487  cc w2.c
+  488  a.out
+  489  pico w2.c
+  490  a.out
+  491  ls
+  492  pico op1.c
+  493  pico w2.c
+  494  cc w2.c
+  495  a.out
+  496  ls
+  497  mv w2.c op2.c
+  498  gcc op1.c -o op1
+  499  op1
+  500  gcc op2.c -o op2
+  501  op2
+  502  pico w2.c
+  503  ls
+  504  cc w2.c
+  505  pico w2.c
+  506  cc w2.c
+  507  pico w2.c
+  508  cc w2.c
+  509  a.out
+  510  pico w2.c
+  511  cc w2.c
+  512  a.out
+  513  pico w2.c
+  514  cc w2.c
+  515  a.out
+  516  pico w2.c
+  517  cc w2.c
+  518  a.out
+  519  cp w2.c backup.c
+  520  pico w2.c
+  521  cc w2.c
+  522  pico w2.c
+  523  cc w2.c
+  524  pico w2.c
+  525  cc w2.c
+  526  pico w2.c
+  527  cc w2.c
+  528  a.out
+  529  pico w2.c
+  530  cc w2.c
+  531  a.out
+  532  pico w2.c
+  533  a.out
+  534  pico w2.c
+  535  cc w2.c
+  536  a.out
+  537  ls
+  538  mv a.out w2
+  539  op1
+  540  op
+  541  op2
+  542  w2
+  543  op1
+  544  op2
+  545  w2
+  546  pico op1.c
+  547  script workshop2
+  548  ls
+  549  mkdir complete
+  550  ls
+  551  mv op* /complete
+  552  mv op1 /complete
+  553  cp op1 /complete
+  554  cp op1 complete
+  555  ls /complete
+  556  ls complete
+  557  cp op2 complete
+  558  cp w2 complete
+  559  ls complete
+  560  cp *.c complete
+  561  ls complete
+  562  exit
+  563  cd
+  564  mkdir sample_dir1
+  565  ls
+  566  cd sample_dir1
+  567  mkdir sample_dir faculty markham oxford stenton
+  568  ls
+  569  ~bto120/2013c/showtree ~sample_dir
+  570  ~bto120/2013c/showtree ~/sample_dir1
+  571  ~bto
+  572  rm -r *
+  573  ls
+  574  mkdir sample_dir
+  575  cd sample_dir
+  576  mkdir admin cambridge faculty markham oxford stenton
+  577  cd cambridge
+  578  mkdir cafeteria library security
+  579  cd security
+  580  touch annex building parking
+  581  ..
+  582  touch history.exe
+  583  ;s
+  584  ls
+  585  cd markham
+  586  touch annex builing1 parking
+  587  ..
+  588  cd oxford
+  589  touch outline.doc `-- report.pdf
+  590  mkdir programming
+  591  ls
+  592  ls
+  593  touch outline.doc
+  594  touch `-- report.pdf
+  595  ls
+  596  mkdir programming
+  597  cd programming
+  598  touch report.pdf
+  599  ..
+  600  ls oxford
+  601  mkdir oxford security
+  602  mkdir stenton/gen_ed stenton/lib_arts
+  603  touch stenton/lib_arts/english.txt
+  604  ~bto
+  605  ~bto120/2013c/showtree ~sample_dir
+  606  ~bto120/2013c/showtree ~sample_dir1
+  607  ..
+  608  ~bto120/2013c/showtree ~sample_dir1
+  609  ls
+  610  sample_dir1
+  611  cd sample_dir1
+  612  sample_dir
+  613  cd sample_dir
+  614  ls
+  615  cd markham
+  616  ls
+  617  mv builing1 building1
+  618  ..
+  619  cd oxford
+  620  ls
+  621  mkdir security
+  622  ~bto120/2013c/showtree ~sample_dir1
+  623  ~bto120/2013c/showtree ~sample_dir
+  624  ~bto120/2013c/showtree /sample_dir1
+  625  ~bto120/2013c/showtree ~/sample_dir1
+  626  ls
+  627  cd Documents
+  628  ls
+  629  cd BTO100-F13
+  630  cd BTP100-F13
+  631  cd workshop2
+  632  ls
+  633  cc op1.c
+  634  a.out
+  635  ~bto120/a1
+  636  cd
+  637  pwd
+  638  ~
+  639  cd ~
+  640  pw
+  641  pwd
+  642  bto120/a2
+  643  ls bto120
+  644  ls
+  645  ..
+  646  ls
+  647  bto120
+  648  cd bt120
+  649  find bto120
+  650  ~bto120/a1
+  651  ls
+  652  ls bto120
+  653  bto120/a2
+  654  bto120/a1
+  655  ls
+  656  cd Documents
+  657  lsd
+  658  ls
+  659  cd BTP100-F13
+  660  ls
+  661  mkdir workshop3
+  662  cd workshop3
+  663  pico 1.c
+  664  cc 1.c
+  665  pico 1.c
+  666  cc 1.c
+  667  pico 1.c
+  668  cc 1.c
+  669  1.c
+  670  pico 1.c
+  671  cc 1.c
+  672  a.out
+  673  exit
+  674  ls
+  675  cd Documents/BTP100-F13
+  676  cd workshop3
+  677  pico 1.c
+  678  cc 1.c
+  679  a.out
+  680  pico 2.c
+  681  cc 2.c
+  682  pico 2.c
+  683  cc 2.c
+  684  pico 2.c
+  685  cc 2.c
+  686  pico 2.c
+  687  cc 2.c
+  688  pico 2.c
+  689  cc 2.c
+  690  a.out
+  691  pico 3.c
+  692  cc 3.c
+  693  pico 3.c
+  694  cc 3.c
+  695  a.out
+  696  pico 3.c
+  697  pico 4.c
+  698  cc 4.c
+  699  a.out
+  700  pico 4.c
+  701  pico 5.c
+  702  cc 5.c
+  703  a.out
+  704  pico 5.c
+  705  cc 5.c
+  706  a.out
+  707  pico 5.c
+  708  cc 5.c
+  709  a.out
+  710  pico 5.c
+  711  cc 5.c
+  712  a.out
+  713  pico 5.c
+  714  cc 5.c
+  715  a.out
+  716  pico 5.c
+  717  cc 5.c
+  718  a.out
+  719  a.out 33
+  720  a.out
+  721  a.out 256
+  722  a.out
+  723  a.out 232
+  724  a.out
+  725  pico 5.c
+  726  cc 5.c
+  727  a.out
+  728  pico wc3.c
+  729  cc w3.c
+  730  ls
+  731  cc wc3.c
+  732  a.out
+  733  pcio wc3.c
+  734  pico wc3.c
+  735  exit
+  736  cd Documents/BTP100-F13/workshop3
+  737  ls
+  738  pico 6.c
+  739  pico  6.c
+  740  pico 6.c
+  741  cc 6.c
+  742  pico 6.c
+  743  cc 6.c
+  744  a.out
+  745  cat op1.c
+  746  cat op2.c
+  747  cat w2.c
+  748  exit
+  749  cd workshop
+  750  cd Documents
+  751  cd BTP100-F13
+  752  cd workshop2
+  753  ls
+  754  script 1
+  755  stty
+  756  stty -a
+  757  stty -echo
+  758  dd
+  759  stty echo
+  760  d
+  761  clear
+  762  file etc
+  763  find etc
+  764  fc -l
+  765  history
+  766  history | more
+  767  history > My_History.exe
+  768  ls
+  769  My_History.exe
+  770  chmod
+  771  mod
+  772  rm My_History.exe
+  773  whereis cd
+  774  which cd
+  775  which which
+  776  where which
+  777  whereis where
+  778  whereis which
+  779  finger jgchoi
+  780  mail un333333@gmail.com 
+  781  mail un333333@gmail.com
+  782  mesg n
+  783  mesg y
+  784  ls
+  785  del myHistory
+  786  rm myHistory
+  787  ls
+  788  dd
+  789  $?
+  790  %?
+  791  %
+  792  &?
+  793  $?
+  794  cat name
+  795  %?
+  796  $?
+  797  cat dd
+  798  $?
+  799  ls
+  800  ca sample Desktop
+  801  $?
+  802  4?
+  803  $?
+  804  man -k $?
+  805  cat 
+  806  cat >1
+  807  ls
+  808  cat 1
+  809  cat 1 > /dev/null
+  810  $?
+  811  #?
+  812  %?
+  813  ls
+  814  cat 1
+  815  cat > /dev/null
+  816  $?
+  817  cat 1 > /dev/null
+  818  $
+  819  %?
+  820  %
+  821  &?
+  822  *?
+  823  #?
+  824  $?
+  825  %?
+  826  %
+  827  $
+  828  \
+  829  \n
+  830  \n
+  831  seneca=school
+  832  ls
+  833  schhol
+  834  $schhol
+  835  echo $seneca
+  836  echo $school
+  837  echo $?
+  838  echo..
+  839  cat $?
+  840  echo ?
+  841  man echo
+  842  ls
+  843  rm a.out
+  844  rm 2.c
+  845  pico 2.c
+  846  cc 2.c
+  847  a.out
+  848  pico 2.c
+  849  cc 2.c
+  850  a.out
+  851  pico 2.c
+  852  cc 2.c
+  853  a.out
+  854  pico 2.c
+  855  cc 2.c
+  856  a.out
+  857  pico 2.c
+  858  cc 2.c
+  859  a.out
+  860  pico 2.c
+  861  cc 2.c
+  862  a.out
+  863  pico 2.c
+  864  cc 2.c
+  865  a.out
+  866  pico 2.c
+  867  cc 2.c
+  868  a.out
+  869  pico 2.c
+  870  cc 2.c
+  871  a.out
+  872  pico 2.c
+  873  cc 2.c
+  874  a.out
+  875  ls
+  876  mv 2.c Harmonic.c
+  877  ls
+  878  mv 1.c inClassExceriseInLec2.c
+  879  ls
+  880  pico 3.c
+  881  cc 3.c
+  882  pico 3.c
+  883  cc 3.c
+  884  a.out
+  885  pico 3.c
+  886  cc 3.c
+  887  a.out
+  888  pico 3.c
+  889  cc 3.c
+  890  a.out
+  891  pico 3.c
+  892  cc 3.c
+  893  pico 3.c
+  894  cc 3.c
+  895  a.out
+  896  pico 3.c
+  897  cc 3.c
+  898  a.out
+  899  cc 3.c
+  900  pico 3.c
+  901  cc 3.c
+  902  a.out
+  903  mv 3.c ln2.c;s
+  904  ls
+  905  man arr
+  906  man -k arr
+  907  cd Documents/BTP100-F13/
+  908  ls
+  909  cd workshop3
+  910  ls
+  911  a.ot
+  912  a.out
+  913  cat wc3.c
+  914  cat 1.c
+  915  cat 2.c
+  916  cat 4.c
+  917  ls
+  918  rm-r
+  919  rm -r
+  920  cd
+  921  ls
+  922  cd Documents
+  923  ls
+  924  cd BTO100-F13
+  925  ls
+  926  cd BTP100-F13
+  927  ls
+  928  rm -r workshop3
+  929  mkdir workshop3
+  930  ls
+  931  cat 1.c
+  932  ls
+  933  cp 1.c /workshop2/1.c
+  934  ls
+  935  rm a.out
+  936  cp 1.c workshop1
+  937  ls
+  938  ls workshop1
+  939  rm 1.c
+  940  ls
+  941  cd workshop3
+  942  ls
+  943  pico 1.c
+  944  cc
+  945  ls
+  946  cc 1.c
+  947  pico 1.c
+  948  cc 1.c
+  949  pico 1.c
+  950  cc 1.c
+  951  pico 1.c
+  952  cc 1.c
+  953  pico 1.c
+  954  cc 1.c
+  955  a.out
+  956  pico 1.c
+  957  cc 1.c
+  958  pico 3.c
+  959  pico 1.c
+  960  cc 1.c
+  961  a.out
+  962  cd Documents
+  963  cd BTP100-F13
+  964  cd workshop3
+  965  ls
+  966  pico 1.c
+  967  cc 1.c
+  968  pico 1.c
+  969  ls
+  970  a.out
+  971  cc 1.c
+  972  pico 1.c
+  973  cc 1.c
+  974  cd Documents
+  975  cd BTP100-F13
+  976  cd workshop3
+  977  pico 1.c
+  978  cc 1.c
+  979  pico 1.c
+  980  cc 1.c
+  981  a.out
+  982  pico 1.c
+  983  cc 1.c
+  984  a.out
+  985  pico 1.c
+  986  cc 1.c
+  987  a.out
+  988  pico 1.c
+  989  cc 1.c
+  990  a.out
+  991  pico 1.c
+  992  cc 1.c
+  993  a.out
+  994  pico 1.c
+  995  cc 1.c
+  996  pico 1.c
+  997  cc 1.c
+  998  a.out
+  999  0
+ 1000  pico 1.c
+ 1001  ls
+ 1002  cc 1.c
+ 1003  a.out
+ 1004  193456787
+ 1005  a.out
+ 1006  pico 1.c
+ 1007  ls
+ 1008  cc 1.c
+ 1009  a.out
+ 1010  pico 1.c
+ 1011  y
+ 1012  cc 1.c
+ 1013  a.out
+ 1014  pico 1.c
+ 1015  cc 1.c
+ 1016  a.out
+ 1017  pico 1.c
+ 1018  cc 1.c
+ 1019  a.out
+ 1020  pico 1.c
+ 1021  cc 1.c
+ 1022  pico 1.c
+ 1023  1.c
+ 1024  cc 1.c
+ 1025  a.out
+ 1026  pico 1.c
+ 1027  cc 1.c
+ 1028  a.out
+ 1029  pico 1.c
+ 1030  cd Documents/BTP100-F13/workshop3
+ 1031  1.c
+ 1032  ls
+ 1033  a.out
+ 1034  pico 1.c
+ 1035  cd Documents/BTP100-F13/workshop2
+ 1036  ls
+ 1037  pico op2.c
+ 1038  ls
+ 1039  cd
+ 1040  cd Documents
+ 1041  cd BTP100-F13
+ 1042  cd workshop3
+ 1043  ls
+ 1044  cc 1.c
+ 1045  ls
+ 1046  rm 1.c
+ 1047  ls
+ 1048  cc 1.c
+ 1049  pico 1.c
+ 1050  cc 1.c
+ 1051  a.out
+ 1052  cc 1.c
+ 1053  a.out
+ 1054  cc 1.c
+ 1055  a.out
+ 1056  cc 1.c
+ 1057  a.out
+ 1058  pico 1.c
+ 1059  a.out
+ 1060  pico 1.c
+ 1061  cc 1.c
+ 1062  a.out
+ 1063  pico 10
+ 1064  pico 10.c
+ 1065  pico 1.c
+ 1066  cc 1.c
+ 1067  a.out
+ 1068  pico 1.c
+ 1069  cc 1.c
+ 1070  a.out
+ 1071  cc 1.c
+ 1072  a.out
+ 1073  cc 1.c
+ 1074  a.out
+ 1075  pico 1.c
+ 1076  cc 1.c
+ 1077  111324556
+ 1078  a.out
+ 1079  ls
+ 1080  mv 1.c w3.c
+ 1081  ls
+ 1082  mkdir complete
+ 1083  mv w3.c complete
+ 1084  cd complete
+ 1085  pico w3.c
+ 1086  cc w3.c
+ 1087  a.out
+ 1088  pico 1.c
+ 1089  pico w2.c
+ 1090  pico w3.c
+ 1091  cc 1.c
+ 1092  cd..
+ 1093  cc 1.c
+ 1094  a.out
+ 1095  cc 1.c
+ 1096  a.out
+ 1097  cc 1.c
+ 1098  a.out
+ 1099  cc 1.c
+ 1100  a.out
+ 1101  cc 1,c
+ 1102  cc 1.c
+ 1103  a.out
+ 1104  cc 1,c
+ 1105  cc 1.c
+ 1106  a.out
+ 1107  cc 1.c
+ 1108  a.out
+ 1109  cc 1,c
+ 1110  cc 1.c
+ 1111  a.out
+ 1112  cc 1.c
+ 1113  a.out
+ 1114  cc 1,c
+ 1115  cc 1.c
+ 1116  a.out
+ 1117  cd complete
+ 1118  a.out
+ 1119  cd..
+ 1120  cc w3.c
+ 1121  a.out
+ 1122  cc w3.c
+ 1123  a.out
+ 1124  cc w3.c
+ 1125  a.out
+ 1126  cc w3.c
+ 1127  a.out
+ 1128  cc w3.c
+ 1129  a.out
+ 1130  cc 1,c
+ 1131  cc w3.c
+ 1132  cc 1.c
+ 1133  a.out
+ 1134  cc w3.c
+ 1135  a.out
+ 1136  cc w3.c
+ 1137  a.out
+ 1138  cd complete
+ 1139  ls
+ 1140  cc w3.c
+ 1141  a.out
+ 1142  cc 1.c
+ 1143  ks
+ 1144  ls
+ 1145  cd..
+ 1146  cc 1.c
+ 1147  ls
+ 1148  cc 1.c
+ 1149  a.out
+ 1150  whoami
+ 1151  cat w3.c
+ 1152  cc w3.c
+ 1153  a.out
+ 1154  cat w3op1.c
+ 1155  cc w3op1.c
+ 1156  a.out
+ 1157  exit
+ 1158  cd Documents/BTP100-F13/workshop3
+ 1159  cc w3op1.c
+ 1160  a.out
+ 1161  cc w3op1.c
+ 1162  a.out
+ 1163  cat w3op1
+ 1164  cat w3op1.c
+ 1165  cc w3.c
+ 1166  a.out
+ 1167  pico w3
+ 1168  pico w3.c
+ 1169  cc w3.c
+ 1170  a.out
+ 1171  pico w3.c
+ 1172  cc w3op1.c
+ 1173  a.out
+ 1174  script workshop3
+ 1175  ls
+ 1176  cd Documents/BTP100-F13/
+ 1177  ls
+ 1178  mkdir workshop4
+ 1179  cd workshop4
+ 1180  touch 1.c
+ 1181  cc 1.c
+ 1182  a.out
+ 1183  d
+ 1184  cd Documents
+ 1185  BTP100-F13
+ 1186  ls
+ 1187  cd BTP100-F13
+ 1188  cd workshop4
+ 1189  a.out
+ 1190  rm 2.c
+ 1191  ls
+ 1192  cd Documents
+ 1193  cd BTP100-F13
+ 1194  cd workshop4
+ 1195  cd
+ 1196  ls
+ 1197  cd Documents
+ 1198  cd BTP100-F13
+ 1199  cd workhsop4
+ 1200  cd workshop4
+ 1201  ls
+ 1202  rm 2.c
+ 1203  pico 2.c
+ 1204  cc 2.c
+ 1205  a.out
+ 1206  pico 2.c
+ 1207  cc 2.c
+ 1208  a.out
+ 1209  pico 2.c
+ 1210  y
+ 1211  cc 2.c
+ 1212  pico 2.c
+ 1213  cc 2.c
+ 1214  pico 2.c
+ 1215  cc 2.c
+ 1216  pico 2.c
+ 1217  cc 2.c
+ 1218  a.out
+ 1219  cd Documents
+ 1220  cd BTP100-F13
+ 1221  cd workshop4
+ 1222  pico 2.c
+ 1223  cc 2.c
+ 1224  a.out
+ 1225  pico 2.c
+ 1226  cc 2.c
+ 1227  a.out
+ 1228  pico 3.c
+ 1229  pico 2.c
+ 1230  cc 2.c
+ 1231  a.out
+ 1232  pico 2.c
+ 1233  cd Documents
+ 1234  cd BTP100-F13
+ 1235  cd workshop4
+ 1236  cc 1.c
+ 1237  a.out
+ 1238  cc 1.c
+ 1239  a.out
+ 1240  cc 1.c
+ 1241  a.out
+ 1242  cc 1.c
+ 1243  a.out
+ 1244  cc 1.c
+ 1245  a.out
+ 1246  cc 1.c
+ 1247  a.out
+ 1248  cc 1.c
+ 1249  a.out
+ 1250  cc 1.c
+ 1251  a.out
+ 1252  cc 1.c
+ 1253  a.out
+ 1254  cc 1.c
+ 1255  a.out
+ 1256  cc 1.c
+ 1257  a.out
+ 1258  d
+ 1259  a.out
+ 1260  pico 1.c
+ 1261  cc 1.c
+ 1262  pico 1.c
+ 1263  cc 1.c
+ 1264  a.out
+ 1265  pico 1.
+ 1266  pico 1.c
+ 1267  cc 1.c
+ 1268  a.out
+ 1269  pico 2.c
+ 1270  cc 2.c
+ 1271  pico 2.c
+ 1272  cc 2.c
+ 1273  pico 2.c
+ 1274  cc 2.c
+ 1275  pico 2.c
+ 1276  pico 1.c
+ 1277  pico 2.c
+ 1278  y
+ 1279  cc 2.c
+ 1280  pico 2.c
+ 1281  cc 2.c
+ 1282  a.out
+ 1283  pico 2.c
+ 1284  cc 2.c
+ 1285  pico 2.c
+ 1286  cc 2.c
+ 1287  a.out
+ 1288  cc 2.c
+ 1289  pico 2.c
+ 1290  cc 2.c
+ 1291  a.out
+ 1292  cc 2.c
+ 1293  a.out
+ 1294  cc 2.c
+ 1295  a.out
+ 1296  cc 2.c
+ 1297  a.out
+ 1298  cc 2.c
+ 1299  a.out
+ 1300  cc 2.c
+ 1301  pico 2.c
+ 1302  cc 2.c
+ 1303  a.out
+ 1304  pico 2.c
+ 1305  cc 2.c
+ 1306  pico 2.c
+ 1307  cc 2.c
+ 1308  a.out
+ 1309  cc 2.c
+ 1310  a.out
+ 1311  cc 2.c
+ 1312  a.out
+ 1313  cd Ducments/BTP100-F13/workshop4
+ 1314  cd Documents
+ 1315  cd BTP100-F13
+ 1316  cd workshop4
+ 1317  ls
+ 1318  a.out
+ 1319  pico 2.c
+ 1320  cc 2.c
+ 1321  a.out
+ 1322  cd Documents
+ 1323  cd BTP100-F13
+ 1324  cd a1
+ 1325  ls
+ 1326  cc digit_watch.c
+ 1327  pico digit_watch.c
+ 1328  cd
+ 1329  cd Documents
+ 1330  cd BTP100-F13
+ 1331  cd workshop4
+ 1332  ls
+ 1333  pico 3.c
+ 1334  cc 3.c
+ 1335  pico 3.c
+ 1336  cc 3.c
+ 1337  pico 3.c
+ 1338  cc 3.c
+ 1339  a.out
+ 1340  cd Documents
+ 1341  cd BTP100-Fhelp
+ 1342  cd BTP100-F13
+ 1343  cd workshop4
+ 1344  ls
+ 1345  pico 3.c
+ 1346  cc 3.c
+ 1347  a.out
+ 1348  a.out 1.c
+ 1349  3
+ 1350  ls
+ 1351  ls -a
+ 1352  ls -l
+ 1353  chmod 700 1.c
+ 1354  ls -l
+ 1355  1.c
+ 1356  chmod 600 1.c
+ 1357  ls -s
+ 1358  ls -l
+ 1359  mv 1.c w4.c
+ 1360  mv 2.c w4op1.c
+ 1361  gcc w4.c
+ 1362  a.out
+ 1363  pico w4.c
+ 1364  cc w4.c
+ 1365  a.out
+ 1366  cc w4.c
+ 1367  a.out
+ 1368  pico w4.c
+ 1369  cc w4.c
+ 1370  a.out
+ 1371  mv a.out w4
+ 1372  w4
+ 1373  a.out
+ 1374  w4
+ 1375  mkdir complete
+ 1376  mv w4* complete
+ 1377  ls
+ 1378  ls complete
+ 1379  mv complete/w4op1.c .
+ 1380  ls
+ 1381  echo w*
+ 1382  complete/w4.c
+ 1383  cd complete
+ 1384  w4.c
+ 1385  ?
+ 1386  ls -
+ 1387  ls -l
+ 1388  pico w4.c
+ 1389  cd..
+ 1390  ls
+ 1391  pico w4op1.c
+ 1392  cc w4op1.c
+ 1393  pico w4op1.c
+ 1394  cc w4op1.c
+ 1395  mv w4op1.c 1.c
+ 1396  pico 1.c
+ 1397  cc 1.c
+ 1398  pico 1.c
+ 1399  cc 1.c
+ 1400  cat 1.c
+ 1401  pico 1.c
+ 1402  cc 3.c
+ 1403  cc 1.c
+ 1404  cc w4op1.c
+ 1405  cc 1.c
+ 1406  a.out
+ 1407  cd complete
+ 1408  ls
+ 1409  pico w4.c
+ 1410  cc w4.c
+ 1411  a.out
+ 1412  cd..
+ 1413  ls
+ 1414  cc 1.c
+ 1415  a.out
+ 1416  cc 1.c
+ 1417  a.out
+ 1418  cc 1.c
+ 1419  a.out
+ 1420  ls
+ 1421  rm w4op1.c
+ 1422  mv 1.c w4op1.c
+ 1423  ls
+ 1424  mv w4op1.c complete
+ 1425  ls
+ 1426  rm a.out
+ 1427  ls
+ 1428  ..
+ 1429  ls
+ 1430  cd a1
+ 1431  ls
+ 1432  rm digit_watch.c
+ 1433  ls
+ 1434  touch 1.c
+ 1435  ls
+ 1436  cd ../workshop4/complete
+ 1437  ls
+ 1438  cc w4op1.c
+ 1439  pico w4op1.c
+ 1440  cc 1.c
+ 1441  ls
+ 1442  cc w4.c
+ 1443  cc w4op1.c
+ 1444  pico w4op1.c
+ 1445  cc w4.c
+ 1446  cc w4op1.c
+ 1447  pico w4op1.c
+ 1448  cc w4op1.c
+ 1449  a.out
+ 1450  pico w4op1.c
+ 1451  cc w4op1.c
+ 1452  a.out
+ 1453  pico w4op1.c
+ 1454  cc w4op1.c
+ 1455  a.out
+ 1456  cd..
+ 1457  cd a1
+ 1458  ls
+ 1459  cd..
+ 1460  ls
+ 1461  cd a1
+ 1462  ls
+ 1463  cc 1.c
+ 1464  pico 1.c
+ 1465  cc 1.c
+ 1466  cc 1,c
+ 1467  cc 1.c
+ 1468  a.out
+ 1469  cc 1.c
+ 1470  a.out
+ 1471  cc 1.c
+ 1472  a.out
+ 1473  cc 1.c
+ 1474  a.out
+ 1475  cc 1.c
+ 1476  a.out
+ 1477  cc 1.c
+ 1478  a.out
+ 1479  cc 1.c
+ 1480  a.out
+ 1481  cc 1.c
+ 1482  a.out
+ 1483  cc 1.c
+ 1484  0
+ 1485  cc 1.c
+ 1486  a.out
+ 1487  cc 1.c
+ 1488  a.out
+ 1489  cc 1.c
+ 1490  a.out
+ 1491  cc 1.c
+ 1492  a.out
+ 1493  cc 1.c
+ 1494  a.out
+ 1495  cc 1.c
+ 1496  a.out
+ 1497  cc 1.c
+ 1498  a.out
+ 1499  cc 1.c
+ 1500  a.out
+ 1501  cc 1.c
+ 1502  a.out
+ 1503  cc 1.c
+ 1504  a.out
+ 1505  cc 1.c
+ 1506  a.out
+ 1507  cc 1.c
+ 1508  a.out
+ 1509  cc 1.c
+ 1510  a.out
+ 1511  cc 1.c
+ 1512  a.out
+ 1513  cc 1.c
+ 1514  a.out
+ 1515  cc 1.c
+ 1516  a.out
+ 1517  cc 1.c
+ 1518  a.out
+ 1519  cc 1.c
+ 1520  a.out
+ 1521  cc 1.c
+ 1522  a.out
+ 1523  cc 1.c
+ 1524  a.out
+ 1525  cc 1.c
+ 1526  a.out
+ 1527  cc 1.c
+ 1528  a.out
+ 1529  cc 1.c
+ 1530  a.out
+ 1531  cc 1.c
+ 1532  a.out
+ 1533  cc 1.c
+ 1534  a.out
+ 1535  cc 1.c
+ 1536  a.out
+ 1537  cc 1.c
+ 1538  a.out
+ 1539  cc 1.c
+ 1540  a.out
+ 1541  cc 1.c
+ 1542  a.out
+ 1543  ls
+ 1544  cd Documents
+ 1545  ls
+ 1546  cd BTP100-F13
+ 1547  ls
+ 1548  cd workshop4
+ 1549  cd complete
+ 1550  ls
+ 1551  w4
+ 1552  mv a.out w4op1.c
+ 1553  ls
+ 1554  pico w4op1.c
+ 1555  mv w4op1.c
+ 1556  mv w4op1.c w4op1
+ 1557  w4op1
+ 1558  cd..
+ 1559  cd a1
+ 1560  ls
+ 1561  a.out
+ 1562  pico 1.cx
+ 1563  ls
+ 1564  pico 1.c
+ 1565  cc 1.c
+ 1566  a.out
+ 1567  pico 1.c
+ 1568  cc 1.c
+ 1569  a.out
+ 1570  d
+ 1571  pico 1.c
+ 1572  cc 1.c
+ 1573  pico 1.c
+ 1574  cc 1.c
+ 1575  pico 1.c
+ 1576  cc 1.c
+ 1577  pico 1.c
+ 1578  cc 1.c
+ 1579  a.out
+ 1580  d
+ 1581  pico 1.c
+ 1582  cc 1.c
+ 1583  pico 1.c
+ 1584  cc 1.c
+ 1585  a.out
+ 1586  pico 1.c
+ 1587  ls
+ 1588  cd ..
+ 1589  ls
+ 1590  cd workshop4
+ 1591  ls
+ 1592  cd complete
+ 1593  ls
+ 1594  pico w4.c
+ 1595  ls
+ 1596  w4op1
+ 1597  pico ex
+ 1598  cat ex
+ 1599  w4op1
+ 1600  cal
+ 1601  cd Documents/BTP100-F1/workshop4
+ 1602  cd Documents
+ 1603  cd BTP10-F1
+ 1604  cd BTP100-F1
+ 1605  ls
+ 1606  cd BTP100-F1
+ 1607  ls
+ 1608  cd BTP100-F13
+ 1609  ls
+ 1610  cd workshp4
+ 1611  ls
+ 1612  cd workshop4
+ 1613  ls
+ 1614  cd complete
+ 1615  ls
+ 1616  w4op1
+ 1617  pico w4op1.c
+ 1618  ls
+ 1619  mv w4op1 ..
+ 1620  ls
+ 1621  ex
+ 1622  cd Documents/BTP100-F13/workshop4
+ 1623  ls
+ 1624  w4op1
+ 1625  cls
+ 1626  clear
+ 1627  a.out
+ 1628  clear
+ 1629  w4op1
+ 1630  cat ex
+ 1631  ls
+ 1632  cd complete
+ 1633  ls
+ 1634  mv ex ..
+ 1635  cd..
+ 1636  clear
+ 1637  a.out
+ 1638  clear
+ 1639  w4op1
+ 1640  cat ex
+ 1641  w4op1
+ 1642  cd ../a1
+ 1643  ls
+ 1644  a.out
+ 1645  99/10
+ 1646  9/10 99/10 999/10clea
+ 1647  clear
+ 1648  a.out
+ 1649  clear
+ 1650  a.out
+ 1651  cd Documents/BTP100-F13/a1
+ 1652  ls
+ 1653  pico 1.c
+ 1654  cd Documents
+ 1655  cd BTP100-F13
+ 1656  cd workshop4
+ 1657  ls
+ 1658  touch 1.c
+ 1659  cc 1.c
+ 1660  a.out
+ 1661  cc 1.c
+ 1662  a.out
+ 1663  cc 1.c
+ 1664  a.out
+ 1665  cc 1.c
+ 1666  ls
+ 1667  rm -r complete
+ 1668  rm ex
+ 1669  rm w4op1
+ 1670  ls
+ 1671  a.out
+ 1672  cc 1.c
+ 1673  a.out
+ 1674  cc 1.c
+ 1675  a.out
+ 1676  cc 1.c
+ 1677  a.out
+ 1678  pico 1.c
+ 1679  cc 1.c
+ 1680  a.out
+ 1681  ls
+ 1682  mv 1.c w4.c
+ 1683  ls
+ 1684  mkdir complete
+ 1685  mv w4.c complete
+ 1686  ls
+ 1687  cc 1.c
+ 1688  a.out
+ 1689  cd Documents
+ 1690  cd BTP100-F13
+ 1691  cd workshop4
+ 1692  ls
+ 1693  cc 1.c
+ 1694  a.out
+ 1695  cd Documents
+ 1696  ..
+ 1697  cc 1.c
+ 1698  a.out
+ 1699  cc 1.c
+ 1700  a.out
+ 1701  cc 1.c
+ 1702  a.out
+ 1703  cc 1.c
+ 1704  a.out
+ 1705  cc 1.c
+ 1706  a.out
+ 1707  cc 1.c
+ 1708  a.out
+ 1709  cc 1.c
+ 1710  a.out
+ 1711  cc 1.c
+ 1712  a.out
+ 1713  cc 1.c
+ 1714  a.out
+ 1715  cc 1.c
+ 1716  a.out
+ 1717  cc 1.c
+ 1718  a.out
+ 1719  cc 1.c
+ 1720  a.out
+ 1721  cc 1.c
+ 1722  a.out
+ 1723  cc 1.c
+ 1724  a.out
+ 1725  cc 1.c
+ 1726  a.out
+ 1727  cc 1.c
+ 1728  a.out
+ 1729  cc 1.c
+ 1730  a.out
+ 1731  cc 1.c
+ 1732  a.out
+ 1733  cc 1.c
+ 1734  a.out
+ 1735  cc1.c
+ 1736  cc 1.c
+ 1737  a.out
+ 1738  cc 1.
+ 1739  cc 1.c
+ 1740  a.out
+ 1741  cc 1.c
+ 1742  a.ou
+ 1743  a.out
+ 1744  cc 1.c
+ 1745  a.out
+ 1746  cc 1.c
+ 1747  a.out
+ 1748  clear
+ 1749  cc 1.c
+ 1750  a.out
+ 1751  cc 1.c
+ 1752  a.out
+ 1753  cc 1.c
+ 1754  a.out
+ 1755  cc 1.c
+ 1756  a.out
+ 1757  cc 1.c
+ 1758  a.out
+ 1759  cc 1.c
+ 1760  a.out
+ 1761  cc 1.c
+ 1762  a.out
+ 1763  cc 1.c
+ 1764  a.out
+ 1765  cd documents/btp100f13/workshop4
+ 1766  ls
+ 1767  cd complete
+ 1768  ls
+ 1769  pico w4.c
+ 1770  ls
+ 1771  cc w4.c
+ 1772  a.out
+ 1773  pico w4.c
+ 1774  cc 1.c
+ 1775  cc w4.c
+ 1776  a.out
+ 1777  cc w4op1.c
+ 1778  a.out
+ 1779  ls
+ 1780  a.out
+ 1781  ls
+ 1782  pico 1.c
+ 1783  y
+ 1784  cc 1.c
+ 1785  a.out
+ 1786  ls
+ 1787  cd documents
+ 1788  cd btp100f13
+ 1789  ls
+ 1790  cd workshop4
+ 1791  ls
+ 1792  a.out
+ 1793  cd complete
+ 1794  ls
+ 1795  cc w4op1.c
+ 1796  a.out
+ 1797  cc w4.c
+ 1798  a.out
+ 1799  pico w4.c
+ 1800  pico w4op1.c
+ 1801  cc w4op1.c
+ 1802  a.out
+ 1803  pico w4.c
+ 1804  cc w4.c
+ 1805  a.out
+ 1806  whoami
+ 1807  cat w4.c
+ 1808  exit
+ 1809  whoami
+ 1810  cat w4.c
+ 1811  exit
+ 1812  whoami
+ 1813  cat w4.c
+ 1814  cc w4.c
+ 1815  a.out
+ 1816  cat w4op1.c
+ 1817  cc w4op1.c
+ 1818  a.out
+ 1819  exit
+ 1820  cd documents/btp100f13/workshop4
+ 1821  ls
+ 1822  cd complete
+ 1823  ls
+ 1824  cc w4.c
+ 1825  a.out
+ 1826  cc w4op1.c
+ 1827  a.out
+ 1828  clear
+ 1829  script
+ 1830  ls
+ 1831  rm typescript
+ 1832  ls
+ 1833  pico w4.c
+ 1834  pico w4op1./c
+ 1835  pico w4op1.c
+ 1836  ..
+ 1837  script
+ 1838  whoami
+ 1839  cat w4.c
+ 1840  s
+ 1841  ls
+ 1842  complete
+ 1843  cd complete
+ 1844  ls
+ 1845  script
+ 1846  cd ../../a1
+ 1847  ls
+ 1848  a.out
+ 1849  cc 1.c
+ 1850  clear
+ 1851  cc 1.c
+ 1852  a.out
+ 1853  cc 1.c
+ 1854  a.out
+ 1855  cc 1.c
+ 1856  a.out
+ 1857  cc 1.c
+ 1858  a.out
+ 1859  cc 1.c
+ 1860  a.out
+ 1861  cc 1.c
+ 1862  a.out
+ 1863  ls
+ 1864  cc 1.c
+ 1865  a.out
+ 1866  11 c.
+ 1867  cc 1.c
+ 1868  a.out
+ 1869  pico 1.c
+ 1870  ls
+ 1871  a.out
+ 1872  ls
+ 1873  rm a.out
+ 1874  ls
+ 1875  lslslslsl
+ 1876  ls
+ 1877  pico inClassExcerselnLec2.c
+ 1878  ls
+ 1879  pico ln2.c
+ 1880  ls
+ 1881  rm ln2.c
+ 1882  rm inC*
+ 1883  ls
+ 1884  rm Harm*
+ 1885  ls
+ 1886  pico 1.c
+ 1887  ls
+ 1888  rm 1.c
+ 1889  ls
+ 1890  rm -r Acce*
+ 1891  ls
+ 1892  ls -l Acc*
+ 1893  chmod 777 Acc*
+ 1894  ls
+ 1895  ~bto120
+ 1896  ~bto120/a2
+ 1897  ~bto120
+ 1898  cd ~bto120
+ 1899  ls
+ 1900  a1
+ 1901  a0
+ 1902  t1
+ 1903  t2
+ 1904  t3
+ 1905  t4
+ 1906  a2
+ 1907  cd a1
+ 1908  ls
+ 1909  mkdir
+ 1910  ..
+ 1911  ls
+ 1912  ~document
+ 1913  ~documents
+ 1914  ~
+ 1915  cd ~
+ 1916  ls
+ 1917  pwd
+ 1918  cd ~documents
+ 1919  cd ~/documents
+ 1920  ..
+ 1921  ls
+ 1922  ..
+ 1923  ls
+ 1924  ..
+ 1925  ls
+ 1926  cd ~/documents/btp100f13/a1
+ 1927  ls
+ 1928  a.out
+ 1929  find a.out
+ 1930  find -size 5k
+ 1931  find -size 50k
+ 1932  find . -size 50k
+ 1933  find size 1b
+ 1934  find -size 1b
+ 1935  find . -size 1b
+ 1936  find . -size 0.01k
+ 1937  file a.out
+ 1938  find . -name file*
+ 1939  ~
+ 1940  cd
+ 1941  find . -name file*
+ 1942  find -name file*
+ 1943  find . -size +1k
+ 1944  find -size +50k
+ 1945  find . -size +50k
+ 1946  cd documents
+ 1947  find -size +50k
+ 1948  find .. -size +50k
+ 1949  ls
+ 1950  cd btp100f13
+ 1951  ls
+ 1952  cd workshop3
+ 1953  ls
+ 1954  cd complete
+ 1955  ls
+ 1956  diff w3.c w3op1.c
+ 1957  head w3.c
+ 1958  sort -f w3.c
+ 1959  tr"[a-z]" 
+ 1960  ls
+ 1961  cd ../../a1
+ 1962  ls
+ 1963  pico 1.c
+ 1964  ls
+ 1965  cd documents
+ 1966  ls
+ 1967  lsllslslsls
+ 1968  ce bto120f12
+ 1969  cd bto120f13
+ 1970  cd .. btp100f13/a1
+ 1971  ls
+ 1972  pwd
+ 1973  cd btp100f13/a1`
+ 1974  ld
+ 1975  ls
+ 1976  1
+ 1977  `
+ 1978  1
+ 1979  cd btp100f13/a1
+ 1980  ls
+ 1981  a.out
+ 1982  pico 1.c
+ 1983  cc 1.c
+ 1984  pico 1.c
+ 1985  ls
+ 1986  pico 1.c
+ 1987  gcc 1.c
+ 1988  pico 1.c
+ 1989  cc 1.c
+ 1990  pico 1.c
+ 1991  cc 1.c
+ 1992  pico 1.c
+ 1993  cc 1.c
+ 1994  pico 1.c
+ 1995  cc 1.c
+ 1996  pico 1.c
+ 1997  cc 1.c
+ 1998  a.out
+ 1999  0
+ 2000  00
+ 2001  pico 1.c
+ 2002  cc 1.c
+ 2003  cp 1.c 2.c
+ 2004  pico 2.c
+ 2005  diff 1.c 2.c
+ 2006  pico 2.c
+ 2007  cc 1.c
+ 2008  cc 2.c
+ 2009  a.out
+ 2010  30
+ 2011  230
+ 2012  2034
+ 2013  02340
+ 2014  2304
+ 2015  2340
+ 2016  00
+ 2017  0
+ 2018  00
+ 2019  0
+ 2020  00
+ 2021  pico 2.c
+ 2022  cc 2.c
+ 2023  pico 2.c
+ 2024  cc 1.c
+ 2025  diff 1.c 2.c
+ 2026  pico 2.c
+ 2027  cc 2.c
+ 2028  a.out
+ 2029  pico 2.c
+ 2030  ls
+ 2031  cd documents/btp100f13
+ 2032  cd a1
+ 2033  ls
+ 2034  pico 1.c
+ 2035  ls
+ 2036  cp 1.c 3.c
+ 2037  ls
+ 2038  pico 3.c
+ 2039  cc 3.c
+ 2040  pico 3.c
+ 2041  cc 3.c
+ 2042  pico 3.c
+ 2043  cc 3.c
+ 2044  diff 1.c 3.c
+ 2045  pico 3.c
+ 2046  cc 3.c
+ 2047  diff 3.c 1.c
+ 2048  ~bto120/a2
+ 2049  ls
+ 2050  ~bto120/a2
+ 2051  whoami
+ 2052  ca
+ 2053  whatever
+ 2054  exit
+ 2055  ls
+ 2056  email
+ 2057  mail
+ 2058  mail un333333@gmail.com <sample_dir1
+ 2059  mail un333333@gmail.com < sample_dir1
+ 2060  mail d
+ 2061  key mail
+ 2062  man mail
+ 2063  cls
+ 2064  clear
+ 2065  mailx -r un333333@gmail.com <s
+ 2066  ls
+ 2067  mailx -r un333333@gmail.com <sample_Dir1
+ 2068  cd documents/btp100f13/a1
+ 2069  ls
+ 2070  mailx -r un333333@gmail.com <a.out
+ 2071  mailx un333333@gmail.com <a.out
+ 2072  mailx jgchoi@myseneca.ca <a.out
+ 2073  mailx jgchoi@myseneca.ca < 1.c
+ 2074  script x
+ 2075  ls
+ 2076  mailx jgchoi@myseneca.ca<x
+ 2077  ls
+ 2078  cd documents/btp100f13/
+ 2079  ls
+ 2080  mkdir workshop5
+ 2081  ls
+ 2082  cd workshop5
+ 2083  pico 1.c
+ 2084  ls
+ 2085  cd documents
+ 2086  ls
+ 2087  cd btp100f13/a5
+ 2088  ls
+ 2089  cd btp100f13/a1
+ 2090  ls
+ 2091  cat x
+ 2092  rm x
+ 2093  ls
+ 2094  clear
+ 2095  more 1.c
+ 2096  ls
+ 2097  cc 3.c
+ 2098  a.out
+ 2099  ls
+ 2100  vi 3.c
+ 2101  ls
+ 2102  vi 4.c
+ 2103  cc 4.c
+ 2104  pico 4.c
+ 2105  cc 4.c
+ 2106  clear
+ 2107  pico 4.c
+ 2108  cc 4.
+ 2109  cc 4.c
+ 2110  a.out
+ 2111  ls
+ 2112  cd documents/btp100f13
+ 2113  ka
+ 2114  ls
+ 2115  mkdir workshop5bonous
+ 2116  ls
+ 2117  cd workshop5bonous
+ 2118  ls
+ 2119  pico 1.c
+ 2120  cc
+ 2121  ls
+ 2122  spc 1.c jgchoi@local
+ 2123  cp 1.c jgchoi@local /Documents
+ 2124  cp 1.c jgchoi@local ~
+ 2125  scl
+ 2126  scp
+ 2127  scp 1.c jgchoi@local
+ 2128  scp 1.c jgchoi@local/home
+ 2129  ls
+ 2130  scp 1.c jgchoi@local:~/
+ 2131  1.c
+ 2132  pico 1.c
+ 2133  spc
+ 2134  spc dd
+ 2135  spc 1.c 
+ 2136  spc 1.c 1.c
+ 2137  ls
+ 2138  pico 1.
+ 2139  cat 1.c
+ 2140  ls
+ 2141  cc 1.c
+ 2142  who
+ 2143  ls
+ 2144  1.c
+ 2145  cc 1.c
+ 2146  whoami
+ 2147  cat w5b1.c
+ 2148  cc w5b1.c
+ 2149  a.out
+ 2150  exit
+ 2151  ls
+ 2152  cc 1.c
+ 2153  pico 1.c
+ 2154  ls
+ 2155  c
+ 2156  cc 1.c
+ 2157  pico 1.c
+ 2158  cc 1.c
+ 2159  pico 1.c
+ 2160  cc 1.c
+ 2161  a.out
+ 2162  pico 1.c
+ 2163  cc 1.c
+ 2164  cc
+ 2165  ls
+ 2166  dsdf
+ 2167  cc
+ 2168  cc 1.c
+ 2169  a.out
+ 2170  cc 1.c
+ 2171  a.out
+ 2172  cc 1.c
+ 2173  a.out
+ 2174  cc 1.c
+ 2175  a.out
+ 2176  cc 1.c
+ 2177  a.out
+ 2178  cc 1.c
+ 2179  a.out
+ 2180  cc
+ 2181  cc 1.c
+ 2182  a.out
+ 2183  cc 1.c
+ 2184  a.out
+ 2185  cc 1.c
+ 2186  a.out
+ 2187  cc 1.c
+ 2188  a.out
+ 2189  cc 1.c
+ 2190  a.out
+ 2191  cc 1.c
+ 2192  a.out
+ 2193  ls
+ 2194  a.out
+ 2195  cc 1.c
+ 2196  a.out
+ 2197  cc 1.c
+ 2198  a.out
+ 2199  cd 
+ 2200  cd documents
+ 2201  ls
+ 2202  mv 1.c btp100f13/workshop5
+ 2203  ls
+ 2204  cd
+ 2205  cd documents/btp100f13/workshop5
+ 2206  ls
+ 2207  mv 1.c w5b1.c
+ 2208  pico w5b1.c
+ 2209  cc 1.c
+ 2210  ls
+ 2211  cc w5b1.c
+ 2212  a.out
+ 2213  clear
+ 2214  typescript
+ 2215  script
+ 2216  ls
+ 2217  a.out
+ 2218  xmail jgchoi@myseneca.ca<1.c
+ 2219  mailx
+ 2220  mailx jgchoi@myseneca.ca<1.c
+ 2221  exit
+ 2222  ls
+ 2223  rm 1.c
+ 2224  rm a.out
+ 2225  rm sample_dir1
+ 2226  ls
+ 2227  rm -r sample_dir1
+ 2228  ls
+ 2229  rm -r assign1a
+ 2230  ls
+ 2231  cd documents
+ 2232  ls
+ 2233  cd btp100f13
+ 2234  ls
+ 2235  mv workshop5bonous workshop5b1
+ 2236  ls
+ 2237  cd a1
+ 2238  ls
+ 2239  ln -s documents/btp100f13 100
+ 2240  ls
+ 2241  ls -l
+ 2242  100
+ 2243  cd 100
+ 2244  ls
+ 2245  cd a1
+ 2246  cc 1.c
+ 2247  cc 2.c
+ 2248  cc 3.c
+ 2249  cp 3.c 1.c
+ 2250  ls
+ 2251  cd..
+ 2252  find w5b1
+ 2253  find w5b1.c
+ 2254  find . w5b1.c
+ 2255  find . name w5b1.c
+ 2256  find -name w5
+ 2257  find . -name w5
+ 2258  ls
+ 2259  rm -r workshop5b1
+ 2260  ls
+ 2261  cd worskhop5
+ 2262  ls
+ 2263  cd workshop5
+ 2264  ls
+ 2265  cc 3.c
+ 2266  ls
+ 2267  cd ..
+ 2268  ls
+ 2269  cd a1
+ 2270  ls
+ 2271  cc 3.c
+ 2272  a.out
+ 2273  cc 1.c
+ 2274  a.out
+ 2275  cc 3.c
+ 2276  a.out
+ 2277  cc 3.c
+ 2278  a.out
+ 2279  cc 3.c
+ 2280  a.out
+ 2281  cc 3.c
+ 2282  a.out
+ 2283  cd ..
+ 2284  ls
+ 2285  cd workshop5
+ 2286  ls
+ 2287  cd compltbonus1
+ 2288  ls
+ 2289  a.out
+ 2290  cc w5b1.c
+ 2291  a.out
+ 2292  ls
+ 2293  cd..
+ 2294  cd a1
+ 2295  ls
+ 2296  cd ..
+ 2297  cd a1
+ 2298  ls
+ 2299  cp 3.c 1.c
+ 2300  cc 1.c
+ 2301  a.out
+ 2302  cc 3.c
+ 2303  a.out
+ 2304  cc 3.c
+ 2305  a.out
+ 2306  cc 3.c
+ 2307  a.out
+ 2308  cc 3.c
+ 2309  a.out
+ 2310  cc 3.c
+ 2311  a.out
+ 2312  cc 3.c
+ 2313  a.out
+ 2314  cc 3.c
+ 2315  a.out
+ 2316  cc 3.c
+ 2317  a.out
+ 2318  cc 3.c
+ 2319  a.out
+ 2320  ls
+ 2321  cd
+ 2322  a.out
+ 2323  cd a1
+ 2324  ls
+ 2325  cd 100/a1
+ 2326  ls
+ 2327  a.out
+ 2328  cc 3.c
+ 2329  a.out
+ 2330  mv 3.c 1.c
+ 2331  ls
+ 2332  cp 1.c 2.c
+ 2333  ls
+ 2334  mv 2.c backup.c
+ 2335  ls
+ 2336  cc 1.c
+ 2337  a.out
+ 2338  exit
+ 2339  whoami
+ 2340  cat exit
+ 2341  exit
+ 2342  whoami
+ 2343  cat a1.c
+ 2344  cc a1.c
+ 2345  a.out
+ 2346  exit
+ 2347  100/a1
+ 2348  ls
+ 2349  cd 100/a1
+ 2350  ls
+ 2351  cd 1.c
+ 2352  cc 1.c
+ 2353  a.out
+ 2354  ls
+ 2355  pico 1.c
+ 2356  ls
+ 2357  cc 1.c
+ 2358  a.out
+ 2359  pico 1.c
+ 2360  clear
+ 2361  script
+ 2362  ls
+ 2363  rm typescript
+ 2364  ls
+ 2365  mv 1.c a1.c
+ 2366  ls
+ 2367  script
+ 2368  pico 1.c
+ 2369  cc 1.c
+ 2370  pico 1.c
+ 2371  cc 1.c
+ 2372  pico 1.c
+ 2373  cc 1.c
+ 2374  a.out
+ 2375  pico 1.c
+ 2376  a.out
+ 2377  pico 1.c
+ 2378  a.out
+ 2379  ls
+ 2380  a.out
+ 2381  ~bto120/a2
+ 2382  ls
+ 2383  cd 100
+ 2384  ls
+ 2385  cd a1
+ 2386  ls
+ 2387  a.out
+ 2388  pico backup.c
+ 2389  exit
+ 2390  ls
+ 2391  ~bto120/a2
+ 2392  cp -r ~bto120/2013c/V1
+ 2393  cp -r ~bto120/2013c/V1 .
+ 2394  cp -r /home/bto120/2013/V1 .
+ 2395  cd ~
+ 2396  cp -r ~bto120/2013c/VI .
+ 2397  cd VI
+ 2398  ls
+ 2399  1basics
+ 2400  vi 1basics
+ 2401  ls
+ 2402  vi 6vimtutor
+ 2403  ls
+ 2404  vi 6vimtutor
+ 2405  ls
+ 2406  cd..
+ 2407  ls
+ 2408  ls -l Des*
+ 2409  ls -l Deskto*
+ 2410  cd document
+ 2411  cd documents
+ 2412  ls
+ 2413  cd bto
+ 2414  cd bto*
+ 2415  cd..
+ 2416  ls -l bto*
+ 2417  ls bto*
+ 2418  ls -l bto120
+ 2419  ls -l bto120f13
+ 2420  ls
+ 2421  ls -l btp110f13
+ 2422  ls -l btp100f13
+ 2423  file btp100f13
+ 2424  ls -l btp100f13
+ 2425  ls -d btp100f13
+ 2426  ls -ltime
+ 2427  time
+ 2428  date
+ 2429  mkdir -p 1/2/3
+ 2430  ls
+ 2431  cd..
+ 2432  ls
+ 2433  more sample_dir2/sample_dir/stenton/phone_directory
+ 2434  ls
+ 2435  set 1 2 3
+ 2436  ls
+ 2437  echo $#
+ 2438  shirt
+ 2439  shift
+ 2440  echo $3
+ 2441  echo $*
+ 2442  echo "`whoami'"
+ 2443  d
+ 2444  d
+ 2445  d
+ 2446  d
+ 2447  ls
+ 2448  cc main.c
+ 2449  pico main.c
+ 2450  cc main.c
+ 2451  cc 1.c
+ 2452  ls
+ 2453  cc mian.c
+ 2454  cc main.c
+ 2455  a.out
+ 2456  cc main.c
+ 2457  a.out
+ 2458  fasdf
+ 2459  df
+ 2460  as
+ 2461  ls
+ 2462  cc 1.c
+ 2463  a.out
+ 2464  cc 1.c
+ 2465  a.out
+ 2466  cc 1,c
+ 2467  cc 1.c
+ 2468  a.out
+ 2469  cc 1,c
+ 2470  cc 1.c
+ 2471  clear
+ 2472  a.out
+ 2473  2
+ 2474  cc 1.c
+ 2475  a.out
+ 2476  ls
+ 2477  cc 1.c
+ 2478  a.out
+ 2479  cc 1.c
+ 2480  a.out
+ 2481  cc 1.c
+ 2482  a.out
+ 2483  cc 1.c
+ 2484  clear
+ 2485  a.out
+ 2486  cc 1.c
+ 2487  a.out
+ 2488  cc 1.c
+ 2489  ls
+ 2490  cc
+ 2491  cc 1.c
+ 2492  cc main.c
+ 2493  cc 1.c
+ 2494  cat 1.c
+ 2495  pico 1.c
+ 2496  cc 1.c
+ 2497  pico 1.c
+ 2498  cc 1.c
+ 2499  pico 1.c
+ 2500  cc 1.c
+ 2501  a.out
+ 2502  pico 1.c
+ 2503  cc 1. 
+ 2504  cc 1.c
+ 2505  pico 1.c
+ 2506  cc 1.c
+ 2507  a.out
+ 2508  pico 1.c
+ 2509  cc 1.c
+ 2510  a.out
+ 2511  pico 1.c
+ 2512  cc 1.c
+ 2513  pico 1.c
+ 2514  cc 1.c
+ 2515  ico 1.c
+ 2516  pico 1.c
+ 2517  cc 1.c
+ 2518  pico 1.c
+ 2519  cc 1.c
+ 2520  a.out
+ 2521  pico 1.c
+ 2522  cc 1.c
+ 2523  a.out
+ 2524  pico 1.c
+ 2525  cc 1.c
+ 2526  a.out
+ 2527  pico 1.c
+ 2528  y
+ 2529  ls
+ 2530  ~bto120/a2
+ 2531  ls
+ 2532  a.out
+ 2533  pico 1.c
+ 2534  cc 1.c
+ 2535  pico 1.c
+ 2536  cc 1.
+ 2537  cc 1.c
+ 2538  pico 1.c
+ 2539  cc 1.
+ 2540  cc 1.c
+ 2541  pico 1.c
+ 2542  cc 1.c
+ 2543  a.out
+ 2544  pico 1.c
+ 2545  cc 1.c
+ 2546  pico 1.c
+ 2547  cc 1.
+ 2548  cc 1.c
+ 2549  pico 1.c
+ 2550  umask
+ 2551  ls
+ 2552  100
+ 2553  cd 100
+ 2554  ls
+ 2555  rm 1.c a.out
+ 2556  ls
+ 2557  mkdir homework
+ 2558  cd
+ 2559  ls
+ 2560  a.out
+ 2561  mv workthroughhomeowrk.c wt.c
+ 2562  ls
+ 2563  cc wt.c
+ 2564  a.out
+ 2565  cd 100/homework
+ 2566  ls
+ 2567  cc 1,c
+ 2568  cc 1.c
+ 2569  clear
+ 2570  cc 1.c
+ 2571  a.out
+ 2572  cc 1.c
+ 2573  a.out
+ 2574  cc 1.c
+ 2575  a.out
+ 2576  cc 1.c
+ 2577  a.out
+ 2578  cc 1.c
+ 2579  a.out
+ 2580  cc 1.c
+ 2581  a.out
+ 2582  cc 1.c
+ 2583  a.out
+ 2584  cc 1.c
+ 2585  a.out
+ 2586  cc 1.c
+ 2587  a.out
+ 2588  cc 1.c
+ 2589  a.out
+ 2590  cc 1.c
+ 2591  a.out
+ 2592  cc 1.c
+ 2593  a.out
+ 2594  cc 1.c
+ 2595  a.out
+ 2596  cc 1.c
+ 2597  a.out
+ 2598  cc 1.c
+ 2599  a.out
+ 2600  cc 1.c
+ 2601  a.out
+ 2602  cc programming.c
+ 2603  ls
+ 2604  cc programing.c
+ 2605  a.out
+ 2606  cd 100
+ 2607  ls
+ 2608  cd workshop5
+ 2609  ls
+ 2610  cd compltbonus1
+ 2611  ls
+ 2612  a.out
+ 2613  set a b c d
+ 2614  echo $@
+ 2615  echo $*
+ 2616  ls
+ 2617  vi 1.c
+ 2618  cc 1.c
+ 2619  a.out
+ 2620  vi 1.c
+ 2621  cc 1.c
+ 2622  a.out
+ 2623  vi 1.c
+ 2624  cc 1.c
+ 2625  a.out
+ 2626  VT1021;2c
+ 2627  vi 1.c
+ 2628  cc
+ 2629  find -name file
+ 2630  find . -name file
+ 2631  find / -name file
+ 2632  find / -name file | more
+ 2633  find / -name file |wc -l
+ 2634  find / -name -file > xx
+ 2635  ls
+ 2636  cat xx
+ 2637  find / -name file >> xx
+ 2638  cat
+ 2639  cat xx
+ 2640  ls
+ 2641  rm xx
+ 2642  find . -name as* | wc
+ 2643  -name as* | diff 
+ 2644  cal 1995 | wc
+ 2645  cal 1995 | tr "[a-z]" "[A-Z]"
+ 2646  cal 1995 | tr "2" "3"
+ 2647  date | pico
+ 2648  ls
+ 2649  cd VI
+ 2650  ls
+ 2651  vi 1basic
+ 2652  vi 1basics
+ 2653  which wim
+ 2654  whicm vim
+ 2655  which vim
+ 2656  which vi
+ 2657  diff vi vim
+ 2658  diff /user/bin/vi /user/vin/vim
+ 2659  diff /user/bin/vi /user bin/vim
+ 2660  diff /user/bin/vi user/bin/vim
+ 2661  diff /user/bin/vi /user/bin/vim
+ 2662  diff /usr/bin/vi /usr/bin/vim
+ 2663  vi 2moving
+ 2664  ls
+ 2665  vi 3cutpaste
+ 2666  ls
+ 2667  pico 1.c
+ 2668  pico wt.c
+ 2669  cc wt.c
+ 2670  a.out
+ 2671  ls
+ 2672  a.out
+ 2673  pico wt.c
+ 2674  ls
+ 2675  pico 1.c
+ 2676  rm 1.c wt.c 
+ 2677  ls
+ 2678  rm cars3tab
+ 2679  ls
+ 2680  rm a.out
+ 2681  ls
+ 2682  rm pico.save
+ 2683  ls
+ 2684  file tr
+ 2685  rm tr
+ 2686  ls
+ 2687  file sample_dir2
+ 2688  ls
+ 2689  slslslslsl
+ 2690  cd 100
+ 2691  ls
+ 2692  c workshop5
+ 2693  cd workshop5
+ 2694  ls
+ 2695  pico 1.c
+ 2696  cc 1.c
+ 2697  pico 1.c
+ 2698  rm 1.c
+ 2699  pico 1.c
+ 2700  cc 1.c
+ 2701  rm 1.c
+ 2702  pico 1.c
+ 2703  cc 1.c
+ 2704  pico 1.c
+ 2705  cc 1.c
+ 2706  pico 1.c
+ 2707  cc 1.c
+ 2708  a.out
+ 2709  pico 1.c
+ 2710  cc 1.c
+ 2711  pico 1.c
+ 2712  cc 1.c
+ 2713  pico 1.c
+ 2714  pico 2.c
+ 2715  cc 2.c
+ 2716  pico 2.c
+ 2717  cc 2.c
+ 2718  diff pico 1.c 2.c
+ 2719  diff 1.c 2.c
+ 2720  pico 1.c
+ 2721  cc 1.c
+ 2722  a.out
+ 2723  pico 1.c
+ 2724  pico 3.c
+ 2725  cc 3.c
+ 2726  rm 3.c
+ 2727  pico 3.c
+ 2728  cc 3.c
+ 2729  a.out
+ 2730  rm 3.c
+ 2731  pico 3.c
+ 2732  cc 3.c
+ 2733  a.out
+ 2734  rm 3.c
+ 2735  pico 3.c
+ 2736  cc 3.c
+ 2737  a.out
+ 2738  a.ou
+ 2739  a.out
+ 2740  ls
+ 2741  mv 3.c w5.c
+ 2742  mkdir compl
+ 2743  mv w5.c comp1
+ 2744  ls
+ 2745  mv comp1 w5.c
+ 2746  ls
+ 2747  mv w5.c comp1/
+ 2748  mv w5.c comp1/w5.c
+ 2749  mv w5.c compl
+ 2750  ls
+ 2751  clear
+ 2752  cd 100
+ 2753  cd workshpo5
+ 2754  cd workshop5
+ 2755  ls
+ 2756  pico sqrt.c
+ 2757  cc sqrt.c
+ 2758  pico sqrt.c
+ 2759  cc sqrt.c
+ 2760  pico sqrt.c
+ 2761  cc sqrt.
+ 2762  cc sqrt.c
+ 2763  a.out
+ 2764  pico sqrt.c
+ 2765  cc sqrt.c
+ 2766  a.out
+ 2767  pico sqrt.c
+ 2768  cc sqrt.c
+ 2769  5
+ 2770  a.out
+ 2771  pico sqrt.c
+ 2772  cc 1.c
+ 2773  cc sqrt.c
+ 2774  a.out
+ 2775  pico sqrt.c
+ 2776  cc sqrt.c
+ 2777  a.out
+ 2778  pico sqrt.c
+ 2779  cc sqrt.c
+ 2780  pico sqrt.c
+ 2781  cc sqrt.c
+ 2782  a.out
+ 2783  ㄷ턋exit
+ 2784  exit
+ 2785  cd 100/workshop5
+ 2786  ls
+ 2787  pico 1.c
+ 2788  pico sqrt.c
+ 2789  ls
+ 2790  mkdir bup
+ 2791  mv *.c bup
+ 2792  ls
+ 2793  pico 1.c
+ 2794  cc 1.c
+ 2795  pico 1.c
+ 2796  cc 1.c
+ 2797  a.out
+ 2798  pico 1.c
+ 2799  cc 1.c
+ 2800  pico 1.c
+ 2801  cc 1.c
+ 2802  pico 1.
+ 2803  pico 1.c
+ 2804  cc 1.c
+ 2805  a.out
+ 2806  pico 1.c
+ 2807  cc 1.c
+ 2808  a.out
+ 2809  pico 1.c
+ 2810  cc 1.c
+ 2811  a.out
+ 2812  pico 1.c
+ 2813  cc 1.c
+ 2814  a.out
+ 2815  pico 1.c
+ 2816  cc 1.c
+ 2817  a.out
+ 2818  pico 1.c
+ 2819  cc 1.c
+ 2820  a.out
+ 2821  pico 1.c
+ 2822  cc 1.c
+ 2823  a.out
+ 2824  pico 1.c
+ 2825  cc 1.c
+ 2826  a.out
+ 2827  pico 1.c
+ 2828  cc 1.c
+ 2829  a.out
+ 2830  pico 1.c
+ 2831  cc 1.c
+ 2832  a.out
+ 2833  pico 1.c
+ 2834  cc 1.c
+ 2835  pico 1.c
+ 2836  cc 1.c
+ 2837  a.out
+ 2838  pico 1.c
+ 2839  cc 1.c
+ 2840  a.out
+ 2841  pico 1.c
+ 2842  cc 1.c
+ 2843  a.out
+ 2844  a.out 20
+ 2845  a.out
+ 2846  pico 1.c
+ 2847  cc 1.c
+ 2848  a.out
+ 2849  pico 1.c
+ 2850  cc 1.c
+ 2851  a.out
+ 2852  pico 1.c
+ 2853  cc 1.c
+ 2854  a.out
+ 2855  pico 1.c
+ 2856  cc 1.c
+ 2857  a.out
+ 2858  pico 1.c
+ 2859  cc 1.c
+ 2860  a.out
+ 2861  pico 1.c
+ 2862  cc 1.c
+ 2863  a.out
+ 2864  pico 1.c
+ 2865  cc 1.c
+ 2866  pico 1.c
+ 2867  cc 1.c
+ 2868  a.out
+ 2869  pico 1.c
+ 2870  cc 1.c
+ 2871  a.out
+ 2872  pico 1.c
+ 2873  cc 1.c
+ 2874  a.out
+ 2875  pico 1.c
+ 2876  cc 1.c
+ 2877  a.out
+ 2878  pico 1.c
+ 2879  cc 1.c
+ 2880  a.out
+ 2881  pico 1.c
+ 2882  cc 1.c
+ 2883  a.out
+ 2884  pico 1.c
+ 2885  cc 1.c
+ 2886  pico 1.c
+ 2887  cc 1.c
+ 2888  a.out
+ 2889  pico 1.c
+ 2890  cd 100/workshop5
+ 2891  ls
+ 2892  a.out
+ 2893  pico 1.c
+ 2894  cc 1.c
+ 2895  pico 1.c
+ 2896  cc 1.c
+ 2897  a.out
+ 2898  0
+ 2899  00
+ 2900  pico 1.c
+ 2901  cc 1.c
+ 2902  a.out
+ 2903  pico 1.c
+ 2904  cc 1.c
+ 2905  a.out
+ 2906  pico 1.c
+ 2907  cc 1.c
+ 2908  a.out
+ 2909  pico 1.c
+ 2910  cc 1c
+ 2911  cc 1.c
+ 2912  a.out
+ 2913  0
+ 2914  a.out
+ 2915  pico 1.c
+ 2916  whoami
+ 2917  cat w5.c
+ 2918  cc w5.c
+ 2919  a.out
+ 2920  cat w5op1.c
+ 2921  cc w5op1.c
+ 2922  a.out
+ 2923  exit
+ 2924  cd 100
+ 2925  ls
+ 2926  cd workshop5
+ 2927  ls
+ 2928  a.out
+ 2929  pico 1.c
+ 2930  cc 1.c
+ 2931  a.out
+ 2932  pico 1.c
+ 2933  ls
+ 2934  mv 1.c bup
+ 2935  ls
+ 2936  rm a.out
+ 2937  ls
+ 2938  pico w5.c
+ 2939  cc w5.c 
+ 2940  a.out
+ 2941  pico w5op1.c
+ 2942  cc w5op1.c
+ 2943  a.out
+ 2944  ls
+ 2945  clear
+ 2946  script
+ 2947  ls
+ 2948  rm -r bup
+ 2949  ls
+ 2950  mv compltbonus1 Fin_B1
+ 2951  ls
+ 2952  rm -r comp1
+ 2953  ls
+ 2954  rm -r compl
+ 2955  ls
+ 2956  mkdir Fin
+ 2957  ls
+ 2958  mv w* Fin
+ 2959  ls
+ 2960  rm typescript
+ 2961  ls
+ 2962  rm a.out
+ 2963  ls
+ 2964  cd ..
+ 2965  ls
+ 2966  rm -r walkthrough1
+ 2967  ls
+ 2968  rm -r midterm1
+ 2969  ls
+ 2970  rm -r homework
+ 2971  ls
+ 2972  cd a1
+ 2973  ls
+ 2974  a.out
+ 2975  ls
+ 2976  pico 1.c
+ 2977  ls
+ 2978  rm 1.c
+ 2979  pico 1.c
+ 2980  cc 1.c
+ 2981  a.out
+ 2982  pico 2.c
+ 2983  cc 2.c
+ 2984  pico 3.c
+ 2985  cc 3.c
+ 2986  a.out
+ 2987  ls
+ 2988  rm *.c
+ 2989  ls
+ 2990  pico 1.c
+ 2991  cc 1.c
+ 2992  pico 1.c
+ 2993  cc 1.c
+ 2994  pico 1.c
+ 2995  cc 1.c
+ 2996  a.out
+ 2997  pico 1.c
+ 2998  cc 1.c
+ 2999  a.out
+ 3000  pico 1.c
+ 3001  cc 1.c
+ 3002  a.out
+ 3003  who
+ 3004  who | cw -l
+ 3005  who | cw 
+ 3006  which cw
+ 3007  ls
+ 3008  cd 100
+ 3009  ls
+ 3010  cd workshop 5
+ 3011  cd workshop3
+ 3012  ls
+ 3013  cd complete
+ 3014  ls
+ 3015  pico w3.c
+ 3016  ls
+ 3017  cd 100/workshop3
+ 3018  ls
+ 3019  cd complete
+ 3020  ls
+ 3021  cc w3op1.c
+ 3022  a.out
+ 3023  cd..
+ 3024  cd workshop4
+ 3025  cd ..
+ 3026  cd workshop4
+ 3027  ls
+ 3028  cd complete
+ 3029  ls
+ 3030  cc w4op1.c
+ 3031  a.out
+ 3032  pico 1.c
+ 3033  rm 1.c
+ 3034  pico 1.c
+ 3035  cc 1.c
+ 3036  ls
+ 3037  pico 1.c
+ 3038  cc 1.c
+ 3039  pico 1.c
+ 3040  cc 1.c
+ 3041  pico 1.c
+ 3042  cc 1.c
+ 3043  pico 1.c
+ 3044  cc 1.c
+ 3045  a.out
+ 3046  pico 1.c
+ 3047  cc 1c
+ 3048  cc 1.c
+ 3049  rm 1.c
+ 3050  ls
+ 3051  rm a.out
+ 3052  ls
+ 3053  rm -r assgin2_testdir
+ 3054  ls
+ 3055  pico 1.c
+ 3056  cc 1c
+ 3057  cc 1.c
+ 3058  a.out
+ 3059  pico 1.c
+ 3060  cc 1.c
+ 3061  a.out
+ 3062  pico 1.c
+ 3063  ls
+ 3064  rm 1.c
+ 3065  pico 1.c
+ 3066  cc 1.c
+ 3067  pico 1.c
+ 3068  cc 1.c
+ 3069  a.out
+ 3070  pico 1.c
+ 3071  cd 100
+ 3072  ls
+ 3073  mkdir workshop6
+ 3074  cd workshop6
+ 3075  touch 1.c
+ 3076  cc 1.c
+ 3077  cc 1.c -lm
+ 3078  gcc 1.c
+ 3079  cc 1.c
+ 3080  cc 1.c -lm
+ 3081  pico 1.c
+ 3082  y
+ 3083  cc 1.c
+ 3084  pico 1.c
+ 3085  cc 1.c
+ 3086  pico 1.c
+ 3087  cc 1.c
+ 3088  a.out
+ 3089  pico 1.c
+ 3090  cc 1.c
+ 3091  pico 1.c
+ 3092  y
+ 3093  gcc 1.c -lm
+ 3094  pico 1.c
+ 3095  cc 1.c
+ 3096  cc 1.c -wall
+ 3097  cc 1.c -Wall
+ 3098  s
+ 3099  ls
+ 3100  lsl
+ 3101  slslslsls
+ 3102  pico 1.c
+ 3103  cc 1.c
+ 3104  pico 1.c
+ 3105  cc 1.c
+ 3106  pico 1.c
+ 3107  cc 1.c
+ 3108  pico 1.c
+ 3109  cc 1.c
+ 3110  cc1.c
+ 3111  cc 1.c
+ 3112  cc 1.c -lm
+ 3113  cc 1.c
+ 3114  a.out
+ 3115  aout
+ 3116  a.out
+ 3117  cc 1.c
+ 3118  a.out
+ 3119  cc 1.c
+ 3120  a.out
+ 3121  cc 1.c
+ 3122  a.out
+ 3123  cc a.out
+ 3124  cc 1.c
+ 3125  cc1.c
+ 3126  cc 1.c
+ 3127  a.out
+ 3128  cc 1.c
+ 3129  a.out
+ 3130  cc 1.c
+ 3131  a.out
+ 3132  cc 1.c
+ 3133  a.out
+ 3134  cc 1.c
+ 3135  a.out
+ 3136  cc 1.c
+ 3137  a.out
+ 3138  98
+ 3139  a.out
+ 3140  pico 1.c
+ 3141  cc 1.c
+ 3142  a.out
+ 3143  pico 1.c
+ 3144  cc 1.c
+ 3145  a.out
+ 3146  pico 1.c
+ 3147  cc 1.c
+ 3148  a.out
+ 3149  cp 1.c w6.c
+ 3150  ls
+ 3151  cc w6.c
+ 3152  a.out
+ 3153  cc w6c
+ 3154  cc w6.c
+ 3155  a.out
+ 3156  cc w6.c
+ 3157  a.out
+ 3158  cc 1.c
+ 3159  a.out
+ 3160  ls
+ 3161  rm 1.c
+ 3162  cp w6.c 1.c
+ 3163  ls
+ 3164  cc 6.c
+ 3165  cc w6.c
+ 3166  a.out
+ 3167  cc 1.c
+ 3168  a.out
+ 3169  cc 1.c
+ 3170  a.out
+ 3171  cc 1.c
+ 3172  a.out
+ 3173  cc 1.c
+ 3174  a.out
+ 3175  cc 1.c
+ 3176  a.out
+ 3177  cc 1.c
+ 3178  a.out
+ 3179  cc 1.c
+ 3180  a.out
+ 3181  cc 1.c
+ 3182  a.out
+ 3183  cc 1.c
+ 3184  a.out
+ 3185  ls
+ 3186  cc 1.c
+ 3187  a.out
+ 3188  cc 1.c
+ 3189  a.out
+ 3190  cc 1.c
+ 3191  a.out
+ 3192  cc 1c
+ 3193  cc 1.c
+ 3194  a.out
+ 3195  cc 1.c
+ 3196  a.out
+ 3197  cc 1.c
+ 3198  cc 1c
+ 3199  cc 1.c
+ 3200  a.out
+ 3201  cc 1.c
+ 3202  a.out
+ 3203  cc 1.c
+ 3204  a.out
+ 3205  cc 1.c
+ 3206  a.out
+ 3207  cd 100/workshop6
+ 3208  ls
+ 3209  cc 1.c
+ 3210  cc 1.c -lm
+ 3211  cc 1.c
+ 3212  a.out
+ 3213  zxdkvjakl3jrW3R JAWrkjc
+ 3214  a.out
+ 3215  cc 1.c
+ 3216  a.out
+ 3217  cc 1.c
+ 3218  a.out
+ 3219  cc 1.c
+ 3220  a.out
+ 3221  cc 1.
+ 3222  cc 1.c
+ 3223  a.out
+ 3224  cc 1.c
+ 3225  cc 1c
+ 3226  cc 1.c
+ 3227  a.out
+ 3228  cc 1.c
+ 3229  a.out
+ 3230  cc 1.c
+ 3231  a.out
+ 3232  cc 1.c
+ 3233  a.out
+ 3234  cc 1.c
+ 3235  a.out
+ 3236  cc 1.c
+ 3237  a.out
+ 3238  cc 1.c
+ 3239  a.out
+ 3240  cp 1.c bkupw5op1.c
+ 3241  ls
+ 3242  cc 1.c
+ 3243  a.out
+ 3244  cc 1.c
+ 3245  a.out
+ 3246  cc 1.c
+ 3247  a.out
+ 3248  cc 1.c
+ 3249  a.out
+ 3250  cc 1.c
+ 3251  a.out
+ 3252  cc1.c
+ 3253  cc 1.c
+ 3254  a.out
+ 3255  cc 1.c
+ 3256  a.out
+ 3257  cc 1.c
+ 3258  a.out
+ 3259  cc1.c
+ 3260  cc 1.c
+ 3261  a.out
+ 3262  cc 1.c
+ 3263  a.out
+ 3264  diff 1.c bkupw5op1.c
+ 3265  ls
+ 3266  cp 1.c bkupw5op1.c
+ 3267  ls
+ 3268  diff 1.c bkupw5op1.c
+ 3269  LS
+ 3270  ls
+ 3271  mv 1c w6op1.c
+ 3272  mv 1.c w6op1.c
+ 3273  ls
+ 3274  cp w6.c w6.backup
+ 3275  cp w6op1.c w6op1.backup
+ 3276  ls
+ 3277  cc w6.c
+ 3278  cc 1w6.c
+ 3279  cc w6.c
+ 3280  a.out
+ 3281  cc 1.c
+ 3282  cc w6.c
+ 3283  a.out
+ 3284  cc 1.c
+ 3285  cc w6.c
+ 3286  a.out
+ 3287  cd 100/workshop6
+ 3288  ls
+ 3289  cc w6.c
+ 3290  a.out
+ 3291  23
+ 3292  4
+ 3293  2'\34''
+ 3294  a.out
+ 3295  cd ../workshop5
+ 3296  ls
+ 3297  cd Fin_B1
+ 3298  ls
+ 3299  a.out
+ 3300  ls
+ 3301  pico w5b1.c
+ 3302  ls
+ 3303  rm a.out
+ 3304  ls
+ 3305  rm 1.c
+ 3306  ls
+ 3307  cd 100
+ 3308  ls
+ 3309  cd workshop6
+ 3310  ls
+ 3311  pico w6op1.c
+ 3312  cc w6.c
+ 3313  a.out
+ 3314  cc w6op1.c
+ 3315  a.out
+ 3316  pico w6op1.c
+ 3317  cc w6op1.c
+ 3318  a.out
+ 3319  ls
+ 3320  cd 100
+ 3321  ls
+ 3322  cd workshop6
+ 3323  ls
+ 3324  a.out
+ 3325  ls
+ 3326  pico w6op1.c
+ 3327  cc w6.c
+ 3328  cc w6op1.c 
+ 3329  a.out
+ 3330  cd 100
+ 3331  cd workshop6
+ 3332  ls
+ 3333  pico w6.c
+ 3334  y
+ 3335  cc w6.c
+ 3336  a.out
+ 3337  pico w6.d
+ 3338  pico w6.c
+ 3339  cc w6.c
+ 3340  a.out
+ 3341  pico w6.c
+ 3342  cc w6.c
+ 3343  a.out
+ 3344  cc w6op1.c
+ 3345  a.out
+ 3346  cc w6op1.c
+ 3347  a.out
+ 3348  cc w6op1.c
+ 3349  a.out
+ 3350  cc w6op1.c
+ 3351  a.out
+ 3352  cc w6op1.c
+ 3353  a.out
+ 3354  cc w6op1.c
+ 3355  a.out
+ 3356  cc w6op1.c
+ 3357  a.out
+ 3358  cc w6op1.c
+ 3359  a.out
+ 3360  cc w6op1.c
+ 3361  a.out
+ 3362  ls
+ 3363  rm -r assign2_testdir
+ 3364  rm -r sample_dir2
+ 3365  ls
+ 3366  cat cars2
+ 3367  cp -r ~bto120/2013c/VI
+ 3368  cp -r ~bto120/2013c/VI .
+ 3369  cd VI
+ 3370  ls
+ 3371  vi 1basics
+ 3372  ls
+ 3373  vi 2moving
+ 3374  ls
+ 3375  vi 3cutpaste
+ 3376  ls
+ 3377  vi 3cutpaste
+ 3378  ls
+ 3379  cd 100
+ 3380  ls
+ 3381  cd workshop6
+ 3382  ls
+ 3383  a.out
+ 3384  ~bto120/a2
+ 3385  ls
+ 3386  cd
+ 3387  ls
+ 3388  cd VI
+ 3389  ls
+ 3390  vi 1basics
+ 3391  ls
+ 3392  vi 2moving
+ 3393  ls
+ 3394  cd..
+ 3395  rm -r VI
+ 3396  ls
+ 3397  ~bto120/a2
+ 3398  ls
+ 3399  ~bto120/a2
+ 3400  ls
+ 3401  cd 100/workshop6
+ 3402  ls
+ 3403  pico w6.c
+ 3404  cp w6.c ex.c
+ 3405  pico ex.c
+ 3406  cc ex.c
+ 3407  a.out
+ 3408  whoami
+ 3409  cat w6.c
+ 3410  cc w6.c
+ 3411  a.out
+ 3412  cat w6op1.c
+ 3413  cc w6op1.c
+ 3414  a.out
+ 3415  exit
+ 3416  ls 100
+ 3417  ls -d 100
+ 3418  ls 100
+ 3419  cd 100/workshop5
+ 3420  ls
+ 3421  cd Fin
+ 3422  ls
+ 3423  cc w5op1.c
+ 3424  a.out
+ 3425  0
+ 3426  cd..
+ 3427  cd workshop6
+ 3428  ls
+ 3429  rm ex.c
+ 3430  ls
+ 3431  pico w6.c
+ 3432  cc w6.c
+ 3433  a.out
+ 3434  ls
+ 3435  pico w6.c
+ 3436  ls
+ 3437  vi w6.c
+ 3438  ls
+ 3439  cc w6.c
+ 3440  vi w6.c
+ 3441  ls
+ 3442  cc w6.c
+ 3443  a.out
+ 3444  ls
+ 3445  vi w6op1.c
+ 3446  ls
+ 3447  w6op1.c
+ 3448  cc w6op1.c
+ 3449  a.out
+ 3450  clear
+ 3451  ls
+ 3452  mkdir bk
+ 3453  ls
+ 3454  mv bkupw5op1.c bk
+ 3455  ls
+ 3456  mv *.backup bk
+ 3457  ls
+ 3458  rm a.out
+ 3459  ls
+ 3460  lslslsl
+ 3461  clear
+ 3462  ls
+ 3463  script
+ 3464  cd
+ 3465  ls
+ 3466  cd VI
+ 3467  ls
+ 3468  cd 3inserting
+ 3469  vi 3inserting
+ 3470  ls
+ 3471  vi 4 inserting
+ 3472  ls
+ 3473  vi 4inserting
+ 3474  ls
+ 3475  c 5tricks
+ 3476  vi 5tricks
+ 3477  fg
+ 3478  ls
+ 3479  vi 6vimtutor
+ 3480  cla
+ 3481  cd..
+ 3482  ls
+ 3483  ls -l Public
+ 3484  rm Public
+ 3485  ls
+ 3486  rmdir Public
+ 3487  ls
+ 3488  rmdir Videos
+ 3489  ls
+ 3490  lsl
+ 3491  sl
+ 3492  s
+ 3493  sl
+ 3494  ls -l Desktop
+ 3495  ls
+ 3496  cat cars2
+ 3497  vi cars2
+ 3498  ls
+ 3499  cat cars2 | tr -c ' ' '\t'
+ 3500  ls
+ 3501  tr ' ' '\t' -c <cars2
+ 3502  tr --help
+ 3503  tr -c ' ' ''
+ 3504  tr 0c ' ' '' < cars2
+ 3505  tr -c ' ' '' <cars2
+ 3506  tr -c ' ' '\t' <cars2
+ 3507  tr -c ' ' ' ' <cars2
+ 3508  cat cars2
+ 3509  pwd
+ 3510  cd
+ 3511  ls
+ 3512  ls -a
+ 3513  ls -l
+ 3514  ls -d
+ 3515  who
+ 3516  w
+ 3517  who
+ 3518  w
+ 3519  who
+ 3520  who am i
+ 3521  whoami
+ 3522  cp -r d
+ 3523  cp -R
+ 3524  cp -R ..
+ 3525  cp -R .. .
+ 3526  cp -r .. .
+ 3527  cp --help
+ 3528  cp
+ 3529  cp --help
+ 3530  stty -echo
+ 3531  d
+ 3532  dfghsadfadgaewtr
+ 3533  erkljaslkjfsd
+ 3534  stty echo
+ 3535  d
+ 3536  clear
+ 3537  fc -l
+ 3538  history
+ 3539  history | cw -l
+ 3540  ls 100
+ 3541  ls -d 100
+ 3542  ls 100
+ 3543  cd 100/workshop5
+ 3544  ls
+ 3545  cd Fin
+ 3546  ls
+ 3547  cc w5op1.c
+ 3548  a.out
+ 3549  0
+ 3550  cd..
+ 3551  cd workshop6
+ 3552  ls
+ 3553  rm ex.c
+ 3554  ls
+ 3555  pico w6.c
+ 3556  cc w6.c
+ 3557  a.out
+ 3558  ls
+ 3559  pico w6.c
+ 3560  ls
+ 3561  vi w6.c
+ 3562  ls
+ 3563  cc w6.c
+ 3564  vi w6.c
+ 3565  ls
+ 3566  cc w6.c
+ 3567  a.out
+ 3568  ls
+ 3569  vi w6op1.c
+ 3570  ls
+ 3571  w6op1.c
+ 3572  cc w6op1.c
+ 3573  a.out
+ 3574  clear
+ 3575  ls
+ 3576  mkdir bk
+ 3577  ls
+ 3578  mv bkupw5op1.c bk
+ 3579  ls
+ 3580  mv *.backup bk
+ 3581  ls
+ 3582  rm a.out
+ 3583  ls
+ 3584  lslslsl
+ 3585  clear
+ 3586  ls
+ 3587  script
+ 3588  cd
+ 3589  ls
+ 3590  cd VI
+ 3591  ls
+ 3592  cd 3inserting
+ 3593  vi 3inserting
+ 3594  ls
+ 3595  vi 4 inserting
+ 3596  ls
+ 3597  vi 4inserting
+ 3598  ls
+ 3599  c 5tricks
+ 3600  vi 5tricks
+ 3601  fg
+ 3602  ls
+ 3603  vi 6vimtutor
+ 3604  cla
+ 3605  cd..
+ 3606  ls
+ 3607  ls -l Public
+ 3608  rm Public
+ 3609  ls
+ 3610  rmdir Public
+ 3611  ls
+ 3612  rmdir Videos
+ 3613  ls
+ 3614  lsl
+ 3615  sl
+ 3616  s
+ 3617  sl
+ 3618  ls -l Desktop
+ 3619  ls
+ 3620  cat cars2
+ 3621  vi cars2
+ 3622  ls
+ 3623  cat cars2 | tr -c ' ' '\t'
+ 3624  ls
+ 3625  tr ' ' '\t' -c <cars2
+ 3626  tr --help
+ 3627  tr -c ' ' ''
+ 3628  tr 0c ' ' '' < cars2
+ 3629  tr -c ' ' '' <cars2
+ 3630  tr -c ' ' '\t' <cars2
+ 3631  tr -c ' ' ' ' <cars2
+ 3632  cat cars2
+ 3633  pwd
+ 3634  cd
+ 3635  ls
+ 3636  ls -a
+ 3637  ls -l
+ 3638  ls -d
+ 3639  who
+ 3640  w
+ 3641  who
+ 3642  w
+ 3643  who
+ 3644  who am i
+ 3645  whoami
+ 3646  cp -r d
+ 3647  cp -R
+ 3648  cp -R ..
+ 3649  cp -R .. .
+ 3650  cp -r .. .
+ 3651  cp --help
+ 3652  cp
+ 3653  cp --help
+ 3654  stty -echo
+ 3655  d
+ 3656  dfghsadfadgaewtr
+ 3657  erkljaslkjfsd
+ 3658  stty echo
+ 3659  d
+ 3660  clear
+ 3661  fc -l
+ 3662  history
+ 3663  history | cw -l
+ 3664  history | wc -l
+ 3665  history | more
+ 3666  ls
+ 3667  file jcai19
+ 3668  ls jcai19
+ 3669  ls -l jcai19
+ 3670  find -mmin -5
+ 3671  find -mmin -5 | rm -r
+ 3672  -mmin -5 > rm 0r
+ 3673  ls
+ 3674  find -mmin -5 > rm -ri
+ 3675  find -mmin -7 > rm -ri
+ 3676  rm -ri
+ 3677  obiliyi
+ 3678  ls
+ 3679  clear
+ 3680  ls
+ 3681  rm jc*
+ 3682  ls
+ 3683  sort -f cars2
+ 3684  sort -k3 cars2
+ 3685  tr -c ' ' '\t' < cars2
+ 3686  ls
+ 3687  cat cars2
+ 3688  tr ' ' ':' cars2
+ 3689  tr ' ' ':' < cars2
+ 3690  tr -c ' ' ':' < cars2
+ 3691  tr -C ' ' ':' <cars2
+ 3692  man cars2
+ 3693  man tr
+ 3694  tr -s ' ' '\t' < cars2 > carstab
+ 3695  ls
+ 3696  cat carstab
+ 3697  ls -l cars2
+ 3698  ls -l car*
+ 3699  chmod 0600 cars2
+ 3700  ls
+ 3701  ls -l cars2
+ 3702  grep 5 cars2
+ 3703  mv carstab c
+ 3704  ls
+ 3705  sort -k3 c
+ 3706  sort -rk3
+ 3707  sort -rk3 cars3
+ 3708  sort -rk3 c
+ 3709  sort k5 c
+ 3710  sort -k5 c
+ 3711  sort c -k5
+ 3712  sort c -nk5
+ 3713  sort -u c
+ 3714  ls
+ 3715  touch check
+ 3716  ls
+ 3717  ls -l check
+ 3718  chmod ugo=x
+ 3719  chmod check ugo=x
+ 3720  chmod ugo=x check
+ 3721  ls
+ 3722  ls -l check
+ 3723  chmod g-w check
+ 3724  ls
+ 3725  ls -l check
+ 3726  chmod 7001 check
+ 3727  ls -l check
+ 3728  umask
+ 3729  umask 0077
+ 3730  ls
+ 3731  touch 1
+ 3732  ls -l 1
+ 3733  ls -l 100
+ 3734  cd 100/workshop6
+ 3735  ls
+ 3736  vi w6.c
+ 3737  PS1
+ 3738  echo PS1
+ 3739  echo 'PS1'
+ 3740  echo PWD
+ 3741  echo pwd
+ 3742  echo $PWD
+ 3743  echo $PS1
+ 3744  PS1="\w>"
+ 3745  cd 100
+ 3746  cd workshop1
+ 3747  PS!=1
+ 3748  PS1="1"
+ 3749  dk
+ 3750  PS1="w"
+ 3751  d
+ 3752  PS1="\"
+ 3753  d
+ 3754  cd..
+ 3755  PS1="\w"
+ 3756  cd..
+ 3757  PS1="\w>"
+ 3758  d
+ 3759  PS1="\n"
+ 3760  cd..
+ 3761  PS1='\n'
+ 3762  d
+ 3763  PS1='\n >'
+ 3764  cd ..
+ 3765  .
+ 3766  ~
+ 3767  cd ~
+ 3768  PS1='\w :'
+ 3769  d
+ 3770  echo $PS1
+ 3771  PS1="\w : "
+ 3772  exit
+ 3773  echo $PS1
+ 3774  touch viprac
+ 3775  vi viprac
+ 3776  ls
+ 3777  chsh
+ 3778  ~bto120/a2
+ 3779  q
+ 3780  ~bto120/a1
+ 3781  sldlfkajdfklaeklfnaskldnfakdnf 
+ 3782  djflajdfklasjdfkljskadlfjlskdjflaksjfklasjdfkljasdklklasdngklasdgklasdjf asjdfaklsf jklasdf j
+ 3783  ~
+ 3784  cd
+ 3785  cd 
+ 3786  cd ~
+ 3787  echo $~
+ 3788  echo ~
+ 3789  echo $PWD
+ 3790  ls
+ 3791  rm dno*
+ 3792  rm -r dvo*
+ 3793  rm -r dno*
+ 3794  rm -r mur*
+ 3795  rm -r nn*
+ 3796  rm -r vip*
+ 3797  rm -r jca* jd* jgc* uli* obi* nni* mur*
+ 3798  ls
+ 3799  rm -r 1 c rm check 
+ 3800  ls
+ 3801  ls -l check
+ 3802  chmod 4777 check
+ 3803  ls -l check
+ 3804  chmod 4677 check
+ 3805  ls -l check
+ 3806  check
+ 3807  rm -r check
+ 3808  ls
+ 3809  ls -l bin
+ 3810  rmdir bin
+ 3811  ls
+ 3812  vi cars2
+ 3813  ls
+ 3814  fg
+ 3815  ls
+ 3816  clear
+ 3817  cut -f2 cars2
+ 3818  tr -c ' ' ':' <cars2 >cars1
+ 3819  ls
+ 3820  cat cars1
+ 3821  rm cars1
+ 3822  ls
+ 3823  man tr
+ 3824  ls
+ 3825  lslslsl
+ 3826  tr -s ' ' ':' <cars2 >cars1
+ 3827  ls
+ 3828  cat cars1
+ 3829  tr ':' '\t' <cars1 >cars1
+ 3830  cat cars1
+ 3831  ls
+ 3832  tr -s ' ' '\t' <cars2 >cars1
+ 3833  cat cars1
+ 3834  cut -f2 cars1
+ 3835  cut -f5 cars1
+ 3836  cut -f1,5 cars1
+ 3837  cut -f1-5 cars1
+ 3838  cut -d' ' -f2,5 cars1
+ 3839  cut -d' ' -f5 cars2
+ 3840  cut -c3-5 cars1
+ 3841  sort -f cars1
+ 3842  sort -k3 cars1
+ 3843  sort -nrk5 cars1
+ 3844  vi cars1
+ 3845  ls
+ 3846  sort -u cars1
+ 3847  sort -u -nk5 -t'\n' cars1
+ 3848  sort -u -nk5 cars1
+ 3849  wc cars1
+ 3850  wc -l -c -w cars1
+ 3851  wc -lcw cars1
+ 3852  wc -l cars1
+ 3853  wc -lc -w cars1
+ 3854  wc -wc -l -l cars1
+ 3855  grep 8 cars1
+ 3856  cat asfjkejf 2> 1
+ 3857  cat 1
+ 3858  (pwd ; ls -ld ; ls -l) >> 1
+ 3859  cat 1
+ 3860  (pwd ; echo "
+ 3861  n">1; ls
+ 3862  ls
+ 3863  (pwd ; echo '\n\ ; ls -l ) > 1
+ 3864  (pwd ; echo '\n' ; ls -l ) > 1
+ 3865  cat 1
+ 3866  echo 'n
+ 3867  echo "'n':
+ 3868  echo d
+ 3869  echo "\n"
+ 3870  echo '\n' \n
+ 3871  xargs car1
+ 3872  ls -al 
+ 3873  ls -al | more
+ 3874  ls -al | grep 'temp' | sort -rnk5
+ 3875  grep temp
+ 3876  ls -al | grep jg
+ 3877  ls -al | grep jg | wc -l
+ 3878  find . -size +1k | xargs file
+ 3879  xargs 100
+ 3880  ls
+ 3881  ls [!a]*
+ 3882  ls
+ 3883  echo [!a]*
+ 3884  ech [!D]*
+ 3885  echo [!D]*
+ 3886  ls [!D]*
+ 3887  ls 100
+ 3888  ls *
+ 3889  ls
+ 3890  ls -l
+ 3891  ls -ld *
+ 3892  ls -d 
+ 3893  ls -d *
+ 3894  ls -ld *
+ 3895  ls -ld
+ 3896  ls -d .
+ 3897  ls -d *
+ 3898  echo [a]
+ 3899  echo [a]*
+ 3900  echo $[a]
+ 3901  echo $[D]
+ 3902  set 1 2 3 4 5
+ 3903  $$
+ 3904  echo $$
+ 3905  echo $%
+ 3906  echo %?
+ 3907  echo ?
+ 3908  echo $?
+ 3909  echo %?
+ 3910  ls
+ 3911  tar -cvf dir1.tar documents
+ 3912  ls
+ 3913  cat dir1.tar
+ 3914  ls
+ 3915  gzip dir1.tar dir1.tar.gzip
+ 3916  gzip dir1.tar
+ 3917  ls
+ 3918  cat dir1.tar.gz
+ 3919  ls
+ 3920  clear
+ 3921  ls
+ 3922  gzip -l dir1.tar.gz
+ 3923  ungzip dir1.tar.gz
+ 3924  gunzip dir1.tar.gz
+ 3925  ls
+ 3926  tar -xvf dir1.tar dir1
+ 3927  tar -xvf dir1.tar dir1/dir
+ 3928  tar -xvf dir1.tar documents1
+ 3929  mv documents documents1
+ 3930  tar -xvf dir1.tar documents
+ 3931  ls
+ 3932  diff documents1 documents
+ 3933  ls
+ 3934  rm dir1.tar
+ 3935  tar -cvf documents1.tar documents
+ 3936  tar -xvf documents.tar documents1/documents
+ 3937  ls
+ 3938  tar -xvf documents1.tar VI/documents1
+ 3939  mv documents1.tar VI/documents1.tar
+ 3940  cd VI
+ 3941  ls
+ 3942  tar -xvf documents1.tar documents1
+ 3943  tar -xvf documents1.tar documents
+ 3944  ls
+ 3945  rm docume*
+ 3946  rm -r docu*
+ 3947  ls
+ 3948  cd ..
+ 3949  ls
+ 3950  cd 100
+ 3951  ls
+ 3952  cd worshop6
+ 3953  ls
+ 3954  cd workshop6
+ 3955  ls
+ 3956  cd ..
+ 3957  cd..
+ 3958  ls
+ 3959  rm -r documents1
+ 3960  ls
+ 3961  tar -xvzf documents.tar.gz documents
+ 3962  tar -cvzf documents.tar.gz documents
+ 3963  ls
+ 3964  gzip -l documents.tar.gz
+ 3965  tar -czf documents.tar.gz documents
+ 3966  echo today is 'date'
+ 3967  echo "today is 'date'"
+ 3968  echo "today is `date`"
+ 3969  echo today is `date`
+ 3970  echo 'today is `date`'
+ 3971  echo today is $date
+ 3972  echo today is $(date)
+ 3973  set a b c
+ 3974  echo $1
+ 3975  echo $2
+ 3976  echo $?
+ 3977  echo $*
+ 3978  shift
+ 3979  echo $*
+ 3980  echo $@
+ 3981  echo $#
+ 3982  echo $$
+ 3983  echo $?
+ 3984  echo HOST
+ 3985  echo $HOST
+ 3986  echo &USER
+ 3987  echo $USER
+ 3988  echo $PATH
+ 3989  bash
+ 3990  cd 100
+ 3991  mkdir a2
+ 3992  ls
+ 3993  cd a2
+ 3994  ls
+ 3995  touch 1.c
+ 3996  ls
+ 3997  vi 1.c
+ 3998  cc 1.c
+ 3999  fg
+ 4000  vi 1.c
+ 4001  cc 1.c
+ 4002  vi 1.c
+ 4003  ls
+ 4004  cc 1.c
+ 4005  vi 1.c
+ 4006  cc 1.c
+ 4007  a.out
+ 4008  vi 1.c
+ 4009  a.out
+ 4010  cc 1.c
+ 4011  a.out
+ 4012  vi1.c
+ 4013  vi 1.c
+ 4014  a.out
+ 4015  cc 1.c
+ 4016  a.out
+ 4017  vi 1.c
+ 4018  ls
+ 4019  vi 1.c
+ 4020  vi 1
+ 4021  ls
+ 4022  rm 111?
+ 4023  fg
+ 4024  gf
+ 4025  bf
+ 4026  gf
+ 4027  vi 1
+ 4028  vi 1.c
+ 4029  ls
+ 4030  ls 1.c
+ 4031  ls 1
+ 4032  ls -a
+ 4033  cd /
+ 4034  ls
+ 4035  ls -l tmp
+ 4036  cd tmp
+ 4037  ls
+ 4038  rm VMwareDnD
+ 4039  rm -r VMwareDnD
+ 4040  ls -l VMwareDnD
+ 4041  ls -l
+ 4042  cd..
+ 4043  ls
+ 4044  cd /etc/profile
+ 4045  cd etc
+ 4046  ls
+ 4047  cd pr*
+ 4048  ls pr*
+ 4049  cd profile*
+ 4050  cd -a pro*
+ 4051  ls prof*
+ 4052  ls -a profile
+ 4053  cd profile
+ 4054  ls -l profile
+ 4055  vi profile
+ 4056  ls
+ 4057  cat passwd
+ 4058  vi passwd
+ 4059  ls
+ 4060  cd..
+ 4061  ls
+ 4062  cd home
+ 4063  ls
+ 4064  ls -d home1
+ 4065  ls home1
+ 4066  cd home1
+ 4067  cd ~bto120
+ 4068  ls
+ 4069  ls a1
+ 4070  ls a2
+ 4071  ls -l a1
+ 4072  ls -l a2
+ 4073  ls 2013c
+ 4074  ls -l 2013c
+ 4075  ls -l 2013c/assign1
+ 4076  ls
+ 4077  cd 2013c
+ 4078  ls
+ 4079  cp assign1 d
+ 4080  chmod 777 assign1
+ 4081  ls -l assign1
+ 4082  cat assign1
+ 4083  vi assign1
+ 4084  ls
+ 4085  l
+ 4086  sl
+ 4087  slsl
+ 4088  slslslslslslslslslslslslssl
+ 4089  umask 777
+ 4090  umask 7777
+ 4091  cd
+ 4092  ls
+ 4093  history
+ 4094  history -all
+ 4095  man history
+ 4096  ls
+ 4097  history
+ 4098  history | more
+ 4099  history |wc -l
+ 4100  history | wc -c
+ 4101  history | cut f2
+ 4102  vi 1
+ 4103  ls
+ 4104  rm 111?
+ 4105  fg
+ 4106  gf
+ 4107  bf
+ 4108  gf
+ 4109  vi 1
+ 4110  vi 1.c
+ 4111  ls
+ 4112  ls 1.c
+ 4113  ls 1
+ 4114  ls -a
+ 4115  cd /
+ 4116  ls
+ 4117  ls -l tmp
+ 4118  cd tmp
+ 4119  ls
+ 4120  rm VMwareDnD
+ 4121  rm -r VMwareDnD
+ 4122  ls -l VMwareDnD
+ 4123  ls -l
+ 4124  cd..
+ 4125  ls
+ 4126  cd /etc/profile
+ 4127  cd etc
+ 4128  ls
+ 4129  cd pr*
+ 4130  ls pr*
+ 4131  cd profile*
+ 4132  cd -a pro*
+ 4133  ls prof*
+ 4134  ls -a profile
+ 4135  cd profile
+ 4136  ls -l profile
+ 4137  vi profile
+ 4138  ls
+ 4139  cat passwd
+ 4140  vi passwd
+ 4141  ls
+ 4142  cd..
+ 4143  ls
+ 4144  cd home
+ 4145  ls
+ 4146  ls -d home1
+ 4147  ls home1
+ 4148  cd home1
+ 4149  cd ~bto120
+ 4150  ls
+ 4151  ls a1
+ 4152  ls a2
+ 4153  ls -l a1
+ 4154  ls -l a2
+ 4155  ls 2013c
+ 4156  ls -l 2013c
+ 4157  ls -l 2013c/assign1
+ 4158  ls
+ 4159  cd 2013c
+ 4160  ls
+ 4161  cp assign1 d
+ 4162  chmod 777 assign1
+ 4163  ls -l assign1
+ 4164  cat assign1
+ 4165  vi assign1
+ 4166  ls
+ 4167  l
+ 4168  sl
+ 4169  slsl
+ 4170  slslslslslslslslslslslslssl
+ 4171  umask 777
+ 4172  umask 7777
+ 4173  cd
+ 4174  ls
+ 4175  history
+ 4176  history -all
+ 4177  man history
+ 4178  ls
+ 4179  history
+ 4180  history | more
+ 4181  history |wc -l
+ 4182  history | wc -c
+ 4183  history | cut f2
+ 4184  history | cut -f2
+ 4185  history | vi
+ 4186  ZZZZ
+ 4187  ls
+ 4188  history > 1.history
+ 4189  ls
+ 4190  vi 1.history
+ 4191  ls
+ 4192  ls -l 1.history
+ 4193  umask 000
+ 4194  ls
+ 4195  umask 077
+ 4196  history > 1.history
+ 4197  rm 1.history
+ 4198  ls
+ 4199  history > 1.history
+ 4200  vi 1.history
+ 4201  ls
+ 4202  cut 1.history -f2
+ 4203  cut -f2 1.history
+ 4204  cut -d' ' -f2 1.history
+ 4205  history | cut -d' ' -f2
+ 4206  history 
+ 4207  history | cut -d' ' f2,3 
+ 4208  cd 100/workshop4/complete
+ 4209  ls
+ 4210  ls 112233
+ 4211  ls -l 112233
+ 4212  ls l 112233
+ 4213  ls -l 112233
+ 4214  $$
+ 4215  echo $$
+ 4216  echo $$?$$
+ 4217  echo $$ $$ $* $@ $#
+ 4218  cd HOME
+ 4219  echo HOME
+ 4220  cd $HOME
+ 4221  echo $HOME
+ 4222  who
+ 4223  w
+ 4224  ~tmirza4
+ 4225  cd ~tmirza4
+ 4226  ls
+ 4227  ls -l ~tmirza4
+ 4228  ls ~tmirza4
+ 4229  cd Documents
+ 4230  cd documents
+ 4231  w
+ 4232  cd..
+ 4233  cd ~
+ 4234  cd..
+ 4235  ls
+ 4236  echo [a-b]
+ 4237  echo '[a-b]'
+ 4238  echo $[a-b]
+ 4239  echo $[h]
+ 4240  ls [a-z]
+ 4241  cd.
+ 4242  cd..
+ 4243  cd
+ 4244  ls [a-b]
+ 4245  ls [a-z]*
+ 4246  echo $[a-z]*
+ 4247  echo 
+ 4248  echo \[a]
+ 4249  ls
+ 4250  chmod cars u+s
+ 4251  chomod u+s cars1
+ 4252  chmod u+s cars1
+ 4253  chmod u+t cars1
+ 4254  ls -l cars1
+ 4255  chmod cars1 u-t
+ 4256  chmod u-t cars1
+ 4257  ls -l cars1
+ 4258  chmod u-t cars1 >cars3
+ 4259  diff cars1 cars3
+ 4260  cat cars3
+ 4261  clear
+ 4262  ls
+ 4263  ls -l cars1
+ 4264  chmod u-x cars1
+ 4265  ls -l cars1
+ 4266  chmod u+x cars1
+ 4267  ls -l cars1
+ 4268  chmod ug-xs cars1
+ 4269  ls -l cars1
+ 4270  umask
+ 4271  umask 0077
+ 4272  umask 7077
+ 4273  umask 4077
+ 4274  umask 3077
+ 4275  umask
+ 4276  chmod g+t cars1
+ 4277  ls -l cars1
+ 4278  chmod o+t cars1
+ 4279  ls -l cars1
+ 4280  chmod o=0 cars1
+ 4281  chmod 4700 cars1
+ 4282  ls -l cars1
+ 4283  chmod 7777 cars1
+ 4284  ls -l cars1
+ 4285  chmod 0000 cars1
+ 4286  chmod 7000 cars1
+ 4287  ls -l cars1
+ 4288  cars1
+ 4289  cat cars1
+ 4290  history 
+ 4291  vi 1.c
+ 4292  cat 1.c
+ 4293  cc 1.c
+ 4294  vi 1.c
+ 4295  ls 1.c
+ 4296  cc 1.c
+ 4297  vi 1.c
+ 4298  cat 1.c
+ 4299  cc 1.c
+ 4300  pico 1.c
+ 4301  cc 1.c
+ 4302  a.out
+ 4303  ls
+ 4304  cd 100
+ 4305  cd workshop5
+ 4306  ls
+ 4307  cd Fin
+ 4308  ls
+ 4309  a.out
+ 4310  cc w5.c
+ 4311  a.out
+ 4312  cd ../workshop4
+ 4313  ls
+ 4314  cd..
+ 4315  ls
+ 4316  cd...
+ 4317  cd.
+ 4318  ls
+ 4319  cd..
+ 4320  ls
+ 4321  cd workshop5
+ 4322  cd ../workshop4
+ 4323  ls
+ 4324  cd complete
+ 4325  ls
+ 4326  a.out
+ 4327  a.out 
+ 4328  a.out | more
+ 4329  ls
+ 4330  a.out | result
+ 4331  cat result
+ 4332  ls
+ 4333  a.out >result.t
+ 4334  cat result.1
+ 4335  ls
+ 4336  cat result.t
+ 4337  a.out > result33
+ 4338  file result33
+ 4339  cat result33
+ 4340  ls
+ 4341  a.out > 112233
+ 4342  cat 112233
+ 4343  a.oout >112233
+ 4344  1000000
+ 4345  10
+ 4346  a.oout > 112233
+ 4347  a.out >112233
+ 4348  cat 112233
+ 4349  a.out >112233
+ 4350  cat 112233
+ 4351  ls
+ 4352  rm112233 result.t result33
+ 4353  rm 112233 result.t result33
+ 4354  ls
+ 4355  a.out > 1
+ 4356  a.out >1
+ 4357  cat 1
+ 4358  a.out
+ 4359  a.out > 1
+ 4360  cat 1
+ 4361  rm 1
+ 4362  ls
+ 4363  a.out > a.b
+ 4364  cat a.b
+ 4365  ls
+ 4366  a.out > a.c
+ 4367  cat a.c
+ 4368  a.out > a.c
+ 4369  cat a.c
+ 4370  a.out > a.c
+ 4371  cat a.c
+ 4372  ls
+ 4373  rm a.b a.c
+ 4374  ls
+ 4375  history 
+ 4376  history | tee wc -l; wc -c >1
+ 4377  finger jgchoi
+ 4378  bash
+ 4379  who
+ 4380  w
+ 4381  ~tmirza4
+ 4382  cd ~tmirza4
+ 4383  ls
+ 4384  ls -l ~tmirza4
+ 4385  ls ~tmirza4
+ 4386  cd Documents
+ 4387  cd documents
+ 4388  w
+ 4389  cd..
+ 4390  cd ~
+ 4391  cd..
+ 4392  ls
+ 4393  echo [a-b]
+ 4394  echo '[a-b]'
+ 4395  echo $[a-b]
+ 4396  echo $[h]
+ 4397  ls [a-z]
+ 4398  cd.
+ 4399  cd..
+ 4400  cd
+ 4401  ls [a-b]
+ 4402  ls [a-z]*
+ 4403  echo $[a-z]*
+ 4404  echo 
+ 4405  echo \[a]
+ 4406  ls
+ 4407  chmod cars u+s
+ 4408  chomod u+s cars1
+ 4409  chmod u+s cars1
+ 4410  chmod u+t cars1
+ 4411  ls -l cars1
+ 4412  chmod cars1 u-t
+ 4413  chmod u-t cars1
+ 4414  ls -l cars1
+ 4415  chmod u-t cars1 >cars3
+ 4416  diff cars1 cars3
+ 4417  cat cars3
+ 4418  clear
+ 4419  ls
+ 4420  ls -l cars1
+ 4421  chmod u-x cars1
+ 4422  ls -l cars1
+ 4423  chmod u+x cars1
+ 4424  ls -l cars1
+ 4425  chmod ug-xs cars1
+ 4426  ls -l cars1
+ 4427  umask
+ 4428  umask 0077
+ 4429  umask 7077
+ 4430  umask 4077
+ 4431  umask 3077
+ 4432  umask
+ 4433  chmod g+t cars1
+ 4434  ls -l cars1
+ 4435  chmod o+t cars1
+ 4436  ls -l cars1
+ 4437  chmod o=0 cars1
+ 4438  chmod 4700 cars1
+ 4439  ls -l cars1
+ 4440  chmod 7777 cars1
+ 4441  ls -l cars1
+ 4442  chmod 0000 cars1
+ 4443  chmod 7000 cars1
+ 4444  ls -l cars1
+ 4445  cars1
+ 4446  cat cars1
+ 4447  history 
+ 4448  vi 1.c
+ 4449  cat 1.c
+ 4450  cc 1.c
+ 4451  vi 1.c
+ 4452  ls 1.c
+ 4453  cc 1.c
+ 4454  vi 1.c
+ 4455  cat 1.c
+ 4456  cc 1.c
+ 4457  pico 1.c
+ 4458  cc 1.c
+ 4459  a.out
+ 4460  ls
+ 4461  cd 100
+ 4462  cd workshop5
+ 4463  ls
+ 4464  cd Fin
+ 4465  ls
+ 4466  a.out
+ 4467  cc w5.c
+ 4468  a.out
+ 4469  cd ../workshop4
+ 4470  ls
+ 4471  cd..
+ 4472  ls
+ 4473  cd...
+ 4474  cd.
+ 4475  ls
+ 4476  cd..
+ 4477  ls
+ 4478  cd workshop5
+ 4479  cd ../workshop4
+ 4480  ls
+ 4481  cd complete
+ 4482  ls
+ 4483  a.out
+ 4484  a.out 
+ 4485  a.out | more
+ 4486  ls
+ 4487  a.out | result
+ 4488  cat result
+ 4489  ls
+ 4490  a.out >result.t
+ 4491  cat result.1
+ 4492  ls
+ 4493  cat result.t
+ 4494  a.out > result33
+ 4495  file result33
+ 4496  cat result33
+ 4497  ls
+ 4498  a.out > 112233
+ 4499  cat 112233
+ 4500  a.oout >112233
+ 4501  1000000
+ 4502  10
+ 4503  a.oout > 112233
+ 4504  a.out >112233
+ 4505  cat 112233
+ 4506  a.out >112233
+ 4507  cat 112233
+ 4508  ls
+ 4509  rm112233 result.t result33
+ 4510  rm 112233 result.t result33
+ 4511  ls
+ 4512  a.out > 1
+ 4513  a.out >1
+ 4514  cat 1
+ 4515  a.out
+ 4516  a.out > 1
+ 4517  cat 1
+ 4518  rm 1
+ 4519  ls
+ 4520  a.out > a.b
+ 4521  cat a.b
+ 4522  ls
+ 4523  a.out > a.c
+ 4524  cat a.c
+ 4525  a.out > a.c
+ 4526  cat a.c
+ 4527  a.out > a.c
+ 4528  cat a.c
+ 4529  ls
+ 4530  rm a.b a.c
+ 4531  ls
+ 4532  history 
+ 4533  history | tee wc -l; wc -c >1
+ 4534  history | tee file1 file2
+ 4535  ls
+ 4536  cat file 1
+ 4537  cat file1
+ 4538  diff file1 file2
+ 4539  history 
+ 4540  history | tee file 1 | wc -l 
+ 4541  history | tee file1 file2 file3 >1
+ 4542  ls
+ 4543  diff 1
+ 4544  diff 1 file1
+ 4545  man xargs
+ 4546  ls
+ 4547  history | xargs grep.
+ 4548  find / -atime0
+ 4549  find / -atime 
+ 4550  find / -atime 0
+ 4551  find -atime 0 /
+ 4552  find / -mmin 30
+ 4553  find / -size +50k
+ 4554  find / -size +50k | xargs file
+ 4555  find / -size +500k | ls -l
+ 4556  find / size +500k | xargs (ls -l;file)
+ 4557  find / size +500k | file
+ 4558  find / size +500k | (xargs file;xargs ls -l)
+ 4559  vi 1
+ 4560  ls
+ 4561  rm 111?
+ 4562  fg
+ 4563  gf
+ 4564  bf
+ 4565  gf
+ 4566  vi 1
+ 4567  vi 1.c
+ 4568  ls
+ 4569  ls 1.c
+ 4570  ls 1
+ 4571  ls -a
+ 4572  cd /
+ 4573  ls
+ 4574  ls -l tmp
+ 4575  cd tmp
+ 4576  ls
+ 4577  rm VMwareDnD
+ 4578  rm -r VMwareDnD
+ 4579  ls -l VMwareDnD
+ 4580  ls -l
+ 4581  cd..
+ 4582  ls
+ 4583  cd /etc/profile
+ 4584  cd etc
+ 4585  ls
+ 4586  cd pr*
+ 4587  ls pr*
+ 4588  cd profile*
+ 4589  cd -a pro*
+ 4590  ls prof*
+ 4591  ls -a profile
+ 4592  cd profile
+ 4593  ls -l profile
+ 4594  vi profile
+ 4595  ls
+ 4596  cat passwd
+ 4597  vi passwd
+ 4598  ls
+ 4599  cd..
+ 4600  ls
+ 4601  cd home
+ 4602  ls
+ 4603  ls -d home1
+ 4604  ls home1
+ 4605  cd home1
+ 4606  cd ~bto120
+ 4607  ls
+ 4608  ls a1
+ 4609  ls a2
+ 4610  ls -l a1
+ 4611  ls -l a2
+ 4612  ls 2013c
+ 4613  ls -l 2013c
+ 4614  ls -l 2013c/assign1
+ 4615  ls
+ 4616  cd 2013c
+ 4617  ls
+ 4618  cp assign1 d
+ 4619  chmod 777 assign1
+ 4620  ls -l assign1
+ 4621  cat assign1
+ 4622  vi assign1
+ 4623  ls
+ 4624  l
+ 4625  sl
+ 4626  slsl
+ 4627  slslslslslslslslslslslslssl
+ 4628  umask 777
+ 4629  umask 7777
+ 4630  cd
+ 4631  ls
+ 4632  history
+ 4633  history -all
+ 4634  man history
+ 4635  ls
+ 4636  history
+ 4637  history | more
+ 4638  history |wc -l
+ 4639  history | wc -c
+ 4640  history | cut f2
+ 4641  history | cut -f2
+ 4642  history | vi
+ 4643  ZZZZ
+ 4644  ls
+ 4645  history > 1.history
+ 4646  ls
+ 4647  vi 1.history
+ 4648  ls
+ 4649  ls -l 1.history
+ 4650  umask 000
+ 4651  ls
+ 4652  umask 077
+ 4653  history > 1.history
+ 4654  rm 1.history
+ 4655  ls
+ 4656  history > 1.history
+ 4657  vi 1.history
+ 4658  ls
+ 4659  cut 1.history -f2
+ 4660  cut -f2 1.history
+ 4661  cut -d' ' -f2 1.history
+ 4662  history | cut -d' ' -f2
+ 4663  history 
+ 4664  history | cut -d' ' f2,3 
+ 4665  history | cut -d' ' -f2,3
+ 4666  history 
+ 4667  ~bto120/a1
+ 4668  tail 1.history -2
+ 4669  tail -2 1.history
+ 4670  head 1.history -2
+ 4671  cd 100/workshop6
+ 4672  ls
+ 4673  vi w6.c
+ 4674  ls
+ 4675  cc w6.c
+ 4676  a.out
+ 4677  303
+ 4678  2
+ 4679  a.out
+ 4680  4
+ 4681  3
+ 4682  a.out
+ 4683  4
+ 4684  3
+ 4685  a.out
+ 4686  a
+ 4687  s
+ 4688  d
+ 4689  f
+ 4690  g
+ 4691  h
+ 4692  hh
+ 4693  h
+ 4694  t
+ 4695  r
+ 4696  ty
+ 4697  y
+ 4698  ryeaqyklarjeylajryljwketlajtlelajelajetkjetlkajetlkajwetklajwetkljwetkljwtklajwetwjwetlkjwtlajweklajetklajewtkljsdgflkjsadfhslchlwndrjschlwdnrjschlwdnrjschlwdnrjsdhlchlwndrjschlwndrj
+ 4699  chlwdnrjschwldnrjschlwdnrjs
+ 4700  chlwdnrjschlwdnrjschwldnrjs
+ 4701  a.out
+ 4702  d
+ 4703  ls
+ 4704  cd
+ 4705  ls
+ 4706  cd VI
+ 4707  ls
+ 4708  vi 1basics
+ 4709  ls
+ 4710  vi 3cutpaste
+ 4711  history |more
+ 4712  ls
+ 4713  cd documents
+ 4714  ls
+ 4715  ls l
+ 4716  ls 1
+ 4717  ls 1/2
+ 4718  ls 1/2/3
+ 4719  rm -r 1
+ 4720  ls
+ 4721  history > history.backup
+ 4722  ls
+ 4723  mv history.backup .history.backup
+ 4724  ls
+ 4725  time
+ 4726  string
+ 4727  string 
+ 4728  ls
+ 4729  cd
+ 4730  cd 100/workshop6
+ 4731  ls
+ 4732  string w6op1.c
+ 4733  strings w6op1.c
+ 4734  history 
+ 4735  history | tee | 1
+ 4736  history | tee > 1
+ 4737  history | tee 1 
+ 4738  history | tee dd > 1

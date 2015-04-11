@@ -1,0 +1,27 @@
+<!-- dynamically open/ close a window -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+         <title> open/ close a window </title>
+         <script type="text/javascript">
+           function openWin()
+           {
+             myWindow=window.open('','MsgWindow','width=200,height=100');
+             myWindow.document.write("<p>This is a window opened in run time.</p>");
+             myWindow.moveTo(200, 200);
+             myWindow.focus();
+           }
+
+
+         </script>
+</head>
+<body>
+  <form >
+     <input type="button" value=" Open a new window " onclick="openWin()" />
+     <input type="button" value="Close the new window" onclick="myWindow.close()" />
+  </form>
+</body>
+
+</html>

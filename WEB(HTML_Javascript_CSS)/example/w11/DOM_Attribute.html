@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+   function next()
+   {
+      document.getElementById("image").height = "200";
+      document.getElementById("image").src="pic2.jpg";
+    }
+
+   function previous()
+   {
+      document.getElementById("image").height = "120";
+      document.getElementById("image").src = "pic1.jpg";
+   }
+  </script>
+
+</head>
+<body>
+
+<button value="next" onclick = "previous();"> Previous </button>
+
+<img id="image" src="pic1.jpg" width="120" height="120">
+
+<button value="next" onclick = "next();"> Next </button>
+
+<p>The pictures were changed by buttons. </p>
+
+</body>
+</html>

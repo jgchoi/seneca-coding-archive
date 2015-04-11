@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			Lab 7
+		</title>
+		<style>
+			#back a	{
+						border: 1px dotted black;
+						background-color:yellow;
+						padding:10px;
+						font-size:100%;
+					}
+			#back	{
+						margin:auto;
+						width:20%;
+						
+					}
+			#pg_title	{
+							margin:auto;
+							border:1px solid green;
+							width:80%;
+							color:yellow;
+							font-size:300%;
+							background-color:black;
+						}
+			h1{ text-align:center;}
+			form	{
+						width:80%;
+						margin:auto;
+					}
+			body	{
+						background-color:gray;
+						
+					}
+
+
+		</style>
+	</head>
+
+	<body>
+		<h1> Lab 7 : More Patrice with Form ! </h1>
+		<hr>
+		<h1 id="pg_title"> Phone order </h1>
+		<form method="post" id="login" action="http://formpost.azurewebsites.net/home/test">
+			<fieldset>
+				<legend>Store Information</legend>
+			
+				
+						<ul>
+							<li>Account <input id="id" name="id" type="text" size="15" maxlength="15" value="Sales Rep ID"/></li>
+							<li>Password<input id="ps" name="ps" type="password" size="15" maxlength="15"/></li>
+							<li>Location
+								<select name="location">
+									<optgroup label="GTA">
+										<option>Toronto</option>
+										<option>North York</option>
+									</optgroup>
+									<optgroup label="New market">
+										<option>King city</option>
+										<option>Scarborough</option>
+									</optgroup>
+									<optgroup label="London">
+										<option>Fairview</option>
+										<option>Wonderland</option>
+									</optgroup>
+								</select>
+							</li>		
+						</ul>
+				
+			</fieldset>
+			<fieldset>
+				<legend>Phone Information </legend>
+				<p> Model: </p>
+					<p> <input type="checkbox"  name="phone1"  value="4" /> iPhone 4
+						<select name="color1">
+							<option>Black</option>
+							<option>White</option>
+						</select>
+					</p>
+					<p> <input type="checkbox"  name="phone2"  value="4S" /> iPhone 4S 
+						<select name="color2">
+							<option>Black</option>
+							<option>White</option>
+						</select>
+					</p>
+					<p> <input type="checkbox"  name="phone3"  value="5" /> iPhone 5 
+						<select name="color3">
+							<option>Black</option>
+							<option>White</option>
+							<option>Gold</option>
+						</select>					
+					</p>
+					<p> <input type="checkbox"  name="phone4"  value="5S" /> iPhone 5S 
+						<select name="color4">
+							<option>Black</option>
+							<option>White</option>
+							<option>Gold</option>
+						</select>					
+					</p>
+					<p> <input type="checkbox"  name="phone5"  value="5C" /> iPhone 5C 
+						<select name="color5">
+							<option>Black</option>
+							<option>White</option>
+							<option>Gold</option>
+						</select>					
+					</p>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Delivery Information </legend>
+				<h3>Choose Delivery Type</h3>
+					<p>
+						<input type="radio"  name="Delivery"   value="Regural" checked="checked"/>Regural
+						<input type="radio"  name="Delivery"   value="Express"/>Express
+						<input type="radio"  name="Delivery"   value="One_day"/>One Day
+					</p>
+					<p>Possible Recieving Time</p>
+					<p>
+						<select size = "5" multiple="multiple" name="time">
+							<option value="1">9:00 - 10:00</option>
+							<option value="2">10:00 - 11:00</option>
+							<option value="3">11:00 - 12:00</option>
+							<option value="4">12:00 - 13:00</option>
+							<option value="5">13:00 - 14:00</option>
+							<option value="6">14:00 - 15:00</option>
+							<option value="7">15:00 - 16:00</option>
+							<option value="8">16:00 - 17:00</option>
+						</select>
+					</p>	
+					<p>Recieving Date <input id="date" name="date" type="text" size="15" maxlength="15" value="2014-04-09" readonly="readonly"/></p>
+					<p style="font-size:11px;">* Currently user cannot change the date</p>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Speical Order</legend>
+					<textarea name="speical" cols="30" rows="3"></textarea>
+					<p> Request Document <input type="file" name = "Invoice" />  </p>
+					<p> 
+						<input type="submit" value="Submit Order"/>
+						<input  type ="reset" value = "Reset"/>
+					</p>
+					
+			</fieldset>
+		</form>
+		<hr>
+		<div id="back">
+			<p><a href="../index.html">Go Back to Index!</a></p>
+		</div>
+	</body>
+</html>

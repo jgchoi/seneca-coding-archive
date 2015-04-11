@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title> CSS Table </title>
+   <meta charset="utf-8">
+   <style>
+      table {margin: auto;
+             width: 50%;
+             border: dotted;
+             background-color: yellow;
+            // border-collapse:collapse;
+             }
+
+      td {border: 10px inset purple;
+	            padding:10px 20px;
+	            background-color: green;
+	            height: 20px;
+                width: 400px;
+          }
+      td.red { color: red; }
+      td.valign {vertical-align: top;}
+      td.fontSize {font-size: 2em;}
+
+   </style>
+</head>
+
+<body>
+   <table border="1">
+      <tr>
+         <td>First row, first cell.</td>
+         <td rowspan="2" class = "valign fontSize">First row, second cell spanned.</td>
+      </tr>
+      <tr>
+         <td>Second row, first cell.</td>
+      </tr>
+      <tr>
+         <td class = "red">Third row, first cell.</td>
+         <td>Third row, second cell.</td>
+      </tr>
+   </table>
+</body>
+
+</html>

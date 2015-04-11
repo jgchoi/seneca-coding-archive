@@ -1,0 +1,229 @@
+Script started on Fri 24 Jan 2014 04:53:14 PM EST
+jgchoi@matrix:~/a/w3> whoami
+jgchoi
+jgchoi@matrix:~/a/w3> cat w3.cpp Molecule.h Molecule.cpp
+// Workshop 3 - Molecules with Robust validation function
+// w3.cpp
+ #include <istream>
+ #include <iostream>
+ using namespace std;
+ #include "Molecule.h"
+
+ int main() {
+     int n;
+
+
+	Molecule* molecule;
+
+     cout << "Molecular Information\n";
+     cout << "=====================" << endl;
+	 
+
+
+    n=getN();
+    molecule = new Molecule[n+1]; //edited
+     
+     for (int i = 0; i < n; i++) {
+         char symbol[21];
+         char description[21];
+         double weight;
+ 
+		 getString(symbol, 1, 21);
+		 getString(description, 2, 21);
+		 weight = getWeight();
+
+		 
+         molecule[i].set(symbol, description, weight);
+     }
+     cout << endl;
+
+     cout << "Structure            Name                     Mass\n";
+     cout << "==================================================" << endl; 
+     for (int i = 0; i < n; i++) {
+         molecule[i].display();
+         cout << endl;
+     }
+
+     delete [] molecule;
+ }
+// Workshop 3 - Molecules
+// Molecule.h
+
+class Molecule{
+	char symbol[20];
+	char description[20];
+	double weight;
+	
+	public :
+		void set(const char*, const char*, double);
+		void display() const;
+};
+
+//Robust validation function
+void getString(char* s, int t, int size);
+double getWeight(); 
+int getN();// Workshop 3 - Molecules
+// Molecule.cpp
+ 
+ #include <iostream>
+ #include <cstring>
+ #include <iomanip>
+ 
+ using namespace std;
+ 
+ #include "Molecule.h"
+ 
+// Set value in object
+//		
+void Molecule::set(const char* s, const char* d, double w)
+{
+	strcpy (symbol,s);
+	strcpy (description,d);
+	weight=w;
+}
+
+// display value in object
+//
+void Molecule::display() const
+{
+	cout << setw(20) << left << symbol << setw(20) << left << description;
+	cout << fixed << setw(10) << right << setprecision(3) << weight;
+}
+
+
+//function to take string value and validate and return to main's string.
+//
+void getString(char* s, int t, int size)
+{
+	int keepTrying = 0;
+	while(keepTrying==0)
+		{	//taking input
+			if(t == 1 )
+			cout << "Enter symbol		: ";
+			else if(t==2)
+			cout << "Enter description	: ";
+			cin.getline(s, size, '\n');
+
+			//validation
+
+			if (cin.fail()) {   // check for invalid character
+             cerr << "Invalid character.  Try Again." << endl;
+             cin.clear();
+             cin.ignore(2000, '\n');
+		 } else
+             keepTrying = 1;
+		}
+}
+//function to validate int value.
+//
+int getN()
+{
+	int keepTrying = 0;
+	int weight =0;
+	while(keepTrying == 0)
+	{
+	//input
+	cout << "Number of molecule	: ";
+	cin >> weight;
+	
+	//validation
+	if(cin.fail())
+		{
+		cerr << "Invalid character. Try Again." << endl;
+		cin.clear();
+		cin.ignore(2000, '\n');
+		}
+	else if (weight <= 0 || weight > 1000)
+		{
+		cerr << weight << " is outside the range " << endl;
+		cerr << "Invalid input. Try again." << endl;
+		cin.ignore(2000, '\n');
+		}
+	else if (char(cin.get()) != '\n')
+		{
+		cerr << "Trailing characters. Try again." << endl;
+		cin.ignore(2000, '\n');
+		}
+	else // test passed
+		keepTrying =1;
+	}
+	return weight;
+}
+//function to validate double value.
+//
+double getWeight()
+{
+	int keepTrying = 0;
+	double weight =0;
+	while(keepTrying == 0)
+	{
+	//input
+	cout << "Enter weight		: ";
+	cin >> weight;
+	
+	//validation
+	if(cin.fail())
+		{
+		cerr << "Invalid character. Try Again." << endl;
+		cin.clear();
+		cin.ignore(2000, '\n');
+		}
+	else if (weight <= 0 || weight > 1000)
+		{
+		cerr << weight << " is outside the range " << endl;
+		cerr << "Invalid input. Try again." << endl;
+		cin.ignore(2000, '\n');
+		}
+	else if (char(cin.get()) != '\n')
+		{
+		cerr << "Trailing characters. Try again." << endl;
+		cin.ignore(2000, '\n');
+		}
+	else // test passed
+		keepTrying =1;
+	}
+	return weight;
+}jgchoi@matrix:~/a/w3> g++ c[Kw3.cpp Molecule.cpp[C w3.cpp Molecule.cpp- w3.cpp Molecule.cppo w3.cpp Molecule.cpp[C w3.cpp Molecule.cppw w3.cpp Molecule.cpp3 w3.cpp Molecule.cppr w3.cpp Molecule.cppo w3.cpp Molecule.cppb w3.cpp Molecule.cppu w3.cpp Molecule.cpps w3.cpp Molecule.cppt w3.cpp Molecule.cpp
+jgchoi@matrix:~/a/w3> w3robust
+Molecular Information
+=====================
+Number of molecule	: 
+
+ 
+a
+Invalid character. Try Again.
+Number of molecule	: ~
+Invalid character. Try Again.
+Number of molecule	: 1d
+Trailing characters. Try again.
+Number of molecule	: zz1
+Invalid character. Try Again.
+Number of molecule	: 3
+Enter symbol		: This senetece is more than 20 ch^H^H    ar
+Invalid character.  Try Again.
+Enter symbol		: H2O
+Enter description	: Water
+Enter weight		: ~
+Invalid character. Try Again.
+Enter weight		: 18.33aab
+Trailing characters. Try again.
+Enter weight		: 1000000.55
+1e+06 is outside the range 
+Invalid input. Try again.
+Enter weight		: 18.015
+Enter symbol		: CO2
+Enter description	: Carbon Dioxide
+Enter weight		: 44.010
+Enter symbol		: NaCl
+Enter description	: Sodium Chloride
+Enter weight		: 58.443
+
+Structure            Name                     Mass
+==================================================
+H2O                 Water                   18.015
+CO2                 Carbon Dioxide          44.010
+NaCl                Sodium Chloride         58.443
+jgchoi@matrix:~/a/w3> exit
+exit
+
+Script done on Fri 24 Jan 2014 04:54:54 PM EST

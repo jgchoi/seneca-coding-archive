@@ -1,0 +1,240 @@
+/* I declare that the attached assignment is wholly my
+ * own work in accordance with Seneca Academic Policy.  No part of this
+ * assignment has been copied manually or electronically from any
+ * other source (including web sites) or distributed to other students.
+ *
+ *	 Name : Jung_Geon_Choi		Student ID : 025651134
+ */
+
+
+/* Course Code		- BTP100
+ * Assignment Number	- Assignment 2
+ * Name			- Jung Geon Choi
+ * File name		- a2.c
+ * Due date		- Nov. 10, 2013
+ * Kaprekar's Constant value table maker
+ * Creat Kaprekar's Constant table
+ */
+ 
+#include<stdio.h>
+
+#define D_PER_PAGE 20	// Number of values per page
+#define USER_ENTER 0 	// 1 means user needs to enter each page
+
+//-----------------------------------------------------------------------------
+//Prototypes
+void next_page(void);
+void table_title(void);
+void program_title(void);
+void show_page(int page_num);
+int k_value_validator(int val_ini);
+void k_const_calculator(int val_ini);
+int digit_to_dec(int d1, int d2, int d3, int d4);
+void digitation(int *p_d1, int *p_d2, int *p_d3, int *p_d4,int val_ini);
+void find_max(int *p_max1,int *p_max2,int *p_max3,int *p_max4,int d1,int d2,
+	      int d3,int d4);
+
+//-----------------------------------------------------------------------------
+//main
+int main(void)
+	{
+	//---- (valuables) ------------------------------------------
+	int val_ini=1000;	//starting value 
+	int page_i=0;		//count page number
+	int unit_i=0;		//count unit per page till D_PER_PAGE
+	int cal_i=0;		//count unit for const cal	
+	//---- (loop starting point) --------------------------------
+	while(cal_i==0)	// while val_ini!=9999 (cal_i=1 when val_ini>9999)
+		{
+		program_title();// show title
+		table_title();	// show table title
+			
+		while(unit_i<D_PER_PAGE && cal_i==0)
+			{
+			if(k_value_validator(val_ini)) // check 1111,2222...8888
+				{
+				if(val_ini<9999)
+					{
+					k_const_calculator(val_ini);
+					unit_i++;
+					val_ini++;
+					}
+				else // val_ini>9999
+					{
+					cal_i=1;
+					}
+				}
+			else // if value == 1111,2222..8888
+				{
+				val_ini++;
+				} // else
+			} //while(unit_i<D_PER_PAGE)
+
+			unit_i=0;
+			page_i++;
+			show_page(page_i); // show page number
+			next_page();		
+		} // while loop start point
+	return 0;
+	}//main()
+
+//-----------------------------------------------------------------------------
+//finding max from given 4 digit values
+void find_max(int *p_max1,int *p_max2,int *p_max3,
+	      int *p_max4,int d1,int d2,int d3,int d4)
+	{
+	*p_max1=d1;	// initial setup if case max = d1
+	
+	if(*p_max1<d2) // define *p_max2
+		{
+		*p_max1=d2;
+		*p_max2=d1;
+		}
+	else
+		{
+		*p_max2=d2;
+		}
+	
+	if(*p_max1<d3) // define *p_max3
+		{
+		*p_max3=*p_max2;
+		*p_max2=*p_max1;
+		*p_max1=d3;
+		}
+	else if(*p_max2<d3)
+		{
+		*p_max3=*p_max2;
+		*p_max2=d3;
+		}
+	else
+		{
+		*p_max3=d3;
+		}
+	
+	if(*p_max1<d4) // define *p_max4
+		{
+		*p_max4=*p_max3;
+		*p_max3=*p_max2;
+		*p_max2=*p_max1;
+		*p_max1=d4;
+		}
+	else if(*p_max2<d4)
+		{
+		*p_max4=*p_max3;
+		*p_max3=*p_max2;
+		*p_max2=d4;
+		}
+	else if(*p_max3<d4)
+		{
+		*p_max4=*p_max3;
+		*p_max3=d4;
+		}
+	else
+		{
+		*p_max4=d4;
+		}
+	}
+
+//-----------------------------------------------------------------------------
+//separate decimals to each digit
+void digitation(int *p_d1, int *p_d2, int *p_d3, int *p_d4,int val_ini)
+	{
+	*p_d1=val_ini/1000;	
+	*p_d2=val_ini/100%10;
+	*p_d3=val_ini/10%10;
+	*p_d4=val_ini/1%10;
+	}	
+
+//-----------------------------------------------------------------------------
+//calculate k_constant with intermediate progress
+void k_const_calculator(int val_ini)
+	{
+	//---- (valuables) ------------------------------------------
+	int d1=0;	//digit 1~4
+	int d2=0;
+	int d3=0;
+	int d4=0;
+	
+	int max1=0;	//max num
+	int max2=0;
+	int max3=0;
+	int max4=0;	//min num
+	
+	int val_max=0;	//rearranged max & min values
+	int val_min=0;
+	
+	//---- (calculation) ----------------------------------------
+	printf("%04d\t",val_ini); // first printf for initial value
+	while(val_ini!=6174)
+		{
+		digitation(&d1,&d2,&d3,&d4,val_ini); //separate to digit
+		find_max(&max1,&max2,&max3,&max4,d1,d2,d3,d4);//find max value
+		
+		//substation
+		val_max = digit_to_dec(max1,max2,max3,max4); //conver to decimal
+		val_min = digit_to_dec(max4,max3,max2,max1); //max=larger
+		val_ini = val_max - val_min; //calculate new val_ini
+		
+		//---- (output) -------------------------------------
+		printf("%04d\t",val_ini);
+		}
+	printf("\n"); // new line for next input
+	}
+
+//-----------------------------------------------------------------------------
+//change 4 digit input to 1 decimal number
+int digit_to_dec(int d1, int d2, int d3, int d4)
+	{
+	return ((d1*1000)+(d2*100)+(d3*10)+(d4));
+	}
+
+//-----------------------------------------------------------------------------
+//Show program title
+void program_title(void)
+	{
+	printf("Kaprekar's Constant\n");
+	}
+
+//-----------------------------------------------------------------------------
+//Check K_value, return 1 if number is all same
+int k_value_validator(int val_ini)
+	{
+	int d1=0;	//digit 1~4
+	int d2=0;
+	int d3=0;
+	int d4=0;
+	
+	digitation(&d1,&d2,&d3,&d4,val_ini); //digit
+
+	if(d1==d2 && d2==d3 && d3==d4)
+		{
+		return 0;
+		}
+	else
+		{
+		return 1;
+		}
+	}
+
+//-----------------------------------------------------------------------------
+//Table's title
+void table_title(void)
+	{
+	printf("N	1	2	3	4	5	6	7\n");
+	}
+
+//-----------------------------------------------------------------------------
+//show page number
+void show_page(int page_num)
+	{
+	printf("				Page %d\n",page_num);
+	}
+
+//-----------------------------------------------------------------------------
+//pause program user to input 'enter' to go to next page
+void next_page(void)
+	{
+	if(USER_ENTER==1)  // pause by page if enabled
+		while(getchar()!='\n')
+		;
+	}

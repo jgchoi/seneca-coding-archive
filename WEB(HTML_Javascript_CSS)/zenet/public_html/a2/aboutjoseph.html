@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!--External CSS-->
+		<link rel="stylesheet" href="css/main.css" type="text/css"/>
+		<link rel="stylesheet" href="css/section.css" type="text/css"/>
+		<link rel="stylesheet" href="css/menu.css" type="text/css"/>
+		
+		<!--Internal CSS-->
+		<style>
+			table tr td {
+							border:1px dotted gold;
+							padding-top:10px;
+							padding-bottom:10px;
+						}
+			table	{
+						border: 5px dashed green;
+						width: 400px;
+						margin:auto;
+					}
+		</style>
+		
+		
+		<title>
+			Assignment 2:About Joseph
+		</title>
+		
+	</head>
+	
+	<body>
+	<!--title-->
+		<div id="title">
+		<p class="title"> Choi's first web site </p>
+		</div>
+	<!--end title-->
+	
+	<!--main-->
+		<div id="content">
+			<!--menu-->
+				<nav>
+					<ul>
+						<li><a href="main.html">Introduction</a>
+							<ul>
+								<li><a href="../lab3/about_me.html" target="_blank">About me</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="faq.html">F&Q</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My Works</a>
+							<ul>
+								<li><a href="lab1.html">Lab1</a></li>
+								<li><a href="../lab2/lab2.js" target="_blank">Lab2</a></li>
+								<li><a href="../lab3/introduction.html" target="_blank">Lab3</a></li>
+								<li><a href="../lab5/lab5.html" target="_blank">Lab4&5</a></li>
+								<li><a href="../a1/a1.js" target="_blank">Assignment1</a></li>
+							</ul>
+						</li>
+						<li><a href="main.html">My sons</a>
+							<ul>
+								<li><a href="aboutjoseph.html">About Joseph</a></li>
+								<li><a href="photo.html">Photo</a></li>
+								<li><a href="video.html">Video</a></li>
+							</ul>
+						</li>
+						<li><a href="honesty.html">Academic Honesty</a></li>
+					</ul>
+				</nav>
+			<!--end menu-->
+			
+			<!--content-->
+			<div class="center">
+				<p class="head">Who is Joseph?</p>
+				<p class="contaxt">
+					<table>
+						<tr>
+							<td>Name</td>
+							<td>Joseph E Choi</td>
+						</tr>
+						<tr>
+							<td>B-Day</td>
+							<td>2010-08-20</td>
+						</tr>
+						<tr>
+							<td colspan="2"><b>Loves MacDonald's</b></td>
+							
+						</tr>
+						<tr>
+							<td>What else?</td>
+							<td>So many things to discover!</td>
+						</tr>
+					</table>
+			</div>
+			<!--end content-->
+		</div>
+	<!--end main-->
+	
+	<!--Time Stamp-->
+		<div id="time_stamp">		
+		<script> 
+		dt=new Date(document.lastModified); 
+		document.write("<mark> This page was last modified on " + dt.toLocaleString() + "</mark>") 
+		</script>
+		</div>
+	<!--end of Time Stamp-->
+	
+	<!--Resolution information-->
+		<p class="center"> This web page is optimized for 1024*768 display </p>
+	<!--end of info-->
+	</body>
+</html>

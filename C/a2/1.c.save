@@ -1,0 +1,7 @@
+ZZ#include <stdio.h>
+
+int main(int valu)
+{
+printf("the value is %d",valu);
+return 9923;
+}

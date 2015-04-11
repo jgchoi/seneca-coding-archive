@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		
+		<link rel="stylesheet" href="../css/main.css" type="text/css"/>
+		
+				
+		<style type="text/css">
+			h1.center {text-align:center}
+			#end {font-size:2em;color:white;text-align:right}
+			
+			/* This is how you comment CSS*/
+			
+			body {font-family:arial;}
+			p.subtitle{position:relative;left:0px;font-weight:bold; text-decoration:underline;}
+			p {position:relative;left:30px;}
+			
+			#bgexample {background-image:url("a.jpg");background-size:20px 20px;background-repeat:no-repeat;background-position: center}
+			#cbox {background-image:url("a.jpg");background-size:20px 20px;background-repeat:no-repeat;background-origin:content-box;padding: 30px; border:30px;margin:30px}
+			#pbox {background-image:url("a.jpg");background-size:20px 20px;background-repeat:no-repeat;background-origin:padding-box;padding: 30px; border: 30px;margin:30px}
+			#bbox {background-image:url("a.jpg");background-size:20px 20px;background-repeat:repeat-x;background-origin:border-box;padding: 30px; border: 30px;margin:30px}
+			
+			span.bold {font-weight:bold}
+			span.lighter{font-weight:lighter}
+			span.normal{font-weight:normal}
+			span.bolder{font-weight:bolder}
+			span.italic{font-style:italic}
+			span.oblique{font-style:oblique}
+
+
+			span.blink{text-decoration:blink}
+			span.cap{text-transform:capitalize}
+			span.upp{text-transform:uppercase}
+			span.low{text-transform:lowercase}
+			span.scap{font-variant:small-caps}
+		
+			a.one:link {color:white;}
+			a.one:visited {color:black;}
+			a.one:hover {color:red;}
+
+			a.two:link {color:white;}
+			a.two:visited {font-size:30%;}
+			a.two:hover {font-size:150%;}
+			a.two:active{font-size:500%;}
+		</style>		
+		
+		<title>
+			Lab5 - CSS note
+		</title>
+	</head>
+	
+	<body>
+			<h1 class="center">CSS note</h1>
+			<hr>
+			<p class="subtitle">-Single Tag</p>
+			<p>		&lt;p style="property:value;"&gt;</p>
+			<p style="color:yellow;">Single tag example</p>
+			<br>
+			
+			<p class="subtitle">-Single Page</p>
+			<p>&lt;style&gt;</p>
+			<p>h1.center {text-align:center}</p>
+			<p>#end {font-size:2em;color:white;text-align:right}</p>
+			<p>/* This is how you comment CSS*/</p>
+			<p>&lt;/style&gt;</p>
+			<p> Refer to head in this html</p>
+			<br>
+			
+			<p class="subtitle">entire site</p>
+			<p>&lt;link rel="stylesheet" href="../css/main.css" type="text/css"/&gt;</p>
+			<p>also refer to the head</p>
+			<br>
+			
+			<p class="subtitle">Class&ID</p>
+			<p>element.class_name -> &lt;element class="class_name"&gt;</p>
+			<p>#id_name -> &lt;element id="id_name"&gt;</p>
+			<br>
+			
+			<p class="subtitle">Background</p>
+			<p>background-image:url("path/name.jpg")<p>
+			<p id="bgexample">This is Example of bg</p>
+			<p>-background-size:#px #px;</p>
+			<p>-background-size:#% #%;</p>
+			<p>-background-color:color</p>
+			<p>-background-position:left/right/top/bottom/center</p>
+			<p>-background-repeat:repeat-x/repeat-y/no-repeat</p>
+			<p>-background-origin:content-box/padding-box/border-box;</p>
+			<p id="cbox">cbox</p>			
+			<p id="pbox">pbox</p>			
+			<p id="bbox">bbox</p>
+			<br>
+			
+			<p class="subtitle">Font Formatting</p>
+			<p>-p.serif{font-family: Times New Roman, Times, serif;}</p>
+			<p>-p.sanserif{font-family: Arial, Helvetica, san-serif;}</p>
+			<p>-font-size:%/pm/px/em</p>
+			<p>-font-weight:<span class="bold">bold</span>/<span class="lighter">lighter</span>/<span class="normal">normal</span>/<span class="bolder">bolder</span></p>
+			<p>-font-style:<span class="italic">italic</span>/normal/<span class="oblique">oblique</span></p>
+			
+			<p>-text-align:center/left/right</p>
+			<p style="text-align:center;">center</p>
+			<p style="text-align:right;margin-right:50px">right</p>
+			
+			<p>-text-indent:#em/-#em</p>
+			<p>-text-decoration:underline/overline/line-through/<span class="blink">blink</span>/none</p>
+			<p style="text-decoration:overline;text-indent:5em">indent&overline example</p>
+			<p>-text-transform:<span class="cap">capitalize</span>/<span class="upp">uppercase</span>/<span class="low">LOWERCASE</span>/none</p>
+			<p>font-variant:<span class="scap">small-caps</span>/normal</p>
+			<br>
+			
+			<p class="subtitle">Text effect</p>
+			<p>Shadow</p>
+			<p>-text-shadow: #px(horizontal) #px(vertical) #px(distance) color</p>
+			<p>-text-shadow: 5px 5px 5px white; is going to example</p>
+			<p style="text-shadow:5px 5px 5px white;text-indent:5em">See? I told you</p>
+			<br>
+			
+			<p class="subtitle">Word wrapping</p>
+			<p>word-wrap:break-word</p>
+			<br>
+			
+			<p class="subtitle">highlight</p>
+			<p>&lt;mark></mark&gt;</p>
+			
+			<p class="subtitle">box model</p>
+			<img style="display:block; margin: auto;" src="boxmodel.jpg" alt="what happen" title="Good picture indeed">
+			<p>-margin-top/margin-right/margin-bottom/margin-left:value</p>
+			<p>-margin: value1 2 3 4 = top right bottom left</p>
+			<p>-margin: value1 2 3 = top R&L bottom</p>
+			<p>-margin: value1 2 = T&B R&L</p>
+			<p>-margin: value1 = all-side</p>
+			<p>-margin: auto = center (seems not working well)</p>
+			<br>
+			
+			<p class="subtitle">border</p>
+			<p>-border-style:none/dotted/dashed/solid/double/groove/ridge/insert/outset</p>
+			<p style="border-style:none">none</p>
+			<p style="border-style:dotted;border-color:yellow">dotted</p>
+			<p style="border-style:dashed;border-color:green">dashed</p>
+			<p style="border-style:solid">solid</p>
+			<p style="border-style:double">double</p>
+			<p style="border-style:groove">groove</p>
+			<p style="border-style:ridge">ridge</p>
+			
+			<p style="border-style:outset">outset</p>
+			<p>-border-width:#px/thin/medium/thick</p>
+			<p>-border-color:color</p>
+			<p>-border-(top/right/bottom/left)-(style/color/width):value</p>
+			<p>-border-style: value 1234 same rule as margin</p>
+			<p style="border:5px solid blue">Quick border = -border:5px solid blue</p>
+			<br>
+			
+			<p class="subtitle">round corner</p>
+			<p>-border-radius:#px</p>
+			<p style="margin-right:50em;padding:50px;color:black;background-color:yellow;border-radius:30px">This is round corner example with padding 50px, margin-right 30px</p>
+			<br>
+			
+			<p class="subtitle">box shadow</p>
+			<p style="box-shadow:5px 5px 5px white;margin:100px;border:1px solid white;">box-shadow:5px 5px 5px blue<br>margin:100px;border:1px solid white;</p>
+			<hr>
+			
+			<p class="subtitle">padding</p>
+			<p>padding is space between border and content box.<br>spacing purpose only<br>same rule applies as margin&border</p>
+			<a id="end" href="../lab5.html">Go back to main</a>
+			
+			<p class="subtitle">Centering</p>
+			<p>Horizontal</p>
+			<p>-text-align:center</p>
+			<p>-margin-left:auto & -margin-right:auto</p>
+			<p>Vertical</p>
+			<p>-display:table-cell & -vertical-align:middle</p>
+			<p style="border:1px solid white;text-align:center;">[[TEXT]]<br>border:1px solid white;text-align:center;</p>
+			<div style="border:1px solid white;text-align:center;margin-left:auto;margin-right:auto;width:400px">
+				<p>Centered Block<br>It does not work with p!<br>border:1px solid white;text-align:center;margin-left:auto;margin-right:auto;width:400px</p></div>
+			<div style="height:500px;width:500px;border:1px solid white;display:table-cell;vertical-align:middle;">
+				<p>this is not text-centered</p>
+				<p style="text-align:center">center</p>
+				<p>table-cell;vertical-align:middle</p>
+				<p>border:1px solid white;text-align:center;margin-left:auto;margin-right:auto;width:400px</p></div>
+			<br>
+			
+			<p class="subtitle">Positioning</p>
+			<p>-position:absolute/relative/fixed/static</p>
+			<p>-overflow:auto/hidden/visible/scroll</p>
+			<div style="border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;">
+				<p>absolute<br>border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;</p></div>
+			<div style="overflow:auto;border:1px solid white;position:absolute; width:300px;height:300px; left:1000px; top:100px; background-color:white; color:black;">
+				<p>absolute W/ overflow:auto<br>border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;</p></div>	
+			<div style="overflow:hidden;border:1px solid white;position:absolute; width:300px;height:300px; left:1000px; top:500px; background-color:white; color:black;">
+				<p>absolute W/ overflow:hidden<br>border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;</p></div>		
+			<div style="overflow:visible;border:1px solid white;position:absolute; width:300px;height:300px; left:1000px; top:900px; background-color:white; color:black;">
+				<p>absolute W/ overflow:visible<br>border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;</p></div>		
+			<div style="overflow:scroll;border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:900px; background-color:white; color:black;">
+				<p>absolute W/ overflow:scroll<br>border:1px solid white;position:absolute; width:300px;height:300px; left:600px; top:100px; background-color:white; color:black;</p></div>	
+				
+				<div style="overflow:auto;border:1px solid red;position:relative; width:500px;height:100px; left:1000px; top:100px; background-color:white; color:black;">
+				<p>relative W/ overflow:auto<br>overflow:auto;border:1px solid red;position:relative; width:500px;height:100px; left:1000px; top:100px; background-color:white; color:black;</p></div>	
+			<div style="overflow:auto;border:1px solid red;position:fixed; width:200px;height:200px; left:1000px; top:100px; background-color:white; color:black;">
+				<p>fixed </p></div>	
+
+			<br>
+			
+			<p class="subtitle">list style</p>				
+			<div style="text-align:center">
+			<img src="style1.JPG"><br><img src="style2.JPG"></div>
+			<p>list-style-image:url("img.jpg")</p>
+			
+			<p class="subtitle">Table</p>	
+			<table style="margin:auto; width:80%">
+			  <caption> margin:auto; width:80% </caption>
+			  <thead>
+				 <tr>
+					<th>Header, first cell.</td>
+					<th>Header, second cell.</td>
+					<th>Header, third cell.</td>
+				 </tr>
+			  </thead>
+			  <tbody>
+				 <tr>
+					<td>Second row, first cell.</td>
+					<td>Second row, second cell.</td>
+					<td>Second row, third cell.</td>
+				 </tr>
+				 <tr>
+					<td>more row, first cell.</td>
+					<td>more row, second cell.</td>
+					<td>more row, third cell.</td>
+				 </tr>
+			  </tbody>
+			  <tfoot>
+				 <tr>
+					<td>Foot row, first cell.</td>
+					<td>Foot row, second cell.</td>
+					<td>Foot row, third cell.</td>
+				</tr>
+			 </tfoot>
+		   </table>
+		   
+					<table style="border: dotted">
+			  <caption>border: dotted </caption>
+			  <thead>
+				 <tr>
+					<th>Header, first cell.</td>
+					<th>Header, second cell.</td>
+					<th>Header, third cell.</td>
+				 </tr>
+			  </thead>
+			  <tbody>
+				 <tr>
+					<td>Second row, first cell.</td>
+					<td>Second row, second cell.</td>
+					<td>Second row, third cell.</td>
+				 </tr>
+				 <tr>
+					<td>more row, first cell.</td>
+					<td>more row, second cell.</td>
+					<td>more row, third cell.</td>
+				 </tr>
+			  </tbody>
+			  <tfoot>
+				 <tr>
+					<td>Foot row, first cell.</td>
+					<td>Foot row, second cell.</td>
+					<td>Foot row, third cell.</td>
+				</tr>
+			 </tfoot>
+		   </table>
+		   
+						<table style="background-color: yellow;color:black">
+			  <caption>background-color: yellow </caption>
+			  <thead>
+				 <tr>
+					<th>Header, first cell.</td>
+					<th>Header, second cell.</td>
+					<th>Header, third cell.</td>
+				 </tr>
+			  </thead>
+			  <tbody>
+				 <tr>
+					<td>Second row, first cell.</td>
+					<td>Second row, second cell.</td>
+					<td>Second row, third cell.</td>
+				 </tr>
+				 <tr>
+					<td>more row, first cell.</td>
+					<td>more row, second cell.</td>
+					<td>more row, third cell.</td>
+				 </tr>
+			  </tbody>
+			  <tfoot>
+				 <tr>
+					<td>Foot row, first cell.</td>
+					<td>Foot row, second cell.</td>
+					<td>Foot row, third cell.</td>
+				</tr>
+			 </tfoot>
+		   </table>
+		   <table class="a" style="border-collapse:collapse;border:1px solid white">
+			  <caption>border-collapse:collapse; </caption>
+			  <thead style="border:1px solid white">
+				 <tr style="border:1px solid white">
+					<th style="border:1px solid white">Header, first cell.</td>
+					<th>Header, second cell.</td>
+					<th>Header, third cell.</td>
+				 </tr>
+			  </thead>
+			  <tbody>
+				 <tr>
+					<td>Second row, first cell.</td>
+					<td>Second row, second cell.</td>
+					<td>Second row, third cell.</td>
+				 </tr>
+				 <tr>
+					<td>more row, first cell.</td>
+					<td>more row, second cell.</td>
+					<td>more row, third cell.</td>
+				 </tr>
+			  </tbody>
+			  <tfoot>
+				 <tr>
+					<td>Foot row, first cell.</td>
+					<td>Foot row, second cell.</td>
+					<td>Foot row, third cell.</td>
+				</tr>
+			 </tfoot>
+		   </table>
+		   
+		<table class="a" style="border:1px solid white">
+			  <caption>MIXED; </caption>
+			  <thead >
+				 <tr>
+					<th style="border:1px solid white">Header, first cell.</td>
+					<th style="border:1px solid white">Header, second cell.</td>
+					<th style="border:1px solid white">Header, third cell.</td>
+				 </tr>
+			  </thead>
+			  <tbody>
+				 <tr>
+					<td style="border: 4px inset #4400FF">border: 4px inset #4400FF</td>
+					<td style="padding:10px 20px">padding:10px 20px</td>
+					<td style="background-color: aqua">background-color: aqua</td>
+				 </tr>
+				 <tr>
+					<td style="height: 100px; width: 400px">height: 100px; width: 400px</td>
+					<td style="padding:10px 20px">padding:10px 20px</td>
+					<td style="background-color: aqua">background-color: aqua</td>
+				 </tr>
+			  </tbody>
+			  <tfoot>
+				 <tr>
+					<td>Foot row, first cell.</td>
+					<td style="border:5px solid green">Foot row, second cell.</td>
+					<td>Foot row, third cell.</td>
+				</tr>
+			 </tfoot>
+		   </table>
+
+		<br>
+		<p class="subtitle">Style Link</p>
+		<p>Link Style</p>
+		<p>a.link (normal, unvisited)</p>
+		<p>a.visited</p>
+		<p>a.hover (mouse over)</p>
+		<p>a.active(moment of click)</p>
+		<br>
+		<a class="one" href="link.txt">BYE BYE BYE</a><br>
+		<a class="two" href="link.txt">BYE BYE BBYE!</a><br>
+		<br>
+		<p class="subtitle"> display</p>
+		<p>-display:block/inline...</p>
+		<br><img src="display.JPG">
+		<br>
+		<br>
+		<hr>
+		<a href="../lab5.html">The end. Go back to Index</a>
+	</body>
+</html>

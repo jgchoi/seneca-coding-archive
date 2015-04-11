@@ -1,0 +1,47 @@
+/* main.css for a2 */
+
+
+body	{
+		background-color: black;
+		color:white;
+		font-family:"Times New Roman",Georgia,Serif;
+		}
+	
+
+.center	{
+		text-align:center;
+		}
+p.title	{
+		font-size:3em;
+		background-color:#424242;
+		font-weight:bolder;
+		font-style:oblique;
+		margin-top:20px;
+		margin-left:30px;
+		margin-right:30px;
+		box-shadow:5px 5px 5px white;
+		border-radius:5px;
+		}
+		
+p.head		{
+					
+				font-size:3em;
+				text-decoration:underline;
+			}
+p.contaxt	{
+				font-family:"Times New Roman",Georgia,Serif;
+				font-size:1.5em;
+			}
+			
+a.t:link	{
+			color:white;
+			text-decoration:none;
+			}
+a.t:visited	{
+			color:white;
+			text-decoration:none;
+			}
+a.t:hover	{
+			color:white;
+			text-decoration:none;
+			}

@@ -1,0 +1,594 @@
+Script started on Thu 31 Oct 2013 07:05:37 PM EDT
+jgchoi@matrix:~/100/w7/fin> whoami
+jgchoi
+jgchoi@matrix:~/100/w7/fin> w[Kcat w7[K7.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop7
+ * Name			- Jung Geon Choi
+ * File name		- w7
+ * Due date		- Nov. 5, 2013
+ * 
+ */
+
+#include <stdio.h>
+#define INV_MAX 100 // Maximum array value
+
+void p_title(void);
+void p_result(void);
+float get_price();
+long long int get_barcode();
+int get_quantity();
+
+int main(void)
+{
+//---- (valuables) -------------------------------------------------
+long long int barcode[INV_MAX]={0};
+float price[INV_MAX]={0};
+int quantity[INV_MAX]={0};
+float value[INV_MAX]={0};
+int i=0; // Input position counter
+int j=0; // output position counter
+float total=0;
+p_title(); // title priting
+
+//---- (input) ------------------------------------------------------
+barcode[i]=get_barcode();
+
+for(i=0;barcode[i]!=0;i++)
+	{
+	price	[i]	= get_price();
+	quantity[i]	= get_quantity();
+	barcode	[i+1]	= get_barcode();
+	
+	value[i]=price[i]*quantity[i]; // value calculation
+	total += value[i];
+	}
+
+//---- (output of goods in stock) -----------------------------------
+p_result(); // output summary title printing
+for(j=0;j!=i;j++)
+	{
+	printf("%010lld%7.2f       %3d%8.02f\n",barcode[j],price[j],quantity[j],value[j]);
+	}
+//---- (total) ------------------------------------------------------
+printf("                              -----\n"
+       "Total value goods in stock%9.02f\n",total);
+ } // main()
+ 
+
+//-----------------------------------------------------------------------------
+//show title of the program
+void p_title(void)
+{
+printf("Grocery Store Inventory\n"
+	"=======================\n");
+}
+
+//-----------------------------------------------------------------------------
+//show title of output table
+void p_result(void)
+{
+printf("\n\n	Goods in Stock\n"
+       "	==============\n"
+       "Barcode    Price   Quantity   Value\n"
+       "-----------------------------------\n");
+}
+
+//-----------------------------------------------------------------------------
+//get price value, value valid on float number between 1~999.99
+float get_price()
+{
+	//valuable
+	float num = 0;
+	int r = 0;
+	float range_min = 1, range_max = 999.99;
+	char check = 0;
+
+	do
+		{
+		printf("Price	  :  ");
+		r = scanf("%f%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get barcode input / only integer within 0~9999999999(10digit)
+long long int get_barcode()
+{
+	//valuable
+	long long int num = -0;
+	int r = 0;
+	long long int range_min = 0, range_max = 9999999999;
+	char check = 0;
+
+	do
+		{
+		printf("Barcode   :  ");
+		r = scanf("%lld%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = -1;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==-1);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get quantity information. input int between 1~9999
+int get_quantity()
+{
+	//valuable
+	int num = 0, r = 0;
+	int range_min = 1, range_max = 9999;
+	char check = 0;
+
+	do
+		{
+		printf("Quantity  :  ");
+		
+		r = scanf("%d%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0)
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+jgchoi@matrix:~/100/w7/fin> cc w7.c
+jgchoi@matrix:~/100/w7/fin> a.out
+Grocery Store Inventory
+=======================
+Barcode   :  6300090801
+Price	  :  3.25
+Quantity  :  5
+Barcode   :  6380613916
+Price	  :  4.45
+Quantity  :  15
+Barcode   :  6038367157
+Price	  :  3.95
+Quantity  :  10
+Barcode   :  0
+
+
+	Goods in Stock
+	==============
+Barcode    Price   Quantity   Value
+-----------------------------------
+6300090801   3.25         5   16.25
+6380613916   4.45        15   66.75
+6038367157   3.95        10   39.50
+                              -----
+Total value goods in stock   122.50
+jgchoi@matrix:~/100/w7/fin> catw[K w7_2.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop7
+ * Name			- Jung Geon Choi
+ * File name		- w7_2
+ * Due date		- Nov. 5, 2013
+ * Books in Stock Chart table maker
+ */
+
+#include <stdio.h>
+#define INV_MAX 100 // Maximum array value
+
+
+//-----------------------------------------------------------------------------
+//show title of the program
+void p_title(void)
+{
+printf("BookStore Inventory\n"
+       "===================\n");
+}
+
+//-----------------------------------------------------------------------------
+//show title of output table
+void p_result(void)
+{
+printf("\n\n	Books in Stock\n"
+       "	==============\n"
+       "ISBN        Price   Quantity   Value\n"
+       "--------------------------------------\n");
+}
+
+//-----------------------------------------------------------------------------
+//get price value, value valid on float number between 1~999.99
+float get_price()
+{
+	//valuable
+	float num = 0;
+	int r = 0;
+	float range_min = 1, range_max = 999.99;
+	char check = 0;
+
+	do
+		{
+		printf("Price	  :  ");
+		r = scanf("%f%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get barcode input / only integer within 0~9999999999(10digit)
+long long int get_barcode()
+{
+	//valuable
+	long long int num = -0;
+	int r = 0;
+	long long int range_min = 0, range_max = 9999999999;
+	char check = 0;
+
+	do
+		{
+		printf("ISBN   	  :  ");
+		r = scanf("%lld%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = -1;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==-1);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get quantity information. input int between 1~9999
+int get_quantity()
+{
+	//valuable
+	int num = 0, r = 0;
+	int range_min = 1, range_max = 9999;
+	char check = 0;
+
+	do
+		{
+		printf("Quantity  :  ");
+		
+		r = scanf("%d%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0)
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+int main(void)
+{
+//---- (valuables) -------------------------------------------------
+long long int barcode[INV_MAX]={0};
+float price[INV_MAX]={0};
+int quantity[INV_MAX]={0};
+float value[INV_MAX]={0};
+int i=0; // Input position counter
+int j=0; // output position counter
+float total=0;
+p_title(); // title priting
+
+//---- (input) ------------------------------------------------------
+barcode[i]=get_barcode();
+
+for(i=0;barcode[i]!=0;i++)
+	{
+	price	[i]	= get_price();
+	quantity[i]	= get_quantity();
+	barcode	[i+1]	= get_barcode();
+	
+	value[i]=price[i]*quantity[i]; // value calculation
+	total += value[i];
+	}
+
+//---- (output of goods in stock) -----------------------------------
+p_result(); // output summary title printing
+for(j=0;j!=i;j++)
+	{
+	printf("%010lld%7.2f%11d%10.02f\n",barcode[j],price[j],quantity[j],value[j]);
+	}
+//---- (total) ------------------------------------------------------
+printf("                               -------\n"
+       "Total value of books in stock%9.02f\n",total);
+
+ } // main()
+ 
+ 
+jgchoi@matrix:~/100/w7/fin> cc w7_2.c
+jgchoi@matrix:~/100/w7/fin> a.out
+BookStore Inventory
+===================
+ISBN   	  :  0619215216
+Price	  :  493  +9  9.95
+Quantity  :  5
+ISBN   	  :  0201533936
+Price	  :  89.95
+Quantity  :  10
+ISBN   	  :  0534379648
+Price	  :  69.95
+Quantity  :  15
+ISBN   	  :  0
+
+
+	Books in Stock
+	==============
+ISBN        Price   Quantity   Value
+--------------------------------------
+0619215216  49.95          5    249.75
+0201533936  89.95         10    899.50
+0534379648  69.95         15   1049.25
+                               -------
+Total value of books in stock  2198.50
+jgchoi@matrix:~/100/w7/fin> cat w7op1.c
+/*
+ * Course Code 		- BTP100
+ * Assignment Number	- Workshop7
+ * Name			- Jung Geon Choi
+ * File name		- w7op1
+ * Due date		- Nov. 5, 2013
+ * Work in Progress
+ */
+
+#include <stdio.h>
+#define INV_MAX 100 // Maximum array value
+
+
+//-----------------------------------------------------------------------------
+//show title of the program
+void p_title(void)
+{
+printf("Work in Progress\n"
+	"================\n");
+}
+
+//-----------------------------------------------------------------------------
+//show title of output table
+void p_result(void)
+{
+printf("\n\n	Work in Progess\n"
+       "	===============\n"
+       "Project   Rate  Hours      Value\n"
+       "--------------------------------\n");
+}
+
+//-----------------------------------------------------------------------------
+//get price value, value valid on float number between 1~999.99
+float get_price()
+{
+	//valuable
+	float num = 0;
+	int r = 0;
+	float range_min = 1, range_max = 999.99;
+	char check = 0;
+
+	do
+		{
+		printf("Rate       : ");
+		r = scanf("%f%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get barcode input / only integer within 0~9999(4digit)
+long long int get_barcode()
+{
+	//valuable
+	long long int num = -0;
+	int r = 0;
+	long long int range_min = 0, range_max = 9999;
+	char check = 0;
+
+	do
+		{
+		printf("Project    : ");
+		r = scanf("%lld%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = -1;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0) 
+				while(getchar()!='\n');
+			}
+		}
+	while(num==-1);
+	
+	return num;
+}
+
+//-----------------------------------------------------------------------------
+//get quantity information. input int between 1~9999
+int get_quantity()
+{
+	//valuable
+	int num = 0, r = 0;
+	int range_min = 1, range_max = 9999;
+	char check = 0;
+
+	do
+		{
+		printf("Hours Spent: ");
+		
+		r = scanf("%d%c", &num, &check);
+		
+		
+		if(r==2 && num>=range_min && num<=range_max && check=='\n');
+		else
+			{
+			num = 0;
+			printf("*** Invalid Input. Try Again ***\n");
+			if(check!='\n' || r==0)
+				while(getchar()!='\n');
+			}
+		}
+	while(num==0);
+	
+	return num;
+}
+
+int main(void)
+{
+//---- (valuables) -------------------------------------------------
+long long int barcode[INV_MAX]={0};
+float price[INV_MAX]={0};
+int quantity[INV_MAX]={0};
+float value[INV_MAX]={0};
+int i=0; // Input position counter
+int j=0; // output position counter
+int k=0,l=0; // find max counter
+int tmp=0; // value for value exchange
+float total=0;
+
+p_title(); // title priting
+
+//---- (input) ------------------------------------------------------
+barcode[i]=get_barcode(); //barcode[0]
+
+for(i=0;barcode[i]!=0;i++) 
+	{
+	price	[i]	= get_price();
+	quantity[i]	= get_quantity();
+	barcode	[i+1]	= get_barcode(); // for barcode[i++]
+	
+	value[i]=price[i]*quantity[i]; // value calculation
+	total += value[i]; // sum total
+	}
+//---- (calculate max) ----------------------------------------------
+//k,l
+for(k=0;k<i-1;k++) // compare barcode(ISBN in this program)[0~(i-1) to barcode[1~i]
+	{
+	for(l=k+1;l<i;l++) //range of barcode[1~i]
+		{
+		if(barcode[k]>barcode[l]) //if[barcode[1~i] is smaller (switch position for barcode,quantity,price 
+			{
+			tmp=barcode[k]; //change barcode
+			barcode[k]=barcode[l];
+			barcode[l]=tmp;
+			
+			tmp=quantity[k]; //change q
+			quantity[k]=quantity[l];
+			quantity[l]=tmp;
+			
+			tmp=price[k]; //change p
+			price[k]=price[l];
+			price[l]=tmp;
+			
+			tmp=value[k]; //change total
+			value[k]=value[l];
+			value[l]=tmp;
+			}
+		}
+	} //at the end point, all data sorted in smallest to largest in order of [0~i-1]
+	
+//---- (output of goods in stock) -----------------------------------
+p_result(); // output summary title printing
+for(j=0;j!=i;j++)
+	{
+	printf("%04lld%10.02f%7d%11.02f\n",barcode[j],price[j],quantity[j],value[j]);
+	}
+//---- (total) ------------------------------------------------------
+printf("                         --------\n"
+       "Total Work in Progress%10.02f\n",total);
+//     "Barcode    Price   Quantity   Value\n"
+//     "-----------------------------------
+ } // main()
+ jgchoi@matrix:~/100/w7/fin> cc w7op1.c
+jgchoi@matrix:~/100/w7/fin> a.out
+Work in Progress
+================
+Project    : 3289
+Rate       : 120.00
+Hours Spent: 35
+Project    : 1259
+Rate       : 100.00
+Hours Spent: 25
+Project    : 2231
+Rate       : 93.50
+Hours Spent: 75
+Project    : 0
+
+
+	Work in Progess
+	===============
+Project   Rate  Hours      Value
+--------------------------------
+1259    100.00     25    2500.00
+2231     93.50     75    7012.50
+3289    120.00     35    4200.00
+                         --------
+Total Work in Progress  13712.50
+jgchoi@matrix:~/100/w7/fin> exit
+exit
+
+Script done on Thu 31 Oct 2013 07:07:19 PM EDT
