@@ -1,0 +1,22 @@
+1. What does a Java compiler do?
+	Convert plain text to bytecodes for JVM.
+2. Assuming that the Java program does not have any syntax errors.
+   What does the compiler produce if the user has entered the following
+   command:HelloWorld.class
+
+   >javac HelloWorld.java
+
+3. What does a Java Virtual Machine do?
+	Runs the .class files inside of virtual machine.
+4. Do different operating system platforms (e.g. Windows, Linux, Mac)
+   use identical Java Virtual Machines? Please explain briefly.
+  
+  Yes. Oracle created different JVM that support different platforms. Even though, JVM is different from each
+  other, the way it works (how to interpret the .class file) is same.
+  
+  
+5. I have created a Java program (e.g. HelloWorld.java) on a Windows
+   machine. What must I do if I want to run this Java program on a Linux
+   machine?
+   
+   Install JVM on the Linux.

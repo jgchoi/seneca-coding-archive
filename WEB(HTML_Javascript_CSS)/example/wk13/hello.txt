@@ -1,3 +1,0 @@
-<h1> Hello! </h1>
-
-<p style="color: blue;"> This is my first Ajax experience. </p>
