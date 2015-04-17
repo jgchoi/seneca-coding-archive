@@ -1,0 +1,322 @@
+Script started on Fri 10 Oct 2014 10:41:54 AM EDT
+jgchoi@matrix:~/documents/btp305f14/w4> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w4> cat w4.cpp Pair.h List.h
+// Workshop 4 - Templates
+// w4.cpp
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include "Pair.h"
+#include "List.h"
+
+
+int main(int argc, char** argv) {
+	const int N = 5;
+	int width;
+	bool keepreading;
+	std::cout << std::fixed << std::setprecision(2);
+
+	std::cout << "\nInventory\n=========\n";
+	List <Pair<std::string, double>, N> inventory;
+	std::string str;
+	double price;
+
+	keepreading = true;
+	do {
+		std::cout << "Product : ";
+		getline(std::cin, str);
+		if (str.compare("quit") == 0) {
+			keepreading = false;
+		}
+		else {
+			std::cout << "Price : ";
+			std::cin >> price;
+			std::cin.ignore();
+			Pair <std::string, double> pair(str, price);
+			inventory += pair;
+		}
+	} while (keepreading);
+
+	std::cout << "\nPrice List\n-----------\n";
+	width = inventory.width() + 1;
+	for (int i = 0; i < inventory.size(); i++)
+		std::cout << std::setw(width) << inventory[i].first()
+		<< " : " << inventory[i].second() << std::endl;
+
+	std::cout << "\nGlossary\n========\n";
+	List <Pair<std::string, std::string>, N> glossary;
+	std::string key, definition;
+
+	keepreading = true;
+	do {
+		std::cout << "Key : ";
+		getline(std::cin, key);
+		if (key.compare("quit") == 0) {
+			keepreading = false;
+		}
+		else {
+			std::cout << "Definition : ";
+			getline(std::cin, definition);
+			Pair <std::string, std::string> pair(key, definition);
+			glossary += pair;
+		}
+	} while (keepreading);
+
+	std::cout << "\nEntries\n-------\n";
+	width = glossary.width() + 1;
+	for (int i = 0; i < glossary.size(); i++)
+		std::cout << std::setw(width) << glossary[i].first()
+		<< " : " << glossary[i].second() << std::endl;
+}#ifndef PAIR_H
+#define PAIR_H
+
+template <typename A, typename B>
+class Pair
+{
+	A a;
+	B b;
+public:
+	Pair(){ ; }
+	Pair(const A & aa, const B & bb)
+	{
+		a = aa;
+		b = bb;
+	}
+
+	const A & first() const 
+	{
+		return a;
+	}
+
+	const B & second() const
+	{
+		return b;
+	}
+
+	int width() const
+	{
+		return a.length();
+	}
+
+};
+
+template <>
+class Pair<std::string, double>
+{
+	std::string a;
+	double b;
+public:
+	Pair(){ a = ""; b = 0; }
+	Pair(const std::string & aa, const double bb)
+	{
+		a = aa;
+		b = bb;
+	}
+
+	const std::string & first() const
+	{
+		return a;
+	}
+
+	const double second() const
+	{
+		return b;
+	}
+
+	int width() const
+	{
+		return a.length();
+	}
+
+};
+
+template <>
+class Pair<std::string, std::string>
+{
+	std::string a;
+	std::string b;
+public:
+	Pair(){ a = ""; b = ""; }
+	Pair(const std::string & aa, const std::string & bb)
+	{
+		a = aa;
+		b = bb;
+	}
+
+	const std::string & first() const
+	{
+		return a;
+	}
+
+	const std::string & second() const
+	{
+		return b;
+	}
+
+	int width() const
+	{
+		return a.length();
+	}
+
+};
+#endif#ifndef LIST_H
+#define LIST_H
+
+
+
+template<typename T, int N>
+class List
+{
+	T t[N];
+public:
+	List(){ ; }
+
+	size_t size() const
+	{
+		int i;
+		for (i = 0; i < N; i++)
+		{
+			if (t[i].width() == 0)
+				break;
+		}
+		return i;
+	}
+
+	int width() const
+	{
+		int max = 0;
+		for (int i = 0; i < N; i++)
+		{
+			if (t[i].width()>max)
+				max = t[i].width();
+		}
+		return max;
+	}
+
+	const T & operator[](int i)const
+	{	
+		T dummy;
+		return i >= 0 && i < N ? t[i] : dummy;
+	}
+
+	void operator+=(const T & src)
+	{
+		for (int i = 0; i < N; i++)
+		{
+			if (t[i].width() == 0)
+			{
+				t[i] = src;
+				break;
+			}
+		}
+	}
+};
+#endifjgchoi@matrix:~/documents/btp305f14/w4> g++ -o w4 w4.cpp
+jgchoi@matrix:~/documents/btp305f14/w4> w4
+
+Inventory
+=========
+Product : Pizza
+Price : 4.49
+Product : Pierogi
+Price : 2.56
+Product : Potato Chips
+Price : 2.290
+Product : Black Tea
+Price : 4.49
+Product : Green Tea
+Price : 3.46
+Product : Fruit Tea
+Price : 22^H   .29
+Product : quit
+
+Price List
+-----------
+        Pizza : 4.49
+      Pierogi : 2.56
+ Potato Chips : 2.29
+    Black Tea : 4.49
+    Green Tea : 3.46
+
+Glossary
+========
+Key : CPU
+Definition : central processing unit
+Key : ALU
+Definition : arithmetic logic unit
+Key : quit
+
+Entries
+-------
+ CPU : central processing unit
+ ALU : arithmetic logic unit
+jgchoi@matrix:~/documents/btp305f14/w4> w4
+
+Inventory
+=========
+Product : quit
+
+Price List
+-----------
+
+Glossary
+========
+Key : quit
+
+Entries
+-------
+jgchoi@matrix:~/documents/btp305f14/w4> w4
+
+Inventory
+=========
+Product : test est test
+Price : 22
+Product : abcd
+Price : 12345.33
+Product : dkdkdkdk22
+Price : 33.222
+Product : 333aa
+Price : 44.44
+Product : dkfjee
+Price : 222.22
+Product : 234234ss
+Price : 11.11
+Product : ui^H^H^H^H          quit
+
+Price List
+-----------
+ test est test : 22.00
+          abcd : 12345.33
+    dkdkdkdk22 : 33.22
+         333aa : 44.44
+        dkfjee : 222.22
+
+Glossary
+========
+Key : CPUCPUCPU
+Definition : aldksjfasldkfj
+Key : dkfjdkjf3333
+Definition : asdlkfjejee
+Key : testest33
+Definition : testestest444
+Key : testes1
+Definition : testes2
+Key : tests5
+Definition : lastthing
+Key : no record
+Definition : here
+Key : quit
+
+Entries
+-------
+    CPUCPUCPU : aldksjfasldkfj
+ dkfjdkjf3333 : asdlkfjejee
+    testest33 : testestest444
+      testes1 : testes2
+       tests5 : lastthing
+jgchoi@matrix:~/documents/btp305f14/w4> exit
+exit
+
+Script done on Fri 10 Oct 2014 10:44:18 AM EDT

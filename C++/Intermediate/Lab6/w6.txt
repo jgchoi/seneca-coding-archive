@@ -1,0 +1,448 @@
+Script started on Fri 31 Oct 2014 11:03:55 AM EDT
+jgchoi@matrix:~/documents/btp305f14/w6> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w6> cat w6.*.cpp
+// Workshop 6 - Function Pointer
+// w6.1a.cpp
+
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+template<typename T>
+T weightedAddition(T a, T b, T wa, T wb){
+	return (a*wa) + (b*wb);
+}
+
+
+
+ template <typename T>
+ void transform(const T* a, const T* b, T* c, unsigned n,
+  T wa, T wb, T (*f)(T, T, T, T)
+  ) {
+     for (unsigned i = 0; i < n; i++)
+         c[i] = f(a[i], b[i], wa, wb);
+ }
+
+ int main(int argc, char* argv[]) {
+     std::cout << "\nCommand Line : ";
+     for (int i = 0; i < argc; i++) {
+         std::cout << argv[i] << ' ';
+     }
+     std::cout << std::endl;
+     if (argc != 4) {
+         std::cerr << "\n***Incorrect number of arguments***\n"; 
+         return 1;
+     }
+     unsigned n = std::atoi(argv[1]);
+     float wa = std::atof(argv[2]);
+     float wb = std::atof(argv[3]);
+
+     // initialize
+     float* a = new float[n];
+     float* b = new float[n];
+     float* c = new float[n];
+     for (unsigned i = 0; i < n; i++) {
+         a[i] = b[i] = (float)i * 0.1f;
+	}
+     // transform using weighted addition
+     /* call transform(...) here */
+	transform(a,b,c,n,wa,wb,weightedAddition);
+     // output results
+     std::cout << std::fixed << std::setprecision(2);
+     for (unsigned i = 0; i < n; i++)
+         std::cout << a[i] << " + " << b[i] << " = "
+          << c[i] << std::endl;
+
+     // clean up
+     delete [] a;
+     delete [] b;
+     delete [] c;
+
+     std::cout << "Press any key to continue ... ";
+     std::cin.get();
+ }
+ // Workshop 6 - Function Pointer
+ // w6.1a.cpp
+
+ #include <iostream>
+ #include <iomanip>
+ #include <cstdlib>
+
+template<typename T>
+T weightedAddition(T a, T b, T wa, T wb){
+	return (a*wa) + (b*wb);
+}
+
+template<typename T>
+T weightedMultification(T a, T b, T wa, T wb){
+	return a*wa * b + wb;
+}
+
+ template <typename T>
+ void transform(const T* a, const T* b, T* c, unsigned n,
+  T wa, T wb, T (*f)(T, T, T, T)
+  ) {
+     for (unsigned i = 0; i < n; i++)
+         c[i] = f(a[i], b[i], wa, wb);
+ }
+
+ int main(int argc, char* argv[]) {
+     std::cout << "\nCommand Line : ";
+     for (int i = 0; i < argc; i++) {
+         std::cout << argv[i] << ' ';
+     }
+     std::cout << std::endl;
+     if (argc != 4) {
+         std::cerr << "\n***Incorrect number of arguments***\n"; 
+         return 1;
+     }
+     unsigned n = std::atoi(argv[1]);
+     float wa = std::atof(argv[2]);
+     float wb = std::atof(argv[3]);
+
+     // initialize
+     float* a = new float[n];
+     float* b = new float[n];
+     float* c = new float[n];
+     for (unsigned i = 0; i < n; i++) {
+         a[i] = b[i] = (float)i * 0.1f;
+	}
+     // transform using weighted addition
+     /* call transform(...) here */
+	transform(a,b,c,n,wa,wb,weightedMultification);
+     // output results
+     std::cout << std::fixed << std::setprecision(2);
+     for (unsigned i = 0; i < n; i++)
+         std::cout << a[i] << " * " << b[i] << " = "
+          << c[i] << std::endl;
+
+     // clean up
+     delete [] a;
+     delete [] b;
+     delete [] c;
+
+     std::cout << "Press any key to continue ... ";
+     std::cin.get();
+ }
+ // Workshop 6 - Function Object
+ // w6.2a.cpp
+
+ #include <iostream>
+ #include <iomanip>
+ #include <cstdlib>
+
+ /* define your functor here */
+enum Operation  {addition, multification};
+
+template<typename T>
+class weightedOperation{
+	enum Operation operation;
+	T wa;
+	T wb;
+	public:
+		weightedOperation(enum Operation o, T weightA, T weightB) : operation(o), wa(weightA), wb(weightB) {}
+		T operator()(T a, T b)const{
+			
+			if(operation == addition)
+				return (a * wa) + (b * wb);
+			else
+				return (a * wa * b + wb);
+		}
+};
+
+
+ template <typename T>
+ void transform(const T* a, const T* b, T* c, unsigned n,
+const weightedOperation<T> & f
+  ) {
+     for (unsigned i = 0; i < n; i++)
+         c[i] = f(a[i], b[i]);
+ }
+
+ int main(int argc, char* argv[]) {
+     std::cout << "\nCommand Line : ";
+     for (int i = 0; i < argc; i++) {
+         std::cout << argv[i] << ' ';
+     }
+     std::cout << std::endl;
+     if (argc != 4) {
+         std::cerr << "\n***Incorrect number of arguments***\n"; 
+         return 1;
+     }
+     unsigned n = std::atoi(argv[1]);
+     float wa = std::atof(argv[2]);
+     float wb = std::atof(argv[3]);
+
+     // initialize
+     float* a = new float[n];
+     float* b = new float[n];
+     float* c = new float[n];
+     for (unsigned i = 0; i < n; i++) {
+         a[i] = b[i] = (float)i * 0.1f;
+	}
+     // transform using weighted addition
+     /* call transform(...) here */
+	transform(a,b,c,n,weightedOperation<float>(addition,wa,wb));
+     // output results
+     std::cout << std::fixed << std::setprecision(2);
+     for (unsigned i = 0; i < n; i++)
+         std::cout << a[i] << " + " << b[i] << " = "
+          << c[i] << std::endl;
+
+     // clean up
+     delete [] a;
+     delete [] b;
+     delete [] c;
+
+     std::cout << "Press any key to continue ... ";
+     std::cin.get();
+ }
+ // Workshop 6 - Function Object
+ // w6.2a.cpp
+
+ #include <iostream>
+ #include <iomanip>
+ #include <cstdlib>
+
+ /* define your functor here */
+enum Operation  {addition, multification};
+
+template<typename T>
+class weightedOperation{
+	enum Operation operation;
+	T wa;
+	T wb;
+	public:
+		weightedOperation(enum Operation o, T weightA, T weightB) : operation(o), wa(weightA), wb(weightB) {}
+		T operator()(T a, T b)const{
+			
+			if(operation == addition)
+				return (a * wa) + (b * wb);
+			else
+				return (a * wa * b + wb);
+		}
+};
+
+
+ template <typename T>
+ void transform(const T* a, const T* b, T* c, unsigned n,
+const weightedOperation<T> & f
+  ) {
+     for (unsigned i = 0; i < n; i++)
+         c[i] = f(a[i], b[i]);
+ }
+
+ int main(int argc, char* argv[]) {
+     std::cout << "\nCommand Line : ";
+     for (int i = 0; i < argc; i++) {
+         std::cout << argv[i] << ' ';
+     }
+     std::cout << std::endl;
+     if (argc != 4) {
+         std::cerr << "\n***Incorrect number of arguments***\n"; 
+         return 1;
+     }
+     unsigned n = std::atoi(argv[1]);
+     float wa = std::atof(argv[2]);
+     float wb = std::atof(argv[3]);
+
+     // initialize
+     float* a = new float[n];
+     float* b = new float[n];
+     float* c = new float[n];
+     for (unsigned i = 0; i < n; i++) {
+         a[i] = b[i] = (float)i * 0.1f;
+	}
+     // transform using weighted addition
+     /* call transform(...) here */
+	transform(a,b,c,n,weightedOperation<float>(multification,wa,wb));
+     // output results
+     std::cout << std::fixed << std::setprecision(2);
+     for (unsigned i = 0; i < n; i++)
+         std::cout << a[i] << " * " << b[i] << " = "
+          << c[i] << std::endl;
+
+     // clean up
+     delete [] a;
+     delete [] b;
+     delete [] c;
+
+     std::cout << "Press any key to continue ... ";
+     std::cin.get();
+ }
+// Workshop 6 - Lambda Expression
+// w6.3a.cpp
+
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+template <typename T, typename Func>
+void transform(const T* a, const T* b, T* c, unsigned n,
+const Func & f
+	) {
+	for (unsigned i = 0; i < n; i++)
+		c[i] = f(a[i], b[i]);
+}
+
+int main(int argc, char* argv[]) {
+	std::cout << "\nCommand Line : ";
+	for (int i = 0; i < argc; i++) {
+		std::cout << argv[i] << ' ';
+	}
+	std::cout << std::endl;
+	if (argc != 4) {
+		std::cerr << "\n***Incorrect number of arguments***\n";
+		return 1;
+	}
+	unsigned n = std::atoi(argv[1]);
+	float wa = std::atof(argv[2]);
+	float wb = std::atof(argv[3]);
+
+	// initialize
+	float* a = new float[n];
+	float* b = new float[n];
+	float* c = new float[n];
+	for (unsigned i = 0; i < n; i++) {
+		a[i] = b[i] = (float)i * 0.1f;
+	}
+	// transform using weighted addition
+	/* call transform(...) here */
+	/* define your lambda expression as an argument here */
+	transform(a, b, c, n, [=](const float & a,const float & b){return (a * wa) + (b*wb); });
+
+	// output results
+	std::cout << std::fixed << std::setprecision(2);
+	for (unsigned i = 0; i < n; i++)
+		std::cout << a[i] << " + " << b[i] << " = "
+		<< c[i] << std::endl;
+
+	// clean up
+	delete[] a;
+	delete[] b;
+	delete[] c;
+
+	std::cout << "Press any key to continue ... ";
+	std::cin.get();
+}
+// Workshop 6 - Lambda Expression
+// w6.3a.cpp
+
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+
+template <typename T, typename Func>
+void transform(const T* a, const T* b, T* c, unsigned n,
+const Func & f
+	) {
+	for (unsigned i = 0; i < n; i++)
+		c[i] = f(a[i], b[i]);
+}
+
+int main(int argc, char* argv[]) {
+	std::cout << "\nCommand Line : ";
+	for (int i = 0; i < argc; i++) {
+		std::cout << argv[i] << ' ';
+	}
+	std::cout << std::endl;
+	if (argc != 4) {
+		std::cerr << "\n***Incorrect number of arguments***\n";
+		return 1;
+	}
+	unsigned n = std::atoi(argv[1]);
+	float wa = std::atof(argv[2]);
+	float wb = std::atof(argv[3]);
+
+	// initialize
+	float* a = new float[n];
+	float* b = new float[n];
+	float* c = new float[n];
+	for (unsigned i = 0; i < n; i++) {
+		a[i] = b[i] = (float)i * 0.1f;
+	}
+	// transform using weighted addition
+	/* call transform(...) here */
+	/* define your lambda expression as an argument here */
+	transform(a, b, c, n, [=](const float & a,const float & b){return (a * wa *  b + wb ); });
+
+	// output results
+	std::cout << std::fixed << std::setprecision(2);
+	for (unsigned i = 0; i < n; i++)
+		std::cout << a[i] << " + " << b[i] << " = "
+		<< c[i] << std::endl;
+
+	// clean up
+	delete[] a;
+	delete[] b;
+	delete[] c;
+
+	std::cout << "Press any key to continue ... ";
+	std::cin.get();
+}
+jgchoi@matrix:~/documents/btp305f14/w6> g++cat w6.*.cppwhoami[Kexit[Kw6.3b 15 5 10 1 55 .4 .5g++ -o w6.3b w6.3b.cpp -std=c++0xw6.2b 15 5 1[Kg++ -o w6.3b w6.3b.cpp -std=c++0x[C[C[C w6.3b.cpp -std=c++0x[K w6.3b.cpp -std=c++0x[K1 w6.3b.cpp -std=c++0xa w6.3b.cpp -std=c++0x[C[C[C[C[C[C[C.cpp -std=c++0x[K.cpp -std=c++0x[K1.cpp -std=c++0xa.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> w6.1a 5 .4 .5
+
+Command Line : w6.1a 5 .4 .5 
+0.00 + 0.00 = 0.00
+0.10 + 0.10 = 0.09
+0.20 + 0.20 = 0.18
+0.30 + 0.30 = 0.27
+0.40 + 0.40 = 0.36
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w6> w6.1a 5 .4 .5[K[K[K[K[K/5[K[K.5 .4[K[K[K[K[K[K[K[K[K[K[K[K[Kg++ -o w6.1a w6.1a.cpp -std=c++0xa w6.1a.cpp -std=c++0x[K2a w6.1a.cpp -std=c++0x[C[C[C[C[C[Ca.cpp -std=c++0x[K2a.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> g++ -o w6.2a w6.2a.cpp -std=c++0x[Kg++ -o w6.1a w6.1a.cpp -std=c++0xcat w6.*.cpp[Kwhoami[Kexit[Kw6.3b 15 5 1[K[K[K[K[K[K[K[K[K[K[K[Kw6.2a 5 .4 .5
+
+Command Line : w6.2a 5 .4 .5 
+0.00 + 0.00 = 0.00
+0.10 + 0.10 = 0.09
+0.20 + 0.20 = 0.18
+0.30 + 0.30 = 0.27
+0.40 + 0.40 = 0.36
+Press any key to continue ... ^[[A^[[A
+jgchoi@matrix:~/documents/btp305f14/w6> w6.2a 5 .4 .5g++ -o w6.2a w6.2a.cpp -std=c++0xa w6.2a.cpp -std=c++0x[K3a w6.2a.cpp -std=c++0x[C[C[C[C[C[Ca.cpp -std=c++0x[K3a.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> g++ -o w6.3a w6.3a.cpp -std=c++0xw6.2a 5 .4 .5[Ka 5 .4 .5[K3a 5 .4 .5
+
+Command Line : w6.3a 5 .4 .5 
+0.00 + 0.00 = 0.00
+0.10 + 0.10 = 0.09
+0.20 + 0.20 = 0.18
+0.30 + 0.30 = 0.27
+0.40 + 0.40 = 0.36
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w6> w6.3a 5 .4 .5g++ -o w6.3a w6.3a.cpp -std=c++0x w6.3a.cpp -std=c++0x[K w6.3a.cpp -std=c++0x[K1 w6.3a.cpp -std=c++0xb w6.3a.cpp -std=c++0x[C[C[C[C[C[C.cpp -std=c++0x[K.cpp -std=c++0x[K1.cpp -std=c++0xb.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> g++ -o w6.1b w6.1b.cpp -std=c++0xw6.3a 5 .4 .5[K[C[C 5 .4 .5[K 5 .4 .5[K1 5 .4 .5b 5 .4 .5
+
+Command Line : w6.1b 5 .4 .5 
+0.00 * 0.00 = 0.50
+0.10 * 0.10 = 0.50
+0.20 * 0.20 = 0.52
+0.30 * 0.30 = 0.54
+0.40 * 0.40 = 0.56
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w6> w6.1b 5 .4 .5g++ -o w6.1b w6.1b.cpp -std=c++0xb w6.1b.cpp -std=c++0x[K2b w6.1b.cpp -std=c++0x[C[C[C[C[C[C[C[Cb.cpp -std=c++0x[K2b.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> g++ -o w6.2b w6.2b.cpp -std=c++0xw6.1b 5 .4 .5[Kb 5 .4 .5[K2b 5 .4 .5
+
+Command Line : w6.2b 5 .4 .5 
+0.00 * 0.00 = 0.50
+0.10 * 0.10 = 0.50
+0.20 * 0.20 = 0.52
+0.30 * 0.30 = 0.54
+0.40 * 0.40 = 0.56
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w6> 
+jgchoi@matrix:~/documents/btp305f14/w6> w6.2b 5 .4 .5g++ -o w6.2b w6.2b.cpp -std=c++0xb w6.2b.cpp -std=c++0x[K3b w6.2b.cpp -std=c++0x[C[C[C[C[C[C[Cb.cpp -std=c++0x[K3b.cpp -std=c++0x
+jgchoi@matrix:~/documents/btp305f14/w6> g++ -o w6.3b w6.3b.cpp -std=c++0xw6.2b 5 .4 .5[K3b 5 .4 .5b 5 .4 .5[Kb 5 .4 .5[K3b 5 .4 .5
+
+Command Line : w6.3b 5 .4 .5 
+0.00 + 0.00 = 0.50
+0.10 + 0.10 = 0.50
+0.20 + 0.20 = 0.52
+0.30 + 0.30 = 0.54
+0.40 + 0.40 = 0.56
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w6> exit
+exit
+
+Script done on Fri 31 Oct 2014 11:05:30 AM EDT

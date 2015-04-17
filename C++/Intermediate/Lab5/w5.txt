@@ -1,0 +1,509 @@
+Script started on Fri 24 Oct 2014 03:33:12 PM EDT
+jgchoi@matrix:~/documents/btp305f14/w5/b2> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w5/b2> cat w5.cpp iMessage.h Notifications.*  Messages.*
+// Workshop 5 - Containers
+// w5.cpp
+
+#include <iostream>
+#include <fstream>
+#include "iMessage.h"
+#include "Notifications.h"
+
+const char REC_DELIMITER = '\n';
+
+w5::Notifications collect(std::ifstream& in, char recDelim) {
+	w5::Notifications notifications;
+	w5::iMessage* message;
+
+	do {
+		message = w5::getMessage(in, recDelim);
+		if (in && message && !message->empty())
+			notifications += std::move(*message);
+	} while (in);
+
+	return notifications;
+}
+
+int main(int argc, char* argv[]) {
+	std::cout << "\nCommand Line : ";
+	for (int i = 0; i < argc; i++) {
+		std::cout << argv[i] << ' ';
+	}
+	std::cout << std::endl;
+	if (argc != 2) {
+		std::cerr << "\n***Incorrect number of arguments***\n";
+		return 1;
+	}
+	std::ifstream file(argv[1]);
+	if (!file) {
+		std::cerr << "\n***Failed to open file " << argv[1] << "***\n";
+		return 2;
+	}
+
+	std::cout << "\nNotifications\n=============\n\n";
+	w5::Notifications notifications = collect(file, REC_DELIMITER);
+	
+	notifications.display(std::cout);
+
+	std::cout << "Press any key to continue ... ";
+	std::cin.get();
+}#ifndef _I_MESSAGE_H_
+#define _I_MESSAGE_H_
+
+// Workshop 5 - Containers
+// iMessage.h
+
+#include <iostream>
+#include <fstream>
+
+namespace w5 {
+	class iMessage {
+	public:
+		virtual void display(std::ostream&) const = 0;
+		virtual iMessage* clone() const = 0;
+		virtual bool empty() const = 0;
+	};
+
+	iMessage* getMessage(std::ifstream&, char);
+}
+#endif
+#include "Notifications.h"
+namespace w5{
+	//default constructor
+	Notifications::Notifications(){
+		messages = nullptr;
+		length = 0;
+	}
+
+	//copy constructor
+	Notifications::Notifications(const Notifications & src){
+		if (src.messages != nullptr){
+			//array size
+			length = src.length;
+
+			//new array
+			messages = new iMessage*[length];
+
+			//copy data
+			for (int i = 0; i < length; i++){
+
+				messages[i] = src.messages[i]->clone();
+			}
+		}
+		else
+			messages = nullptr;
+		
+	}
+
+	//copy assignment opr
+	Notifications & Notifications::operator=(const Notifications & src){
+		//check current object
+		if (messages != nullptr)
+			delete [] messages;
+
+		//check if this and src same
+		if (this != &src){
+			//array size
+			length = src.length;
+
+			//new array
+			messages = new iMessage*[length];
+
+			//copy data
+			for (int i = 0; i < length; i++){
+				messages[i] = src.messages[i]->clone();
+			}
+		}
+
+		return *this;
+	}
+
+	//move constructor
+	Notifications::Notifications(Notifications&& src){
+		messages = src.messages;
+		length = src.length;
+		src.length = 0;
+		src.messages = nullptr;
+	}
+
+	//Move assignment
+	Notifications && Notifications::operator=(Notifications && src){
+		if (messages != nullptr)
+			delete[] messages;
+
+		//check if this and src same
+		if (this != &src){
+			messages = src.messages;
+			length = src.length;
+			src.length = 0;
+			src.messages = nullptr;
+		}
+		return std::move(*this);
+	}
+
+	//destructor
+	Notifications::~Notifications(){
+		if (messages != nullptr)
+			delete[] messages;
+	}
+	
+	//add iMessage
+	void Notifications::operator+=(const iMessage & im){
+		if (messages == nullptr){
+			//new object. insert first one
+			messages = new iMessage*[1];
+			messages[0] = im.clone();
+			length = 1;
+		}
+		else{					
+			//copy to tmp
+			Notifications temp(*this);
+
+			//delete current
+			if (messages != nullptr)
+			{
+				delete[] messages;
+				messages = nullptr;
+			}
+
+			//create new
+
+			//new array
+			messages = new iMessage*[length + 1];
+
+			//copy
+			int i;
+			for (i = 0; i < length; i++){
+				messages[i] = temp.messages[i]->clone();
+				temp.messages[i] = nullptr;
+			}
+
+			//add new
+			length++;
+			messages[i] = im.clone();
+		}
+	
+	}
+
+	//display
+	void Notifications::display(std::ostream & os) const{
+		
+		int i=0;
+		if (messages != nullptr){
+			for (i = 0; i < length; i++){
+				messages[i]->display(os);
+			}
+		}
+	}
+}// Workshop 5 - Containers
+// Notifications.h
+
+
+#ifndef _NOTIFICATIONS_H_
+#define _NOTIFICATIONS_H_
+#include "iMessage.h"
+namespace w5{
+	class Notifications{
+		iMessage** messages;
+		int length;
+
+	public:
+		Notifications();
+		Notifications(const Notifications &);
+		Notifications & operator=(const Notifications&);
+		Notifications(Notifications&&);
+		Notifications && operator=(Notifications&&);
+		~Notifications();
+		void operator+=(const iMessage&);
+		void display(std::ostream&) const;
+
+	};
+}	
+#endif
+
+
+#include "Messages.h"
+namespace w5{
+	//Virtual Functions
+	//Twitter
+	void Twitter::display(std::ostream& os) const{
+		os << "Twitter\n";
+		os << " User  : " << user << "\n";
+		if(!reply.empty())
+		os << " Replay: " << reply << "\n";
+		os << " Tweet : " << tweet << "\n";
+	}
+	iMessage* Twitter::clone() const{
+		return new Twitter(*this);
+	}
+	bool Twitter::empty() const{
+		if (user.empty() && tweet.empty())
+			return true;
+		return false;
+	}
+
+	//eMail
+	void eMail::display(std::ostream& os) const{
+		os << "eMail\n";
+		os << " From  : " << from << "\n";
+		os << " To    : " << to << "\n";
+		os << " Date  : " << date << "\n";
+		os << " Body  : " << body << "\n";
+	}
+
+	iMessage* eMail::clone() const{
+		return new eMail(*this);
+	}
+	bool eMail::empty() const{
+		if (from.empty() && to.empty() && date.empty() && body.empty())
+			return true;
+		return false;
+	}
+	
+	//constructor
+	
+	Twitter::Twitter(std::ifstream& is, char recDelim){
+		getline(is, user, recDelim);
+
+		//test if it is incomplate
+		if (user.length() == 1){
+			//no username & tweet exist
+			user.clear();
+			tweet.clear();
+			reply.clear();
+		}
+		if (user.length() < user.find(' ')){
+			//no tweet
+			user.clear();
+			tweet.clear();
+			reply.clear();
+		}
+		else if(user.find(" @ ") < user.length()){
+			//empty reply exist
+			user.clear();
+			tweet.clear();
+			reply.clear();
+		}
+		else{
+			//valid
+			//check for reply
+
+			
+			tweet = user.substr(user.find(' ')+1);
+			if(tweet.find("@")<tweet.length()){
+			reply = tweet.substr(1, tweet.find(' ')-1);
+			tweet = tweet.substr(tweet.find(' ')+1);
+			}
+			user = user.substr(1, user.find(' ') - 1);
+		}
+		
+		
+			
+		
+	}
+
+	eMail::eMail(std::ifstream& is, char recDelim){
+		getline(is, from, recDelim);
+		if (from.length() == 1){
+		//string is emplty except front 'e'
+			from.clear();
+			to.clear();
+			date.clear();
+			body.clear();
+		}
+		else if (from.find("eFrom:") > from.length() ||
+			from.find(" To:") > from.length() ||
+			from.find(" Date:") > from.length() ||
+			from.find(" Body:") > from.length() ){
+			//any of those 4 titles are missing;
+			from.clear();
+			to.clear();
+			date.clear();
+			body.clear();
+		}
+		else if (from.length() < 47){
+		//If entry is less than smallest possible complete entry
+		//eFrom:a@a.c To : a@a.c Date : 12345678 Body : a (47 char)
+		from.clear();
+		to.clear();
+		date.clear();
+		body.clear();
+		}
+	else {
+		//valid
+		body = from.substr(from.find(" Body:")+6);
+		from = from.substr(0,from.find(" Body:"));
+		date = from.substr(from.find(" Date:")+6);
+		from = from.substr(0,from.find(" Date:"));
+		to = from.substr(from.find(" To:")+4);
+		from = from.substr(6,from.find(" To:")-6);
+	}
+	}
+		
+
+	//helper function
+	iMessage* getMessage(std::ifstream& is, char recDelim){
+		std::string temp;
+
+		int currentPos = is.tellg();
+		if (currentPos >= 0){
+			getline(is, temp, recDelim);
+		
+
+
+		if (temp.front() == 'T'){
+			is.seekg(currentPos, is.beg);
+			Twitter t(is, recDelim);
+			return t.clone();
+		}
+		else if (temp.front() == 'e'){
+			is.seekg(currentPos, is.beg);
+			eMail e(is, recDelim);
+			return e.clone();
+		}
+else
+		return nullptr;
+		}else return nullptr;
+	}
+}// Workshop 5 - Containers
+// Messages.h
+
+
+#ifndef _MESSAGES_H_
+#define _MESSAGES_H_
+#include "iMessage.h"
+#include <string>
+namespace w5{
+
+	class Twitter : public iMessage{
+		std::string user;
+		std::string tweet;
+		std::string reply;
+	public:
+		Twitter(std::ifstream &,char);
+		void display(std::ostream&) const;
+		iMessage* clone() const;
+		bool empty() const;
+	};
+
+	class eMail  : public iMessage{
+		std::string from;
+		std::string to;
+		std::string date;
+		std::string body;
+	public:
+		eMail(std::ifstream& is, char recDelim);
+		void display(std::ostream&) const;
+		iMessage* clone() const;
+		bool empty() const;
+	};
+}	
+	#endif
+
+jgchoi@matrix:~/documents/btp305f14/w5/b2> g++ -o w5 -std=c+_[K_[K+0x Notifications.cp p w5.cpp Messages.cpp
+jgchoi@matrix:~/documents/btp305f14/w5/b2> w5 data.dat
+
+Command Line : w5 data.dat 
+
+Notifications
+=============
+
+Twitter
+ User  : jim
+ Tweet : Workshop 5 is cool
+eMail
+ From  : John.Doe@myseneca.ca
+ To    : Jane.Doe@gmail.com
+ Date  : 20140919
+ Body  : Done W5?
+eMail
+ From  : Jane.Doe@gmail.com
+ To    : John.Doe@myseneca.ca
+ Date  : 20140919
+ Body  : Yes I am! 
+Twitter
+ User  : harry
+ Replay: jim
+ Tweet : working on workshop 5 now
+Twitter
+ User  : john
+ Replay: harry
+ Tweet : I'm finished
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w5/b2> w5 data.dat[K[K[K[Kextra.dat
+
+Command Line : w5 dataextra.dat 
+
+Notifications
+=============
+
+Twitter
+ User  : jim
+ Tweet : Workshop 5 is cool
+eMail
+ From  : John.Doe@myseneca.ca
+ To    : Jane.Doe@gmail.com
+ Date  : 20140919
+ Body  : Done W5?
+eMail
+ From  : Jane.Doe@gmail.com
+ To    : John.Doe@myseneca.ca
+ Date  : 20140919
+ Body  : Yes I am! 
+Twitter
+ User  : harry
+ Replay: jim
+ Tweet : working on workshop 5 now
+Twitter
+ User  : john
+ Replay: harry
+ Tweet : I'm finished
+Twitter
+ User  : test1
+ Tweet : contect1
+eMail
+ From  : myemail@gmail.com
+ To    : youremail@msn.com
+ Date  : 20111111
+ Body  : Alltest finished
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w5/b2> cat dataextra.dat
+//original test
+Tjim Workshop 5 is cool
+eFrom:John.Doe@myseneca.ca To:Jane.Doe@gmail.com Date:20140919 Body:Done W5?
+eFrom:Jane.Doe@gmail.com To:John.Doe@myseneca.ca Date:20140919 Body:Yes I am! 
+Tharry @jim working on workshop 5 now
+Tchris
+Qdan xzczxvc   xcvxcvxcv
+Tjohn @harry I'm finished
+//new test -not suppose to show
+//front letter test
+a asdb
+b asdb
+1assee
+# asdbd
+  asdkljfe
+  * asdjfe
+ Taslkdjf asldkjf
+ eAdd#
+ //incomplte test
+T
+Tjim
+T@jimjim
+Tt@jim
+Tasdf @ asldkfj
+e
+eFrom:Jane.Doe@gmail.com 
+eFrom:Jane.Doe@gmail.com To:John.Doe@myseneca.ca 
+eFrom:Jane.Doe@gmail.com To:John.Doe@myseneca.ca Date:20140919
+eFrom: To: Date: Body:
+eFrom:To:Date:Body:
+//empty line
+
+//test - suppose to show
+Ttest1 contect1
+eFrom:myemail@gmail.com To:youremail@msn.com Date:20111111 Body:Alltest finishedjgchoi@matrix:~/documents/btp305f14/w5/b2> exit
+exit
+
+Script done on Fri 24 Oct 2014 03:34:18 PM EDT

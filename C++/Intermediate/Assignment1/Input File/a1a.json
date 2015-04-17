@@ -1,0 +1,18 @@
+{
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window"
+    },
+    "image": {
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "alignment": "center"
+    },
+    "text": {
+        "data": "Hello World",
+        "style": "bold",
+        "name": "text1",
+        "alignment": "center",
+        "background opacity": "(sun1.opacity / 100) * 90;"
+    }
+}

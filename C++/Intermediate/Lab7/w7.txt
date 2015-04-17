@@ -1,0 +1,242 @@
+Script started on Fri 14 Nov 2014 10:48:20 AM EST
+jgchoi@matrix:~/documents/btp305f14/w7> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w7> cat w7.cpp Product.h Product.cpp
+// Workshop 7 - STL Containers
+// w7.cpp
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <string>
+#include <vector>
+#include "iProduct.h"
+#include "Product.h"
+
+int main(int argc, char** argv) {
+	std::cout << "\nCommand Line : ";
+	for (int i = 0; i < argc; i++) {
+		std::cout << argv[i] << ' ';
+	}
+	std::cout << std::endl;
+	if (argc != 2) {
+		std::cerr << "\n***Incorrect number of arguments***\n";
+		return 1;
+	}
+	// open a product file - name is the first command line argument 
+	std::ifstream fin;     
+	fin.open(argv[1]); 
+
+	if (!fin.is_open()) {
+		std::cerr << "File is not open" << std::endl;
+		exit(4);
+	}
+
+
+	// declare an STL container to hold the entries on file
+	std::vector<w7::iProduct*> products;
+
+	// read each record and move it to the container - catch any exception
+	while (fin.good())
+		products.push_back(w7::readProduct(fin));
+	
+
+	// total the product prices including any taxes
+	double total = 0.0;
+	auto p = products.begin();
+	while (p < products.end()) 
+		total += (*p++)->getPrice();
+	
+
+	std::cout << "\nProduct No     Price Taxable\n";
+	std::cout << std::fixed << std::setprecision(2);
+	
+	// retrieve the price for each product in turn
+	p = products.begin();
+	while (p < products.end()) 
+		std::cout << **p++;
+	
+
+	// display total
+	std::cout << "     Total";
+	std::cout << std::setw(10) << total << std::endl;
+
+	std::cout << "\nPress any key to continue ... ";
+	std::cin.get();
+}#ifndef _PRODUCT_H_
+#define _PRODUCT_H_
+
+#include "iProduct.h"
+
+	namespace w7{
+		class Product :public iProduct {
+			std::string product_no;
+			double product_price;
+
+		public:
+	
+			Product(std::string, double);
+			double getPrice() const;
+			void display(std::ostream &) const;
+		};
+
+		class TaxableProduct :public Product{
+			enum {HST, PST} tax_type;
+			static double tax_rate[2];
+		public:
+			double getPrice() const;
+			TaxableProduct(std::string, double, char);
+			void display(std::ostream &) const;
+		};
+	}
+#endif#include "Product.h"
+#include <iomanip>
+#include <string>
+namespace w7{
+	//static class variable
+	double TaxableProduct::tax_rate[2]={1.13, 1.08};
+
+	std::ostream & operator<<(std::ostream& os, const iProduct& p){
+		p.display(os);
+		os << std::endl;
+		return os;
+	}
+
+	iProduct* readProduct(std::ifstream& fin){
+		//variables
+		std::string product_no;
+		std::string tmp = "";
+		double product_price;
+		char tax_type;
+		std::string buffer;
+		iProduct * product;
+		
+		//Read one line
+		std::getline(fin, buffer, '\n');
+		
+		//Gathering string information
+		int length = buffer.length();
+		int pos_first_space = buffer.find_first_of(" ");
+		int pos_second_space = buffer.find_last_of(" ");
+		
+		//Check if it has tax type
+		if (pos_first_space != pos_second_space)	{
+			product_no = buffer.substr(0, pos_first_space);
+			product_price = std::stof(buffer.substr(pos_first_space + 1, pos_second_space - pos_first_space));
+			tax_type = buffer.substr(pos_second_space + 1)[0];
+		}
+		else {
+			//No tax type exist
+			product_no = buffer.substr(0, pos_first_space);
+			product_price = std::stof(buffer.substr(pos_first_space + 1));
+		}
+
+		try {
+			if (pos_first_space != pos_second_space)
+				product = new w7::TaxableProduct(product_no, product_price, tax_type);
+			else
+				product = new w7::Product(product_no, product_price);
+
+			return product;
+		}
+		catch (const char tax_type) {
+			//if type is not one of H/P
+			std::cout << "\"" << tax_type << "\" : Wrong tax type found!" << std::endl;
+			//terminate the program with error code 2
+			exit(2);
+		}
+	}
+	
+	Product::Product(std::string n, double p){
+		product_no = n;
+		product_price = p;
+	}
+
+	double Product::getPrice() const{
+		return product_price;
+	}
+	
+	double TaxableProduct::getPrice() const{
+		double total;
+		if (tax_type == HST)
+			total = Product::getPrice()*tax_rate[HST];
+		else if (tax_type == PST)
+			total = Product::getPrice()*tax_rate[PST];
+		return total;
+	}
+
+	void Product::display(std::ostream & os) const{
+			std::string out;
+			os << std::setw(10) << product_no.c_str() << std::setw(10) << product_price;
+	}
+
+
+
+	TaxableProduct::TaxableProduct(std::string n, double p, char t) :Product(n, p){
+		
+		if (t != 'H' && t != 'P'){
+			throw t;
+		}
+		else{
+			if(t=='H')
+			tax_type = HST;
+			if(t=='P')
+			tax_type = PST;
+		}		
+	}
+
+	void TaxableProduct::display(std::ostream & os) const{
+		Product::display(os);
+		if (tax_type == HST)
+			os << " HST";
+		else if (tax_type == PST)
+			os << " PST";
+	}
+
+}jgchoi@matrix:~/documents/btp305f14/w7> g++ =cat w7.cpp Product.h Product.cppwhoami[Kexit[Kcho $?w7 error.datxtra.datSales.datg++ -o w7 -std=c++0x w7.cpp Product.cppcat w7.cpp Product.h Product.cpp[Kg++ -o w7 -std=c++0x w7.cpp Product.cpp
+jgchoi@matrix:~/documents/btp305f14/w7> w7 Sales.dat
+
+Command Line : w7 Sales.dat 
+
+Product No     Price Taxable
+     10012     34.56
+     10023     45.67 HST
+     10234     12.32 PST
+     10056     67.54
+     10029     54.12 HST
+     10034     96.30
+     Total    324.47
+
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w7> echo $?
+0
+jgchoi@matrix:~/documents/btp305f14/w7> echo $?w7 Sales.dat.dat[K.dat[K.dat[K.dat[K.dat[Ke.datx.datt.datr.data.dat
+
+Command Line : w7 extra.dat 
+
+Product No     Price Taxable
+     10012     34.56 HST
+     10023     45.67 PST
+     12452     16.32 PST
+     10888     67.20
+     11029     54.12 HST
+     10034      1.30 PST
+     10528     67.00
+     50029    544.12 HST
+     70034    956.30
+     Total   1873.92
+
+Press any key to continue ... 
+jgchoi@matrix:~/documents/btp305f14/w7> w7 extra.datecho $?[K
+0
+jgchoi@matrix:~/documents/btp305f14/w7> 
+jgchoi@matrix:~/documents/btp305f14/w7> echo $?w7 extra.dat.dat[K.dat[K.dat[K.dat[Kr.datr.dato.datr.dat
+
+Command Line : w7 error.dat 
+"d" : Wrong tax type found!
+jgchoi@matrix:~/documents/btp305f14/w7> w7 error.datecho $?[K
+2
+jgchoi@matrix:~/documents/btp305f14/w7> exit
+exit
+
+Script done on Fri 14 Nov 2014 10:49:01 AM EST

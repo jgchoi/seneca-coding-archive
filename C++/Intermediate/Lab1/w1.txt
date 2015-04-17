@@ -1,0 +1,32 @@
+Script started on Fri 12 Sep 2014 11:00:42 AM EDT
+jgchoi@matrix:~/documents/btp305f14/w1> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w1> g++ -o w1 w1.cpp CString.cpp process.cpp [Kjgchoi@matrix:~/documents/btp305f14/w1> g++ -o w1 w1.cpp CString.cpp process.cpp  
+jgchoi@matrix:~/documents/btp305f14/w1> w1 oop345 btp305
+Command Line : w1 oop345 btp305 
+Maximum number of characters stored : 3
+0: oop
+1: btp
+jgchoi@matrix:~/documents/btp305f14/w1> w1
+Command Line : w1 
+Insufficient number of arguments (min 1)
+jgchoi@matrix:~/documents/btp305f14/w1> w1   1 12 123 1234 12345 123456 a ab abc  abcde abcdefg abcdefgh bcdeff
+Command Line : w1 1 12 123 1234 12345 123456 a ab abc abcde abcdefg abcdefgh bcdeff 
+Maximum number of characters stored : 3
+0: 1
+1: 12
+2: 123
+3: 123
+4: 123
+5: 123
+6: a
+7: ab
+8: abc
+9: abc
+10: abc
+11: abc
+12: bcd
+jgchoi@matrix:~/documents/btp305f14/w1> exit
+exit
+
+Script done on Fri 12 Sep 2014 11:01:31 AM EDT

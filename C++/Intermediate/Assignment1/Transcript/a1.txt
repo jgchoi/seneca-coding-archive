@@ -1,0 +1,320 @@
+Script started on Wed 08 Oct 2014 01:32:27 PM EDT
+jgchoi@matrix:~/documents/btp305f14/a1/build> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/a1/build> cat src/ a1/*
+#include "JSONReader.h"
+
+namespace json{
+
+	int read(const std::string& filename, std::string* buffer){
+		int line = 0;
+		
+		//Open File
+		std::ifstream fin(filename.c_str());
+		
+		//Check if open
+		if(fin.is_open()){
+			line = 1;
+			while(!fin.eof()){
+				std::getline(fin,buffer[line],'\n');
+				line++;
+			}
+		}
+		return line-1; //adjust last addition
+	}
+	
+	int extract(const std::string* buffer, int no_lines, int& line_number, Collection& collection){
+		//variable
+		int result =0;
+		int numCollection =0;
+		int i = 0;
+		
+		//For the first run
+		if(line_number == 1){
+			if(buffer[line_number].empty()){
+				//If file is empty
+				std::cout << "File is empty\n";
+			}else if(buffer[line_number].find("}") < buffer[line_number].length()){
+				//If collection is empty 
+				//{}
+				;
+			}else if(buffer[line_number+1].find("}") < buffer[line_number+1].length() && buffer[line_number+1].find("\"") > buffer[line_number+1].length()){
+				//if collection is empty
+				//{
+				//		}
+				;
+			}else{
+				line_number++;
+				//Anonymous collection
+				if(buffer[line_number].find("{") > buffer[line_number].length()){
+					//Anonymous collection exist
+					//set obj name empty
+					collection.collectionName = "";
+					i = line_number;
+					
+					//count how many collections
+					while(	buffer[i].find("{") > buffer[i].length() &&
+								buffer[i].find("}") > buffer[i].length()){
+						numCollection++;
+						i++;
+					}
+				}
+			}		
+		}
+		
+		//This point there is no empty file/ empty collection / anonymous collection!
+		if(buffer[line_number].find("{") < buffer[line_number].length() && 
+			buffer[line_number].find(":") < buffer[line_number].length()){
+			//Object exist
+			result = 1;
+			
+			//get object name
+			collection.collectionName = buffer[line_number].substr(
+				buffer[line_number].find("\""),
+				buffer[line_number].find("\"",buffer[line_number].find("\"")+1)-buffer[line_number].find("\"")+1);
+			line_number++;
+			
+			i = line_number;
+			while(	buffer[i].find("{") > buffer[i].length() &&
+							buffer[i].find("}") > buffer[i].length()){
+					numCollection++;
+					i++;
+					// std::cout << "i " <<i <<"\n";
+				}
+		}
+
+		//Assign value and name
+		if( numCollection > 0 ){
+			for(int i = 0 ; i < numCollection ; i++ ){
+			//find all "'s
+			int index[4];
+			index[0] = buffer[line_number].find("\"");
+			index[1] = buffer[line_number].find("\"",index[0]+1);
+			index[2] = buffer[line_number].find("\"",index[1]+1);
+			index[3] = buffer[line_number].find("\"",index[2]+1);
+			
+			//get value
+			collection.name[i] = buffer[line_number].substr(index[0],index[1]-index[0]+1);
+			collection.value[i] = buffer[line_number].substr(index[2],index[3]-index[2]+1);
+			
+			line_number++;
+			}
+		}
+		
+		//Check if next line is the end of the line
+		if(	buffer[line_number].find("}") < buffer[line_number].length() &&
+			buffer[line_number+1].find("}") < buffer[line_number+1].length()){
+			line_number++;
+		}	
+		
+		//Check if next line is the start of new object
+		if(buffer[line_number].find("},") < buffer[line_number].length()){
+			line_number++;
+		}
+		
+		return result;
+	}
+	
+	int print(const Collection& src){
+		int i = 0;
+		
+		//Object name
+		std::cout << src.collectionName <<"\n";
+		
+		//Collections
+		while(src.name[i] != ""){
+			std::cout << "          " << src.name[i] << "=>";
+			std::cout << src.value[i] << "\n";
+			i++;
+		}
+		
+		return i;	
+	}
+
+
+}#ifndef JSONReader_H
+	#define JSONReader_H
+	#define MAX_NAME_VALUE 50    // maximum number of collections in a JSON file
+	
+	#include <fstream>
+	#include <iostream>
+	#include <string>
+	#include <iomanip>
+	
+		namespace json{
+			struct Collection{
+				std::string collectionName;
+				std::string name[MAX_NAME_VALUE];
+				std::string value[MAX_NAME_VALUE];
+			};
+
+			int read(const std::string&, std::string*);
+			int extract(const std::string* buffer, int, int&, Collection&);
+			int print(const Collection&);
+		}
+#endif// Assignment 1 - Simple JSON Parser
+// ../a1/main.cpp
+
+#include <iostream>
+#include <string>
+#include "JSONReader.h"
+
+#define DIRECTORY "../data/"  // directory containing the test files
+#define MAX_LINES 50          // maximum number of lines in a JSON file 
+#define MAX_COLLECTIONS 50    // maximum number of collections in a JSON file 
+
+void clear_screen(); 
+
+int main(int argc, char** argv) {
+
+	if (argc == 1) {
+		std::cerr << "***Filename(s) missing***\n";
+		return 1;
+	}
+
+	auto data_dir = std::string(DIRECTORY);
+
+	for (int k = 1; k < argc; k++) {
+
+		std::string buffer[MAX_LINES];
+		json::Collection collection[MAX_COLLECTIONS];
+
+		// read file into buffer
+		auto no_lines = json::read(data_dir + argv[k], buffer);
+		clear_screen();
+		if (no_lines == -1) {
+			std::cerr << "***" << argv[k] << " not found***\n";
+			return 2;
+		} else {
+			std::cout << "Filename " << argv[k] << " has " << no_lines << " lines in total\n\n";
+		}
+
+		// extract collections from buffer
+		int  line_no = 1;
+		auto no_objects = 0;
+		auto no_collections = 0;
+		for (int i = 0; i < MAX_COLLECTIONS && line_no < no_lines; i++)
+			no_objects += json::extract(buffer, no_lines, line_no, collection[no_collections++]);
+
+		// display name-value pairs of each collection
+		auto no_nv_pairs = 0;
+		for (int i = 0; i < no_collections; i++)
+			no_nv_pairs += json::print(collection[i]);
+
+		std::cout << "\nSummary Report\n" << "-----------------------------" << std::endl;
+		std::cout << "No of collection(s)      : " << no_collections << std::endl;
+		std::cout << "No of object(s)          : " << no_objects << std::endl;
+		std::cout << "No of name-value pair(s) : " << no_nv_pairs << std::endl;
+
+		std::cout << "\nPress any key to continue ... ";
+		std::cin.get();
+	}
+
+	return 0;
+}
+
+// clear display - platform dependent
+//
+void clear_screen(){
+#ifdef _MSC_VER
+	system("cls");
+#else
+	system("clear");
+#endif
+}
+jgchoi@matrix:~/documents/btp305f14/a1/build> build
+== OOP345/BTP305 Simple Build Tool for Unix/Linux ==
+Compiling...
+g++ -std=c++0x -Wall -o"bin"/"a1".out src/a1/*.cpp
+done!
+Running Target...: ./a1.out a1e.json a1d.json a1c.json a1b.json a1a.json
+[H[JFilename a1e.json has 1 lines in total
+
+
+Summary Report
+-----------------------------
+No of collection(s)      : 0
+No of object(s)          : 0
+No of name-value pair(s) : 0
+
+Press any key to continue ... 
+[H[JFilename a1d.json has 5 lines in total
+
+
+          "College"=>"Seneca College"
+          "Course"=>"Object-oriented Software Development Using C++"
+          "Semester"=>"Fall 2014"
+
+Summary Report
+-----------------------------
+No of collection(s)      : 1
+No of object(s)          : 0
+No of name-value pair(s) : 3
+
+Press any key to continue ... 
+[H[JFilename a1c.json has 3 lines in total
+
+"message"
+
+Summary Report
+-----------------------------
+No of collection(s)      : 1
+No of object(s)          : 1
+No of name-value pair(s) : 0
+
+Press any key to continue ... 
+[H[JFilename a1b.json has 20 lines in total
+
+"carpark"
+          "id"=>"1"
+          "address"=>"20 Charles Street"
+          "lat"=>"43.668997"
+          "lng"=>"-79.385093"
+          "rate"=>"$2.00 / Half Hour"
+          "carpark_type"=>"garage"
+          "carpark_type_str"=>"Garage"
+          "rate_half_hour"=>"2.00"
+          "capacity"=>"430"
+          "max_height"=>"2.00"
+          "enable_streetview"=>"yes"
+          "streetview_lat"=>"43.668822"
+          "streetview_long"=>"-79.385262"
+          "streetview_yaw"=>"321.21"
+          "streetview_pitch"=>"-12.45"
+          "streetview_zoom"=>"0"
+
+Summary Report
+-----------------------------
+No of collection(s)      : 1
+No of object(s)          : 1
+No of name-value pair(s) : 16
+
+Press any key to continue ... 
+[H[JFilename a1a.json has 18 lines in total
+
+"window"
+          "title"=>"Sample Konfabulator Widget"
+          "name"=>"main_window"
+"image"
+          "src"=>"Images/Sun.png"
+          "name"=>"sun1"
+          "alignment"=>"center"
+"text"
+          "data"=>"Hello World"
+          "style"=>"bold"
+          "name"=>"text1"
+          "alignment"=>"center"
+          "background opacity"=>"(sun1.opacity / 100) * 90;"
+
+Summary Report
+-----------------------------
+No of collection(s)      : 3
+No of object(s)          : 3
+No of name-value pair(s) : 10
+
+Press any key to continue ... 
+All done!
+jgchoi@matrix:~/documents/btp305f14/a1/build> exit
+exit
+
+Script done on Wed 08 Oct 2014 01:32:40 PM EDT

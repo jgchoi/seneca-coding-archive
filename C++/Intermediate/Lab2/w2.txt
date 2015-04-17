@@ -1,0 +1,117 @@
+Script started on Fri 19 Sep 2014 10:54:41 AM EDT
+jgchoi@matrix:~/documents/btp305f14/w2> g++ - [Ko w2 w2.cpp Station.cpp Stations.cpp -std+c[K[K=c++0x
+jgchoi@matrix:~/documents/btp305f14/w2> cat Stations.dat
+4;
+Spadina;76 156
+Bathurst;121 291
+Keele;70 61
+Bay;158 158jgchoi@matrix:~/documents/btp305f14/w2> w2
+
+Command Line : w2 
+
+Incorrect number of arguments
+jgchoi@matrix:~/documents/btp305f14/w2> w2 wrong.name
+
+Command Line : w2 wrong.name 
+*ERROR* Problem occurred to open file: wrong.name
+jgchoi@matrix:~/documents/btp305f14/w2> w2 Stations.dat
+
+Command Line : w2 Stations.dat 
+
+Passes Sold :
+-------------
+Spadina
+Student Passes sold : 5
+Adult   Passes sold : 8
+
+Bathurst
+Student Passes sold : 34
+Adult   Passes sold : 52
+
+Keele
+Student Passes sold : 21
+Adult   Passes sold : 13
+
+Bay
+Student Passes sold : 67
+Adult   Passes sold : 65
+
+Passes Added :
+--------------
+Spadina
+Student Passes added : 29
+Adult   Passes added : 52
+
+Bathurst
+Student Passes added : 113
+Adult   Passes added : 61
+
+Keele
+Student Passes added : 51
+Adult   Passes added : 52
+
+Bay
+Student Passes added : 109
+Adult   Passes added : 107
+
+Passes in Stock : Student Adult
+===============================
+Spadina               100   200
+Bathurst              200   300
+Keele                 100   100
+Bay                   200   200
+jgchoi@matrix:~/documents/btp305f14/w2> w2 Stations.dat
+
+Command Line : w2 Stations.dat 
+
+Passes Sold :
+-------------
+Spadina
+Student Passes sold : 10
+Adult   Passes sold : 20
+
+Bathurst
+Student Passes sold : 30
+Adult   Passes sold : 40
+
+Keele
+Student Passes sold : 50
+Adult   Passes sold : 60
+
+Bay
+Student Passes sold : 70
+Adult   Passes sold : 80
+
+Passes Added :
+--------------
+Spadina
+Student Passes added : 3
+Adult   Passes added : 3
+
+Bathurst
+Student Passes added : 3
+Adult   Passes added : 3
+
+Keele
+Student Passes added : 3
+Adult   Passes added : 3
+
+Bay
+Student Passes added : 3
+Adult   Passes added : 3
+
+Passes in Stock : Student Adult
+===============================
+Spadina                93   183
+Bathurst              173   263
+Keele                  53    43
+Bay                   133   123
+jgchoi@matrix:~/documents/btp305f14/w2> cat Stations.dat
+4;
+Spadina;93 183
+Bathurst;173 263
+Keele;53 43
+Bay;133 123jgchoi@matrix:~/documents/btp305f14/w2> exit
+exit
+
+Script done on Fri 19 Sep 2014 10:56:06 AM EDT

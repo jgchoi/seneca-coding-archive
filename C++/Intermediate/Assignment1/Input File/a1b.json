@@ -1,0 +1,20 @@
+{
+    "carpark": {
+        "id": "1",
+        "address": "20 Charles Street",
+        "lat": "43.668997",
+        "lng": "-79.385093",
+        "rate": "$2.00 / Half Hour",
+        "carpark_type": "garage",
+        "carpark_type_str": "Garage",
+        "rate_half_hour": "2.00",
+        "capacity": "430",
+        "max_height": "2.00",
+        "enable_streetview": "yes",
+        "streetview_lat": "43.668822",
+        "streetview_long": "-79.385262",
+        "streetview_yaw": "321.21",
+        "streetview_pitch": "-12.45",
+        "streetview_zoom": "0"
+    }
+}

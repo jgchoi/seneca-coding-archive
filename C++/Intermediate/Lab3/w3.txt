@@ -1,0 +1,71 @@
+Script started on Sat 27 Sep 2014 04:05:46 PM EDT
+jgchoi@matrix:~/documents/btp305f14/w3> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/w3> g++ -std=c++0x -o w3 w3.cpp DArray2d.cpp
+jgchoi@matrix:~/documents/btp305f14/w3> w3
+
+Command Line : w3 
+
+Incorrect number of arguments
+jgchoi@matrix:~/documents/btp305f14/w3> w3 1
+
+Command Line : w3 1 
+
+Incorrect number of arguments
+jgchoi@matrix:~/documents/btp305f14/w3> w3 1 1
+
+Command Line : w3 1 1 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     0.000 seconds - a.check = 0.000 - b.check = 1.000
+Copy Assignment 0.000 seconds - a.check = 1.000 - b.check = 1.000
+Move Assignment 0.000 seconds - a.check = 1.000 - b.check = 1.000
+Move Assignment 0.000 seconds - a.check = 0.200 - b.check = 1.000
+Destructor      0.000 seconds
+jgchoi@matrix:~/documents/btp305f14/w3> w3 2 2
+
+Command Line : w3 2 2 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     0.000 seconds - a.check = 0.000 - b.check = 0.400
+Copy Assignment 0.000 seconds - a.check = 0.400 - b.check = 0.400
+Move Assignment 0.000 seconds - a.check = 0.400 - b.check = 0.400
+Move Assignment 0.000 seconds - a.check = 0.575 - b.check = 0.400
+Destructor      0.000 seconds
+jgchoi@matrix:~/documents/btp305f14/w3> w3 100 100
+
+Command Line : w3 100 100 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     0.000 seconds - a.check = 0.000 - b.check = 0.456
+Copy Assignment 0.000 seconds - a.check = 0.456 - b.check = 0.456
+Move Assignment 0.000 seconds - a.check = 0.456 - b.check = 0.456
+Move Assignment 0.000 seconds - a.check = 0.453 - b.check = 0.456
+Destructor      0.000 seconds
+jgchoi@matrix:~/documents/btp305f14/w3> w3 1000 1000
+
+Command Line : w3 1000 1000 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     0.110 seconds - a.check = 0.000 - b.check = 0.455
+Copy Assignment 0.040 seconds - a.check = 0.455 - b.check = 0.455
+Move Assignment 0.040 seconds - a.check = 0.455 - b.check = 0.455
+Move Assignment 0.150 seconds - a.check = 0.454 - b.check = 0.455
+Destructor      0.000 seconds
+jgchoi@matrix:~/documents/btp305f14/w3> w3 1[K5000 5000
+
+Command Line : w3 5000 5000 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     2.810 seconds - a.check = 0.000 - b.check = 0.455
+Copy Assignment 0.650 seconds - a.check = 0.455 - b.check = 0.455
+Move Assignment 0.830 seconds - a.check = 0.455 - b.check = 0.455
+Move Assignment 2.870 seconds - a.check = 0.455 - b.check = 0.455
+Destructor      0.210 seconds
+jgchoi@matrix:~/documents/btp305f14/w3> w3 10000 10000
+
+Command Line : w3 10000 10000 
+Constructor     0.000 seconds - a.check = 0.000
+Constructor     11.810 seconds - a.check = 0.000 - b.check = 0.455
+Copy Assignment 7.840 seconds - a.check = 0.455 - b.check = 0.455
+Move Assignment 8.710 seconds - a.check = 0.455 - b.check = 0.455
+Killed
+jgchoi@matrix:~/documents/btp305f14/w3> exit
+exit
+
+Script done on Sat 27 Sep 2014 04:13:49 PM EDT

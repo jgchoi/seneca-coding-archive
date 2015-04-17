@@ -1,0 +1,19 @@
+1. Binary files
+	- How to create file stream object with binary mode
+	- How to write to binary file 
+	- How to convert data type into char * type to write binrary file
+	- How to read binrary file
+	- Basic concept of using binrary file that it writes as binrary and can be useful if you know the format how it stored
+	- How to convert binaray file into different data type.
+	- I found that binary file concept very interesting because it is what compiler usually do it for me and now I need to think about how it is done
+2. Thread
+	- Concept of using thread that it is acting as seperate program from main or other threads
+	- How to communicate with other threads or main using external variable
+	- Other than it is running at the same time with other program, nothing seems new
+	- I had chance to think about the effeciency of using thread
+
+3. Program components of quadratic complexity to solve non-linear problems
+	- Assuming this is about matrix multipication
+	- Not much to learn, because it's all copy and paste from the exame. Just understand what function supposed to do and replace variables.
+	- I think it is one of the facinating fact about the programming that matrix multipication is very complicate concept when I was learn it from high school, but in programming it's simple few lines of code.
+	- Now I know what to do when I asked to do same size matrix multipication but still I have no clue about matrix multipication.

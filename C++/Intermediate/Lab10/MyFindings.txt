@@ -1,0 +1,17 @@
+1. Quadratic Complexity
+	- Is this refering to two for loops?
+	- I don't think there is any new concept about problem solving.
+
+2. Smart Pointer to move an object
+	- It handles throw by itself.
+	- It takes care of constructing and destructing of pointer
+	- For the raw pointer, I thought push back moves the pointer but I realized that it copy the value in object.
+	- (Maybe if I use move in += operator for raw pointer, I don't need to delete the temp pointer?)
+	- Wheareas smart pointer(unique) uses move.
+	- In some sense, smart pointer works as raw pointer, but requires some knowledge about template and data type.
+
+3. Overall
+	- Easy lab
+	- Still confused about reference, dereference and pointer stuff.
+
+	

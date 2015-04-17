@@ -1,0 +1,20 @@
+1. Using build file (In "Build" folder)
+ a. Windows
+  - Use "Developer Command Prompt for VS2013" to excute build.bat
+
+ b. Matrix
+  - Excute build
+
+2. Using MS Visual Studio
+ - Build from program
+ - Choose command argument as test file name (a1a.json, a1b.json ... a1e.json)
+ - Choose data folder (../data/)
+
+3. Matrix
+ - Data folder should be one level upper from excutable file (../data/)
+ - Compile source code g++ -std=c++0x a1.cpp JSONReader.cpp
+ - run program using data file name as argument
+  a) a1a.json
+  b) a1b.json 
+  c) ...
+

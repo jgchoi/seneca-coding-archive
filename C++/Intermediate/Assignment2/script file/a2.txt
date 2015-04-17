@@ -1,0 +1,433 @@
+Script started on Sat 15 Nov 2014 02:07:01 PM EST
+jgchoi@matrix:~/documents/btp305f14/a2> whoami
+jgchoi
+jgchoi@matrix:~/documents/btp305f14/a2> cat src/a2/*.h
+#ifndef _CARTOON_H_
+#define _CARTOON_H_
+#include "Object.h"
+	class Cartoon :public Object{
+		std::string type;
+		std::string name;
+		std::string likes;
+	public:
+		void set(json::List<json::NVPair<std::string, std::string>, DATA_MEMBERS_PER_OBJECT> & src){
+			//assigning values assuming that incomming data is valid
+			type = src[0].value();
+			name = src[1].value();
+			likes = src[2].value();
+		}
+
+		const std::string getDSV(char d) const{
+			std::string result;
+			//create test string
+			result = type + d + name + d + likes;
+			return result;
+		}
+
+		void display(std::ostream& os) const{
+			os << "type " << type << std::endl;
+			os << "name " << name << std::endl;
+			os << "likes " << likes << std::endl;
+		}
+	};
+
+	//non-member helper function
+	std::ostream& operator<<(std::ostream& os, const Cartoon& src){
+		src.display(os);
+		return os;
+	}
+
+	
+
+#endif#ifndef _COURSE_H_
+#define _COURSE_H_
+#include "Object.h"
+
+
+class Course :public Object{
+	std::string Name;
+	std::string CPA;
+	std::string BSD;
+public:
+	void set(json::List<json::NVPair<std::string, std::string>, DATA_MEMBERS_PER_OBJECT> & src){
+		//assigning values assuming that incomming data is valid
+		Name = src[0].value();
+		CPA = src[1].value();
+		BSD = src[2].value();
+	}
+
+	const std::string getDSV(char d) const{
+		std::string result;
+		result = Name +d + CPA + d + BSD;
+		return result;
+	}
+	void display(std::ostream & os)const{
+		os << "Name " << Name << std::endl;
+		os << "CPA " << CPA << std::endl;
+		os << "BSD " << BSD << std::endl;
+	}
+};
+
+std::ostream& operator<<(std::ostream& os, const Course& src){
+	src.display(os);
+	return os;
+}
+#endif#ifndef _IDENTITY_H_
+#define _IDENTITY_H_
+#include "Object.h"
+
+	class Identity:public Object{
+
+	public:
+		void set(json::List<json::NVPair<std::string, std::string>, DATA_MEMBERS_PER_OBJECT> & src){ ; }
+		const std::string getDSV(char c) const{
+			std::string empty = "";
+			return empty;
+		}
+	};
+	std::ostream& operator<<(std::ostream& os, const Identity& src){
+		return os;
+	}
+
+#endif#ifndef _JSON_READER_H_
+#define _JSON_READER_H_
+
+// Assignment 2 - Type-Safe List - JSON Reader
+// OOP345 BTP305 143
+// JSONReader.h
+// Mark Fernandes, Chris Szalwinski
+
+#include "Object.h"
+#define OBJECTS_PER_JSON_FILE 10 //Maximum number of object in example file is less than 10
+#define DATA_MEMBERS_PER_OBJECT 3 //Each object has 3 data member
+namespace json {
+
+	enum JSON_TYPE {
+		UNKNOWN, EMPTY, ARRAY_OPEN, ARRAY_CLOSE, OBJECT_OPEN, OBJECT_CLOSE, NV_PAIR
+	};
+
+	std::string trim(const std::string& str);
+	std::string trim(const std::string& str, char c);
+	std::string getName(const std::string& str);
+	std::string getValue(const std::string& str);
+	JSON_TYPE get_json_type(std::string s);
+
+	template<typename T>
+	List <T, OBJECTS_PER_JSON_FILE>* deserializeJSON(std::string filename, T obj, bool debug) {
+
+		//
+		// -- asking students to write this code might be too much --
+		// -- but would be great assignment if we did --
+		//
+		std::ifstream fin(filename);
+		if (fin.fail())
+			throw std::string("Couldn't open: " + filename);
+
+		std::string fline, line, n, v;
+		bool done = false;
+
+		auto list = new List <T, OBJECTS_PER_JSON_FILE>();
+		auto members = new List <NVPair <std::string, std::string>, DATA_MEMBERS_PER_OBJECT>();
+
+		if (debug)
+			std::cout << "File Contents :\n";
+		while (!fin.eof() && !done){
+
+			std::getline(fin, fline);
+			if (debug)
+				std::cout << fline << std::endl;
+			line = trim(fline);
+
+			switch (get_json_type(line)){
+
+			case UNKNOWN:
+			case EMPTY:
+			case ARRAY_CLOSE:
+				done = true;
+				break;
+
+			case ARRAY_OPEN:
+				if (list == nullptr) throw std::string("List is not initialized");
+				break;
+
+			case OBJECT_OPEN:
+				if (list->size() == OBJECTS_PER_JSON_FILE)
+					throw std::string("List is full");
+
+				if (members == nullptr)
+					members = new List <NVPair <std::string, std::string>, DATA_MEMBERS_PER_OBJECT>();
+				break;
+
+			case OBJECT_CLOSE:
+				obj.set(*members);
+				(*list) += obj;
+				delete members;
+				members = nullptr;
+				break;
+
+			case NV_PAIR:
+				n = trim(trim(getName(line)), '"');
+				v = trim(trim(getValue(line)), '"');
+				*members += NVPair<std::string, std::string>(n, v);
+				break;
+
+			default:
+				done = true;
+				break;
+			}
+		}
+		if (debug) std::cout << std::endl;
+		return list;
+	}
+
+	// readJSON() de-serializes 'jsonFile' into 'list', accumulates the data values
+	// for each element in the list into a string, and returns a copy of that string.
+	// This function reports any thrown exception that is of type string.
+	// 'debug' turns on intermediate debugging output
+	// 'delimiter' holds the character that separates the values for the data members
+	// in each object in the list
+	//
+	template<typename T>
+	std::string readJSON(std::string jsonFile, T& object, bool debug = false, char delimiter = ',') {
+		std::string string_of_values;
+		try {
+
+			auto list = json::deserializeJSON(jsonFile, object, debug);
+
+			std::cout << "De-Serialized List :" << std::endl;
+			for (unsigned int i = 0; i < list->size(); i++) {
+				auto element = (*list)[i];
+				std::cout << element << "\n";
+				string_of_values += element.getDSV(delimiter) + "\n";
+			}
+
+			// responsibility of freeing list lies with the client
+			delete list;
+			list = nullptr;
+		}
+		catch (const std::string& err){
+			std::cerr << err << "\n";
+		}
+
+		if (debug)
+			std::cout << "Delimiter Separated Values : \n" << string_of_values << std::endl;
+		return string_of_values;
+	}
+}
+
+#endif
+#ifndef _LIST_H_
+#define _LIST_H_
+namespace json{
+	template<typename T,int objects_size>
+	class List{
+		T objects[objects_size];
+		int current_size;
+	public:
+		List(){current_size=0;}
+		size_t size() const{ return current_size; }
+		const T & operator[](int i){ 
+			// filter range out of boundary
+			if ( i < 0 || i > current_size-1 )
+				throw std::string("Request element is in out of boundary");
+			return objects[i];
+		}
+
+		void operator+=(const T & src){
+			if (current_size < objects_size){
+				//copy to last empty element spot, increase current size
+				objects[current_size++] = src;
+			}
+		}
+
+		void operator+=(T&& src){
+			if (current_size < objects_size){
+				//move to last empty element spot
+				objects[current_size++] = std::move(src);
+			}
+		}
+	};
+}
+#endif//NVPair.h
+//
+#ifndef _NVPAIR_H_
+#define _NVPAIR_H_
+namespace json{
+	template<typename N, typename V>
+	class NVPair{
+		N n;
+		V v;
+	public:
+		NVPair(){}
+		NVPair(N src_n, V src_v){
+			n = src_n;
+			v = src_v;
+		}
+		N name() const{
+			return n;
+		}
+		V value() const{
+			return v;
+		}
+	};
+}
+#endif//Object.h
+//
+#ifndef _OBJECT_H_
+#define _OBJECT_H_
+#include "NVPair.h"
+#include "List.h"
+#include "JSONReader.h"
+#define DATA_MEMBERS_PER_OBJECT 3
+
+	class Object{
+	public:
+		virtual void set(json::List<json::NVPair<std::string, std::string>, DATA_MEMBERS_PER_OBJECT> &) = 0;
+		virtual const std::string getDSV(char) const = 0;
+	};
+
+#endifjgchoi@matrix:~/documents/btp305f14/a2> .,[K/build
+== OOP345/BTP305 Simple Build Tool for Unix/Linux ==
+Compiling...
+g++ -std=c++0x -Wall -o"bin"/"a2".out src/a2/*.cpp
+done!
+Running Target...: ./a2.out
+
+List of Identity Objects:
+======================
+Testing with empty files
+------------------------
+File Contents :
+{}
+
+De-Serialized List :
+Delimiter Separated Values : 
+
+File Contents :
+[]
+
+De-Serialized List :
+Delimiter Separated Values : 
+
+File Contents :
+[
+    {}
+
+De-Serialized List :
+Delimiter Separated Values : 
+
+
+List of Cartoon Objects:
+========================
+Testing with one item
+---------------------
+File Contents :
+{
+	"type": "cat",
+	"name": "Tom",
+	"likes": "mice"
+}
+
+
+De-Serialized List :
+type cat
+name Tom
+likes mice
+
+Delimiter Separated Values : 
+cat,Tom,mice
+
+File Contents :
+[
+	{
+		"type": "cat",
+		"name": "Tom",
+		"likes": "mice"
+	}
+]
+
+De-Serialized List :
+type cat
+name Tom
+likes mice
+
+Delimiter Separated Values : 
+cat,Tom,mice
+
+Testing with multiple items, delimit with |
+-------------------------------------------
+File Contents :
+[
+     {
+         "type": "cat",
+         "name": "Tom",
+         "likes": "mice"
+     },
+     {
+         "type": "mouse",
+         "name": "Jerry",
+         "likes": "cheese"
+     }
+]
+
+De-Serialized List :
+type cat
+name Tom
+likes mice
+
+type mouse
+name Jerry
+likes cheese
+
+Delimiter Separated Values : 
+cat|Tom|mice
+mouse|Jerry|cheese
+
+
+List of Course Objects:
+=======================
+Testing with multipe items, delimit with ;
+------------------------------------------
+File Contents :
+[
+    {
+        "Name": "Game Engine Techniques",
+        "CPA": "GAM532",
+        "BSD": "DPS932"
+    },
+    {
+        "Name": "Data Structures And Algorithms In C++",
+        "CPA": "DSA555",
+        "BSD": ""
+    },
+    {
+        "Name": "Windows Programming Using C#",
+        "CPA": "",
+        "BSD": "DPS910"
+    }
+]
+
+De-Serialized List :
+Name Game Engine Techniques
+CPA GAM532
+BSD DPS932
+
+Name Data Structures And Algorithms In C++
+CPA DSA555
+BSD 
+
+Name Windows Programming Using C#
+CPA 
+BSD DPS910
+
+Delimiter Separated Values : 
+Game Engine Techniques;GAM532;DPS932
+Data Structures And Algorithms In C++;DSA555;
+Windows Programming Using C#;;DPS910
+
+CONGRATULATIONS! You passed all tests.
+You may now hand-in your assignment according to your professor's instructions.
+jgchoi@matrix:~/documents/btp305f14/a2> exit
+exit
+
+Script done on Sat 15 Nov 2014 02:07:16 PM EST
