@@ -1,0 +1,69 @@
+<resources>
+    <!--menu-->
+    <string name="action_about">About</string>
+    <string name="action_help">Help</string>
+    <string name="app_name">Android Guide</string>
+
+    <!--Main-->
+    <string name="main_websites">Websites</string>
+    <string name="main_terminology">Terminology</string>
+    <string name="main_title">Android User Guide</string>
+    <string name="main_instruction">Create a simple Android app, named AndroidGuide, that meets the following specification:
+You are asked to develop a mobile Android app such that a beginner can use to learn about the Android Development Framework.
+Remember you are allowed to use resources from the internet but you must add comments to your code (and/or xml files) saying where you got that code.
+The Android app should perform as follows:</string>
+    <string name="title_activity_help">Help</string>
+
+    <!-- Help -->
+    <string name="help_title">How to Use</string>
+    <string name="help_instruction">1. Websites: It does nothing\n\n2.Terminology: Enter any keywords and touch on the terminal command on the dropdown list. It shows brife description of the command.</string>
+    <string name="title_activity_terminology">terminology</string>
+
+    <!-- terminology -->
+    <string name="terminology_title">Terminology</string>
+    <string name="terminology_hint">Enter Your Keyword Here!</string>
+    <string name="terminology_clear">Delete keyword</string>
+    <string name="terminology_completion_hint">Select Command to See Description</string>
+    <!--copied from:http://zenit.senecac.on.ca/wiki/index.php/MAP524/DPS924_Lab_3-->
+    <string name="terminology_instruction">Type keywords to see commands.\nThen select suggested commands to see description.</string>
+
+    <!--Referenced: http://stackoverflow.com/questions/7256514/search-value-for-key-in-string-array-android-->
+    <string-array name="commands">
+        <item>export</item>
+        <item>HISTTIMEFORMAT</item>
+        <item>HISTSIZE</item>
+        <item>gradle -h</item>
+        <item>java -version</item>
+        <item>javac -version</item>
+        <item>adb -h</item>
+        <item>android -h</item>
+        <item>gradle build</item>
+        <item>list avd</item>
+        <item>emulator -avd</item>
+        <item>emulator -scale</item>
+        <item>adb install</item>
+        <item>adb shell</item>
+        <item>pm list packages</item>
+        <item>pm uninstall</item>
+        <item>screenshot2 -e</item>
+    </string-array>
+    <string-array name="commandsDescription">
+        <item>Save changes in Environment Variables in Linux/Mac</item>
+        <item>Change command history time format</item>
+        <item>Change command history save quantity</item>
+        <item>See help message for gradle command</item>
+        <item>Check java version</item>
+        <item>Check java compiler version</item>
+        <item>See help for adv command</item>
+        <item>See help for android command</item>
+        <item>Build android application using gradle</item>
+        <item>View list of avd installed</item>
+        <item>Run Android virtual device using emlulator</item>
+        <item>Run Android virtual device with set scale</item>
+        <item>Install built application(apk) to connected device</item>
+        <item>Access shell of connected device</item>
+        <item>(adb command) view installed packages</item>
+        <item>(adb command) delete specific app using package name</item>
+        <item>take screenshot of emulated device (takes some time)</item>
+    </string-array>
+</resources>
