@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
+
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+    <script src="/Scripts/manager.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/HTML5Home.html">A11-Client</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/HTML5Home.html">Home</a></li>
+                    <li><a href="/HTML5AppClaims.html">All Claims</a></li>
+                    <li><a href="/HTML5AllUA.html">All User Accounts</a></li>
+                    <li><a href="/HTML5Login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+
+
+
+        <h2>AppClaims</h2>
+
+        <p>
+            <a href="/Home/Create">Create New</a>
+        </p>
+        <table class="table" id="claimTable">
+            <tr>
+                <th>
+                    Description and purpose
+                </th>
+                <th>
+                    Claim type
+                </th>
+                <th>
+                    Claim type URI
+                </th>
+                <th>
+                    Claim value
+                </th>
+                <th>
+                    Date created
+                </th>
+                <th>
+                    Date updated
+                </th>
+                <th>
+                    Date retired/removed
+                </th>
+                <th>
+                    Is this in active use?
+                </th>
+                <th>
+                    Is this a role claim?
+                </th>
+                <th></th>
+            </tr>
+
+          
+
+        </table>
+    
+
+
+    <hr />
+    <footer>
+        <p>&copy; 2016 - My ASP.NET Application</p>
+    </footer>
+    </div>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/respond.js"></script>
+
+
+
+    <!-- Visual Studio Browser Link -->
+    <script type="application/json" id="__browserLink_initializationData">
+        {"appName":"Chrome","requestId":"4f5aeccefe2f49f7b8473e99bffba659"}
+    </script>
+    <script type="text/javascript" src="http://localhost:4017/985ada0233784f2fb30852ac1da8fc29/browserLink" async="async"></script>
+    <!-- End Browser Link -->
+
+</body>
+</html>
+<script>
+    loadAppClaims();
+</script>

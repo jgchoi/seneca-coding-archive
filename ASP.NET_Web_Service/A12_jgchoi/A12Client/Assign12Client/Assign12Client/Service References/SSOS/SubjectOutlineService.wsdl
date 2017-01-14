@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax21="http://server.ws.subjectoutlines.itt.senecacollege.ca/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://server.ws.subjectoutlines.itt.senecacollege.ca" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://server.ws.subjectoutlines.itt.senecacollege.ca" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://server.ws.subjectoutlines.itt.senecacollege.ca/xsd">
+      <xs:complexType name="SubjectOutline">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accommodationForStudentsWithDisabilities" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="approvedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cheatingAndPlagiarism" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="commonLastReviewDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="commonLastRevisionDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="creditStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="customSection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="customSectionTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="discriminationHarassment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="essentialEmployabilitySkills" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="learningOutcomes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="modeOfInstruction" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="modesOfEvaluation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="prerequisites" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="prescribedTexts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="promotionPolicy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="published" type="xs:boolean" />
+          <xs:element minOccurs="0" name="referenceMaterial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="requiredSupplies" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schoolCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schoolLastReviewDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schoolLastRevisionDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="schoolName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subjectCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subjectDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subjectName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subjectTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="topicOutline" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="yearSemester" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="yearSemesterLabel" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ax22="http://server.ws.subjectoutlines.itt.senecacollege.ca/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://server.ws.subjectoutlines.itt.senecacollege.ca">
+      <xs:import namespace="http://server.ws.subjectoutlines.itt.senecacollege.ca/xsd" />
+      <xs:element name="SubjectOutlineServiceException">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SubjectOutlineServiceException" nillable="true" type="ns:Exception" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getOutline">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="subjectCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="yearSemester" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="schoolCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="publishedOnly" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getOutlineResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:SubjectOutline" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getOutlineRequest">
+    <wsdl:part name="parameters" element="ns:getOutline" />
+  </wsdl:message>
+  <wsdl:message name="getOutlineResponse">
+    <wsdl:part name="parameters" element="ns:getOutlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubjectOutlineServiceException">
+    <wsdl:part name="parameters" element="ns:SubjectOutlineServiceException" />
+  </wsdl:message>
+  <wsdl:portType name="SubjectOutlineServicePortType">
+    <wsdl:operation name="getOutline">
+      <wsdl:input wsaw:Action="urn:getOutline" message="ns:getOutlineRequest" />
+      <wsdl:output wsaw:Action="urn:getOutlineResponse" message="ns:getOutlineResponse" />
+      <wsdl:fault wsaw:Action="urn:getOutlineSubjectOutlineServiceException" name="SubjectOutlineServiceException" message="ns:SubjectOutlineServiceException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubjectOutlineServiceSoap11Binding" type="ns:SubjectOutlineServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getOutline">
+      <soap:operation soapAction="urn:getOutline" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SubjectOutlineServiceException">
+        <soap:fault use="literal" name="SubjectOutlineServiceException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubjectOutlineServiceSoap12Binding" type="ns:SubjectOutlineServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getOutline">
+      <soap12:operation soapAction="urn:getOutline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SubjectOutlineServiceException">
+        <soap12:fault use="literal" name="SubjectOutlineServiceException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubjectOutlineServiceHttpBinding" type="ns:SubjectOutlineServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getOutline">
+      <http:operation location="getOutline" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubjectOutlineService">
+    <wsdl:port name="SubjectOutlineServiceHttpSoap11Endpoint" binding="ns:SubjectOutlineServiceSoap11Binding">
+      <soap:address location="http://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="SubjectOutlineServiceHttpsSoap11Endpoint" binding="ns:SubjectOutlineServiceSoap11Binding">
+      <soap:address location="https://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpsSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="SubjectOutlineServiceHttpSoap12Endpoint" binding="ns:SubjectOutlineServiceSoap12Binding">
+      <soap12:address location="http://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="SubjectOutlineServiceHttpsSoap12Endpoint" binding="ns:SubjectOutlineServiceSoap12Binding">
+      <soap12:address location="https://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpsSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="SubjectOutlineServiceHttpsEndpoint" binding="ns:SubjectOutlineServiceHttpBinding">
+      <http:address location="https://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpsEndpoint/" />
+    </wsdl:port>
+    <wsdl:port name="SubjectOutlineServiceHttpEndpoint" binding="ns:SubjectOutlineServiceHttpBinding">
+      <http:address location="http://www.senecacollege.ca/ssos/services/SubjectOutlineService.SubjectOutlineServiceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

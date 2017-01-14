@@ -1,0 +1,6 @@
+I tried to fix the error, but DB (I even tried copy from Ravideep's AppData folder), does not changes after code-first migration trial.
+
+It gives exception for methods that uses updated version of model.
+
+I was waiting for your notice until the 8:00 pm of Nov. 23, but did not want to not submit the work.
+
